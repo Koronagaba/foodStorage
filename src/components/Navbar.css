@@ -1,7 +1,14 @@
 .navbar{
     background-color: #000;
     padding: 20px 100px;
+}
 
+.sticky{
+    background-color: #000;
+    padding: 20px 100px;
+    position:fixed;
+    top: 0;
+    width: 100%
 }
 
 .navbar nav {
@@ -22,6 +29,23 @@
     margin: 0 20px;
     font-size: 20px;
 }
+
+.sticky nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;  
+}
+.sticky nav .logo{
+    color: #ccc
+}
+
+.sticky nav a {
+    text-decoration: none;
+    color: #777;
+    margin: 0 20px;
+    font-size: 20px;
+}
+
 .navbar nav a:hover{
     color: #fff
 }

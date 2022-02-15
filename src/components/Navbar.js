@@ -1,15 +1,28 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 
 import "./Navbar.css";
 
 const Navbar = () => {
+  const [stickyStyle, setStickyStyle] = useState("navbar");
   const activeStyle = { color: "#fff" };
 
   const activeLink = ({ isActive }) => (isActive ? activeStyle : null);
 
+  const handleScroll = () => {
+if(window.scrollY > 0){
+  setStickyStyle("sticky")
+}else{
+  setStickyStyle("navbar")
+}
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+  });
+
   return (
-    <div className="navbar">
+    <div className={stickyStyle}>
       <nav>
         <Link to={"/"} className="logo">
           Let's cook with koro!

@@ -1,76 +1,126 @@
 {
-    "products": [
-        {
-            "id": 0,
-            "title": "pasta",
-            "type": "carbohydrates",
-            "amount": 0
-        },
-        {
-            "id": 1,
-            "title": "rise",
-            "type": "carbohydrates",
-            "amount": 0
-        },
-        {
-            "id": 2,
-            "title": "milk",
-            "type": "dairy",
-            "amount": 0
-        },
-        {
-            "id": 3,
-            "title": "butter",
-            "type": "dairy",
-            "amount": 0
-        },
-        {
-            "id": 4,
-            "title": "yogurt",
-            "type": "dairy",
-            "amount": 0
-        },
-        {
-            "id": 5,
-            "title": "cottage cheese",
-            "type": "dairy",
-            "amount": 0
-        },
-        {
-            "id": 6,
-            "title": "cheese",
-            "type": "dairy",
-            "amount": 0
-        },
-        {
-            "id": 7,
-            "title": "mozarella",
-            "type": "dairy",
-            "amount": 0
-        },
-        {
-            "id": 8,
-            "title": "chocolate",
-            "type": "snack",
-            "amount": 0
-        },
-        {
-            "id": 9,
-            "title": "chocolate cookie",
-            "type": "snack",
-            "amount": 0
-        },
-        {
-            "id": 10,
-            "title": "crackers",
-            "type": "snack",
-            "amount": 0
-        },
-        {
-            "id": 11,
-            "title": "biscuits",
-            "type": "snack",
-            "amount": 0
-        }
-    ]
+  "products": [
+    {
+      "title": "pasta",
+      "type": "carbohydrates",
+      "amount": 0,
+      "id": 0
+    },
+    {
+      "title": "rise",
+      "type": "carbohydrates",
+      "amount": 0,
+      "id": 1
+    },
+    {
+      "title": "milk",
+      "type": "dairy",
+      "amount": 0,
+      "id": 2
+    },
+    {
+      "title": "butter",
+      "type": "dairy",
+      "amount": 0,
+      "id": 3
+    },
+    {
+      "title": "yogurt",
+      "type": "dairy",
+      "amount": 0,
+      "id": 4
+    },
+    {
+      "title": "cottage cheese",
+      "type": "dairy",
+      "amount": 0,
+      "id": 5
+    },
+    {
+      "title": "cheese",
+      "type": "dairy",
+      "amount": 0,
+      "id": 6
+    },
+    {
+      "title": "mozarella",
+      "type": "dairy",
+      "amount": 0,
+      "id": 7
+    },
+    {
+      "title": "chocolate",
+      "type": "snack",
+      "amount": 0,
+      "id": 8
+    },
+    {
+      "title": "chocolate cookie",
+      "type": "snack",
+      "amount": 0,
+      "id": 9
+    },
+    {
+      "title": "crackers",
+      "type": "snack",
+      "amount": 0,
+      "id": 0
+    },
+    {
+      "title": "biscuits",
+      "type": "snack",
+      "amount": 0,
+      "id": 10
+    }
+  ],
+  "shoppingList": [
+    {
+      "title": "cottage cheese",
+      "amount": "12",
+      "isEditing": false,
+      "id": 9
+    },
+    {
+      "title": "butter",
+      "amount": "20",
+      "isEditing": false,
+      "id": 13
+    },
+    {
+      "title": "milk",
+      "amount": "11",
+      "isEditing": false,
+      "id": 14
+    },
+    {
+      "title": "butter",
+      "amount": "22",
+      "isEditing": false,
+      "id": 15
+    },
+    {
+      "title": "cheese",
+      "amount": "11",
+      "isEditing": false,
+      "id": 16
+    },
+    {
+      "title": "chocolate cookie",
+      "amount": "100",
+      "isEditing": false,
+      "id": 17
+    },
+    {
+      "title": "biscuits",
+      "amount": "44",
+      "isEditing": false,
+      "id": 18
+    },
+    {
+      "title": "milk",
+      "amount": "10",
+      "isEditing": false,
+      "id": 19
+    }
+  ]
 }
