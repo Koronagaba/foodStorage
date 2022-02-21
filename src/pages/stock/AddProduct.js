@@ -7,13 +7,13 @@ const AddProduct = ({ inputRef, title }) => {
 
   const addProductToShoppingList = () => {
     if (numberInput) {
-      console.log(numberInput);
       fetch("http://localhost:3000/shoppingList", {
         method: "POST",
         body: JSON.stringify({
         title: title ,
-        amount: numberInput,
-        isEditing: false
+        amount: parseInt(numberInput),
+        isEditing: false,
+        inBag: false
         }),
         headers: {
           "Content-type": "application/json; charset=UTF-8",
@@ -22,7 +22,7 @@ const AddProduct = ({ inputRef, title }) => {
         .then((response) => response.json())
         .then((data) => console.log(data));
 
-        setNumberInput("")
+        setNumberInput('')
     }
   };
 
