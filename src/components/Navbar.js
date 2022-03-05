@@ -31,9 +31,9 @@ if(window.scrollY > 0){
           <NavLink to={"/"} style={activeLink}>
             Cook
           </NavLink>
-          <NavLink to={"/createProduct"} style={activeLink}>
+          {/* <NavLink to={"/createProduct"} style={activeLink}>
             Create
-          </NavLink>
+          </NavLink> */}
           <NavLink to={"/stock"} style={activeLink}>
             Stock
           </NavLink>

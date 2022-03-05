@@ -51,16 +51,9 @@
       "id": 9
     },
     {
-      "title": "crackers",
-      "type": "snack",
+      "title": "Eggs",
       "amount": 0,
-      "id": 0
-    },
-    {
-      "title": "biscuits",
-      "type": "snack",
-      "amount": 0,
-      "id": 10
+      "id": 13
     }
   ],
   "shoppingList": [
