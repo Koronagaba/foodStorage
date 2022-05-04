@@ -6,23 +6,23 @@
       "id": 0
     },
     {
-      "title": "rise",
-      "amount": 0,
+      "title": "cheese",
+      "amount": 60,
       "id": 1
     },
     {
       "title": "milk",
-      "amount": 100,
+      "amount": 130,
       "id": 2
     },
     {
       "title": "butter",
-      "amount": "22",
+      "amount": "22303010",
       "id": 3
     },
     {
       "title": "yogurt",
-      "amount": 0,
+      "amount": 30,
       "id": 4
     },
     {
@@ -51,6 +51,28 @@
       "id": 9
     },
     {
+      "title": "crackers",
+      "type": "snack",
+      "amount": 0,
+      "id": 0
+    },
+    {
+      "title": "biscuits",
+      "type": "snack",
+      "amount": 0,
+      "id": 10
+    },
+    {
+      "title": "dupsa",
+      "amount": 0,
+      "id": 11
+    },
+    {
+      "title": "",
+      "amount": 0,
+      "id": 12
+    },
+    {
       "title": "Eggs",
       "amount": 0,
       "id": 13
@@ -58,53 +80,31 @@
   ],
   "shoppingList": [
     {
-      "title": "pasta",
-      "amount": 10,
+      "title": "cheese",
+      "amount": 40,
       "isEditing": false,
-      "inBag": false,
-      "id": 1
-    },
-    {
-      "title": "milk",
-      "amount": 50,
-      "isEditing": false,
-      "inBag": false,
-      "id": 2
+      "id": 12
     },
     {
       "title": "pasta",
-      "amount": 1,
-      "isEditing": false,
-      "inBag": false,
-      "id": 3
-    },
-    {
-      "title": "cottage cheese",
       "amount": 20,
       "isEditing": false,
       "inBag": false,
-      "id": 5
+      "id": 14
     },
     {
-      "title": "cheese",
-      "amount": 30,
+      "title": "butter",
+      "amount": 2,
       "isEditing": false,
       "inBag": false,
-      "id": 6
+      "id": 15
     },
     {
-      "title": "milk",
-      "amount": 100,
+      "title": "yogurt",
+      "amount": 10,
       "isEditing": false,
-      "inBag": false,
-      "id": 7
-    },
-    {
-      "title": "pasta",
-      "amount": 30,
-      "isEditing": false,
-      "inBag": false,
-      "id": 8
+      "inBag": true,
+      "id": 17
     }
   ]
 }

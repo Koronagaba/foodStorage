@@ -1,22 +1,28 @@
-import { useState, useRef } from "react";
+import { useState, useRef, SyntheticEvent } from "react";
 
 import "./SearchBar.css";
 import search_icon from "../../icons/search.svg";
 
 import Product from "./Product";
 
-const SearchBar = ({ productsList }) => {
+import { ProductList } from "../../types/type";
+
+interface SearchBarProps {
+  productsList: ProductList[]
+}
+
+const SearchBar:React.FC<SearchBarProps>= ( {productsList}) => {
   const [searchText, setSearchText] = useState("");
 
-  const searchFocus = useRef();
+  const searchFocus: any = useRef();           //ttttttttttttttttttttttt
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e:SyntheticEvent) => {
     e.preventDefault();
 
     setSearchText("");
   };
 
-  const handleInput = (e) => {
+  const handleInput = (e: {target: HTMLInputElement}) => {
     setSearchText(e.target.value);
   };
 
@@ -47,7 +53,7 @@ const SearchBar = ({ productsList }) => {
         <p>Current state:</p>
         <p>Order:</p>
       </div>
-      {productsList.map((product) => {
+      {productsList.map((product:ProductList) => {
         if (product.title.includes(searchText)) {
           return <Product key={product.id} product={product} />;
         }

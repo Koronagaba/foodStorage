@@ -1,17 +1,33 @@
-import React, { useReducer, useRef } from "react";
+import React, { SyntheticEvent, useReducer, useRef } from "react";
 import {useNavigate} from 'react-router-dom'
 
 import "./CreateProduct.css";
 
 import close_white_36 from "../../icons/close_white_36.svg";
 
-const CreateProduct = ({ setToggleModal }) => {
+type Props ={
+  setToggleModal: (x: boolean) => void
+}
 
-  const focusInput = useRef()
+interface State {
+  name: string,
+  amount: number
+}
+
+interface Action {
+  type: string,
+  payload: string,
+  field: string
+}
+
+
+const CreateProduct: React.FC<Props> = ({ setToggleModal}) => {
+
+  const focusInput:any = useRef()
   const navigate = useNavigate()
 
 
-  const reducer = (state, action) => {
+  const reducer = (state: State , action: Action) => {
     switch (action.type) {
       case "HANDLE_INPUT_FORM":
         return { ...state, [action.field]: action.payload };
@@ -25,16 +41,7 @@ const CreateProduct = ({ setToggleModal }) => {
     amount: 0,
   });
 
-  // const handleName = (e) => {
-  //   dispatch({ type: "setName", payload: { name: e.target.value } });
-  //   console.log(state.name);
-  // };
-
-  // const handleAmount = (e) => {
-  //   dispatch({ type: "setAmount", payload: e.target.value });
-  // };
-
-  const handleForm = (e) => {
+  const handleForm = (e: {target: HTMLInputElement}) => {
     dispatch({
       type: "HANDLE_INPUT_FORM",
       field: e.target.name,
@@ -42,7 +49,7 @@ const CreateProduct = ({ setToggleModal }) => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
 if(state.name){
     fetch("http://localhost:3000/products", {

@@ -1,8 +1,12 @@
 import React, { useRef } from "react";
+import { ProductList } from "../../types/type";
 import AddProduct from "./AddProduct";
+interface ProductProps {
+  product: ProductList
+}
 
-const Product = ({ product }) => {
-  const inputRef = useRef();
+const Product: React.FC<ProductProps> = ({ product }) => {
+  const inputRef: any = useRef();                //ttttttttttttttt
 
   const handleFocusInput = () => {
     inputRef.current.focus();

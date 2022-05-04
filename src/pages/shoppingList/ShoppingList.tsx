@@ -1,25 +1,40 @@
 import React, { useState, useEffect } from "react";
 import { getData } from "../../hooks/useFetch";
+import {
+  // EditItemFromShoppingListProps,
+  // HandleSendToStockProps,
+  // MoveProductIntoBagProps,
+  ShopList,
+} from "../../types/type";
 
 import "./ShoppingList.css";
 
 import SingleItem from "./SingleItem";
 
+
 const ShoppingList = () => {
-  const [shoppingList, setShoppingList] = useState([]);
-  const [products, setProducts] = useState([]);
-  const [product, setProduct] = useState(null);
+  const [shoppingList, setShoppingList] = useState<ShopList[]>([]);
+  const [productsInStock, setProductsInStock] = useState<ShopList[]>([]);
+  const [product, setProduct] = useState<any>(); //1ttttttttttttttttt
+  
   useEffect(() => {
     getData("http://localhost:3000/shoppingList", setShoppingList);
   }, []);
 
-  const deleteItemFromShoppingList = (id) => {
+  const deleteItemFromShoppingList = (id: number) => {
+    window.location.reload();
     fetch(`http://localhost:3000/shoppingList/${id}`, {
       method: "DELETE",
     });
   };
 
-  const toggleEdit = (id, itemTitle, itemAmount, itemIsEditing) => {
+  const toggleEdit = (                     //Jak inaczej otypować?
+    id: number,
+    itemTitle: string,
+    itemAmount: number,
+    itemIsEditing: boolean
+  ) => {
+    window.location.reload();
     fetch(`http://localhost:3000/shoppingList/${id}`, {
       method: "PUT",
       body: JSON.stringify({
@@ -33,7 +48,12 @@ const ShoppingList = () => {
     });
   };
 
-  const editItemFromShoppingList = (id, itemTitle, editAmount, itemAmount) => {
+  const editItemFromShoppingList = (
+    id: number,
+    itemTitle: string,
+    editAmount: number | undefined,
+    itemAmount: number,
+ ) => {
     if (editAmount) {
       fetch(`http://localhost:3000/shoppingList/${id}`, {
         method: "PUT",
@@ -61,14 +81,20 @@ const ShoppingList = () => {
     }
   };
 
-  const productInBag = (id, itemTitle, itemAmount, ItemInBag) => {
+  const moveProductIntoBag = (
+    id: number,
+    itemTitle: string,
+    itemAmount: number,
+    itemInBag: boolean,
+  ) => {
+    window.location.reload();
     fetch(`http://localhost:3000/shoppingList/${id}`, {
       method: "PUT",
       body: JSON.stringify({
         title: itemTitle,
         amount: itemAmount,
         isEditing: false,
-        inBag: !ItemInBag,
+        inBag: !itemInBag,
       }),
       headers: {
         "Content-type": "application/json",
@@ -81,32 +107,37 @@ const ShoppingList = () => {
     console.log(newShoppingList);
   };
 
-  const handleSendToStock =  (id, itemTitle, itemAmount) => {
-    getData("http://localhost:3000/products", setProducts)
-    products.forEach((product) => {
+  const handleSendToStock = (
+    itemTitle: string,
+    itemAmount: number,
+ ) => {
+    // window.location.reload()
+    getData("http://localhost:3000/products", setProductsInStock);
+    productsInStock.forEach((product) => {
       if (product.title === itemTitle) {
         setProduct(product);
       }
-    })
+    });
 
-   console.log(product);
+    fetch(`http://localhost:3000/products/${product.id}`, {
+      method: "PUT",
+      body: JSON.stringify({
+        title: itemTitle,
+        amount: product.amount + itemAmount,
+      }),
+      headers: {
+        "Content-type": "application/json",
+      },
+    });
 
-    // fetch(`http://localhost:3000/products/${product.id}`, {
-    //   method: "PUT",
-    //   body: JSON.stringify({
-    //     title: itemTitle,
-    //     amount: product.amount + itemAmount,
-    //   }),
-    //   headers: {
-    //     "Content-type": "application/json",
-    //   },
+    // fetch(`http://localhost:3000/shoppingList/${id}`, {
+    //   method: "DELETE",
     // });
   };
 
   return (
     <div className="shoppingList-container">
       <div className="shoppingList">
-          
         <h3>ShoppingList</h3>
         {shoppingList.map((item) => (
           <SingleItem
@@ -115,7 +146,7 @@ const ShoppingList = () => {
             toggleEdit={toggleEdit}
             handleEdit={editItemFromShoppingList}
             handleDelete={deleteItemFromShoppingList}
-            productInBag={productInBag}
+            moveProductIntoBag={moveProductIntoBag}
             handleSendToStock={handleSendToStock}
           />
         ))}

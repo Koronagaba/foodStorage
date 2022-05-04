@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Navbar from "./components/Navbar.js";
-import Cook from "./pages/cook/Cook.js";
+import Navbar from "./components/Navbar";
+import Cook from "./pages/cook/Cook";
 import Stock from "./pages/stock/Stock";
 // import CreateProduct from "./components/createProduct/CreateProduct";
 import ShoppingList from "./pages/shoppingList/ShoppingList";

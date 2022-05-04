@@ -7,10 +7,13 @@ import SearchBar from "./SearchBar";
 import "./Stock.css";
 import add from "../../icons/add.svg";
 import CreateProduct from "../../components/createProduct/CreateProduct";
+import { ProductList } from "../../types/type";
+
+
 
 const Stock = () => {
-  const [productsList, setProductsList] = useState([]);
-  const [toggleModal, setToggleModal] = useState(false);
+  const [productsList, setProductsList] = useState<ProductList[]>([]);
+  const [toggleModal, setToggleModal] = useState<boolean>(false);
 
   useEffect(() => {
     getData("http://localhost:3000/products", setProductsList);

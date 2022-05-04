@@ -6,19 +6,24 @@ import shopping_cart from "../../icons/shopping_cart.svg";
 import edit from "../../icons/edit.svg";
 import clear from "../../icons/clear.svg";
 import check from "../../icons/check.svg";
-import local_shipping from "../../icons/local_shipping_black.svg"
+import local_shipping from "../../icons/local_shipping_black.svg";
+import { SingleItemProps } from "../../types/type";
 
-const SingleItem = ({
+const SingleItem: React.FC<SingleItemProps> = ({
   item,
   toggleEdit,
   handleEdit,
   handleDelete,
-  productInBag,
-  handleSendToStock
+  moveProductIntoBag,
+  handleSendToStock,
 }) => {
-  const [editAmount, setEditAmount] = useState();
+  const [editAmount, setEditAmount] = useState<number>();
 
-  const style = { textDecoration: "line-through" };
+  const style: any = { textDecoration: "line-through" }; //tttttttttttttttttttt
+
+  const handleEditAmount = (e: { target: HTMLInputElement }) => {
+    setEditAmount(e.target.valueAsNumber);
+  };
 
   return (
     <div className="single-item-container">
@@ -31,11 +36,11 @@ const SingleItem = ({
             <input
               type="number"
               value={editAmount}
-              onChange={(e) => setEditAmount(e.target.value)}
+              onChange={handleEditAmount}
             />
             <img
-              onClick={() =>
-                handleEdit(item.id, item.title, editAmount, item.amount)
+              onClick={
+                () => handleEdit(item.id, item.title, editAmount, item.amount) //1ttttttttttttttttttttttttttttt
               }
               src={check}
               alt="approve the changes"
@@ -46,7 +51,7 @@ const SingleItem = ({
         <div className="icons">
           <img
             onClick={() =>
-              productInBag(item.id, item.title, item.amount, item.inBag)
+              moveProductIntoBag(item.id, item.title, item.amount, item.inBag)
             }
             src={shopping_cart}
             alt="In shopping cart"
@@ -62,7 +67,12 @@ const SingleItem = ({
         </div>
       </div>
 
-      <img onClick={() => handleSendToStock(item.id, item.title, item.amount)} className="send-img" src={local_shipping} alt="send to stock" />
+      <img
+        onClick={() => handleSendToStock(item.title, item.amount)}
+        className="send-img"
+        src={local_shipping}
+        alt="send to stock"
+      />
     </div>
   );
 };

@@ -1,9 +1,15 @@
 import React, { useState } from "react";
+import { SyntheticEvent } from "react";
 
 import add_shopping_cart from "../../icons/add_shopping_cart.svg";
 
-const AddProduct = ({ inputRef, title }) => {
-  const [numberInput, setNumberInput] = useState();
+interface AddProductProps {
+  inputRef: any,
+  title:string
+}
+
+const AddProduct = ({ inputRef, title }:AddProductProps ) => {
+  const [numberInput, setNumberInput] = useState<string>();  //1tttt
 
   const addProductToShoppingList = () => {
     if (numberInput) {
@@ -11,7 +17,7 @@ const AddProduct = ({ inputRef, title }) => {
         method: "POST",
         body: JSON.stringify({
         title: title ,
-        amount: parseInt(numberInput),
+        amount: parseInt(numberInput),                     //3t
         isEditing: false,
         inBag: false
         }),
@@ -26,8 +32,8 @@ const AddProduct = ({ inputRef, title }) => {
     }
   };
 
-  const handleInput = (e) => {
-    setNumberInput(e.target.value);
+  const handleInput =  (e: React.ChangeEvent<HTMLInputElement>) => {
+    setNumberInput(e.target.value);                                  //2tttt
   };
 
   return (
