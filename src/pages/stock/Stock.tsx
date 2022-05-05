@@ -1,23 +1,27 @@
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
-import { getData } from "../../hooks/useFetch";
+import { useCollection } from "../../hooks/useCollection";
+// import { getData } from "../../hooks/useFetch";
+
 import SearchBar from "./SearchBar";
 
 import "./Stock.css";
 import add from "../../icons/add.svg";
 import CreateProduct from "../../components/createProduct/CreateProduct";
-import { ProductList } from "../../types/type";
+
 
 
 
 const Stock = () => {
-  const [productsList, setProductsList] = useState<ProductList[]>([]);
+  // const [productsList, setProductsList] = useState<ProductList[]>([]);
   const [toggleModal, setToggleModal] = useState<boolean>(false);
 
-  useEffect(() => {
-    getData("http://localhost:3000/products", setProductsList);
-  }, []);
+  const { documents: productsList } = useCollection('products')
+
+  // useEffect(() => {
+  //   getData("http://localhost:3000/products", setProductsList);
+  // }, []);
 
   const handleToggleModal = () => {
     setToggleModal(!toggleModal);
