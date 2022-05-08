@@ -4,11 +4,12 @@ import { NavLink } from "react-router-dom";
 import { useCollection } from "../../hooks/useCollection";
 // import { getData } from "../../hooks/useFetch";
 
-import SearchBar from "./SearchBar";
+import SearchBar from "../../components/stockComponents/SearchBar";
 
 import "./Stock.css";
 import add from "../../icons/add.svg";
 import CreateProduct from "../../components/createProduct/CreateProduct";
+import Products from "./Products";
 
 
 
@@ -16,6 +17,7 @@ import CreateProduct from "../../components/createProduct/CreateProduct";
 const Stock = () => {
   // const [productsList, setProductsList] = useState<ProductList[]>([]);
   const [toggleModal, setToggleModal] = useState<boolean>(false);
+  const [searchText, setSearchText] = useState("");
 
   const { documents: productsList } = useCollection('products')
 
@@ -43,7 +45,8 @@ const Stock = () => {
           />
         </NavLink>
 
-        <SearchBar productsList={productsList} />
+        <SearchBar searchText={searchText} setSearchText={setSearchText}/>
+        <Products productsList={productsList} searchText={searchText} />
       </div>
     </div>
   );

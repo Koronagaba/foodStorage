@@ -5,7 +5,7 @@ interface ProductProps {
   product: ProductList
 }
 
-const Product: React.FC<ProductProps> = ({ product }) => {
+const SingleStockProduct: React.FC<ProductProps> = ({ product }) => {
   const inputRef: any = useRef();                //ttttttttttttttt
 
   const handleFocusInput = () => {
@@ -25,4 +25,4 @@ const Product: React.FC<ProductProps> = ({ product }) => {
   );
 };
 
-export default Product;
+export default SingleStockProduct;

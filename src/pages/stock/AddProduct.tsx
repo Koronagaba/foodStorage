@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { SyntheticEvent } from "react";
+// import { SyntheticEvent } from "react";
 
 import add_shopping_cart from "../../icons/add_shopping_cart.svg";
 
