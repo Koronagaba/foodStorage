@@ -10,7 +10,7 @@ export interface ShopList {
   amount: number;
   isEditing: boolean;
   inBag: boolean;
-  id: number;
+  id: number; 
 }
 
 // export type SingleItemProps = {

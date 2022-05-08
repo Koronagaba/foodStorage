@@ -5,9 +5,7 @@ import { collection, getDocs } from "firebase/firestore";
 import { ProductList } from "../types/type";
 
 export const useCollection = (c: string) => {
-    const [documents, setDocuments] = useState<ProductList[]>([])
-
-
+    const [documents, setDocuments] = useState([])
     
     useEffect(() => {
         const ref = collection(db, c)

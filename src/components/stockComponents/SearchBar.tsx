@@ -1,4 +1,4 @@
-import { useState, useRef, SyntheticEvent } from "react";
+import { useRef, SyntheticEvent } from "react";
 
 import "./SearchBar.css";
 import search_icon from "../../icons/search.svg";

@@ -27,16 +27,6 @@ cursor: pointer
     outline: none;
 }
 
-.searchBar .title {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 8px;
-    font-size: 20px;
-    color: #f3f4e6
-  
-}
-
 .products-list{
     display: flex;
     justify-content: space-between;
