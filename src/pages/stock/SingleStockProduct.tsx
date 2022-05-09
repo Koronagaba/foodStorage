@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { ProductList } from "../../types/type";
-import AddProduct from "./AddProduct";
+import AddProductToShoppingList from "./AddProductToShoppingList";
 interface ProductProps {
   product: ProductList
 }
@@ -19,7 +19,7 @@ const SingleStockProduct: React.FC<ProductProps> = ({ product }) => {
         <p>quantity: {product.amount}</p>
       </div>
       <div className="second-div">
-        <AddProduct inputRef={inputRef} title={product.title}/>
+        <AddProductToShoppingList inputRef={inputRef} title={product.title}/>
       </div>
     </div>
   );

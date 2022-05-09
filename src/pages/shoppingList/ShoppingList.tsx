@@ -18,7 +18,7 @@ const ShoppingList = () => {
   const [productsInStock, setProductsInStock] = useState<ShopList[]>([]);
   const [product, setProduct] = useState<any>(); //1ttttttttttttttttt
 
-  const { documents }: any = useCollection('products');
+  const { documents }:any = useCollection('shoppingList');
 
   // useEffect(() => {
     // getData("http://localhost:3000/shoppingList", setShoppingList);

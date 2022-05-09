@@ -8,7 +8,7 @@ import { useCollection } from "../../hooks/useCollection";
 import add from "../../icons/add.svg";
 import SearchBar from "../../components/stockComponents/SearchBar";
 import CreateProduct from "../../components/createProduct/CreateProduct";
-import Products from "./ProductsList";
+import ProductsList from "./ProductsList";
 
 
 
@@ -41,7 +41,7 @@ const Stock = () => {
         </NavLink>
 
         <SearchBar searchText={searchText} setSearchText={setSearchText}/>
-        <Products productsList={productsList} searchText={searchText} />
+        <ProductsList productsList={productsList} searchText={searchText} />
       </div>
     </div>
   );
