@@ -15,8 +15,10 @@ const AddProduct = ({ inputRef, title }:AddProductProps ) => {
   const { addProduct } = useAddProduct()
 
   const addProductToShoppingList = () => {
-    addProduct(title, numberOfProductsAddedToCart)
-    console.log(title, numberOfProductsAddedToCart )
+    if(numberOfProductsAddedToCart > 0){
+      addProduct(title, numberOfProductsAddedToCart)
+      console.log(title, numberOfProductsAddedToCart )
+    }
   };
 
   // const handleInput =  (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -30,6 +32,7 @@ const AddProduct = ({ inputRef, title }:AddProductProps ) => {
         <input
           ref={inputRef}
           type="number"
+          min='0'
           value={numberOfProductsAddedToCart}
           onChange={(e) =>  setNumberOfProductsAddedToCart(parseInt(e.target.value))}
         />
