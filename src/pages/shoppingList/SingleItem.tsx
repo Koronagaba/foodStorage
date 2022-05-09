@@ -28,9 +28,9 @@ const SingleItem: React.FC<SingleItemProps> = ({
     setEditAmount(e.target.valueAsNumber);
   };
 
-const handleDelete =  (id:any) => {
-  // const ref = doc(db, 'books', id)
-deleteDoc(doc(db,'shoppingList', id))
+const handleDelete =  async (id:any) => {
+  const ref = doc(db, 'shoppingList', id)
+await deleteDoc(ref)
 
 
 

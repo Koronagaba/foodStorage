@@ -18,23 +18,7 @@ const ShoppingList = () => {
   const [productsInStock, setProductsInStock] = useState<ShopList[]>([]);
   const [product, setProduct] = useState<any>(); //1ttttttttttttttttt
 
-  const { documents }:any = useCollection('shoppingList');
-
-  // useEffect(() => {
-    // getData("http://localhost:3000/shoppingList", setShoppingList);
-    
-  // }, [document, shoppingList]);
-
-  // const deleteItemFromShoppingList = (id: number) => {
-  //   // window.location.reload();
-  //   // fetch(`http://localhost:3000/shoppingList/${id}`, {
-  //   //   method: "DELETE",
-  //   // });
-  //   console.log(id);
-    
-  // };
-
-
+  const { documents }: any = useCollection("shoppingList");
 
   const toggleEdit = (
     //Jak inaczej otypować?
@@ -138,7 +122,7 @@ const ShoppingList = () => {
     //   method: "DELETE",
     // });
   };
-console.log(documents);
+  console.log(documents);
 
   return (
     <div className="shoppingList-container">
@@ -146,7 +130,7 @@ console.log(documents);
         {documents ? (
           <>
             <h3>ShoppingList</h3>
-            {documents.map((item:any) => (
+            {documents.map((item: any) => (
               <SingleItem
                 key={item.id}
                 item={item}
