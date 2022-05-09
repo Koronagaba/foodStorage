@@ -15,7 +15,6 @@ const AddProduct = ({ inputRef, title }:AddProductProps ) => {
   const { addProduct } = useAddProduct()
 
   const addProductToShoppingList = () => {
-
     addProduct(title, numberOfProductsAddedToCart)
     console.log(title, numberOfProductsAddedToCart )
   };

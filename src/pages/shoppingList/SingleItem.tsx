@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { db } from "../../firebase/config";
+import {doc, deleteDoc } from "firebase/firestore";
 
 import "./SingleItem.css";
 
@@ -13,17 +15,26 @@ const SingleItem: React.FC<SingleItemProps> = ({
   item,
   toggleEdit,
   handleEdit,
-  handleDelete,
+  // handleDelete,
   moveProductIntoBag,
   handleSendToStock,
 }) => {
   const [editAmount, setEditAmount] = useState<number>();
+  // const {id} = item
 
   const style: any = { textDecoration: "line-through" }; //tttttttttttttttttttt
 
   const handleEditAmount = (e: { target: HTMLInputElement }) => {
     setEditAmount(e.target.valueAsNumber);
   };
+
+const handleDelete =  (id:any) => {
+  // const ref = doc(db, 'books', id)
+deleteDoc(doc(db,'shoppingList', id))
+
+
+
+}
 
   return (
     <div className="single-item-container">

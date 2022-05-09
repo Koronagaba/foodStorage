@@ -25,12 +25,14 @@ const ShoppingList = () => {
     
   // }, [document, shoppingList]);
 
-  const deleteItemFromShoppingList = (id: number) => {
-    // window.location.reload();
-    // fetch(`http://localhost:3000/shoppingList/${id}`, {
-    //   method: "DELETE",
-    // });
-  };
+  // const deleteItemFromShoppingList = (id: number) => {
+  //   // window.location.reload();
+  //   // fetch(`http://localhost:3000/shoppingList/${id}`, {
+  //   //   method: "DELETE",
+  //   // });
+  //   console.log(id);
+    
+  // };
 
 
 
@@ -136,6 +138,7 @@ const ShoppingList = () => {
     //   method: "DELETE",
     // });
   };
+console.log(documents);
 
   return (
     <div className="shoppingList-container">
@@ -149,7 +152,7 @@ const ShoppingList = () => {
                 item={item}
                 toggleEdit={toggleEdit}
                 handleEdit={editItemFromShoppingList}
-                handleDelete={deleteItemFromShoppingList}
+                // handleDelete={deleteItemFromShoppingList}
                 moveProductIntoBag={moveProductIntoBag}
                 handleSendToStock={handleSendToStock}
               />
