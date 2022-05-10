@@ -20,60 +20,6 @@ const ShoppingList = () => {
 
   const { documents }: any = useCollection("shoppingList");
 
-  const toggleEdit = (
-    //Jak inaczej otypować?
-    id: number,
-    itemTitle: string,
-    itemAmount: number,
-    itemIsEditing: boolean
-  ) => {
-    // window.location.reload();
-    // fetch(`http://localhost:3000/shoppingList/${id}`, {
-    //   method: "PUT",
-    //   body: JSON.stringify({
-    //     title: itemTitle,
-    //     amount: itemAmount,
-    //     isEditing: !itemIsEditing, //!przeciwieństwo
-    //   }),
-    //   headers: {
-    //     "Content-type": "application/json",
-    //   },
-    // });
-  };
-
-  const editItemFromShoppingList = (
-    id: number,
-    itemTitle: string,
-    editAmount: number | undefined,
-    itemAmount: number
-  ) => {
-    // if (editAmount) {
-    //   fetch(`http://localhost:3000/shoppingList/${id}`, {
-    //     method: "PUT",
-    //     body: JSON.stringify({
-    //       title: itemTitle,
-    //       amount: editAmount,
-    //       isEditing: false,
-    //     }),
-    //     headers: {
-    //       "Content-type": "application/json",
-    //     },
-    //   });
-    // } else {
-    //   fetch(`http://localhost:3000/shoppingList/${id}`, {
-    //     method: "PUT",
-    //     body: JSON.stringify({
-    //       title: itemTitle,
-    //       amount: itemAmount,
-    //       isEditing: false,
-    //     }),
-    //     headers: {
-    //       "Content-type": "application/json",
-    //     },
-    //   });
-    // }
-  };
-
   const moveProductIntoBag = (
     id: number,
     itemTitle: string,
@@ -122,21 +68,20 @@ const ShoppingList = () => {
     //   method: "DELETE",
     // });
   };
-  console.log(documents);
+
 
   return (
     <div className="shoppingList-container">
       <div className="shoppingList">
-        {documents ? (
+        {documents.length ? (
           <>
             <h3>ShoppingList</h3>
-            {documents.map((item: any) => (
+            {documents.map((product: any) => (
               <SingleItem
-                key={item.id}
-                item={item}
-                toggleEdit={toggleEdit}
-                handleEdit={editItemFromShoppingList}
-                // handleDelete={deleteItemFromShoppingList}
+                key={product.id}
+                product={product}
+                // toggleEdit={toggleEdit}
+                // handleEdit={editItemFromShoppingList}
                 moveProductIntoBag={moveProductIntoBag}
                 handleSendToStock={handleSendToStock}
               />
@@ -149,7 +94,7 @@ const ShoppingList = () => {
           <p>Shopping list is empty</p>
         )}
       </div>
-      {/* {!shoppingList && <p>Shopping list is empty</p>} */}
+      {!shoppingList && <p>Shopping list is empty</p>}
     </div>
   );
 };

@@ -18,6 +18,7 @@ const AddProduct = ({ inputRef, title }:AddProductProps ) => {
     if(numberOfProductsAddedToCart > 0){
       addProduct(title, numberOfProductsAddedToCart)
       console.log(title, numberOfProductsAddedToCart )
+      setNumberOfProductsAddedToCart(0)
     }
   };
 

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { db } from "../../firebase/config";
-import {doc, deleteDoc } from "firebase/firestore";
+import { doc, deleteDoc, setDoc } from "firebase/firestore";
 
 import "./SingleItem.css";
 
@@ -12,46 +12,74 @@ import local_shipping from "../../icons/local_shipping_black.svg";
 import { SingleItemProps } from "../../types/type";
 
 const SingleItem: React.FC<SingleItemProps> = ({
-  item,
-  toggleEdit,
-  handleEdit,
-  // handleDelete,
+  product,
+  // toggleEdit,
+  // handleEdit,
   moveProductIntoBag,
   handleSendToStock,
 }) => {
-  const [editAmount, setEditAmount] = useState<number>();
-  // const {id} = item
+  const [editAmount, setEditAmount] = useState<number>(product.amount);
 
   const style: any = { textDecoration: "line-through" }; //tttttttttttttttttttt
 
-  const handleEditAmount = (e: { target: HTMLInputElement }) => {
-    setEditAmount(e.target.valueAsNumber);
+  const handleDelete = async (id: any) => {
+    const ref = doc(db, "shoppingList", id);
+    await deleteDoc(ref);
   };
 
-const handleDelete =  async (id:any) => {
-  const ref = doc(db, 'shoppingList', id)
-await deleteDoc(ref)
+  const toggleEdit = (
+    id: any,
+    title: string,
+    amount: number,
+    isEditing: boolean
+  ) => {
+    const ref = doc(db, "shoppingList", id);
+    setDoc(ref, {
+      amount,
+      isEditing: !isEditing,
+      title,
+    });
 
+    console.log(product);
+  };
 
-
-}
+  const handleEdit = (
+    id: any,
+    title: string,
+    isEditing: boolean,
+  ) => {
+    setDoc(doc(db, "shoppingList", id), {
+      title,
+      amount: editAmount,
+      isEditing: !isEditing,
+      inBag: false
+    });
+  };
 
   return (
     <div className="single-item-container">
-      <div className="single-item" style={item.inBag ? style : null}>
+      <div className="single-item" style={product.inBag ? style : null}>
         <p>
-          {item.title} - {item.amount}
+          {product.title} - {product.amount}
         </p>
-        {item.isEditing === true && (
+        {product.isEditing && (
           <div className="form-edit">
             <input
               type="number"
+              min="0"
               value={editAmount}
-              onChange={handleEditAmount}
+              onChange={(e: { target: HTMLInputElement }) =>
+                setEditAmount(e.target.valueAsNumber)
+              }
             />
             <img
               onClick={
-                () => handleEdit(item.id, item.title, editAmount, item.amount) //1ttttttttttttttttttttttttttttt
+                () =>
+                  handleEdit(
+                    product.id,
+                    product.title,
+                    product.isEditing,
+                  ) //1ttttttttttttttttttttttttttttt
               }
               src={check}
               alt="approve the changes"
@@ -62,24 +90,38 @@ await deleteDoc(ref)
         <div className="icons">
           <img
             onClick={() =>
-              moveProductIntoBag(item.id, item.title, item.amount, item.inBag)
+              moveProductIntoBag(
+                product.id,
+                product.title,
+                product.amount,
+                product.inBag
+              )
             }
             src={shopping_cart}
             alt="In shopping cart"
           />
           <img
             onClick={() =>
-              toggleEdit(item.id, item.title, item.amount, item.isEditing)
+              toggleEdit(
+                product.id,
+                product.title,
+                product.amount,
+                product.isEditing
+              )
             }
             src={edit}
             alt="edit"
           />
-          <img onClick={() => handleDelete(item.id)} src={clear} alt="clear" />
+          <img
+            onClick={() => handleDelete(product.id)}
+            src={clear}
+            alt="clear"
+          />
         </div>
       </div>
 
       <img
-        onClick={() => handleSendToStock(item.title, item.amount)}
+        onClick={() => handleSendToStock(product.title, product.amount)}
         className="send-img"
         src={local_shipping}
         alt="send to stock"
