@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 import "./Stock.css";
 
-import { StockContext } from "../../context/StockContext";
+import { FoodStorageContext } from "../../context/FoodStorageContext";
 
 import add from "../../icons/add.svg";
 import SearchBar from "../../components/stockComponents/SearchBar";
@@ -16,7 +16,7 @@ const Stock = () => {
   const [toggleModal, setToggleModal] = useState<boolean>(false);
   const [searchText, setSearchText] = useState("");
 
-  const { documents: productsList }:any= useContext(StockContext)
+  const { stockProductsList }:any= useContext(FoodStorageContext)
   
   
   const handleToggleModal = () => {
@@ -40,7 +40,7 @@ const Stock = () => {
         </NavLink>
 
         <SearchBar searchText={searchText} setSearchText={setSearchText}/>
-        <ProductsList productsList={productsList} searchText={searchText} />
+        <ProductsList stockProductsList={stockProductsList} searchText={searchText} />
       </div>
     </div>
   );

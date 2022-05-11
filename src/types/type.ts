@@ -9,7 +9,7 @@ export interface ShopList {
   amount: number;
   isEditing: boolean;
   inBag: boolean;
-  id: number; 
+  id: string; 
 }
 
 // export type SingleItemProps = {
@@ -25,7 +25,7 @@ export type SingleItemProps = {
     // toggleEdit: (id: number, itemTitle: string, itemAmount: number, itemIsEditing: boolean) => void;
     // handleEdit: (a: number, b: string, c: number | undefined, d: number) => void; //1tttttttttttttttttttttt
     // handleDelete: (a: number) => void;
-    moveProductIntoBag: (a: number, b: string, c: number, d: boolean) => void;
+    moveProductIntoBag: (a: string, b: string, c: number, d: boolean) => void;
     handleSendToStock: (a: string, b: number) => void;
   };
 

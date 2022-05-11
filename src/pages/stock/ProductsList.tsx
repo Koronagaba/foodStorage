@@ -6,12 +6,12 @@ import SingleStockProduct from "./SingleStockProduct";
 import { ProductList } from "../../types/type";
 
 interface ProductsProps{
-    productsList: ProductList[],
+    stockProductsList: ProductList[],
     searchText: string
 }
 
 
-const ProductsList: React.FC<ProductsProps> = ({productsList, searchText}) => {
+const ProductsList: React.FC<ProductsProps> = ({stockProductsList, searchText}) => {
   return (
     <>
       <div className="title">
@@ -19,7 +19,7 @@ const ProductsList: React.FC<ProductsProps> = ({productsList, searchText}) => {
         <p>Current state:</p>
         <p>Order:</p>
       </div>
-      {productsList.map((product: ProductList) => {
+      {stockProductsList.map((product: ProductList) => {
         if (product.title.includes(searchText)) {
           return <SingleStockProduct key={product.id} product={product} />;
         }

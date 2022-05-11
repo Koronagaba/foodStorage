@@ -1,7 +1,6 @@
 import React, { useState, useContext } from "react";
-import { useCollection } from "../../hooks/useCollection";
 
-import { StockContext } from "../../context/StockContext";
+import { FoodStorageContext } from "../../context/FoodStorageContext";
 
 import {ShopList} from "../../types/type";
 
@@ -10,16 +9,15 @@ import "./ShoppingList.css";
 import SingleItem from "./SingleItem";
 
 const ShoppingList = () => {
-  const [shoppingList, setShoppingList] = useState<ShopList[]>([]);
-  const [productsInStock, setProductsInStock] = useState<ShopList[]>([]);
-  const [product, setProduct] = useState<any>(); //1ttttttttttttttttt
+  // const [shoppingList, setShoppingList] = useState<ShopList[]>([]);
+  // const [productsInStock, setProductsInStock] = useState<ShopList[]>([]);
+  // const [product, setProduct] = useState<any>(); //1ttttttttttttttttt
 
-  // const {documents}:any = useContext(StockContext)
-
-  const { documents }: any = useCollection("shoppingList");
+  const { shoppingList }: any = useContext(FoodStorageContext);
+  console.log(shoppingList)
 
   const moveProductIntoBag = (
-    id: number,
+    id: string ,
     itemTitle: string,
     itemAmount: number,
     itemInBag: boolean
@@ -40,8 +38,8 @@ const ShoppingList = () => {
   };
 
   const handleShoppingCompleted = () => {
-    const newShoppingList = shoppingList.filter((item) => item.inBag === true);
-    console.log(newShoppingList);
+  //   const newShoppingList = shoppingList.filter((item) => item.inBag === true);
+  //   console.log(newShoppingList);
   };
 
   const handleSendToStock = (itemTitle: string, itemAmount: number) => {
@@ -71,10 +69,10 @@ const ShoppingList = () => {
   return (
     <div className="shoppingList-container">
       <div className="shoppingList">
-        {documents.length ? (
+        {shoppingList.length ? (
           <>
             <h3>ShoppingList</h3>
-            {documents.map((product: any) => (
+            {shoppingList.map((product: any) => (
               <SingleItem
                 key={product.id}
                 product={product}
@@ -92,7 +90,6 @@ const ShoppingList = () => {
           <p>Shopping list is empty</p>
         )}
       </div>
-      {!shoppingList && <p>Shopping list is empty</p>}
     </div>
   );
 };
