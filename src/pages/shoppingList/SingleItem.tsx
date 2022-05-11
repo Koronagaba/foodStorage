@@ -56,6 +56,10 @@ const SingleItem: React.FC<SingleItemProps> = ({
     });
   };
 
+  // const handleSendToStock = (title: string, amount: number) => {
+
+  // }
+
   return (
     <div className="single-item-container">
       <div className="single-item" style={product.inBag ? style : null}>

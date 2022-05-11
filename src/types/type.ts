@@ -1,7 +1,7 @@
 export interface ProductList {
   title: string;
   amount: number;
-  id: number;
+  id: string;
 }
 
 export interface ShopList {

@@ -1,13 +1,9 @@
-import React, { useState, useEffect } from "react";
-// import { getData } from "../../hooks/useFetch";
+import React, { useState, useContext } from "react";
 import { useCollection } from "../../hooks/useCollection";
 
-import {
-  // EditItemFromShoppingListProps,
-  // HandleSendToStockProps,
-  // MoveProductIntoBagProps,
-  ShopList,
-} from "../../types/type";
+import { StockContext } from "../../context/StockContext";
+
+import {ShopList} from "../../types/type";
 
 import "./ShoppingList.css";
 
@@ -17,6 +13,8 @@ const ShoppingList = () => {
   const [shoppingList, setShoppingList] = useState<ShopList[]>([]);
   const [productsInStock, setProductsInStock] = useState<ShopList[]>([]);
   const [product, setProduct] = useState<any>(); //1ttttttttttttttttt
+
+  // const {documents}:any = useContext(StockContext)
 
   const { documents }: any = useCollection("shoppingList");
 

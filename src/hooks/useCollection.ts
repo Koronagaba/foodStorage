@@ -23,5 +23,7 @@ export const useCollection = (c: string) => {
 
   }, [c]);
 
+  
+
   return { documents };
 };
