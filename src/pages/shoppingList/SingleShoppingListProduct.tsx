@@ -13,12 +13,11 @@ import { SingleItemProps, ProductList } from "../../types/type";
 import { FoodStorageContext } from "../../context/FoodStorageContext";
 
 interface ProdProps {
-  prod: ProductList,
-  title: string,
-  id: string,
-  amount: number
+  prod: ProductList;
+  title: string;
+  id: string;
+  amount: number;
 }
-
 
 const SingleItem: React.FC<SingleItemProps> = ({
   product,
@@ -28,7 +27,7 @@ const SingleItem: React.FC<SingleItemProps> = ({
   // handleSendToStock,
 }) => {
   const [editAmount, setEditAmount] = useState<number>(product.amount);
-  const { stockProductsList } = useContext(FoodStorageContext)
+  const { stockProductsList } = useContext(FoodStorageContext);
 
   const style: any = { textDecoration: "line-through" }; //tttttttttttttttttttt
 
@@ -53,33 +52,30 @@ const SingleItem: React.FC<SingleItemProps> = ({
     console.log(product);
   };
 
-  const handleEdit = (
-    id: any,
-    title: string,
-    isEditing: boolean,
-  ) => {
+  const handleEdit = (id: any, title: string, isEditing: boolean) => {
     setDoc(doc(db, "shoppingList", id), {
       title,
       amount: editAmount,
       isEditing: !isEditing,
-      inBag: false
+      inBag: false,
     });
   };
 
- const handleSendToStock = (title: string, amount: number) => {
+  const handleSendToStock =  async (title: string, amount: number, id: string) => {
+    await stockProductsList.forEach((prod: ProdProps) => {
+      if (title === prod.title) {
+        const ref = doc(db, "products", prod.id);
+        setDoc(ref, {
+          title,
+          amount: prod.amount + amount,
+        });
+        console.log(prod);
+      }
+    });
 
-  stockProductsList.forEach((prod: ProdProps) => {
-  if(title === prod.title){
-    const ref = doc(db, 'products', prod.id )
-    setDoc(ref, {
-      title,
-      amount: prod.amount + amount
-    })
-    console.log(prod);
-  }
-    
-  })
- }
+   await deleteDoc(doc(db, 'shoppingList', id))
+
+  };
 
   return (
     <div className="single-item-container">
@@ -99,12 +95,7 @@ const SingleItem: React.FC<SingleItemProps> = ({
             />
             <img
               onClick={
-                () =>
-                  handleEdit(
-                    product.id,
-                    product.title,
-                    product.isEditing,
-                  ) //1ttttttttttttttttttttttttttttt
+                () => handleEdit(product.id, product.title, product.isEditing) //1ttttttttttttttttttttttttttttt
               }
               src={check}
               alt="approve the changes"
@@ -146,7 +137,7 @@ const SingleItem: React.FC<SingleItemProps> = ({
       </div>
 
       <img
-        onClick={() => handleSendToStock(product.title, product.amount)}
+        onClick={() => handleSendToStock(product.title, product.amount, product.id)}
         className="send-img"
         src={local_shipping}
         alt="send to stock"
