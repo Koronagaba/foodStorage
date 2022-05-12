@@ -26,7 +26,7 @@ export type SingleItemProps = {
     // handleEdit: (a: number, b: string, c: number | undefined, d: number) => void; //1tttttttttttttttttttttt
     // handleDelete: (a: number) => void;
     moveProductIntoBag: (a: string, b: string, c: number, d: boolean) => void;
-    handleSendToStock: (a: string, b: number) => void;
+    // handleSendToStock: (a: string, b: number) => void;
   };
 
 

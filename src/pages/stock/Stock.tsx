@@ -40,7 +40,7 @@ const Stock = () => {
         </NavLink>
 
         <SearchBar searchText={searchText} setSearchText={setSearchText}/>
-        <ProductsList stockProductsList={stockProductsList} searchText={searchText} />
+        <ProductsList stockProductsList  ={stockProductsList} searchText={searchText} />
       </div>
     </div>
   );
