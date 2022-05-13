@@ -1,21 +1,29 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { FoodStorageContext } from "../../context/FoodStorageContext";
 // import { SyntheticEvent } from "react";
 
 import { useAddProduct } from "../../hooks/useAdd";
 
 import add_shopping_cart from "../../icons/add_shopping_cart.svg";
+import { ShopProduct, Product } from "../../types/type";
 
 interface AddProductProps {
   inputRef:  React.MutableRefObject<HTMLInputElement | null>,
-  title:string
+  title:string,
 }
+
 
 const AddProduct = ({ inputRef, title }:AddProductProps ) => {
   const [numberOfProductsAddedToCart, setNumberOfProductsAddedToCart] = useState(0);  
   const { addProduct } = useAddProduct()
 
+  const { shoppingList }: any= useContext(FoodStorageContext)
+
+ 
+
   const addProductToShoppingList = () => {
     if(numberOfProductsAddedToCart > 0){
+
       addProduct(title, numberOfProductsAddedToCart)
       console.log(title, numberOfProductsAddedToCart )
       setNumberOfProductsAddedToCart(0)

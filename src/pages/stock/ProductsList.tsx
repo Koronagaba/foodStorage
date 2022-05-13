@@ -14,6 +14,8 @@ const ProductsList: React.FC<ProductsProps> = ({
   stockProductsList,
   searchText,
 }) => {
+
+  
   const filterMatchedProducts = (product: Product) => {
     return product.title.toLowerCase().includes(searchText.toLowerCase());
   };

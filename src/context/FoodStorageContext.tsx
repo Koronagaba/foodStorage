@@ -2,7 +2,7 @@ import { createContext, FC, useEffect } from "react";
 import { useCollection } from "../hooks/useCollection";
 import { Product, ShopProduct } from "../types/type";
 
-interface CollectionType {
+export interface CollectionType {
   stockProductsList: Product[],
   shoppingList?: ShopProduct[]
 }
