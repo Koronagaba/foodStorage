@@ -1,10 +1,10 @@
-export interface ProductList {
+export interface Product {
   title: string;
   amount: number;
   id: string;
 }
 
-export interface ShopList {
+export interface ShopProduct {
   title: string;
   amount: number;
   isEditing: boolean;
@@ -21,11 +21,11 @@ export interface ShopList {
 //   handleSendToStock: (a: string, b: number) => void;
 // };
 export type SingleItemProps = {
-    product: ShopList;
+    product: ShopProduct;
     // toggleEdit: (id: number, itemTitle: string, itemAmount: number, itemIsEditing: boolean) => void;
     // handleEdit: (a: number, b: string, c: number | undefined, d: number) => void; //1tttttttttttttttttttttt
     // handleDelete: (a: number) => void;
-    moveProductIntoBag: (a: string, b: string, c: number, d: boolean) => void;
+    // moveProductIntoBag: (a: string, b: string, c: number, d: boolean) => void;
     // handleSendToStock: (a: string, b: number) => void;
   };
 

@@ -13,10 +13,10 @@ import ProductsList from "./ProductsList";
 
 const Stock = () => {
 
-  const [toggleModal, setToggleModal] = useState<boolean>(false);
+  const [toggleModal, setToggleModal] = useState(false);
   const [searchText, setSearchText] = useState("");
 
-  const { stockProductsList }:any= useContext(FoodStorageContext)
+  const { stockProductsList }: any = useContext(FoodStorageContext)
   
   
   const handleToggleModal = () => {

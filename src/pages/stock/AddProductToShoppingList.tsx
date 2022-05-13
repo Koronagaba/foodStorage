@@ -6,12 +6,12 @@ import { useAddProduct } from "../../hooks/useAdd";
 import add_shopping_cart from "../../icons/add_shopping_cart.svg";
 
 interface AddProductProps {
-  inputRef: any,
+  inputRef:  React.MutableRefObject<HTMLInputElement | null>,
   title:string
 }
 
 const AddProduct = ({ inputRef, title }:AddProductProps ) => {
-  const [numberOfProductsAddedToCart, setNumberOfProductsAddedToCart] = useState<number>(0);  //1tttt
+  const [numberOfProductsAddedToCart, setNumberOfProductsAddedToCart] = useState(0);  
   const { addProduct } = useAddProduct()
 
   const addProductToShoppingList = () => {
@@ -21,10 +21,6 @@ const AddProduct = ({ inputRef, title }:AddProductProps ) => {
       setNumberOfProductsAddedToCart(0)
     }
   };
-
-  // const handleInput =  (e: React.ChangeEvent<HTMLInputElement>) => {
-  //   setNumberOfProductsAddedToCart(parseInt(e.target.value));                                  //2tttt
-  // };
 
   return (
     <>

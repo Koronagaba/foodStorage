@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, CSSProperties } from "react";
 import { db } from "../../firebase/config";
 import { doc, deleteDoc, setDoc } from "firebase/firestore";
 
@@ -9,27 +9,15 @@ import edit from "../../icons/edit.svg";
 import clear from "../../icons/clear.svg";
 import check from "../../icons/check.svg";
 import local_shipping from "../../icons/local_shipping_black.svg";
-import { SingleItemProps, ProductList } from "../../types/type";
+import { SingleItemProps } from "../../types/type";
 import { FoodStorageContext } from "../../context/FoodStorageContext";
 
-interface ProdProps {
-  prod: ProductList;
-  title: string;
-  id: string;
-  amount: number;
-}
 
-const SingleItem: React.FC<SingleItemProps> = ({
-  product,
-  // toggleEdit,
-  // handleEdit,
-  moveProductIntoBag,
-  // handleSendToStock,
-}) => {
+const SingleItem: React.FC<SingleItemProps> = ({ product }) => {
   const [editAmount, setEditAmount] = useState<number>(product.amount);
-  const { stockProductsList } = useContext(FoodStorageContext);
+  const { stockProductsList }: any= useContext(FoodStorageContext);
 
-  const style: any = { textDecoration: "line-through" }; //tttttttttttttttttttt
+  const style = product.inBag ? { textDecoration: "line-through" }: undefined; 
 
   const handleDelete = async (id: any) => {
     const ref = doc(db, "shoppingList", id);
@@ -61,8 +49,12 @@ const SingleItem: React.FC<SingleItemProps> = ({
     });
   };
 
-  const handleSendToStock =  async (title: string, amount: number, id: string) => {
-    await stockProductsList.forEach((prod: ProdProps) => {
+  const handleSendToStock = async (
+    id: string,
+    title: string,
+    amount: number
+  ) => {
+    await stockProductsList.forEach((prod: any) => {
       if (title === prod.title) {
         const ref = doc(db, "products", prod.id);
         setDoc(ref, {
@@ -73,13 +65,21 @@ const SingleItem: React.FC<SingleItemProps> = ({
       }
     });
 
-   await deleteDoc(doc(db, 'shoppingList', id))
+    await deleteDoc(doc(db, "shoppingList", id));
+  };
 
+  const moveProductIntoBag = ( id: string, title: string, amount: number, inBag: boolean) => {
+    setDoc(doc(db, 'shoppingList', id ), {
+      title,
+      amount,
+      inBag: !inBag,
+      isEditing: false
+    })    
   };
 
   return (
     <div className="single-item-container">
-      <div className="single-item" style={product.inBag ? style : null}>
+      <div className="single-item" style={style}>
         <p>
           {product.title} - {product.amount}
         </p>
@@ -105,14 +105,7 @@ const SingleItem: React.FC<SingleItemProps> = ({
 
         <div className="icons">
           <img
-            onClick={() =>
-              moveProductIntoBag(
-                product.id,
-                product.title,
-                product.amount,
-                product.inBag
-              )
-            }
+            onClick={() => moveProductIntoBag( product.id, product.title, product.amount, product.inBag) }
             src={shopping_cart}
             alt="In shopping cart"
           />
@@ -137,7 +130,9 @@ const SingleItem: React.FC<SingleItemProps> = ({
       </div>
 
       <img
-        onClick={() => handleSendToStock(product.title, product.amount, product.id)}
+        onClick={() =>
+          handleSendToStock(product.id, product.title, product.amount)
+        }
         className="send-img"
         src={local_shipping}
         alt="send to stock"

@@ -1,15 +1,19 @@
 import React, { useRef } from "react";
-import { ProductList } from "../../types/type";
+import { Product } from "../../types/type";
 import AddProductToShoppingList from "./AddProductToShoppingList";
+
 interface ProductProps {
-  product: ProductList
+  product: Product
 }
 
 const SingleStockProduct: React.FC<ProductProps> = ({ product }) => {
-  const inputRef: any = useRef();                //ttttttttttttttt
+  const inputRef = useRef<HTMLInputElement| null>(null);               
 
   const handleFocusInput = () => {
-    inputRef.current.focus();
+    if(inputRef.current){
+      inputRef.current.focus();
+    }
+    
   };
 
   return (

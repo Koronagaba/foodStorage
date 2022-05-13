@@ -1,15 +1,20 @@
-import { createContext, useEffect } from "react";
+import { createContext, FC, useEffect } from "react";
 import { useCollection } from "../hooks/useCollection";
-import { ProductList } from "../types/type";
+import { Product, ShopProduct } from "../types/type";
+
+interface CollectionType {
+  stockProductsList: Product[],
+  shoppingList?: ShopProduct[]
+}
 
 
-export const FoodStorageContext = createContext<any>(null)
+export const FoodStorageContext = createContext<CollectionType | null>(null)
 
 
-export const StockContextProvider = ({children}:any) => {
+export const StockContextProvider: FC = ({children}) => {
   
-  const { documents: stockProductsList } = useCollection('products')
-  const { documents: shoppingList } = useCollection('shoppingList')
+  const { documents: stockProductsList } = useCollection<Product>('products')
+  const { documents: shoppingList } = useCollection<ShopProduct>('shoppingList')
 
 return (
     <FoodStorageContext.Provider value={{stockProductsList, shoppingList}}>
