@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 
 import "./ShoppingList.css";
-import { doc, setDoc } from "firebase/firestore";
+import { doc, setDoc, deleteDoc } from "firebase/firestore";
 import { db } from "../../firebase/config";
 import { FoodStorageContext } from "../../context/FoodStorageContext";
 import { ShopProduct, Product } from "../../types/type";
@@ -20,15 +20,16 @@ const ShoppingList = () => {
   const handleShoppingCompleted = async () => {
     const filteredShoppingList = await shoppingList
       .filter((item: ShopProduct) => item.inBag)
-      .map((fillProd: Product) => fillProd);
+      .map((filterProduct: Product) => filterProduct);
 
     await stockProductsList.forEach((item: ShopProduct) => {
-      filteredShoppingList.forEach((fillProd: Product) => {
-        if (item.title === fillProd.title) {
-          setDoc(doc(db, "products", item.id), {
+      filteredShoppingList.forEach((filterProduct: Product) => {
+        if (item.title === filterProduct.title) {
+            setDoc(doc(db, "products", item.id), {
             title: item.title,
-            amount: item.amount + fillProd.amount,
+            amount: item.amount + filterProduct.amount,
           });
+            deleteDoc(doc(db, 'shoppingList', filterProduct.id))
         }
       });
     });
