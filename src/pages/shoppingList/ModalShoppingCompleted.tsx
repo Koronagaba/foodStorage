@@ -1,28 +1,49 @@
-import React, { FC } from "react";
-import { ShopProduct } from "../../types/type";
+import React, { FC, useContext } from "react";
+import { doc, setDoc, deleteDoc } from "firebase/firestore";
+import { db } from "../../firebase/config";
+import { FoodStorageContext } from "../../context/FoodStorageContext";
+import { Product, ShopProduct } from "../../types/type";
 import "./Modal.css";
 
 interface PropsModalShoppingCompleted {
-    setIsModalVisible: (arg: boolean) => void,
-    handleOk: () => void,
-    filteredProducts: ShopProduct[]
+  setIsModalVisible: (arg: boolean) => void;
+  filteredProducts: ShopProduct[];
 }
 
-const ModalShoppingCompleted: FC<PropsModalShoppingCompleted> = ({setIsModalVisible, handleOk, filteredProducts}) => {
+// type Product = {
+//     prod: ShopProduct
+// }
 
+const ModalShoppingCompleted: FC<PropsModalShoppingCompleted> = ({ setIsModalVisible,filteredProducts }) => {
+  const { stockProductsList }: any = useContext(FoodStorageContext);
 
-
-  const handleCancel = () => {
+  const handleModalCancel = () => {
     setIsModalVisible(false);
   };
 
-  const productsInBag = filteredProducts.map((prod: ShopProduct)=> (
-     <>
-        <p key={prod.id}>{prod.title} - {prod.amount}</p>
-     </>
-)
-  )
- 
+  const handleModalOk = () => {
+    stockProductsList.forEach((item: ShopProduct) => {
+      filteredProducts.forEach((prod: Product) => {
+        if (item.title === prod.title) {
+          setDoc(doc(db, "products", item.id), {
+            title: item.title,
+            amount: item.amount + prod.amount,
+          });
+          deleteDoc(doc(db, "shoppingList", prod.id));
+        }
+      });
+    });
+
+    setIsModalVisible(false);
+  };
+
+  const productsInBag = filteredProducts.map((prod: ShopProduct) => (
+    <>
+      <p key={prod.id}>
+        {prod.title} - {prod.amount}
+      </p>
+    </>
+  ));
 
   return (
     <div className="modal-container">
@@ -31,25 +52,13 @@ const ModalShoppingCompleted: FC<PropsModalShoppingCompleted> = ({setIsModalVisi
           <p>Are You sure you bought the following products?</p>
         </div>
         <div className="products-in-modal">
-            {productsInBag}
-          {/* <p>1 Hgw wwesjd sdj</p>
-          <p>2 Hgw wwesjd sdj</p>
-          <p>3 Hgw wwesjd sdj</p>
-          <p>4 Hgw wwesjd sdj</p>
-          <p>5 Hgw wwesjd sdj</p>
-          <p>6 Hgw wwesjd sdj</p>
-          <p>7 Hgw wwesjd sdj</p>
-          <p>8 Hgw wwesjd sdj</p>
-          <p>9 Hgw wwesjd sdj</p>
-          <p>10 Hgw wwesjd sdj</p>
-          <p>11 Hgw wwesjd sdj</p>
-          <p>12 Hgw wwesjd sdj</p> */}
+          {productsInBag}
         </div>
         <div className="btns">
-          <button className="btn" onClick={handleOk}>
+          <button className="btn" onClick={handleModalOk}>
             Yes
           </button>
-          <button className="btn" onClick={handleCancel}>
+          <button className="btn" onClick={handleModalCancel}>
             Cancel
           </button>
         </div>

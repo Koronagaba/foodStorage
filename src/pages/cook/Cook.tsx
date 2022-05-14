@@ -1,4 +1,3 @@
-
 import './Cook.css'
 
 const Cook = () => {

@@ -1,6 +1,7 @@
 .shoppingList-container{
     background-color: #F28DB2;
     /* background-color: #D96690; */
+    /* background-color: rgba(0, 0, 0, 0.6); */
 }
 
 .shoppingList{
@@ -27,3 +28,4 @@
     cursor: pointer;
     transform: scale(1.02);
 }
+
