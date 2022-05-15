@@ -5,6 +5,7 @@
     position: fixed;
     display: flex;
     justify-content: center; 
+    z-index:10
 }
 
 .modal {
@@ -12,7 +13,7 @@
     min-height: 200px;
     max-height: 300px;
     margin-top: 100px;
-    padding: 10px;
+    padding: 20px;
     background-color: rgba(0, 0, 0, 0.7);
     color: #eee;
     display: flex;
@@ -21,11 +22,18 @@
 }
 
 .modal-title {
-    padding-bottom: 20px
+    padding-bottom: 20px;
+    font-size: 21px;
 }
 
 .products-in-modal {
     overflow: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.products-in-modal p{
+    font-size: 18px
 }
 
 .btns{
@@ -36,5 +44,13 @@
     width: 120px;
     height: 28px;
     margin: 0 20px;
-    cursor: pointer
+    font-size: 17px;
+    border-radius: 5px;
+    background-color: #F2E3D5;
+    transition: 0.1s ease-in ;
+}
+
+.btn:hover{
+    cursor: pointer;
+    transform: scale(1.05)
 }

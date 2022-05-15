@@ -27,5 +27,6 @@
 .shoppingList button:hover{
     cursor: pointer;
     transform: scale(1.02);
+    z-index: 0
 }
 
