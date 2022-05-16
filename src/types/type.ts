@@ -20,7 +20,7 @@ export interface ShopProduct {
 //   moveProductIntoBag: (a: number, b: string, c: number, d: boolean) => void;
 //   handleSendToStock: (a: string, b: number) => void;
 // };
-export type SingleItemProps = {
+export type SingleShopProductProps = {
     product: ShopProduct;
     // toggleEdit: (id: number, itemTitle: string, itemAmount: number, itemIsEditing: boolean) => void;
     // handleEdit: (a: number, b: string, c: number | undefined, d: number) => void; //1tttttttttttttttttttttt

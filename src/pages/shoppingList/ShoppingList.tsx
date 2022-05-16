@@ -1,11 +1,12 @@
 import React, { useState, useContext } from "react";
 
 import "./ShoppingList.css";
+// import { message } from 'antd';
 
 import { FoodStorageContext } from "../../context/FoodStorageContext";
 import { ShopProduct, Product } from "../../types/type";
 
-import SingleItem from "./SingleShoppingListProduct";
+import SingleShoppingListProduct from "./SingleShoppingListProduct";
 import ModalShoppingCompleted from "./ModalShoppingCompleted";
 
 const ShoppingList = () => {
@@ -27,6 +28,11 @@ const ShoppingList = () => {
     showModal();
   };
 
+  // const success = () => {
+  //   message.success('This is a prompt message for success, and it will disappear in 10 seconds', 10);
+  // };
+
+
   return (
     <div className="shoppingList-container">
       {isModalVisible && (
@@ -40,7 +46,7 @@ const ShoppingList = () => {
           <>
             <h3>ShoppingList</h3>
             {shoppingList.map((product: any) => (
-              <SingleItem
+              <SingleShoppingListProduct
                 key={product.id}
                 product={product}
                 // toggleEdit={toggleEdit}

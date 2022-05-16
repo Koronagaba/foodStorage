@@ -51,7 +51,7 @@ const ModalShoppingCompleted: FC<PropsModalShoppingCompleted> = ({ setIsModalVis
         <div className="modal-title" title="Basic Modal">
           <p>Are You sure you bought the following products?</p>
         </div>
-        <div className="products-in-modal">
+        <div className="content-modal">
           {productsInBag}
         </div>
         <div className="btns">

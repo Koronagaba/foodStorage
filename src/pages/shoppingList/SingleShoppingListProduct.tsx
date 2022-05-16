@@ -1,4 +1,4 @@
-import React, { useState, useContext, CSSProperties } from "react";
+import React, { useState, useContext } from "react";
 import { db } from "../../firebase/config";
 import { doc, deleteDoc, setDoc } from "firebase/firestore";
 
@@ -7,17 +7,29 @@ import "./SingleShoppingListProduct.css";
 import shopping_cart from "../../icons/shopping_cart.svg";
 import edit from "../../icons/edit.svg";
 import clear from "../../icons/clear.svg";
-import check from "../../icons/check.svg";
+// import check from "../../icons/check.svg";
 import local_shipping from "../../icons/local_shipping_black.svg";
-import { SingleItemProps } from "../../types/type";
+import { SingleShopProductProps } from "../../types/type";
 import { FoodStorageContext } from "../../context/FoodStorageContext";
+import EditModal from "./EditModal";
 
+// import { message, Button } from 'antd';
 
-const SingleItem: React.FC<SingleItemProps> = ({ product }) => {
-  const [editAmount, setEditAmount] = useState<number>(product.amount);
+const SingleItem: React.FC<SingleShopProductProps> = ({ product }) => {
+  // const [editAmount, setEditAmount] = useState<number>(product.amount);
   const { stockProductsList }: any= useContext(FoodStorageContext);
 
   const style = product.inBag ? { textDecoration: "line-through" }: undefined; 
+
+  // const success = () => {                                             :(((
+  //   message.success({
+  //     content: 'This is a prompt message with custom className and style',
+  //     className: 'custom-class',
+  //     style: {
+  //       marginTop: '20vh',
+  //     },
+  //   });
+  // };
 
   const handleDelete = async (id: any) => {
     const ref = doc(db, "shoppingList", id);
@@ -36,18 +48,17 @@ const SingleItem: React.FC<SingleItemProps> = ({ product }) => {
       isEditing: !isEditing,
       title,
     });
-
-    console.log(product);
   };
 
-  const handleEdit = (id: any, title: string, isEditing: boolean) => {
-    setDoc(doc(db, "shoppingList", id), {
-      title,
-      amount: editAmount,
-      isEditing: !isEditing,
-      inBag: false,
-    });
-  };
+  // const handleEdit = (id: any, title: string, isEditing: boolean, amount: number) => {
+
+  //   setDoc(doc(db, "shoppingList", id), {
+  //     title,
+  //     amount: editAmount,
+  //     isEditing: !isEditing,
+  //     inBag: false,
+  //   });
+  // };
 
   const handleSendToStock = async (
     id: string,
@@ -66,6 +77,7 @@ const SingleItem: React.FC<SingleItemProps> = ({ product }) => {
     });
 
     await deleteDoc(doc(db, "shoppingList", id));
+  
   };
 
   const moveProductIntoBag = ( id: string, title: string, amount: number, inBag: boolean) => {
@@ -78,12 +90,17 @@ const SingleItem: React.FC<SingleItemProps> = ({ product }) => {
   };
 
   return (
+    <>
+      {product.isEditing && <EditModal product={product} /> }
     <div className="single-item-container">
+
       <div className="single-item" style={style}>
+        
         <p>
           {product.title} - {product.amount}
         </p>
-        {product.isEditing && (
+        {/* {product.isEditing && <EditModal product={product} />
+        (
           <div className="form-edit">
             <input
               type="number"
@@ -95,13 +112,14 @@ const SingleItem: React.FC<SingleItemProps> = ({ product }) => {
             />
             <img
               onClick={
-                () => handleEdit(product.id, product.title, product.isEditing) //1ttttttttttttttttttttttttttttt
+                () => handleEdit(product.id, product.title, product.isEditing, product.amount) //1ttttttttttttttttttttttttttttt
               }
               src={check}
               alt="approve the changes"
             />
           </div>
-        )}
+        )
+        } */}
 
         <div className="icons">
           <img
@@ -138,6 +156,7 @@ const SingleItem: React.FC<SingleItemProps> = ({ product }) => {
         alt="send to stock"
       />
     </div>
+    </>
   );
 };
 
