@@ -9,7 +9,7 @@ import edit from "../../icons/edit.svg";
 import clear from "../../icons/clear.svg";
 // import check from "../../icons/check.svg";
 import local_shipping from "../../icons/local_shipping_black.svg";
-import { SingleShopProductProps } from "../../types/type";
+import { SingleShopProductProps, ShopProduct } from "../../types/type";
 import { FoodStorageContext } from "../../context/FoodStorageContext";
 import EditModal from "./EditModal";
 
@@ -17,7 +17,7 @@ import EditModal from "./EditModal";
 
 const SingleItem: React.FC<SingleShopProductProps> = ({ product }) => {
   // const [editAmount, setEditAmount] = useState<number>(product.amount);
-  const { stockProductsList }: any= useContext(FoodStorageContext);
+  const { stockProductsList, shoppingList }: any= useContext(FoodStorageContext);
 
   const style = product.inBag ? { textDecoration: "line-through" }: undefined; 
 
@@ -43,11 +43,19 @@ const SingleItem: React.FC<SingleShopProductProps> = ({ product }) => {
     isEditing: boolean
   ) => {
     const ref = doc(db, "shoppingList", id);
-    setDoc(ref, {
-      amount,
-      isEditing: !isEditing,
-      title,
-    });
+
+    const listWhenIsEditing = shoppingList.filter((item: ShopProduct) => (
+      item.isEditing
+    ))
+    console.log(listWhenIsEditing);
+
+    if(listWhenIsEditing.length === 0){
+        setDoc(ref, {
+          amount,
+          isEditing: !isEditing,
+          title,
+        });
+    }
   };
 
   // const handleEdit = (id: any, title: string, isEditing: boolean, amount: number) => {
