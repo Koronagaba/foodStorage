@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+ import React, { useState, useContext } from "react";
 import { FoodStorageContext } from "../../context/FoodStorageContext";
 // import { SyntheticEvent } from "react";
 import { db } from "../../firebase/config";
@@ -43,7 +43,7 @@ const AddProduct = ({ inputRef, product }: AddProductProps) => {
         });
         setNumberOfProductsAddedToCart(0);
       } else {
-        addProduct(title, numberOfProductsAddedToCart);
+        addProduct(title, numberOfProductsAddedToCart, 'shoppingList');
         setNumberOfProductsAddedToCart(0);
       }
     }

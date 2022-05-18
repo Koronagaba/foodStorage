@@ -4,6 +4,7 @@ import {useNavigate} from 'react-router-dom'
 import "./CreateProduct.css";
 
 import close_white_36 from "../../icons/close_white_36.svg";
+import { useAddProduct } from "../../hooks/useAdd";
 
 type Props ={
   setToggleModal: (x: boolean) => void
@@ -22,6 +23,7 @@ interface Action {
 
 
 const CreateProduct: React.FC<Props> = ({ setToggleModal}) => {
+  const { addProduct } = useAddProduct()
 
   const focusInput:any = useRef()
   const navigate = useNavigate()
@@ -52,22 +54,15 @@ const CreateProduct: React.FC<Props> = ({ setToggleModal}) => {
   const handleSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
 if(state.name){
-    fetch("http://localhost:3000/products", {
-      method: "POST",
-      body: JSON.stringify({
-        title: state.name,
-        amount: state.amount,
-      }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    
+addProduct(state.name, state.amount, "products")
     setToggleModal(false);
     navigate('/stock')
   } else {
     focusInput.current.focus()
   }
   };
+
 
   const handleCloseModal = () => {
     setToggleModal(false)

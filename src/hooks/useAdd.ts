@@ -4,8 +4,8 @@ import { collection, addDoc } from "firebase/firestore"
 export const useAddProduct = () => {
 
 
-    const addProduct = async (title: string, numOfProduct: number) => {
-        const ref = collection(db, 'shoppingList')
+    const addProduct = async (title: string, numOfProduct: number, c: string) => {
+        const ref = collection(db, c)
         await addDoc(ref, {
             amount: numOfProduct,
             inBag: false,
