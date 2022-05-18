@@ -23,7 +23,7 @@ const SingleStockProduct: React.FC<ProductProps> = ({ product }) => {
         <p>quantity: {product.amount}</p>
       </div>
       <div className="second-div">
-        <AddProductToShoppingList inputRef={inputRef} title={product.title}/>
+        <AddProductToShoppingList inputRef={inputRef} product={product}/>
       </div>
     </div>
   );

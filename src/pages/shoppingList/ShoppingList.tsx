@@ -21,11 +21,13 @@ const ShoppingList = () => {
   };
 
   const handleShoppingCompleted = () => {
+
     const filteredShoppingList = shoppingList
       .filter((item: ShopProduct) => item.inBag)
       .map((filteredProd: Product) => filteredProd);
     setFilteredProducts(filteredShoppingList);
     showModal();
+  
   };
 
   // const success = () => {
