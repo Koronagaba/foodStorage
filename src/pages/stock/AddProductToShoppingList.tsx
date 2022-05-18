@@ -35,9 +35,9 @@ const AddProduct = ({ inputRef, product }: AddProductProps) => {
           return prod;
         });
      if (filteredTheSameTitle.length) {
-        setDoc(doc(db, "shoppingList", filteredTheSameTitle[0].id), {
+        setDoc(doc(db, "shoppingList", filteredTheSameTitle[filteredTheSameTitle.length - 1].id), {
           title,
-          amount: filteredTheSameTitle[0].amount + numberOfProductsAddedToCart,
+          amount: filteredTheSameTitle[filteredTheSameTitle.length - 1].amount + numberOfProductsAddedToCart,
           inBag: false,
           isEditing: false,
         });
