@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/foodStorage/static/css/main.82f41ce4.css",
+    "main.js": "/foodStorage/static/js/main.76526e1f.js",
+    "index.html": "/foodStorage/index.html",
+    "static/media/local_shipping_black.svg": "/foodStorage/static/media/local_shipping_black.f35f23e284477ecd9c590130d408ebbf.svg",
+    "static/media/shopping_cart.svg": "/foodStorage/static/media/shopping_cart.0f0cd44e7206cc6af6327851ca250b91.svg",
+    "static/media/add_shopping_cart.svg": "/foodStorage/static/media/add_shopping_cart.981356528c0a876d8c5a683f40d076e5.svg",
+    "static/media/search.svg": "/foodStorage/static/media/search.6c95e853cf5a1eedd6e285cecedda3a3.svg",
+    "static/media/edit.svg": "/foodStorage/static/media/edit.4fa02ba3eeb22ca444b3fa80117773ac.svg",
+    "static/media/clear.svg": "/foodStorage/static/media/clear.244b66874c46718f7e0607d3acebaccf.svg",
+    "static/media/close_white_36.svg": "/foodStorage/static/media/close_white_36.1eb680cedf787064c42ff07625881360.svg",
+    "static/media/check.svg": "/foodStorage/static/media/check.222a1c7ef846e3979556e4c12528d041.svg",
+    "static/media/add.svg": "/foodStorage/static/media/add.376e9b6a44e5b3142f1239a3cc8504d0.svg",
+    "main.82f41ce4.css.map": "/foodStorage/static/css/main.82f41ce4.css.map",
+    "main.76526e1f.js.map": "/foodStorage/static/js/main.76526e1f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.82f41ce4.css",
+    "static/js/main.76526e1f.js"
+  ]
+}
