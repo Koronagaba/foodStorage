@@ -9,14 +9,15 @@ import edit from "../../icons/edit.svg";
 import clear from "../../icons/clear.svg";
 // import check from "../../icons/check.svg";
 import local_shipping from "../../icons/local_shipping_black.svg";
-import { SingleShopProductProps, ShopProduct } from "../../types/type";
 import { FoodStorageContext } from "../../context/FoodStorageContext";
 import EditModal from "./EditModal";
+import { ShopProduct, Product, SingleShopProductProps } from "../../types/type";
 
 // import { message, Button } from 'antd';
 
+
+
 const SingleItem: React.FC<SingleShopProductProps> = ({ product }) => {
-  // const [editAmount, setEditAmount] = useState<number>(product.amount);
   const { stockProductsList, shoppingList }: any= useContext(FoodStorageContext);
 
   const style = product.inBag ? { textDecoration: "line-through" }: undefined; 
@@ -31,13 +32,13 @@ const SingleItem: React.FC<SingleShopProductProps> = ({ product }) => {
   //   });
   // };
 
-  const handleDelete = async (id: any) => {
+  const handleDelete = async (id: string) => {
     const ref = doc(db, "shoppingList", id);
     await deleteDoc(ref);
   };
 
   const toggleEdit = (
-    id: any,
+    id: string,
     title: string,
     amount: number,
     isEditing: boolean
@@ -73,7 +74,7 @@ const SingleItem: React.FC<SingleShopProductProps> = ({ product }) => {
     title: string,
     amount: number
   ) => {
-    await stockProductsList.forEach((prod: any) => {
+    await stockProductsList.forEach((prod: Product) => {
       if (title === prod.title) {
         const ref = doc(db, "products", prod.id);
         setDoc(ref, {

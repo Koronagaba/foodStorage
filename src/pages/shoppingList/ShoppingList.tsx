@@ -11,7 +11,7 @@ import ModalShoppingCompleted from "./ModalShoppingCompleted";
 
 const ShoppingList = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const [filteredProducts, setFilteredProducts] = useState<any>([]);
+  const [filteredProducts, setFilteredProducts] = useState<ShopProduct[]>([]);
 
   const { shoppingList, stockProductsList }: any =
     useContext(FoodStorageContext);
@@ -24,8 +24,9 @@ const ShoppingList = () => {
     const filteredShoppingList = shoppingList
       .filter((item: ShopProduct) => item.inBag)
       .map((filteredProd: Product) => filteredProd);
+
     setFilteredProducts(filteredShoppingList);
-    if (filteredProducts.length) {
+    if (filteredShoppingList.length) {
       showModal();
     }
   };
@@ -46,7 +47,7 @@ const ShoppingList = () => {
         {shoppingList.length ? (
           <>
             <h3>ShoppingList</h3>
-            {shoppingList.map((product: any) => (
+            {shoppingList.map((product: ShopProduct) => (
               <SingleShoppingListProduct
                 key={product.id}
                 product={product}

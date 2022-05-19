@@ -6,24 +6,21 @@ import "./Navbar.css";
 const Navbar = () => {
   const [stickyStyle, setStickyStyle] = useState("navbar");
 
-  
   // const activeLink:React.FC<ActiveLink> = ({ isActive}) => (isActive ? activeStyle : null);
 
-  const activeLink =( isActive: any )=> ({
-    color: isActive ? '#fff' : '' })
+  const activeLink = ({ isActive }: any) => ({ color: isActive ? "#fff" : "" });
 
   const handleScroll = () => {
-if(window.scrollY > 0){
-  setStickyStyle("sticky")
-}else{
-  setStickyStyle("navbar")
-}
+    if (window.scrollY > 0) {
+      setStickyStyle("sticky");
+    } else {
+      setStickyStyle("navbar");
+    }
   };
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
   });
-
 
   return (
     <div className={stickyStyle}>
@@ -32,12 +29,12 @@ if(window.scrollY > 0){
           Let's cook with koro!
         </Link>
         <div>
-          <NavLink to={"/"}  style={activeLink}>
+          <NavLink to={"/"} style={activeLink}>
             Cook
           </NavLink>
-          {/* <NavLink to={"/createProduct"} style={activeLink}>
+          <NavLink to={"/createNewProduct"}  style={activeLink}>
             Create
-          </NavLink> */}
+          </NavLink>
           <NavLink to={"/stock"} style={activeLink}>
             Stock
           </NavLink>

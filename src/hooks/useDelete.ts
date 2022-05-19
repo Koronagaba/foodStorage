@@ -1,11 +1,11 @@
-import { db } from '../firebase/config'
-import { deleteDoc } from 'firebase/firestore'
+// import { db } from '../firebase/config'
+// import { doc, deleteDoc } from 'firebase/firestore'
 
-export const useDelete = async () => {
+// export const useDelete = async () => {
 
-    // const deleteHook = () => {
-    //     const ref = 
-    // }
+//     const deleteProduct = (collection: string, id: string) => {
+//         deleteDoc(doc(db, collection, id))
+//     }
 
-    // return { deleteHook }
-}
+//     return {  deleteProduct }
+// }

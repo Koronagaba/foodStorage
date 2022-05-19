@@ -4,7 +4,7 @@ import { db } from "../../firebase/config";
 import { FoodStorageContext } from "../../context/FoodStorageContext";
 import { Product, ShopProduct } from "../../types/type";
 import "./Modal.css";
-import { CollectionType } from "../../hooks/useCollection";
+
 
 interface PropsModalShoppingCompleted {
   setIsModalVisible: (arg: boolean) => void;
@@ -24,7 +24,8 @@ const ModalShoppingCompleted: FC<PropsModalShoppingCompleted> = ({
 
   const handleModalOk = () => {
 
-    stockProductsList.forEach((item: ShopProduct) => {
+ 
+    stockProductsList.forEach((item: ShopProduct) => {            // How to compare two arrays?
       filteredProducts.forEach((prod: Product) => {
         if (item.title === prod.title) {
           setDoc(doc(db, "products", item.id), {
@@ -38,9 +39,6 @@ const ModalShoppingCompleted: FC<PropsModalShoppingCompleted> = ({
 
     setIsModalVisible(false);
   };
-
-
-
 
   // const handleModalOk = () => {
   //   stockProductsList.forEach((item: ShopProduct) => {

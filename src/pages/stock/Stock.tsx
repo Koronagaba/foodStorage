@@ -9,6 +9,8 @@ import add from "../../icons/add.svg";
 import SearchBar from "../../components/stockComponents/SearchBar";
 import CreateProduct from "../../components/createProduct/CreateProduct";
 import ProductsList from "./ProductsList";
+import { Product } from "../../types/type";
+import { CollectionType } from "../../hooks/useCollection";
 
 
 const Stock = () => {
@@ -16,7 +18,7 @@ const Stock = () => {
   const [toggleModal, setToggleModal] = useState(false);
   const [searchText, setSearchText] = useState("");
 
-  const { stockProductsList }: any = useContext(FoodStorageContext)
+  const { stockProductsList}: any = useContext(FoodStorageContext)
   
   
   const handleToggleModal = () => {

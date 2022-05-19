@@ -4,7 +4,7 @@ import { FoodStorageContext } from "../../context/FoodStorageContext";
 import { db } from "../../firebase/config";
 import { doc, setDoc } from "firebase/firestore";
 
-import { useAddProduct } from "../../hooks/useAdd";
+import { useAdd } from "../../hooks/useAdd";
 
 import add_shopping_cart from "../../icons/add_shopping_cart.svg";
 import { ShopProduct, Product } from "../../types/type";
@@ -17,7 +17,7 @@ interface AddProductProps {
 const AddProduct = ({ inputRef, product }: AddProductProps) => {
   const [numberOfProductsAddedToCart, setNumberOfProductsAddedToCart] =
     useState(0);
-  const { addProduct } = useAddProduct();
+  const { addProduct } = useAdd();
 
   const { shoppingList }: any = useContext(FoodStorageContext);
 

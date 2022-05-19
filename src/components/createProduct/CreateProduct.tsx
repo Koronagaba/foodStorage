@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import "./CreateProduct.css";
 
 import close_white_36 from "../../icons/close_white_36.svg";
-import { useAddProduct } from "../../hooks/useAdd";
+import { useAdd } from "../../hooks/useAdd";
 import { FoodStorageContext } from "../../context/FoodStorageContext";
 import { Product } from "../../types/type";
 
@@ -23,11 +23,13 @@ interface Action {
   field: string;
 }
 
+
+
 const CreateProduct: React.FC<Props> = ({ setToggleModal }) => {
   const { stockProductsList }: any = useContext(FoodStorageContext);
-  const { addProduct } = useAddProduct();
+  const { addProduct } = useAdd();
 
-  const focusInput: any = useRef();
+  const focusInput = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
 
   const reducer = (state: State, action: Action) => {
@@ -72,7 +74,7 @@ const CreateProduct: React.FC<Props> = ({ setToggleModal }) => {
         alert("This product is already exist");
       }
     } else {
-      focusInput.current.focus();
+      focusInput.current?.focus();
     }
   };
 
