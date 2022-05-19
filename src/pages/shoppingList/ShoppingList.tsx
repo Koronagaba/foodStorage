@@ -21,19 +21,18 @@ const ShoppingList = () => {
   };
 
   const handleShoppingCompleted = () => {
-
     const filteredShoppingList = shoppingList
       .filter((item: ShopProduct) => item.inBag)
       .map((filteredProd: Product) => filteredProd);
     setFilteredProducts(filteredShoppingList);
-    showModal();
-  
+    if (filteredProducts.length) {
+      showModal();
+    }
   };
 
   // const success = () => {
   //   message.success('This is a prompt message for success, and it will disappear in 10 seconds', 10);
   // };
-
 
   return (
     <div className="shoppingList-container">
