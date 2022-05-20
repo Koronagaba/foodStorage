@@ -1,0 +1,40 @@
+.cook-container {
+    background-color: darkslategray;
+    width: 100vw;
+    height: 90vh;
+    display: grid;
+    grid-template-columns: 1fr 4fr 4fr 4fr 1fr;
+    grid-template-rows: 1fr 4fr 3fr;
+    gap: 40px;
+    border: 2px black solid
+}
+
+.cook-container div {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.15s ease-in-out;
+}
+.cook-container div:hover {
+    cursor: pointer;
+    transform: scale(1.02)
+}
+
+
+ .new-recipe{
+    background-color: bisque;
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+}
+
+ .recipes{
+    background-color: bisque;
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+} 
+
+.ingredients{
+    background-color: bisque;
+    grid-column: 4 / 5;
+    grid-row: 2 / 3;
+} 
