@@ -1,20 +1,46 @@
 import { NavLink } from "react-router-dom";
 
 import "./Cook.css";
+import add_circle from '../../icons/add_circle.svg'
 
 const Cook = () => {
+
+  const addMeal = () => {
+
+  }
+
   return (
     <div className="cook-container">
       <NavLink to={"newRecipe"} className="new-recipe">
-        <h1>New recipe</h1>
+        <div>
+          <img src={add_circle} alt="add icon" />
+          <p>add</p>
+        </div>
+        <p className="type-of-meal">Brekfast</p>
       </NavLink>
 
       <NavLink to={"recipes"} className="recipes">
-        <h1>Recipes</h1>
+      <div>
+          <img src={add_circle} alt="add icon" />
+          <p>add</p>
+        </div>
+        <p className="type-of-meal">Lunch</p>
       </NavLink>
-      
+
       <NavLink to={"ingredients"} className="ingredients">
-        <h1>Cook with single ingredients</h1>
+      <div>
+          <img src={add_circle} alt="add icon" />
+          <p>add</p>
+        </div>
+        <p className="type-of-meal">Dinner</p>
+      </NavLink>
+
+      <NavLink to={"snack"} className="snack">
+      <div>
+          <img src={add_circle} alt="add icon" />
+          <p>add</p>
+        </div>
+        <p className="type-of-meal">Snack</p>
       </NavLink>
     </div>
   );
