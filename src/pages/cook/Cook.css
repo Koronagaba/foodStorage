@@ -9,15 +9,21 @@
     border: 2px black solid
 }
 
-.cook-container div {
+.cook-container a {
     display:flex;
     align-items: center;
     justify-content: center;
     transition: 0.15s ease-in-out;
+  
+    
 }
-.cook-container div:hover {
+.cook-container a:hover {
     cursor: pointer;
     transform: scale(1.02)
+}
+.cook-container a {
+    text-decoration: none;
+    color: #000;
 }
 
 
