@@ -14,7 +14,7 @@ interface SearchBarProps {
 const SearchBar: React.FC<SearchBarProps>= ({searchText, setSearchText}) => {
 
 
-  const searchFocus: any = useRef();           //ttttttttttttttttttttttt
+  const searchFocus = useRef<HTMLInputElement>(null);      
 
   const handleSubmit = (e:SyntheticEvent) => {
     e.preventDefault();
@@ -26,7 +26,7 @@ const SearchBar: React.FC<SearchBarProps>= ({searchText, setSearchText}) => {
   };
 
   const searchInputFocus = () => {
-    searchFocus.current.focus();
+    searchFocus.current?.focus();
   };
 
   return (

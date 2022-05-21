@@ -42,19 +42,19 @@
     border-radius: 5px;
 }
 
-.new-recipe {
+.breakfast {
     background-color: bisque;
     grid-column: 2 / 3;
     grid-row: 2 / 3;
 }
 
-.recipes {
+.lunch {
     background-color: bisque;
     grid-column: 3 / 4;
     grid-row: 2 / 3;
 }
 
-.ingredients {
+.dinner {
     background-color: bisque;
     grid-column: 2 / 3;
     grid-row: 3 / 4;

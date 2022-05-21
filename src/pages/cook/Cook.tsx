@@ -11,7 +11,7 @@ const Cook = () => {
 
   return (
     <div className="cook-container">
-      <NavLink to={"breakfast"} className="new-recipe">
+      <NavLink to={"breakfast"} className="breakfast">
         <div>
           <img src={add_circle} alt="add icon" />
           <p>add</p>
@@ -19,7 +19,7 @@ const Cook = () => {
         <p className="type-of-meal">Breakfast</p>
       </NavLink>
 
-      <NavLink to={"lunch"} className="recipes">
+      <NavLink to={"lunch"} className="lunch">
       <div>
           <img src={add_circle} alt="add icon" />
           <p>add</p>
@@ -27,7 +27,7 @@ const Cook = () => {
         <p className="type-of-meal">Lunch</p>
       </NavLink>
 
-      <NavLink to={"dinner"} className="ingredients">
+      <NavLink to={"dinner"} className="dinner">
       <div>
           <img src={add_circle} alt="add icon" />
           <p>add</p>
