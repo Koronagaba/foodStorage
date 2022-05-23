@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useState } from "react";
 
 import Navbar from "./components/Navbar";
@@ -26,12 +26,14 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <Routes>
-          <Route path="/cook" element={<Cook />} />
+          <Route path="/cook" element={<Cook />}></Route>
+                    <Route path="*" element={<Navigate to="/cook" />}/>
           <Route path="/cook/breakfast" element={<Breakfast />}>
             <Route path="ingredients" element={<Ingredients />}></Route>
             <Route path="recipeList" element={<RecipeList />}></Route>
             {/* <Route path="favoriteFood" element={<FavoriteFood />}></Route> */}
-            <Route path="createRecipe" element={<CreateRecipe />} /></Route>
+            <Route path="createRecipe" element={<CreateRecipe />} />
+          </Route>
           <Route path="/cook/lunch" element={<Lunch />} />
           <Route path="/cook/dinner" element={<Dinner />} />
           <Route path="/cook/snack" element={<Snack />} />
@@ -43,7 +45,7 @@ function App() {
             <Route path="/stock/createProduct" element={<Stock />} />
           </Route>
           <Route path="/shoppingList" element={<ShoppingList />} />
-          <Route path="*" element={< NoMatch/>} />
+          {/* <Route path="*" element={< NoMatch/>} /> */}
         </Routes>
       </BrowserRouter>
     </div>
