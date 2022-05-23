@@ -3,38 +3,65 @@
     width: 100vw;
     height: 90vh;
     display: grid;
-    grid-template-columns: 1fr 4fr 4fr 4fr 1fr;
-    grid-template-rows: 1fr 4fr 3fr;
+    grid-template-columns: 1fr 2fr 2fr 1fr;
+    grid-template-rows: 1fr 7fr 7fr 1fr;
     gap: 40px;
     border: 2px black solid
 }
 
-.cook-container div {
-    display:flex;
+.cook-container a {
+    display: flex;
     align-items: center;
     justify-content: center;
     transition: 0.15s ease-in-out;
+    border-radius: 15px;
+    text-decoration: none;
+    color: #000;
+    position: relative
 }
-.cook-container div:hover {
+.cook-container a:hover {
     cursor: pointer;
     transform: scale(1.02)
 }
 
+.cook-container img {
+    transition: 0.2s ease
+}
+.cook-container img:hover{
+    transform: scale(1.1)
+}
 
- .new-recipe{
+.cook-container .type-of-meal {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    background: linear-gradient(90deg, rgba(0, 7, 36, 1) 0%, rgba(9, 55, 121, 1) 75%, rgba(0, 92, 255, 1) 100%);
+    color: #fff;
+    margin: 10px;
+    padding: 5px 15px;
+    border-radius: 5px;
+}
+
+.breakfast {
     background-color: bisque;
     grid-column: 2 / 3;
     grid-row: 2 / 3;
 }
 
- .recipes{
+.lunch {
     background-color: bisque;
     grid-column: 3 / 4;
     grid-row: 2 / 3;
-} 
+}
 
-.ingredients{
+.dinner {
     background-color: bisque;
-    grid-column: 4 / 5;
-    grid-row: 2 / 3;
-} 
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
+}
+
+.snack {
+    background-color: bisque;
+    grid-column: 3 / 4;
+    grid-row: 3 / 4;
+}

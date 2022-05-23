@@ -1,0 +1,92 @@
+
+.meal-container {
+    background-color: cadetblue;
+    height: 100vh
+}
+.meal{
+    width: 65%;
+    /* display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 2fr;
+    grid-gap: 20px; */
+    /* display: flex; */
+    background-color: #777;
+    margin: 0 auto
+}
+
+.meal-header {
+  display: flex;
+  /* margin: 0 50px */
+}
+
+.arrow-back {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2
+}
+
+.meal-title {
+margin: 0 auto;
+align-self: center;
+}
+
+/* Search bar */
+.meal-search-bar {
+    /* grid-area: 2 / 1 / 3 / 6; */
+}
+.meal-search-form{
+    display: flex;
+    background-color: #F2E3D5;
+    padding: 5px 10px;
+    margin: 15px 0;
+    border-radius: 80px;
+    outline: #aaa 1px solid
+}
+
+.meal-search-input{
+    /* width: 470px; */
+    height: 40px;
+    border: none;
+    font-size: 17px;
+    background-color: #F2E3D5;
+    outline: none
+}
+
+.meal-types-of-cooking{
+    /* grid-area: 3 / 1 / 4 / 5; */
+     /* display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 100%;  */
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.meal-types-of-cooking img{
+    width: 100px;
+    /* height: 100px; */
+    padding: 15px;
+    background-color: coral;
+    margin: 5px 15px;
+    border-radius: 20px;
+    transition: ease 0.2s
+}
+.meal-types-of-cooking img:hover{
+ cursor: pointer;
+ transform: scale(1.05);
+
+}
+
+/* .meal-ingredients {
+    grid-area: 1 / 1 / 2 / 2
+}
+
+.meal-recipes {
+    grid-area: 3 / 3 / 4 / 4
+}
+
+.meal-favorite {
+    grid-area: 3 / 4 / 4 / 5;
+}
+.meal-create-recipe {
+    grid-area: 3 / 5 / 4 / 6;
+} */

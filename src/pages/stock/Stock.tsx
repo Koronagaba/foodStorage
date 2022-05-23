@@ -11,14 +11,18 @@ import CreateProduct from "../../components/createProduct/CreateProduct";
 import ProductsList from "./ProductsList";
 import { Product } from "../../types/type";
 import { CollectionType } from "../../hooks/useCollection";
+import { SearchContext } from "../../context/SearchContext";
 
 
 const Stock = () => {
 
   const [toggleModal, setToggleModal] = useState(false);
-  const [searchText, setSearchText] = useState("");
+  // const [searchText, setSearchText] = useState("");
 
   const { stockProductsList}: any = useContext(FoodStorageContext)
+  const { searchText } : any= useContext(SearchContext)
+
+  
   
   
   const handleToggleModal = () => {
@@ -41,8 +45,9 @@ const Stock = () => {
           />
         </NavLink>
 
-        <SearchBar searchText={searchText} setSearchText={setSearchText}/>
-        <ProductsList stockProductsList  ={stockProductsList} searchText={searchText} />
+        {/* <SearchBar searchText={searchText} setSearchText={setSearchText}/> */}
+        <SearchBar />
+        <ProductsList stockProductsList={stockProductsList} searchText={searchText} />
       </div>
     </div>
   );

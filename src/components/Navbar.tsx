@@ -25,11 +25,11 @@ const Navbar = () => {
   return (
     <div className={stickyStyle}>
       <nav>
-        <Link to={"/"} className="logo">
+        <Link to={"/cook"} className="logo">
           Let's cook with koro!
         </Link>
         <div>
-          <NavLink to={"/"} style={activeLink}>
+          <NavLink to={"/cook"} style={activeLink}>
             Cook
           </NavLink>
           <NavLink to={"/createNewProduct"}  style={activeLink}>
