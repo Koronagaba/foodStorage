@@ -1,10 +1,7 @@
-import { useContext, useRef, SyntheticEvent } from "react";
+import { useContext, useRef, SyntheticEvent} from "react";
 import {
   NavLink,
   Link,
-  Routes,
-  Route,
-  BrowserRouter,
   useNavigate,
   Outlet,
 } from "react-router-dom";
@@ -18,8 +15,8 @@ import recipe from "../../../icons/recipe.png";
 import ingredients from "../../../icons/ingredients.png";
 
 import { SearchContext } from "../../../context/SearchContext";
-import Ingredients from "../typesOfCooking/Ingredients";
-import CreateRecipe from "../typesOfCooking/CreateRecipe";
+
+
 
 const Breakfast = () => {
   const { searchText, setSearchText }: any = useContext(SearchContext);
@@ -40,16 +37,11 @@ const Breakfast = () => {
     searchFocus.current?.focus();
   };
 
-  const handleNavigate = () => {
-    navigate("createRecipe");
-  };
-
   return (
-    // <BrowserRouter>
     <div className="meal-container">
       <div className="meal">
         <div className="meal-header">
-          <img src={arrow_back} alt="arrow back" className="arrow-back" />
+          <img onClick={() => navigate(-1)} src={arrow_back} alt="arrow back" className="arrow-back" />
           <h2 className="meal-title">Breakfast</h2>
         </div>
 
@@ -97,19 +89,10 @@ const Breakfast = () => {
         {/* <div className="nav-sorting"></div> */}
 
         <div>
-          <p>Here will be types of cooking way</p>
           <Outlet />
-          {/* <BrowserRouter> */}
-          {/* <Routes> */}
-          {/* <Route path="/ingredients" element={<Ingredients />} /> */}
-          {/* <Route path="createRecipe" element={<CreateRecipe />}/> */}
-          {/* </Routes> */}
-          {/* </BrowserRouter> */}
-          {/* <Ingredients /> */}
         </div>
       </div>
     </div>
-    // </BrowserRouter>
   );
 };
 
