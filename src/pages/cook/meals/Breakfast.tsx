@@ -1,7 +1,6 @@
-import { useContext, useRef, SyntheticEvent } from "react";
+import { useContext, useRef, SyntheticEvent} from "react";
 import {
-  NavLink,
-  Link,
+  NavLink, Link,
   Routes,
   Route,
   BrowserRouter,
@@ -20,6 +19,8 @@ import ingredients from "../../../icons/ingredients.png";
 import { SearchContext } from "../../../context/SearchContext";
 import Ingredients from "../typesOfCooking/Ingredients";
 import CreateRecipe from "../typesOfCooking/CreateRecipe";
+
+
 
 const Breakfast = () => {
   const { searchText, setSearchText }: any = useContext(SearchContext);
@@ -40,16 +41,12 @@ const Breakfast = () => {
     searchFocus.current?.focus();
   };
 
-  const handleNavigate = () => {
-    navigate("createRecipe");
-  };
-
   return (
     // <BrowserRouter>
     <div className="meal-container">
       <div className="meal">
         <div className="meal-header">
-          <img src={arrow_back} alt="arrow back" className="arrow-back" />
+          <img onClick={() => navigate(-1)} src={arrow_back} alt="arrow back" className="arrow-back" />
           <h2 className="meal-title">Breakfast</h2>
         </div>
 

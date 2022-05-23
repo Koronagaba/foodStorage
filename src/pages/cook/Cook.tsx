@@ -9,9 +9,10 @@ const Cook = () => {
 
   }
 
+
   return (
     <div className="cook-container">
-      <NavLink to={"breakfast"} className="breakfast">
+      <NavLink to={"breakfast"} className="breakfast" >
         <div>
           <img src={add_circle} alt="add icon" />
           <p>add</p>
