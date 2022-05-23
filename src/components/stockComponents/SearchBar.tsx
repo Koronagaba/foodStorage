@@ -1,18 +1,19 @@
-import { useRef, SyntheticEvent } from "react";
+import { useRef, SyntheticEvent, useContext } from "react";
 
 import "./SearchBar.css";
 import search_icon from "../../icons/search.svg";
+import { SearchContext } from "../../context/SearchContext";
 
 
-interface SearchBarProps {
-  searchText: string,
-  setSearchText: (firstArg: string) => void
-}
+// interface SearchBarProps {
+//   searchText: string,
+//   setSearchText: (firstArg: string) => void
+// }
 
 
 
-const SearchBar: React.FC<SearchBarProps>= ({searchText, setSearchText}) => {
-
+const SearchBar = () => {
+  const { searchText, setSearchText } : any= useContext(SearchContext)
 
   const searchFocus = useRef<HTMLInputElement>(null);      
 
