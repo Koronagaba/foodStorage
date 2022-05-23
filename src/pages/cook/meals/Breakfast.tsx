@@ -1,9 +1,7 @@
 import { useContext, useRef, SyntheticEvent} from "react";
 import {
-  NavLink, Link,
-  Routes,
-  Route,
-  BrowserRouter,
+  NavLink,
+  Link,
   useNavigate,
   Outlet,
 } from "react-router-dom";
@@ -17,8 +15,6 @@ import recipe from "../../../icons/recipe.png";
 import ingredients from "../../../icons/ingredients.png";
 
 import { SearchContext } from "../../../context/SearchContext";
-import Ingredients from "../typesOfCooking/Ingredients";
-import CreateRecipe from "../typesOfCooking/CreateRecipe";
 
 
 
@@ -42,7 +38,6 @@ const Breakfast = () => {
   };
 
   return (
-    // <BrowserRouter>
     <div className="meal-container">
       <div className="meal">
         <div className="meal-header">
@@ -94,19 +89,10 @@ const Breakfast = () => {
         {/* <div className="nav-sorting"></div> */}
 
         <div>
-          <p>Here will be types of cooking way</p>
           <Outlet />
-          {/* <BrowserRouter> */}
-          {/* <Routes> */}
-          {/* <Route path="/ingredients" element={<Ingredients />} /> */}
-          {/* <Route path="createRecipe" element={<CreateRecipe />}/> */}
-          {/* </Routes> */}
-          {/* </BrowserRouter> */}
-          {/* <Ingredients /> */}
         </div>
       </div>
     </div>
-    // </BrowserRouter>
   );
 };
 

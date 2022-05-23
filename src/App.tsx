@@ -13,7 +13,7 @@ import Dinner from "./pages/cook/meals/Dinner";
 import Lunch from "./pages/cook/meals/Lunch";
 import Breakfast from "./pages/cook/meals/Breakfast";
 import Snack from "./pages/cook/meals/Snack";
-import Ingredients from "./pages/cook/typesOfCooking/Ingredients";
+import Ingredients from "./pages/cook/typesOfCooking/ingredients/Ingredients";
 import CreateRecipe from "./pages/cook/typesOfCooking/CreateRecipe";
 import RecipeList from "./pages/cook/typesOfCooking/RecipeList";
 import FavoriteFood from "./pages/cook/typesOfCooking/FavoriteFood";
@@ -31,7 +31,7 @@ function App() {
           <Route path="/cook/breakfast" element={<Breakfast />}>
             <Route path="ingredients" element={<Ingredients />}></Route>
             <Route path="recipeList" element={<RecipeList />}></Route>
-            {/* <Route path="favoriteFood" element={<FavoriteFood />}></Route> */}
+            <Route path="favoriteFood" element={<FavoriteFood />}></Route>
             <Route path="createRecipe" element={<CreateRecipe />} />
           </Route>
           <Route path="/cook/lunch" element={<Lunch />} />

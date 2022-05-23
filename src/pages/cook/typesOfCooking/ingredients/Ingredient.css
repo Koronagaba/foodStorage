@@ -1,0 +1,22 @@
+.ingredient {
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    margin: 10px 0;
+    padding: 0 15px;
+    justify-content: space-between;
+    /* background-color: #f2e3d5; */
+    background-color: hsl(33, 100%, 88%);
+    transition: ease-in-out .2s
+}
+.ingredient:hover{
+    background-color: #ddc2a2;
+}
+
+.ingredient img {
+transition: ease 0.2s;
+}
+.ingredient img:hover {
+    transform: scale(1.15);
+    cursor: pointer
+    }
