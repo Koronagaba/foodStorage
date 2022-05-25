@@ -1,6 +1,5 @@
-import { useContext, useRef, SyntheticEvent } from "react";
+import { useContext, useRef, SyntheticEvent, useEffect } from "react";
 import { NavLink, Link, useNavigate, Outlet } from "react-router-dom";
-
 
 import "./Meal.css";
 import arrow_back from "../../../icons/arrow_back.svg";
@@ -11,10 +10,13 @@ import recipe from "../../../icons/recipe.png";
 import ingredients from "../../../icons/ingredients.png";
 
 import { SearchContext } from "../../../context/SearchContext";
+import { MealsContext } from "../../../context/MealsContext";
+
+import { MealIngredient } from "../../../types/type";
 
 const Breakfast = () => {
   const { searchText, setSearchText }: any = useContext(SearchContext);
-
+  const { documents }: any = useContext(MealsContext);
 
   const searchFocus = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
@@ -32,7 +34,6 @@ const Breakfast = () => {
     searchFocus.current?.focus();
   };
 
-  
   return (
     <div className="meal-container">
       <div className="meal">
@@ -89,6 +90,13 @@ const Breakfast = () => {
         </div>
         {/* <div className="nav-sorting"></div> */}
         <div>Breakfast's products list</div>
+        {documents.map((doc: MealIngredient) => (
+          <div key={doc.id}>
+            <h3>
+              {doc.title} - {doc.amount}
+            </h3>
+          </div>
+        ))}
         <div>
           <Outlet />
         </div>

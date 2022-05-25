@@ -12,6 +12,13 @@ export interface ShopProduct {
   id: string; 
 }
 
+export interface MealIngredient {
+  title: string;
+  amount: number;
+  isEditing: boolean;
+  id: string
+}
+
 // export type SingleItemProps = {
 //   item: ShopList;
 //   toggleEdit: (id: number, itemTitle: string, itemAmount: number, itemIsEditing: boolean) => void;
