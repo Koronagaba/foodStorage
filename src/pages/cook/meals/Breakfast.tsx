@@ -16,7 +16,7 @@ import { MealIngredient } from "../../../types/type";
 
 const Breakfast = () => {
   const { searchText, setSearchText }: any = useContext(SearchContext);
-  const { documents }: any = useContext(MealsContext);
+  const { breakfastList }: any = useContext(MealsContext);
 
   const searchFocus = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
@@ -34,6 +34,16 @@ const Breakfast = () => {
     searchFocus.current?.focus();
   };
 
+  const displayingBreakfastList = breakfastList.map((doc: MealIngredient) => (
+      <div key={doc.id}>
+        <h3>
+          {doc.title} - {doc.amount}
+        </h3>
+      </div>
+    ))
+  
+
+ 
   return (
     <div className="meal-container">
       <div className="meal">
@@ -67,38 +77,41 @@ const Breakfast = () => {
             />
           </form>
         </div>
-        <div className="meal-types-of-cooking">
-          <Link to={"ingredients"}>
-            <img
-              src={ingredients}
-              alt="food (ingredients)"
-              className="meal-ingredients"
-            />
-          </Link>
-          <Link to={"recipeList"}>
-            <img src={recipe} alt="recipes" className="meal-recipes" />
-          </Link>
+        {breakfastList ? (
+          <>
+               <div>Breakfast's products list:</div>
+         {displayingBreakfastList}
+          <button>Add more</button>
+          </>
+        ) : (
+          <div className="meal-types-of-cooking">
+            <Link to={"ingredients"}>
+              <img
+                src={ingredients}
+                alt="food (ingredients)"
+                className="meal-ingredients"
+              />
+            </Link>
+            <Link to={"recipeList"}>
+              <img src={recipe} alt="recipes" className="meal-recipes" />
+            </Link>
 
-          <Link to={"favoriteFood"}>
-            <img src={favorite} alt="favorite" className="meal-favorite" />
-          </Link>
-          <Link to={"createRecipe"}>
-            <img
-              src={add_circle}
-              alt="create recipe"
-              className="meal-create-recipe"
-            />
-          </Link>
-        </div>
-        {/* <div className="nav-sorting"></div> */}
-        <div>Breakfast's products list</div>
-        {documents.map((doc: MealIngredient) => (
-          <div key={doc.id}>
-            <h3>
-              {doc.title} - {doc.amount}
-            </h3>
+            <Link to={"favoriteFood"}>
+              <img src={favorite} alt="favorite" className="meal-favorite" />
+            </Link>
+            <Link to={"createRecipe"}>
+              <img
+                src={add_circle}
+                alt="create recipe"
+                className="meal-create-recipe"
+              />
+            </Link>
           </div>
-        ))}
+        )}
+
+        {/* <div className="nav-sorting"></div> */}
+  
+
         <div>
           <Outlet />
         </div>
