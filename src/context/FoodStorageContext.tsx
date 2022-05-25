@@ -11,7 +11,7 @@ export interface CollectionType {
 export const FoodStorageContext = createContext<CollectionType | null>(null)
 
 
-export const StockContextProvider: FC = ({children}) => {
+export const FoodStorageContextProvider: FC = ({children}) => {
   
   const { documents: stockProductsList } = useCollection<Product>('products')
   const { documents: shoppingList } = useCollection<ShopProduct>('shoppingList')

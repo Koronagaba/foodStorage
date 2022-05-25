@@ -2,16 +2,19 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 import App from "./App";
-import { StockContextProvider } from "./context/FoodStorageContext";
+import { FoodStorageContextProvider } from "./context/FoodStorageContext";
+import { MealsContextProvider } from "./context/MealsContext";
 import { SearchContextProvider } from "./context/SearchContext";
 
 ReactDOM.render(
   <React.StrictMode>
-    <StockContextProvider>
+    <FoodStorageContextProvider>
       <SearchContextProvider>
-        <App />
+        <MealsContextProvider>
+          <App />
+        </MealsContextProvider>
       </SearchContextProvider>
-    </StockContextProvider>
+    </FoodStorageContextProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );

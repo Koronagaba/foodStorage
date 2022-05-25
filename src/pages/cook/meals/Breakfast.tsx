@@ -1,10 +1,6 @@
-import { useContext, useRef, SyntheticEvent} from "react";
-import {
-  NavLink,
-  Link,
-  useNavigate,
-  Outlet,
-} from "react-router-dom";
+import { useContext, useRef, SyntheticEvent } from "react";
+import { NavLink, Link, useNavigate, Outlet } from "react-router-dom";
+
 
 import "./Meal.css";
 import arrow_back from "../../../icons/arrow_back.svg";
@@ -16,10 +12,9 @@ import ingredients from "../../../icons/ingredients.png";
 
 import { SearchContext } from "../../../context/SearchContext";
 
-
-
 const Breakfast = () => {
   const { searchText, setSearchText }: any = useContext(SearchContext);
+
 
   const searchFocus = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
@@ -37,11 +32,17 @@ const Breakfast = () => {
     searchFocus.current?.focus();
   };
 
+  
   return (
     <div className="meal-container">
       <div className="meal">
         <div className="meal-header">
-          <img onClick={() => navigate(-1)} src={arrow_back} alt="arrow back" className="arrow-back" />
+          <img
+            onClick={() => navigate(-1)}
+            src={arrow_back}
+            alt="arrow back"
+            className="arrow-back"
+          />
           <h2 className="meal-title">Breakfast</h2>
         </div>
 
@@ -87,7 +88,7 @@ const Breakfast = () => {
           </Link>
         </div>
         {/* <div className="nav-sorting"></div> */}
-
+        <div>Breakfast's products list</div>
         <div>
           <Outlet />
         </div>
