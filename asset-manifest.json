@@ -1,8 +1,10 @@
 {
   "files": {
-    "main.css": "/foodStorage/static/css/main.82f41ce4.css",
-    "main.js": "/foodStorage/static/js/main.76526e1f.js",
+    "main.css": "/foodStorage/static/css/main.df6e7028.css",
+    "main.js": "/foodStorage/static/js/main.96d8c288.js",
+    "static/media/favorite.svg": "/foodStorage/static/media/favorite.dacd13dc37e1ce65fd8593d432759721.svg",
     "index.html": "/foodStorage/index.html",
+    "static/media/add_circle.svg": "/foodStorage/static/media/add_circle.4a7bccde8ffd5ffcc46a7c222ddcf793.svg",
     "static/media/local_shipping_black.svg": "/foodStorage/static/media/local_shipping_black.f35f23e284477ecd9c590130d408ebbf.svg",
     "static/media/shopping_cart.svg": "/foodStorage/static/media/shopping_cart.0f0cd44e7206cc6af6327851ca250b91.svg",
     "static/media/add_shopping_cart.svg": "/foodStorage/static/media/add_shopping_cart.981356528c0a876d8c5a683f40d076e5.svg",
@@ -12,11 +14,12 @@
     "static/media/close_white_36.svg": "/foodStorage/static/media/close_white_36.1eb680cedf787064c42ff07625881360.svg",
     "static/media/check.svg": "/foodStorage/static/media/check.222a1c7ef846e3979556e4c12528d041.svg",
     "static/media/add.svg": "/foodStorage/static/media/add.376e9b6a44e5b3142f1239a3cc8504d0.svg",
-    "main.82f41ce4.css.map": "/foodStorage/static/css/main.82f41ce4.css.map",
-    "main.76526e1f.js.map": "/foodStorage/static/js/main.76526e1f.js.map"
+    "static/media/arrow_back.svg": "/foodStorage/static/media/arrow_back.b9b1b1b9f53a15c0c8d85bc6a29ce4a1.svg",
+    "main.df6e7028.css.map": "/foodStorage/static/css/main.df6e7028.css.map",
+    "main.96d8c288.js.map": "/foodStorage/static/js/main.96d8c288.js.map"
   },
   "entrypoints": [
-    "static/css/main.82f41ce4.css",
-    "static/js/main.76526e1f.js"
+    "static/css/main.df6e7028.css",
+    "static/js/main.96d8c288.js"
   ]
 }
