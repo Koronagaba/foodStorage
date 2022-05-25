@@ -36,7 +36,8 @@
 .meal-title {
 margin: 0 auto;
 align-self: center;
-color: #f3f4e6
+color: #f3f4e6;
+text-decoration: none;
 }
 
 /* Search bar */

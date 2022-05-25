@@ -44,7 +44,9 @@ const Breakfast = () => {
             alt="arrow back"
             className="arrow-back"
           />
-          <h2 className="meal-title">Breakfast</h2>
+          <Link to={"/cook"} className="meal-title">
+            <h2>Breakfast</h2>
+          </Link>
         </div>
 
         <div className="meal-search-bar">
