@@ -5,7 +5,7 @@ export const MealsContext = createContext({});
 
 export const MealsContextProvider: FC = ({ children }) => {
 
-    const {documents} = useCollection('breakfast')
+    const {documents: breakfastList} = useCollection('breakfast')
 
-  return <MealsContext.Provider value={{documents}}>{children}</MealsContext.Provider>;
+  return <MealsContext.Provider value={{breakfastList}}>{children}</MealsContext.Provider>;
 };

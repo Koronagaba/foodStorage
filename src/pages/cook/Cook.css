@@ -21,14 +21,17 @@
 }
 .cook-container a:hover {
     cursor: pointer;
-    transform: scale(1.02)
+    transform: scale(1.014)
 }
 
 .cook-container img {
     transition: 0.2s ease
 }
 .cook-container img:hover{
-    transform: scale(1.1)
+    transform: scale(1.07)
+}
+.cook-breakfast-icon{
+    width: 90px
 }
 
 .cook-container .type-of-meal {
