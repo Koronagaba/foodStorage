@@ -17,7 +17,7 @@ const BreakfastList = () => {
     
 
     const addMoreIngredientsToBreakfast = () => {
-        // navigate("/cook/breakfast/ingredients")
+        navigate("/cook/breakfast/ingredients")
       };
 
 

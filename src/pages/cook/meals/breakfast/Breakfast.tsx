@@ -22,6 +22,14 @@ const Breakfast = () => {
   const searchFocus = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
 
+  const handleArrowBack = () => {
+    if(breakfastList){
+    navigate("/cook/breakfast/breakfastList")
+    }else{
+      navigate("/cook/breakfast/ingredients")
+    }
+  }
+
   const handleSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
     setSearchText("");
@@ -34,15 +42,24 @@ const Breakfast = () => {
   const searchInputFocus = () => {
     searchFocus.current?.focus();
   };
-    
-  
+
+
+  useEffect(()=>{
+    if (breakfastList) {
+    navigate('breakfastList')
+    }else {
+    navigate('ingredients')
+    }
+  },[])
+
+
 
   return (
     <div className="meal-container">
       <div className="meal">
         <div className="meal-header">
           <img
-            onClick={() => navigate(-1)}
+            onClick={handleArrowBack}
             src={arrow_back}
             alt="arrow back"
             className="arrow-back"
