@@ -9,21 +9,21 @@ import ingredients from "../../../icons/ingredients.png";
 const TypesOfCooking = () => {
   return (
     <div className="meal-types-of-cooking">
-            <Link to={"ingredients"}>
+            <Link to={"/cook/breakfast/ingredients"}>
               <img
                 src={ingredients}
                 alt="food (ingredients)"
                 className="meal-ingredients"
               />
             </Link>
-            <Link to={"recipeList"}>
+            <Link to={"/cook/breakfast/recipeList"}>
               <img src={recipe} alt="recipes" className="meal-recipes" />
             </Link>
 
-            <Link to={"favoriteFood"}>
+            <Link to={"/cook/breakfast/favoriteFood"}>
               <img src={favorite} alt="favorite" className="meal-favorite" />
             </Link>
-            <Link to={"createRecipe"}>
+            <Link to={"/cook/breakfast/createRecipe"}>
               <img
                 src={add_circle}
                 alt="create recipe"

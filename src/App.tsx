@@ -14,9 +14,9 @@ import Lunch from "./pages/cook/meals/Lunch";
 import Breakfast from "./pages/cook/meals/breakfast/Breakfast";
 import Snack from "./pages/cook/meals/Snack";
 import Ingredients from "./pages/cook/typesOfCooking/ingredients/Ingredients";
-import CreateRecipe from "./pages/cook/typesOfCooking/CreateRecipe";
-import RecipeList from "./pages/cook/typesOfCooking/RecipeList";
-import FavoriteFood from "./pages/cook/typesOfCooking/FavoriteFood";
+import CreateRecipe from "./pages/cook/typesOfCooking/createRecipe/CreateRecipe";
+import RecipeList from "./pages/cook/typesOfCooking/recipeList/RecipeList";
+import FavoriteFood from "./pages/cook/typesOfCooking/favoriteFood/FavoriteFood";
 import NoMatch from "./components/NoMatch/NoMatch";
 import BreakfastList from "./pages/cook/meals/breakfast/BreakfastList";
 

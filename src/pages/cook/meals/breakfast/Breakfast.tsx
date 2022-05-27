@@ -87,7 +87,7 @@ const Breakfast = () => {
             />
           </form>
         </div>
-        <TypesOfCooking />
+
 
         
         {/* <Condit /> */}
