@@ -47,14 +47,18 @@ text-decoration: none;
 .meal-search-form{
     display: flex;
     background-color: #F2E3D5;
-    padding: 5px 10px;
+    padding: 5px ;
     margin: 15px 0;
     border-radius: 80px;
-    outline: #aaa 1px solid
+    outline: #aaa 1px solid;
+    
+}
+.meal-search-icon {
+margin-left: 25px
 }
 
 .meal-search-input{
-    /* width: 470px; */
+    width: 500px;
     height: 40px;
     border: none;
     font-size: 17px;

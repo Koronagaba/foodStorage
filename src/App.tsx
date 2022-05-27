@@ -11,13 +11,14 @@ import "./App.css";
 import CreateProduct from "./components/createProduct/CreateProduct";
 import Dinner from "./pages/cook/meals/Dinner";
 import Lunch from "./pages/cook/meals/Lunch";
-import Breakfast from "./pages/cook/meals/Breakfast";
+import Breakfast from "./pages/cook/meals/breakfast/Breakfast";
 import Snack from "./pages/cook/meals/Snack";
 import Ingredients from "./pages/cook/typesOfCooking/ingredients/Ingredients";
 import CreateRecipe from "./pages/cook/typesOfCooking/CreateRecipe";
 import RecipeList from "./pages/cook/typesOfCooking/RecipeList";
 import FavoriteFood from "./pages/cook/typesOfCooking/FavoriteFood";
 import NoMatch from "./components/NoMatch/NoMatch";
+import BreakfastList from "./pages/cook/meals/breakfast/BreakfastList";
 
 function App() {
   const [toggleModal, setToggleModal] = useState(false);
@@ -29,6 +30,7 @@ function App() {
           <Route path="/cook" element={<Cook />}></Route>
                     <Route path="*" element={<Navigate to="/cook" />}/>
           <Route path="/cook/breakfast" element={<Breakfast />}>
+            <Route path="breakfastList" element={<BreakfastList />}></Route>
             <Route path="ingredients" element={<Ingredients />}></Route>
             <Route path="recipeList" element={<RecipeList />}></Route>
             <Route path="favoriteFood" element={<FavoriteFood />}></Route>

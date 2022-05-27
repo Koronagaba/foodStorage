@@ -1,20 +1,21 @@
-import { useContext, useRef, SyntheticEvent, useEffect } from "react";
+import { useContext, useRef, SyntheticEvent, useState, useEffect } from "react";
 import { NavLink, Link, useNavigate, Outlet } from "react-router-dom";
 
-import "./Meal.css";
-import arrow_back from "../../../icons/arrow_back.svg";
-import add_circle from "../../../icons/add_circle.svg";
-import search_icon from "../../../icons/search.svg";
-import favorite from "../../../icons/favorite.svg";
-import recipe from "../../../icons/recipe.png";
-import ingredients from "../../../icons/ingredients.png";
+import "../Meal.css";
+import arrow_back from "../../../../icons/arrow_back.svg";
 
-import { SearchContext } from "../../../context/SearchContext";
-import { MealsContext } from "../../../context/MealsContext";
+import search_icon from "../../../../icons/search.svg";
 
-import { MealIngredient } from "../../../types/type";
+import { SearchContext } from "../../../../context/SearchContext";
+
+
+import TypesOfCooking from "../../typesOfCooking/TypesOfCooking";
+import Ingredients from "../../typesOfCooking/ingredients/Ingredients";
+import { MealsContext } from "../../../../context/MealsContext";
+import BreakfastList from "./BreakfastList";
 
 const Breakfast = () => {
+
   const { searchText, setSearchText }: any = useContext(SearchContext);
   const { breakfastList }: any = useContext(MealsContext);
 
@@ -33,17 +34,9 @@ const Breakfast = () => {
   const searchInputFocus = () => {
     searchFocus.current?.focus();
   };
-
-  const displayingBreakfastList = breakfastList.map((doc: MealIngredient) => (
-      <div key={doc.id}>
-        <h3>
-          {doc.title} - {doc.amount}
-        </h3>
-      </div>
-    ))
+    
   
 
- 
   return (
     <div className="meal-container">
       <div className="meal">
@@ -77,40 +70,23 @@ const Breakfast = () => {
             />
           </form>
         </div>
-        {breakfastList ? (
+        <TypesOfCooking />
+
+        
+        {/* <Condit /> */}
+        {/* {breakfastList ? (
           <>
-               <div>Breakfast's products list:</div>
-         {displayingBreakfastList}
-          <button>Add more</button>
+            <div>Breakfast's products list:</div>
+            {displayingBreakfastList}
+            <button onClick={addMoreIngredientsToBreakfast}>Add more</button>
           </>
         ) : (
-          <div className="meal-types-of-cooking">
-            <Link to={"ingredients"}>
-              <img
-                src={ingredients}
-                alt="food (ingredients)"
-                className="meal-ingredients"
-              />
-            </Link>
-            <Link to={"recipeList"}>
-              <img src={recipe} alt="recipes" className="meal-recipes" />
-            </Link>
+          <TypesOfCooking />
+        )} */}
 
-            <Link to={"favoriteFood"}>
-              <img src={favorite} alt="favorite" className="meal-favorite" />
-            </Link>
-            <Link to={"createRecipe"}>
-              <img
-                src={add_circle}
-                alt="create recipe"
-                className="meal-create-recipe"
-              />
-            </Link>
-          </div>
-        )}
+        {/* {breakfastList && showTypesOfCooking } */}
 
         {/* <div className="nav-sorting"></div> */}
-  
 
         <div>
           <Outlet />
