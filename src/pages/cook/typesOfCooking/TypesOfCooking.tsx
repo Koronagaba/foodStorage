@@ -16,7 +16,7 @@ const TypesOfCooking = () => {
                 className="meal-ingredients"
               />
             </Link>
-            <Link to={"/cook/breakfast/recipeList"}>
+            {/* <Link to={"/cook/breakfast/recipeList"}>
               <img src={recipe} alt="recipes" className="meal-recipes" />
             </Link>
 
@@ -29,7 +29,7 @@ const TypesOfCooking = () => {
                 alt="create recipe"
                 className="meal-create-recipe"
               />
-            </Link>
+            </Link> */}
           </div>
   )
 }
