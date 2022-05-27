@@ -3,7 +3,7 @@
     /* background-color: #51959E; */
     background-color: darkslategray;
     /* background-color: #8C3B07; */
-    height: 100vh
+    min-height: 90vh
 }
 .meal{
     width: 600px;
@@ -41,9 +41,7 @@ text-decoration: none;
 }
 
 /* Search bar */
-.meal-search-bar {
-    /* grid-area: 2 / 1 / 3 / 6; */
-}
+
 .meal-search-form{
     display: flex;
     background-color: #F2E3D5;
