@@ -10,7 +10,7 @@ import ShoppingList from "./pages/shoppingList/ShoppingList";
 import "./App.css";
 import CreateProduct from "./components/createProduct/CreateProduct";
 import Dinner from "./pages/cook/meals/Dinner";
-import Lunch from "./pages/cook/meals/Lunch";
+import Lunch from "./pages/cook/meals/lunch/Lunch";
 import Breakfast from "./pages/cook/meals/breakfast/Breakfast";
 import Snack from "./pages/cook/meals/Snack";
 import Ingredients from "./pages/cook/typesOfCooking/ingredients/Ingredients";
@@ -19,6 +19,7 @@ import RecipeList from "./pages/cook/typesOfCooking/recipeList/RecipeList";
 import FavoriteFood from "./pages/cook/typesOfCooking/favoriteFood/FavoriteFood";
 import NoMatch from "./components/NoMatch/NoMatch";
 import BreakfastList from "./pages/cook/meals/breakfast/BreakfastList";
+import LunchList from "./pages/cook/meals/lunch/LunchList";
 
 function App() {
   const [toggleModal, setToggleModal] = useState(false);
@@ -28,7 +29,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/cook" element={<Cook />}></Route>
-                    <Route path="*" element={<Navigate to="/cook" />}/>
+          <Route path="*" element={<Navigate to="/cook" />} />
           <Route path="/cook/breakfast" element={<Breakfast />}>
             <Route path="breakfastList" element={<BreakfastList />}></Route>
             <Route path="ingredients" element={<Ingredients />}></Route>
@@ -36,7 +37,13 @@ function App() {
             <Route path="favoriteFood" element={<FavoriteFood />}></Route>
             <Route path="createRecipe" element={<CreateRecipe />} />
           </Route>
-          <Route path="/cook/lunch" element={<Lunch />} />
+          <Route path="/cook/lunch" element={<Lunch />}>
+            <Route path="lunchList" element={<LunchList />}></Route>
+            <Route path="ingredients" element={<Ingredients />}></Route>
+            <Route path="recipeList" element={<RecipeList />}></Route>
+            <Route path="favoriteFood" element={<FavoriteFood />}></Route>
+            <Route path="createRecipe" element={<CreateRecipe />} />
+          </Route>
           <Route path="/cook/dinner" element={<Dinner />} />
           <Route path="/cook/snack" element={<Snack />} />
           <Route
