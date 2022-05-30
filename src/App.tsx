@@ -30,14 +30,14 @@ function App() {
         <Routes>
           <Route path="/cook" element={<Cook />}></Route>
           <Route path="*" element={<Navigate to="/cook" />} />
-          <Route path="/cook/breakfast" element={<Breakfast />}>
+          <Route path="/cook/breakfast/*" element={<Breakfast />}>
             <Route path="breakfastList" element={<BreakfastList />}></Route>
             <Route path="ingredients" element={<Ingredients nameOfCollection={'breakfast'} />}></Route>
             <Route path="recipeList" element={<RecipeList />}></Route>
             <Route path="favoriteFood" element={<FavoriteFood />}></Route>
             <Route path="createRecipe" element={<CreateRecipe />} />
           </Route>
-          <Route path="/cook/lunch" element={<Lunch />}>
+          <Route path="/cook/lunch/*" element={<Lunch />}>
             <Route path="lunchList" element={<LunchList />}></Route>
             <Route path="ingredients" element={<Ingredients nameOfCollection={'lunch'}/>}></Route>
             <Route path="recipeList" element={<RecipeList />}></Route>

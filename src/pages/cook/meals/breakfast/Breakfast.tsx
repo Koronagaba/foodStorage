@@ -19,7 +19,6 @@ const Breakfast = () => {
     }
   }, []);
 
-  console.log(BackToCook);
   return (
     <div className="meal-container">
       <div className="meal">

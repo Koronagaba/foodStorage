@@ -12,7 +12,7 @@ export const BackToCook = () => {
   const navigate = useNavigate();
   return (
     <img
-      onClick={() => navigate("cook")}
+      onClick={() => navigate("/cook")}
       src={arrow_back}
       alt="arrow back"
       className="arrow-back"
@@ -28,7 +28,7 @@ export const BackToMealList: FC<BackToMealListProps> = ({ path }) => {
     if (breakfastList) {
       navigate(`/cook/${path}`);
     } else {
-      navigate("cook");
+      navigate("/cook");
     }
   };
 
