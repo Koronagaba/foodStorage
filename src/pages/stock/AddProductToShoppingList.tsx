@@ -58,9 +58,8 @@ const AddProduct = ({ inputRef, product }: AddProductProps) => {
           type="number"
           min="0"
           value={numberOfProductsAddedToCart}
-          onChange={(e) =>
-            setNumberOfProductsAddedToCart(parseInt(e.target.value))
-          }
+          onChange={(e) =>setNumberOfProductsAddedToCart(parseInt(e.target.value))}
+          onFocus={(e: React.ChangeEvent<HTMLInputElement>) => e.target.select()}
         />
       </label>
       <img

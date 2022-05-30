@@ -23,8 +23,6 @@ interface Action {
   field: string;
 }
 
-
-
 const CreateProduct: React.FC<Props> = ({ setToggleModal }) => {
   const { stockProductsList }: any = useContext(FoodStorageContext);
   const { addProduct } = useAdd();
@@ -98,7 +96,6 @@ const CreateProduct: React.FC<Props> = ({ setToggleModal }) => {
             <div className="form-item">
               <label>Name: </label>
               <input
-                ref={focusInput}
                 type="text"
                 name="name"
                 value={state.name}
@@ -108,10 +105,11 @@ const CreateProduct: React.FC<Props> = ({ setToggleModal }) => {
             <div className="form-item">
               <label>Amount: </label>
               <input
-                type="text"
+                type="number"
                 name="amount"
                 value={state.amount}
                 onChange={handleForm}
+                onFocus={(e: React.ChangeEvent<HTMLInputElement>) => e.target.select()}
               />
             </div>
           </div>
