@@ -1,0 +1,54 @@
+.meal-types-of-cooking{
+    /* grid-area: 3 / 1 / 4 / 5; */
+     /* display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 100%;  */
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.meal-types-of-cooking img{
+    width: 100px;
+    padding: 15px;
+    background-color: coral;
+    margin: 5px 15px;
+    border-radius: 20px;
+  
+}
+.meal-types-of-cooking img:hover{
+
+}
+
+.meal-ingredients {
+    transition: ease 0.1s
+}
+.meal-ingredients:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+
+.disabled img{
+    opacity: 0.2;
+    cursor: auto
+}
+.disabled a{
+    position: relative;
+}
+.textHide{
+    position: absolute;
+    top: 9px;
+    left: 90px;
+    visibility:hidden;
+    color: #000;
+    background-color: #eee;
+    border-radius: 10px;
+    width: 260%;
+    max-height: 40px;
+    padding: 10px;
+    font-size: 18px;
+}
+.disabled :hover .textHide{
+    visibility:visible;
+}

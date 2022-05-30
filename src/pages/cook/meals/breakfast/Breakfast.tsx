@@ -4,22 +4,21 @@ import { NavLink, Link, useNavigate, Outlet } from "react-router-dom";
 import "../Meal.css";
 import arrow_back from "../../../../icons/arrow_back.svg";
 
-import search_icon from "../../../../icons/search.svg";
 
-import { SearchContext } from "../../../../context/SearchContext";
 
 
 import TypesOfCooking from "../../typesOfCooking/TypesOfCooking";
 import Ingredients from "../../typesOfCooking/ingredients/Ingredients";
 import { MealsContext } from "../../../../context/MealsContext";
 import BreakfastList from "./BreakfastList";
+import SearchBarMeal from "../SearchBarMeal";
 
 const Breakfast = () => {
 
-  const { searchText, setSearchText }: any = useContext(SearchContext);
+ 
   const { breakfastList }: any = useContext(MealsContext);
 
-  const searchFocus = useRef<HTMLInputElement>(null);
+
   const navigate = useNavigate();
 
   const handleArrowBack = () => {
@@ -29,20 +28,6 @@ const Breakfast = () => {
       navigate("/cook/breakfast/ingredients")
     }
   }
-
-  const handleSubmit = (e: SyntheticEvent) => {
-    e.preventDefault();
-    setSearchText("");
-  };
-
-  const handleSearchText = (e: { target: HTMLInputElement }) => {
-    setSearchText(e.target.value);
-  };
-
-  const searchInputFocus = () => {
-    searchFocus.current?.focus();
-  };
-
 
   useEffect(()=>{
     if (breakfastList) {
@@ -68,27 +53,7 @@ const Breakfast = () => {
             <h2>Breakfast</h2>
           </Link>
         </div>
-
-        <div className="meal-search-bar">
-          <form className="meal-search-form" onSubmit={handleSubmit}>
-            <img
-              className="meal-search-icon"
-              src={search_icon}
-              alt="search icon"
-              onClick={searchInputFocus}
-            />
-            <input
-              className="meal-search-input"
-              ref={searchFocus}
-              type="text"
-              placeholder="Search..."
-              value={searchText}
-              onChange={handleSearchText}
-            />
-          </form>
-        </div>
-
-
+        <SearchBarMeal />
         
         {/* <Condit /> */}
         {/* {breakfastList ? (
