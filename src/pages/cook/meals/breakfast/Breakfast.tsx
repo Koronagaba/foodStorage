@@ -2,15 +2,15 @@ import { useContext, useEffect } from "react";
 import { Link, useNavigate, Outlet, Routes, Route } from "react-router-dom";
 
 import "../Meal.css";
-import arrow_back from "../../../../icons/arrow_back.svg";
 
 import { MealsContext } from "../../../../context/MealsContext";
 import SearchBarMeal from "../SearchBarMeal";
+import {BackToCook, BackToBreakfast} from "../consts/ArrowBack";
 
 const Breakfast = () => {
   const { breakfastList }: any = useContext(MealsContext);
-
   const navigate = useNavigate();
+
 
   useEffect(() => {
     if (breakfastList) {
@@ -20,36 +20,8 @@ const Breakfast = () => {
     }
   }, []);
 
-  const handleArrowBackToBreakfast = () => {
-    if (breakfastList) {
-      navigate("/cook/breakfast/breakfastList");
-    } else {
-      navigate("cook");
-    }
-  };
-
-  const BackToCook = () => {
-    return (
-      <img
-        onClick={() => navigate("cook")}
-        src={arrow_back}
-        alt="arrow back"
-        className="arrow-back"
-      />
-    );
-  };
-
-  const BackToBreakfast = () => {
-    return (
-      <img
-        onClick={handleArrowBackToBreakfast}
-        src={arrow_back}
-        alt="arrow back"
-        className="arrow-back"
-      />
-    );
-  };
-
+ 
+console.log(BackToCook)
   return (
     <div className="meal-container">
       <div className="meal">
