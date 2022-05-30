@@ -2,7 +2,8 @@ import { useContext } from "react";
 import { MealsContext } from "../../../../context/MealsContext";
 
 import "../TypesOfMeals.css";
-
+import lunch_icon from '../../../../icons/lunch_icon.png'
+ 
 import { MealIngredient } from "../../../../types/type";
 import AddMoreButton from "../AddMoreButton";
 
@@ -19,7 +20,7 @@ const LunchList = () => {
   return (
     <div className="typesOfMeals-container">
       <div className="typesOfMeals-header">
-        {/* <img src={breakfast_icon} alt="breakfast icon" /> */}
+        <img src={lunch_icon} alt="lunch icon" />
       </div>
       {displayLunchList}
       <AddMoreButton path={'lunch'}/>

@@ -30,8 +30,8 @@
 .cook-container img:hover{
     transform: scale(1.07)
 }
-.cook-breakfast-icon{
-    width: 90px
+.cook-icon{
+    width: 110px
 }
 
 .cook-container .type-of-meal {
