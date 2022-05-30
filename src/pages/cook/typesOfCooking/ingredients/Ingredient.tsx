@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useState, useRef } from "react";
 import { collection, addDoc } from "firebase/firestore"; 
 import { db } from "../../../../firebase/config";
 
@@ -15,6 +15,14 @@ interface IngredientProps {
 
 const Ingredient: FC<IngredientProps> = ({ stockProduct }) => {
   const [inputNumber, setInputNumber] = useState(0);
+   const ref = useRef<HTMLInputElement| null>(null)
+  
+const handleFocusInput = () => {
+  if(ref.current){
+    ref.current.focus()
+  }
+
+}
 
   const addIngredientToBreakfast = () => {
     addDoc(collection(db, 'breakfast' ), {
@@ -26,14 +34,16 @@ const Ingredient: FC<IngredientProps> = ({ stockProduct }) => {
   };
 
   return (
-    <div className="ingredient">
+    <div onClick={handleFocusInput} className="ingredient">
       <p className="ingredient-title">{`${stockProduct.title} (${stockProduct.amount})`}</p>
       <form>
         <label>amount: </label>
         <input
+          ref = {ref}
           type="number"
           value={inputNumber}
           onChange={(e) => setInputNumber(parseInt(e.target.value))}
+          onFocus={(e: React.ChangeEvent<HTMLInputElement>)=> e.target.select()}
         />
       </form>
       <img
