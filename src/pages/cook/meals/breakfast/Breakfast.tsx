@@ -5,12 +5,11 @@ import "../Meal.css";
 
 import { MealsContext } from "../../../../context/MealsContext";
 import SearchBarMeal from "../SearchBarMeal";
-import {BackToCook, BackToBreakfast} from "../consts/ArrowBack";
+import { BackToCook, BackToMealList } from "../consts/ArrowBack";
 
 const Breakfast = () => {
   const { breakfastList }: any = useContext(MealsContext);
   const navigate = useNavigate();
-
 
   useEffect(() => {
     if (breakfastList) {
@@ -20,15 +19,17 @@ const Breakfast = () => {
     }
   }, []);
 
- 
-console.log(BackToCook)
+  console.log(BackToCook);
   return (
     <div className="meal-container">
       <div className="meal">
         <div className="meal-header">
           <Routes>
             <Route path="breakfastList" element={<BackToCook />} />
-            <Route path="ingredients" element={<BackToBreakfast />} />
+            <Route
+              path="ingredients"
+              element={<BackToMealList path={"breakfast/breakfastList"} />}
+            />
           </Routes>
           <Link to={"/cook"} className="meal-title">
             <h2>Breakfast</h2>
