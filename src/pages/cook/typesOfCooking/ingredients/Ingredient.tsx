@@ -10,10 +10,11 @@ import { Product } from "../../../../types/type";
 
 
 interface IngredientProps {
-  stockProduct: Product;
+  stockProduct: Product,
+  nameOfCollection: string
 }
 
-const Ingredient: FC<IngredientProps> = ({ stockProduct }) => {
+const Ingredient: FC<IngredientProps> = ({ stockProduct, nameOfCollection }) => {
   const [inputNumber, setInputNumber] = useState(0);
    const ref = useRef<HTMLInputElement| null>(null)
   
@@ -25,7 +26,7 @@ const handleFocusInput = () => {
 }
 
   const addIngredientToBreakfast = () => {
-    addDoc(collection(db, 'breakfast' ), {
+    addDoc(collection(db, `${nameOfCollection}` ), {
       amount: inputNumber,
       isEditing: false,
       title: stockProduct.title
