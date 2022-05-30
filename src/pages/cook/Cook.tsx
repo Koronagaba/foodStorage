@@ -40,12 +40,12 @@ const Cook = () => {
         <p className="type-of-meal">Lunch</p>
       </NavLink>
 
-      <NavLink to={"dinner"} className="dinner">
+      <NavLink to={"supper"} className="supper">
         <div>
           <img src={add_circle} alt="add icon" />
           <p>add</p>
         </div>
-        <p className="type-of-meal">Dinner</p>
+        <p className="type-of-meal">Supper</p>
       </NavLink>
 
       <NavLink to={"snack"} className="snack">

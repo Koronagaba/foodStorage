@@ -9,7 +9,7 @@ import ShoppingList from "./pages/shoppingList/ShoppingList";
 
 import "./App.css";
 import CreateProduct from "./components/createProduct/CreateProduct";
-import Dinner from "./pages/cook/meals/Dinner";
+import Supper from "./pages/cook/meals/Supper";
 import Lunch from "./pages/cook/meals/lunch/Lunch";
 import Breakfast from "./pages/cook/meals/breakfast/Breakfast";
 import Snack from "./pages/cook/meals/Snack";
@@ -44,7 +44,7 @@ function App() {
             <Route path="favoriteFood" element={<FavoriteFood />}></Route>
             <Route path="createRecipe" element={<CreateRecipe />} />
           </Route>
-          <Route path="/cook/dinner" element={<Dinner />} />
+          <Route path="/cook/supper" element={<Supper />} />
           <Route path="/cook/snack" element={<Snack />} />
           <Route
             path="/createNewProduct"

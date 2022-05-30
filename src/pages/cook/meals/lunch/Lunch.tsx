@@ -27,7 +27,7 @@ console.log(BackToCook)
       <div className="meal">
         <div className="meal-header">
           <Routes>
-            <Route path="breakfastList" element={<BackToCook />} />
+            <Route path="lunchList" element={<BackToCook />} />
             <Route path="ingredients" element={<BackToBreakfast />} />
           </Routes>
           <Link to={"/cook"} className="meal-title">
