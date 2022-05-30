@@ -1,6 +1,10 @@
 import { useContext } from "react";
 import { MealsContext } from "../../../../context/MealsContext";
+
+import "../TypesOfMeals.css";
+
 import { MealIngredient } from "../../../../types/type";
+import AddMoreButton from "../AddMoreButton";
 
 const LunchList = () => {
   const { lunchList }: any = useContext(MealsContext);
@@ -12,7 +16,15 @@ const LunchList = () => {
     </div>
   ));
 
-  return <>{displayLunchList}</>;
+  return (
+    <div className="typesOfMeals-container">
+      <div className="typesOfMeals-header">
+        {/* <img src={breakfast_icon} alt="breakfast icon" /> */}
+      </div>
+      {displayLunchList}
+      <AddMoreButton path={'lunch'}/>
+    </div>
+  );
 };
 
 export default LunchList;

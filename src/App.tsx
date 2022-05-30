@@ -9,10 +9,10 @@ import ShoppingList from "./pages/shoppingList/ShoppingList";
 
 import "./App.css";
 import CreateProduct from "./components/createProduct/CreateProduct";
-import Supper from "./pages/cook/meals/Supper";
+import Supper from "./pages/cook/meals/supper/Supper";
 import Lunch from "./pages/cook/meals/lunch/Lunch";
 import Breakfast from "./pages/cook/meals/breakfast/Breakfast";
-import Snack from "./pages/cook/meals/Snack";
+import Snack from "./pages/cook/meals/snack/Snack";
 import Ingredients from "./pages/cook/typesOfCooking/ingredients/Ingredients";
 import CreateRecipe from "./pages/cook/typesOfCooking/createRecipe/CreateRecipe";
 import RecipeList from "./pages/cook/typesOfCooking/recipeList/RecipeList";
