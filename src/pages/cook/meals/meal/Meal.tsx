@@ -7,19 +7,19 @@ import SearchBarMeal from "../SearchBarMeal";
 import { BackToCook, BackToMealList } from "../consts/ArrowBack";
 
 interface MealProps {
-    title: string,
-    backToCook: string,
-    backToMealList: string,
-    navToList: string,
-    nameOfCollection: any
+  title: string;
+  backToCook: string;
+  backToMealList: string;
+  navToList: string;
+  nameOfCollection: any;
 }
 
-const Meal:FC <MealProps> = ({title, backToCook, backToMealList, navToList, nameOfCollection }) => {
+const Meal: FC<MealProps> = ({ title,backToCook,backToMealList,navToList,nameOfCollection }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-      console.log(nameOfCollection);
-      
+    console.log(nameOfCollection);
+
     if (nameOfCollection.length) {
       navigate(navToList);
     } else {
