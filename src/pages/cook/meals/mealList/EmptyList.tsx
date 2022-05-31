@@ -1,9 +1,20 @@
-import React from 'react'
+import React from "react";
 
-const EmptyList = () => {
-  return (
-    <div>EmptyList</div>
-  )
+interface EmptyListProps {
+  title: string;
 }
 
-export default EmptyList
+const EmptyList = ({ title }: EmptyListProps) => {
+  const capitalize = (tit: any) => {
+    return tit.slice(0, 1).toUpperCase() + tit.slice(1);
+  };
+
+  return (
+    <div>
+      <p>{capitalize(title)} list is empty</p>
+      <p>Add ingredients of {title}</p>
+    </div>
+  );
+};
+
+export default EmptyList;
