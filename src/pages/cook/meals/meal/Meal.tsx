@@ -1,19 +1,27 @@
-import { useContext, useEffect } from "react";
+import { useEffect, FC } from "react";
 import { Link, useNavigate, Outlet, Routes, Route } from "react-router-dom";
 
-import "../Meal.css";
+import "./Meal.css";
 
-import { MealsContext } from "../../../../context/MealsContext";
 import SearchBarMeal from "../SearchBarMeal";
 import { BackToCook, BackToMealList } from "../consts/ArrowBack";
 
-const Lunch = () => {
-  const { lunchList }: any = useContext(MealsContext);
+interface MealProps {
+    title: string,
+    backToCook: string,
+    backToMealList: string,
+    navToList: string,
+    nameOfCollection: any
+}
+
+const Meal:FC <MealProps> = ({title, backToCook, backToMealList, navToList, nameOfCollection }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (lunchList) {
-      navigate("lunchList");
+      console.log(nameOfCollection);
+      
+    if (nameOfCollection.length) {
+      navigate(navToList);
     } else {
       navigate("ingredients");
     }
@@ -24,14 +32,14 @@ const Lunch = () => {
       <div className="meal">
         <div className="meal-header">
           <Routes>
-            <Route path="lunchList" element={<BackToCook />} />
+            <Route path={`${backToCook}`} element={<BackToCook />} />
             <Route
               path="ingredients"
-              element={<BackToMealList path={"lunch/lunchList"} />}
+              element={<BackToMealList path={backToMealList} />}
             />
           </Routes>
           <Link to={"/cook"} className="meal-title">
-            <h2>Lunch</h2>
+            <h2>{title}</h2>
           </Link>
         </div>
         <SearchBarMeal />
@@ -43,4 +51,4 @@ const Lunch = () => {
   );
 };
 
-export default Lunch;
+export default Meal;
