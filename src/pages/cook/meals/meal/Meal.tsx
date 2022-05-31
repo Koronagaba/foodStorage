@@ -28,7 +28,7 @@ const Meal: FC<MealProps> = ({ title,backToCook,backToMealList,navToList,collect
       <div className="meal">
         <div className="meal-header">
           <Routes>
-            <Route path={`${backToCook}`} element={<BackToCook />} />
+            <Route path={backToCook} element={<BackToCook />} />
             <Route
               path="ingredients"
               element={<BackToMealList path={backToMealList} />}

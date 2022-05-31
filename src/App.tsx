@@ -40,8 +40,8 @@ function App() {
             element={
               <Meal
                 title={"Breakfast"}
-                backToCook={"breakfastList"}
-                backToMealList={"breakfast/breakfastList"}
+                backToCook={"/*"}
+                backToMealList={"breakfast"}
                 navToList={"breakfastList"}
                 collection={breakfastList}
               />
@@ -72,8 +72,8 @@ function App() {
             element={
               <Meal
                 title={"Lunch"}
-                backToCook={"lunchList"}
-                backToMealList={"lunch/lunchList"}
+                backToCook={"/*"}
+                backToMealList={"lunch"}
                 navToList={"lunchList"}
                 collection={lunchList}
               />
@@ -104,8 +104,8 @@ function App() {
             element={
               <Meal
                 title={"Supper"}
-                backToCook={"supperList"}
-                backToMealList={"supper/supperList"}
+                backToCook={"/*"}
+                backToMealList={"supper"}
                 navToList={"supperList"}
                 collection={supperList}
               />
@@ -137,8 +137,8 @@ function App() {
             element={
               <Meal
                 title={"Snack"}
-                backToCook={"snackList"}
-                backToMealList={"snack/snackList"}
+                backToCook={"/*"}
+                backToMealList={"snack"}
                 navToList={"snackList"}
                 collection={snackList}
               />
