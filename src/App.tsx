@@ -34,8 +34,9 @@ function App() {
         <Routes>
           <Route path="/cook" element={<Cook />}></Route>
           <Route path="*" element={<Navigate to="/cook" />} />
+          {/* *********************************** */}
           <Route
-            path="/cook/breakfast/*"
+            path="/cook/breakfast"
             element={
               <Meal
                 title={"Breakfast"}
@@ -47,7 +48,7 @@ function App() {
             }
           >
             <Route
-              path="breakfastList"
+              path="/cook/breakfast"
               element={
                 <MealList
                   nameOfCollection={breakfastList}
@@ -67,7 +68,7 @@ function App() {
           </Route>
           {/* ******************************************** */}
           <Route
-            path="/cook/lunch/*"
+            path="/cook/lunch"
             element={
               <Meal
                 title={"Lunch"}
@@ -79,7 +80,7 @@ function App() {
             }
           >
             <Route
-              path="lunchList"
+              path="/cook/lunch"
               element={
                 <MealList
                   nameOfCollection={lunchList}
@@ -99,7 +100,7 @@ function App() {
           </Route>
           {/* *************************************************** */}
           <Route
-            path="/cook/supper/*"
+            path="/cook/supper"
             element={
               <Meal
                 title={"Supper"}
@@ -111,7 +112,7 @@ function App() {
             }
           >
             <Route
-              path="supperList"
+              path="/cook/supper"
               element={
                 <MealList
                   nameOfCollection={supperList}
@@ -132,7 +133,7 @@ function App() {
 
           {/* *************************************************** */}
           <Route
-            path="/cook/snack/*"
+            path="/cook/snack"
             element={
               <Meal
                 title={"Snack"}
@@ -144,7 +145,7 @@ function App() {
             }
           >
             <Route
-              path="snackList"
+              path="/cook/snack"
               element={
                 <MealList
                   nameOfCollection={snackList}

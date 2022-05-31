@@ -4,7 +4,7 @@ import { Link, useNavigate, Outlet, Routes, Route } from "react-router-dom";
 import "./Meal.css";
 
 import SearchBarMeal from "../SearchBarMeal";
-import { BackToCook, BackToMealList } from "../consts/ArrowBack";
+import { BackToCook, BackToMealList } from "../../consts/ArrowBack";
 
 interface MealProps {
   title: string;
@@ -18,13 +18,9 @@ const Meal: FC<MealProps> = ({ title,backToCook,backToMealList,navToList,nameOfC
   const navigate = useNavigate();
 
   useEffect(() => {
-    console.log(nameOfCollection);
-
-    if (nameOfCollection.length) {
-      navigate(navToList);
-    } else {
+    if (!nameOfCollection.length) {
       navigate("ingredients");
-    }
+    } 
   }, []);
 
   return (

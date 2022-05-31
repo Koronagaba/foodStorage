@@ -1,8 +1,8 @@
 import { useContext, FC } from "react";
 import { useNavigate } from "react-router-dom";
 
-import arrow_back from "../../../../icons/arrow_back.svg";
-import { MealsContext } from "../../../../context/MealsContext";
+import arrow_back from "../../../icons/arrow_back.svg";
+import { MealsContext } from "../../../context/MealsContext";
 
 interface BackToMealListProps {
   path: string;
