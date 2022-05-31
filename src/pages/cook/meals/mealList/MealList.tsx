@@ -23,7 +23,7 @@ const MealList: FC<MealListProps> = ({ collection, iconName, altProp, path }) =>
 
   return (
     <div className="typesOfMeals-container">
-      <div className="typesOfMeals-header">
+      <div className={collection.length ? "typesOfMeals-header" :  "typesOfMeals-empty-header"}>
         <img src={iconName} alt={altProp} />
       </div>
       {collection.length ? displayList : <EmptyList title={path}/>}
