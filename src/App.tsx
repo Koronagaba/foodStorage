@@ -43,7 +43,7 @@ function App() {
                 backToCook={"breakfastList"}
                 backToMealList={"breakfast/breakfastList"}
                 navToList={"breakfastList"}
-                nameOfCollection={breakfastList}
+                collection={breakfastList}
               />
             }
           >
@@ -51,7 +51,7 @@ function App() {
               path="/cook/breakfast"
               element={
                 <MealList
-                  nameOfCollection={breakfastList}
+                collection={breakfastList}
                   iconName={breakfast_icon}
                   altProp={"breakfast icon"}
                   path={"breakfast"}
@@ -75,7 +75,7 @@ function App() {
                 backToCook={"lunchList"}
                 backToMealList={"lunch/lunchList"}
                 navToList={"lunchList"}
-                nameOfCollection={lunchList}
+                collection={lunchList}
               />
             }
           >
@@ -83,7 +83,7 @@ function App() {
               path="/cook/lunch"
               element={
                 <MealList
-                  nameOfCollection={lunchList}
+                collection={lunchList}
                   iconName={lunch_icon}
                   altProp={"lunch icon"}
                   path={"lunch"}
@@ -107,7 +107,7 @@ function App() {
                 backToCook={"supperList"}
                 backToMealList={"supper/supperList"}
                 navToList={"supperList"}
-                nameOfCollection={supperList}
+                collection={supperList}
               />
             }
           >
@@ -115,7 +115,7 @@ function App() {
               path="/cook/supper"
               element={
                 <MealList
-                  nameOfCollection={supperList}
+                collection={supperList}
                   iconName={salad_icon}
                   altProp={"salad icon"}
                   path={"supper"}
@@ -140,7 +140,7 @@ function App() {
                 backToCook={"snackList"}
                 backToMealList={"snack/snackList"}
                 navToList={"snackList"}
-                nameOfCollection={snackList}
+                collection={snackList}
               />
             }
           >
@@ -148,7 +148,7 @@ function App() {
               path="/cook/snack"
               element={
                 <MealList
-                  nameOfCollection={snackList}
+                collection={snackList}
                   iconName={snack_icon}
                   altProp={"snack icon"}
                   path={"snack"}

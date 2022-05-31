@@ -1,8 +1,8 @@
 import {useContext, useRef, SyntheticEvent } from "react";
 
-import search_icon from "../../../icons/search.svg";
+import search_icon from "../../../../icons/search.svg";
 
-import { SearchContext } from "../../../context/SearchContext";
+import { SearchContext } from "../../../../context/SearchContext";
 
 const SearchBarMeal = () => {
     const { searchText, setSearchText }: any = useContext(SearchContext);

@@ -3,17 +3,18 @@ import { FC } from "react";
 import "./MealList.css";
 
 import { MealIngredient } from "../../../../types/type";
-import AddMoreButton from "../AddMoreButton";
+import AddMoreButton from "./AddMoreButton";
+import EmptyList from "./EmptyList";
 
 interface MealListProps {
-  nameOfCollection: any;
+  collection: any;
   iconName: string;
   altProp: string;
   path: string;
 }
 
-const MealList: FC<MealListProps> = ({ nameOfCollection, iconName, altProp, path }) => {
-  const displayList = nameOfCollection.map((doc: MealIngredient) => (
+const MealList: FC<MealListProps> = ({ collection, iconName, altProp, path }) => {
+  const displayList = collection.map((doc: MealIngredient) => (
     <div className="typesOfMeals-list" key={doc.id}>
       <p>{doc.title}</p>
       <p>{doc.amount}</p>
@@ -25,8 +26,8 @@ const MealList: FC<MealListProps> = ({ nameOfCollection, iconName, altProp, path
       <div className="typesOfMeals-header">
         <img src={iconName} alt={altProp} />
       </div>
-      {displayList}
-      <AddMoreButton path={path} />
+      {collection.length ? displayList : <EmptyList />}
+      <AddMoreButton path={path} collection={collection}/> 
     </div>
   );
 };

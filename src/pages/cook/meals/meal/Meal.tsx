@@ -3,7 +3,7 @@ import { Link, useNavigate, Outlet, Routes, Route } from "react-router-dom";
 
 import "./Meal.css";
 
-import SearchBarMeal from "../SearchBarMeal";
+import SearchBarMeal from "./SearchBarMeal";
 import { BackToCook, BackToMealList } from "../../consts/ArrowBack";
 
 interface MealProps {
@@ -11,14 +11,14 @@ interface MealProps {
   backToCook: string;
   backToMealList: string;
   navToList: string;
-  nameOfCollection: any;
+  collection: any;
 }
 
-const Meal: FC<MealProps> = ({ title,backToCook,backToMealList,navToList,nameOfCollection }) => {
+const Meal: FC<MealProps> = ({ title,backToCook,backToMealList,navToList,collection }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!nameOfCollection.length) {
+    if (!collection.length) {
       navigate("ingredients");
     } 
   }, []);
