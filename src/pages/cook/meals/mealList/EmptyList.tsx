@@ -10,8 +10,8 @@ const EmptyList = ({ title }: EmptyListProps) => {
   };
 
   return (
-    <div>
-      <p>{capitalize(title)} list is empty</p>
+    <div className="emptyList">
+      <p>{capitalize(title)} list is empty.</p>
       <p>Add ingredients of {title}</p>
     </div>
   );

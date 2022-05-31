@@ -38,7 +38,7 @@ const Meal: FC<MealProps> = ({ title,backToCook,backToMealList,navToList,collect
             <h2>{title}</h2>
           </Link>
         </div>
-        <SearchBarMeal />
+        {collection.length ? <SearchBarMeal /> : null }
         <div>
           <Outlet />
         </div>

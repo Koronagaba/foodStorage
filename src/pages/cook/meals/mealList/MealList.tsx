@@ -26,7 +26,7 @@ const MealList: FC<MealListProps> = ({ collection, iconName, altProp, path }) =>
       <div className="typesOfMeals-header">
         <img src={iconName} alt={altProp} />
       </div>
-      {collection.length ? displayList : <EmptyList />}
+      {collection.length ? displayList : <EmptyList title={path}/>}
       <AddMoreButton path={path} collection={collection}/> 
     </div>
   );
