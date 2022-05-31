@@ -3,7 +3,7 @@ import { useContext } from "react";
 import "../TypesOfMeals.css";
 import breakfast_icon from "../../../../icons/breakfast_icon.png";
 
-import { MealsContext } from "../../../../context/MealsContext";
+import { MealItem, MealsContext } from "../../../../context/MealsContext";
 
 import { MealIngredient } from "../../../../types/type";
 import AddMoreButton from "../AddMoreButton";
