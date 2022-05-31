@@ -11,13 +11,13 @@ import snack_icon from "../../icons/snack_icon.png"
 import { MealsContext } from "../../context/MealsContext";
 
 const Cook = () => {
-  const { breakfastList, lunchList }: any = useContext(MealsContext);
+  const { breakfastList, lunchList, supperList, snackList }: any = useContext(MealsContext);
 
   return (
     <div className="cook-container">
       <NavLink to={"breakfast"} className="breakfast">
         <div>
-          {breakfastList ? (
+          {breakfastList.length ? (
             <img
               className="cook-icon"
               src={breakfast_icon}
@@ -35,7 +35,7 @@ const Cook = () => {
 
       <NavLink to={"lunch"} className="lunch">
         <div>
-          {lunchList ? (
+          {lunchList.length ? (
             <img className="cook-icon" src={lunch_icon} alt="lunch icon" />
           ) : (
             <>
@@ -50,7 +50,7 @@ const Cook = () => {
 
       <NavLink to={"supper"} className="supper">
       <div>
-          {lunchList ? (
+          {supperList.length ? (
             <img className="cook-icon" src={salad_icon} alt="supper icon" />
           ) : (
             <>
@@ -64,7 +64,7 @@ const Cook = () => {
 
       <NavLink to={"snack"} className="snack">
       <div>
-          {lunchList ? (
+          {snackList.length ? (
             <img className="cook-icon" src={snack_icon} alt="snack icon" />
           ) : (
             <>
