@@ -1,10 +1,8 @@
- import React, { useState, useContext } from "react";
+import React, { useState, useContext } from "react";
 import { FoodStorageContext } from "../../context/FoodStorageContext";
-// import { SyntheticEvent } from "react";
-import { db } from "../../firebase/config";
-import { doc, setDoc } from "firebase/firestore";
 
-import { useAdd } from "../../hooks/useAdd";
+import { db } from "../../firebase/config";
+import { doc, setDoc, collection, addDoc } from "firebase/firestore";
 
 import add_shopping_cart from "../../icons/add_shopping_cart.svg";
 import { ShopProduct, Product } from "../../types/type";
@@ -17,7 +15,6 @@ interface AddProductProps {
 const AddProduct = ({ inputRef, product }: AddProductProps) => {
   const [numberOfProductsAddedToCart, setNumberOfProductsAddedToCart] =
     useState(0);
-  const { addProduct } = useAdd();
 
   const { shoppingList }: any = useContext(FoodStorageContext);
 
@@ -34,16 +31,30 @@ const AddProduct = ({ inputRef, product }: AddProductProps) => {
         .map((prod: ShopProduct) => {
           return prod;
         });
-     if (filteredTheSameTitle.length) {
-        setDoc(doc(db, "shoppingList", filteredTheSameTitle[filteredTheSameTitle.length - 1].id), {
-          title,
-          amount: filteredTheSameTitle[filteredTheSameTitle.length - 1].amount + numberOfProductsAddedToCart,
-          inBag: false,
-          isEditing: false,
-        });
+      if (filteredTheSameTitle.length) {
+        setDoc(
+          doc(
+            db,
+            "shoppingList",
+            filteredTheSameTitle[filteredTheSameTitle.length - 1].id
+          ),
+          {
+            title,
+            amount:
+              filteredTheSameTitle[filteredTheSameTitle.length - 1].amount +
+              numberOfProductsAddedToCart,
+            inBag: false,
+            isEditing: false,
+          }
+        );
         setNumberOfProductsAddedToCart(0);
       } else {
-        addProduct(title, numberOfProductsAddedToCart, 'shoppingList');
+        addDoc(collection(db, "shoppingList"), {
+          amount: numberOfProductsAddedToCart,
+          inBag: false,
+          isEditing: false,
+          title,
+        });
         setNumberOfProductsAddedToCart(0);
       }
     }
@@ -58,8 +69,12 @@ const AddProduct = ({ inputRef, product }: AddProductProps) => {
           type="number"
           min="0"
           value={numberOfProductsAddedToCart}
-          onChange={(e) =>setNumberOfProductsAddedToCart(parseInt(e.target.value))}
-          onFocus={(e: React.ChangeEvent<HTMLInputElement>) => e.target.select()}
+          onChange={(e) =>
+            setNumberOfProductsAddedToCart(parseInt(e.target.value))
+          }
+          onFocus={(e: React.ChangeEvent<HTMLInputElement>) =>
+            e.target.select()
+          }
         />
       </label>
       <img

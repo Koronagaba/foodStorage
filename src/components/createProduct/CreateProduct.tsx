@@ -1,10 +1,17 @@
-import React, { SyntheticEvent, useContext, useReducer, useRef, useState } from "react";
+import React, {
+  SyntheticEvent,
+  useContext,
+  useReducer,
+  useRef,
+  useState,
+} from "react";
 import { useNavigate } from "react-router-dom";
+import { db } from "../../firebase/config";
+import { collection, addDoc } from "firebase/firestore";
 
 import "./CreateProduct.css";
 
 import close_white_36 from "../../icons/close_white_36.svg";
-import { useAdd } from "../../hooks/useAdd";
 import { FoodStorageContext } from "../../context/FoodStorageContext";
 import { Product } from "../../types/type";
 
@@ -25,7 +32,6 @@ interface Action {
 
 const CreateProduct: React.FC<Props> = ({ setToggleModal }) => {
   const { stockProductsList }: any = useContext(FoodStorageContext);
-  const { addProduct } = useAdd();
 
   const focusInput = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
@@ -44,7 +50,7 @@ const CreateProduct: React.FC<Props> = ({ setToggleModal }) => {
     amount: 0,
   });
 
-  const handleForm = (e: any )=> {
+  const handleForm = (e: any) => {
     dispatch({
       type: "HANDLE_INPUT_FORM",
       field: e.target.name,
@@ -65,9 +71,11 @@ const CreateProduct: React.FC<Props> = ({ setToggleModal }) => {
           return product;
         });
       if (!productExist.length) {
-        console.log(state.name);
-        
-        addProduct(state.name.toLowerCase(), state.amount, "products");
+        const ref = collection(db, "products");
+        addDoc(ref, {
+          amount: state.amount,
+          title: state.name.toLowerCase(),
+        });
         setToggleModal(false);
         navigate("/stock");
       } else {
@@ -111,7 +119,9 @@ const CreateProduct: React.FC<Props> = ({ setToggleModal }) => {
                 name="amount"
                 value={state.amount}
                 onChange={handleForm}
-                onFocus={(e: React.ChangeEvent<HTMLInputElement>) => e.target.select()}
+                onFocus={(e: React.ChangeEvent<HTMLInputElement>) =>
+                  e.target.select()
+                }
               />
             </div>
           </div>
