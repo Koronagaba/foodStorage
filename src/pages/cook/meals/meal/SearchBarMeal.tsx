@@ -1,42 +1,50 @@
-import {useContext, useRef, SyntheticEvent } from "react";
+import { useContext, useRef, SyntheticEvent } from "react";
 
 import search_icon from "../../../../icons/search.svg";
 
 import { SearchContext } from "../../../../context/SearchContext";
 
-const SearchBarMeal = () => {
-    const { searchText, setSearchText }: any = useContext(SearchContext);
 
-    const searchFocus = useRef<HTMLInputElement>(null);
 
-    const handleSubmit = (e: SyntheticEvent) => {
-        e.preventDefault();
-        setSearchText("");
-      };
+interface SearchBarProps {
+  collection: any;
+}
+
+const SearchBarMeal = ({ collection }: SearchBarProps) => {
+  const { searchMeal, setSearchMeal }:any = useContext(SearchContext)
+
+  const searchFocus = useRef<HTMLInputElement>(null);
+
+  const handleSubmit = (e: SyntheticEvent) => {
+    e.preventDefault();
+    setSearchMeal("");
+  };
+
+  const handleSearchText = (e: { target: HTMLInputElement }) => {
+    setSearchMeal(e.target.value);
+
+    // const filteredCollection = collection.filter((item: MealIngredient) => (
+    //   item.title.toLocaleLowerCase().includes(searchText.toLocaleLowerCase())
+    // ))
+
+  
     
-      const handleSearchText = (e: { target: HTMLInputElement }) => {
-        setSearchText(e.target.value);
-      };
-    
-      const searchInputFocus = () => {
-        searchFocus.current?.focus();
-      };
+  };
+
+  const searchInputFocus = () => {
+    searchFocus.current?.focus();
+  };
 
   return (
-    <div className="meal-search-bar">
+    <div className="meal-search-bar" onClick={searchInputFocus}>
       <form className="meal-search-form" onSubmit={handleSubmit}>
-        <img
-          className="meal-search-icon"
-          src={search_icon}
-          alt="search icon"
-          onClick={searchInputFocus}
-        />
+        <img className="meal-search-icon" src={search_icon} alt="search icon" />
         <input
           className="meal-search-input"
           ref={searchFocus}
           type="text"
           placeholder="Search..."
-          value={searchText}
+          value={searchMeal}
           onChange={handleSearchText}
         />
       </form>
