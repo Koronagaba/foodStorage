@@ -13,17 +13,17 @@ import { SearchContext } from "../../context/SearchContext";
 
 
 const SearchBar = () => {
-  const { searchText, setSearchText } : any= useContext(SearchContext)
+  const { searchStock, setSearchStock } : any= useContext(SearchContext)
 
   const searchFocus = useRef<HTMLInputElement>(null);      
 
   const handleSubmit = (e:SyntheticEvent) => {
     e.preventDefault();
-    setSearchText("");
+    setSearchStock("");
   };
 
   const handleSearchText = (e: {target: HTMLInputElement}) => {
-    setSearchText(e.target.value);
+    setSearchStock(e.target.value);
   };
 
   const searchInputFocus = () => {
@@ -44,7 +44,7 @@ const SearchBar = () => {
           ref={searchFocus}
           type="text"
           placeholder="Search..."
-          value={searchText}
+          value={searchStock}
           onChange={handleSearchText}
         />
       </form>

@@ -20,7 +20,7 @@ const Stock = () => {
   // const [searchText, setSearchText] = useState("");
 
   const { stockProductsList}: any = useContext(FoodStorageContext)
-  const { searchText } : any= useContext(SearchContext)
+  const { searchStock } : any= useContext(SearchContext)
 
   
   
@@ -47,7 +47,7 @@ const Stock = () => {
 
         {/* <SearchBar searchText={searchText} setSearchText={setSearchText}/> */}
         <SearchBar />
-        <ProductsList stockProductsList={stockProductsList} searchText={searchText} />
+        <ProductsList stockProductsList={stockProductsList} searchStock={searchStock} />
       </div>
     </div>
   );

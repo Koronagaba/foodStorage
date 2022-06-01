@@ -7,17 +7,17 @@ import { Product } from "../../types/type";
 
 interface ProductsProps {
   stockProductsList: Product[];
-  searchText: string;
+  searchStock: string;
 }
 
 const ProductsList: React.FC<ProductsProps> = ({
   stockProductsList,
-  searchText,
+  searchStock,
 }) => {
 
   
   const filterMatchedProducts = (product: Product) => {
-    return product.title.toLowerCase().includes(searchText.toLowerCase());
+    return product.title.toLowerCase().includes(searchStock.toLowerCase());
   };
 
   return (
