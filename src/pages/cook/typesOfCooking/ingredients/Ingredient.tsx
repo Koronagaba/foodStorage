@@ -25,18 +25,24 @@ const handleFocusInput = () => {
 
 }
 
-  const addIngredientToBreakfast = async () => {
-    await addDoc(collection(db, `${nameOfCollection}` ), {
-      amount: inputNumber,
-      isEditing: false,
-      title: stockProduct.title
-    })
-
-    await setDoc(doc(db, 'products', stockProduct.id), {
-      amount: stockProduct.amount - inputNumber,
-      title: stockProduct.title
-    })
-    setInputNumber(0)
+  const addIngredientToMeal = async () => {
+    if( inputNumber > 0 ){
+      if( inputNumber <= stockProduct.amount){
+        await addDoc(collection(db, `${nameOfCollection}` ), {
+          amount: inputNumber,
+          isEditing: false,
+          title: stockProduct.title
+        })
+    
+        await setDoc(doc(db, 'products', stockProduct.id), {
+          amount: stockProduct.amount - inputNumber,
+          title: stockProduct.title
+        })
+        setInputNumber(0)
+      }else{
+        alert('There are not enough products in stock')
+      }
+  }
   };
 
   return (
@@ -48,12 +54,14 @@ const handleFocusInput = () => {
           ref = {ref}
           type="number"
           value={inputNumber}
+          min={0}
+          max={stockProduct.amount}
           onChange={(e) => setInputNumber(parseInt(e.target.value))}
           onFocus={(e: React.ChangeEvent<HTMLInputElement>)=> e.target.select()}
         />
       </form>
       <img
-        onClick={addIngredientToBreakfast}
+        onClick={addIngredientToMeal}
         src={add_circle}
         alt="add circle"
       />
