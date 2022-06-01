@@ -26,7 +26,7 @@ const AddProduct = ({ inputRef, product }: AddProductProps) => {
   const addProductToShoppingList = () => {
     if (numberOfProductsAddedToCart > 0) {
       const theSameTitle = (sameTitle: ShopProduct) => {
-        return sameTitle.title === title;
+        return sameTitle.title.toLowerCase() === title.toLowerCase();
       };
 
       const filteredTheSameTitle = shoppingList

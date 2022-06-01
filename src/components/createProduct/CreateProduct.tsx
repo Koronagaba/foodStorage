@@ -1,4 +1,4 @@
-import React, { SyntheticEvent, useContext, useReducer, useRef } from "react";
+import React, { SyntheticEvent, useContext, useReducer, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import "./CreateProduct.css";
@@ -44,7 +44,7 @@ const CreateProduct: React.FC<Props> = ({ setToggleModal }) => {
     amount: 0,
   });
 
-  const handleForm = (e: { target: HTMLInputElement }) => {
+  const handleForm = (e: any )=> {
     dispatch({
       type: "HANDLE_INPUT_FORM",
       field: e.target.name,
@@ -52,9 +52,9 @@ const CreateProduct: React.FC<Props> = ({ setToggleModal }) => {
     });
   };
 
-  const handleSubmit = (e: SyntheticEvent) => {
+  const createProduct = (e: SyntheticEvent) => {
     const theSameTitle = (item: Product) => {
-      return item.title === state.name;
+      return item.title.toLowerCase() === state.name.toLowerCase();
     };
 
     e.preventDefault();
@@ -65,7 +65,9 @@ const CreateProduct: React.FC<Props> = ({ setToggleModal }) => {
           return product;
         });
       if (!productExist.length) {
-        addProduct(state.name, state.amount, "products");
+        console.log(state.name);
+        
+        addProduct(state.name.toLowerCase(), state.amount, "products");
         setToggleModal(false);
         navigate("/stock");
       } else {
@@ -83,7 +85,7 @@ const CreateProduct: React.FC<Props> = ({ setToggleModal }) => {
 
   return (
     <div className="createProduct-container">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={createProduct}>
         <div className="form-container">
           <img
             className="close-icon"
