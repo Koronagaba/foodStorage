@@ -1,5 +1,5 @@
 import { FC, useState, useRef } from "react";
-import { collection, addDoc } from "firebase/firestore"; 
+import { collection, addDoc, doc, setDoc } from "firebase/firestore"; 
 import { db } from "../../../../firebase/config";
 
 import "./Ingredient.css";
@@ -25,10 +25,15 @@ const handleFocusInput = () => {
 
 }
 
-  const addIngredientToBreakfast = () => {
-    addDoc(collection(db, `${nameOfCollection}` ), {
+  const addIngredientToBreakfast = async () => {
+    await addDoc(collection(db, `${nameOfCollection}` ), {
       amount: inputNumber,
       isEditing: false,
+      title: stockProduct.title
+    })
+
+    await setDoc(doc(db, 'products', stockProduct.id), {
+      amount: stockProduct.amount - inputNumber,
       title: stockProduct.title
     })
     setInputNumber(0)
