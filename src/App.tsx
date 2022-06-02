@@ -51,7 +51,7 @@ function App() {
               path="/cook/breakfast"
               element={
                 <MealList
-                collection={breakfastList}
+                  collection={breakfastList}
                   iconName={breakfast_icon}
                   altProp={"breakfast icon"}
                   path={"breakfast"}
@@ -83,7 +83,7 @@ function App() {
               path="/cook/lunch"
               element={
                 <MealList
-                collection={lunchList}
+                  collection={lunchList}
                   iconName={lunch_icon}
                   altProp={"lunch icon"}
                   path={"lunch"}
@@ -115,7 +115,7 @@ function App() {
               path="/cook/supper"
               element={
                 <MealList
-                collection={supperList}
+                  collection={supperList}
                   iconName={salad_icon}
                   altProp={"salad icon"}
                   path={"supper"}
@@ -148,7 +148,7 @@ function App() {
               path="/cook/snack"
               element={
                 <MealList
-                collection={snackList}
+                  collection={snackList}
                   iconName={snack_icon}
                   altProp={"snack icon"}
                   path={"snack"}

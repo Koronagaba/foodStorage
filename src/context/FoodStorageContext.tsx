@@ -1,4 +1,4 @@
-import { createContext, FC, useEffect } from "react";
+import { createContext, FC } from "react";
 import { useCollection } from "../hooks/useCollection";
 import { Product, ShopProduct } from "../types/type";
 

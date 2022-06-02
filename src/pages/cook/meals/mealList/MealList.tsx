@@ -5,6 +5,7 @@ import "./MealList.css";
 import { MealIngredient } from "../../../../types/type";
 import AddMoreButton from "./AddMoreButton";
 import EmptyList from "./EmptyList";
+
 import { SearchContext } from "../../../../context/SearchContext";
 
 interface MealListProps {
@@ -20,12 +21,13 @@ const MealList: FC<MealListProps> = ({
   altProp,
   path,
 }) => {
-  const { searchMeal }:any = useContext(SearchContext);
+  const { searchMeal }: any = useContext(SearchContext);
 
   const displayList = collection
     .filter((item: MealIngredient) =>
       item.title.toLocaleLowerCase().includes(searchMeal.toLowerCase())
     )
+    // .sort(sortTitle)
     .map((doc: MealIngredient) => (
       <div className="typesOfMeals-list" key={doc.id}>
         <p>{doc.title}</p>
