@@ -5,24 +5,18 @@ import SingleStockProduct from "./SingleStockProduct";
 
 import { Product } from "../../types/type";
 
+import  useSort from '../../hooks/useSort'
+
 interface ProductsProps {
   stockProductsList: Product[];
   searchStock: string;
 }
 
-const ProductsList: React.FC<ProductsProps> = ({
-  stockProductsList,
-  searchStock,
-}) => {
+const ProductsList: React.FC<ProductsProps> = ({ stockProductsList, searchStock }) => {
+const { sortTitle } = useSort()
+
   const filterMatchedProducts = (product: Product) => {
     return product.title.toLowerCase().includes(searchStock.toLowerCase());
-  };
-
-
-  const sortTitle = (a:Product, b: Product) => {
-    if (a.title.toLowerCase() < b.title.toLowerCase()) return -1;
-    if (a.title.toLowerCase() > b.title.toLowerCase()) return 1;
-    return 0;
   };
 
   return (
