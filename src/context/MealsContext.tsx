@@ -20,10 +20,10 @@ export const MealsContext = createContext<Collections>({});
 
 export const MealsContextProvider: FC = ({ children }) => {
 
-    const {documents: breakfastList} = useCollection<MealItem>('breakfast')
-    const {documents: lunchList} = useCollection<MealItem>('lunch')
-    const {documents: supperList} = useCollection<MealItem>('supper')
-    const {documents: snackList} = useCollection<MealItem>('snack')
+    const {documents: breakfastList} = useCollection<MealItem>('breakfast', 'title')
+    const {documents: lunchList} = useCollection<MealItem>('lunch', 'title')
+    const {documents: supperList} = useCollection<MealItem>('supper', 'title')
+    const {documents: snackList} = useCollection<MealItem>('snack', 'title')
 
   return <MealsContext.Provider value={{breakfastList, lunchList, supperList, snackList}}>{children}</MealsContext.Provider>;
 };

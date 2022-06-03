@@ -13,8 +13,8 @@ export const FoodStorageContext = createContext<CollectionType | null>(null)
 
 export const FoodStorageContextProvider: FC = ({children}) => {
   
-  const { documents: stockProductsList } = useCollection<Product>('products')
-  const { documents: shoppingList } = useCollection<ShopProduct>('shoppingList')
+  const { documents: stockProductsList } = useCollection<Product>('products', 'title')
+  const { documents: shoppingList } = useCollection<ShopProduct>('shoppingList', 'createdAt')
 
 return (
     <FoodStorageContext.Provider value={{stockProductsList, shoppingList}}>
