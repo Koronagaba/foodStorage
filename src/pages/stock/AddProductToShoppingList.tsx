@@ -50,7 +50,7 @@ const AddProduct = ({ inputRef, product }: AddProductProps) => {
           }
         );
         setNumberOfProductsAddedToCart(0);
-      } else {
+      } else {  
         addDoc(collection(db, "shoppingList"), {
           amount: numberOfProductsAddedToCart,
           inBag: false,

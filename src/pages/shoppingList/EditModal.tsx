@@ -6,7 +6,7 @@ import "./Modal.css";
 import check from "../../icons/check.svg";
 import { SingleShopProductProps } from "../../types/type";
 
-const EditModal: FC<SingleShopProductProps> = ({ productOfShoppingList: shoppingListProduct }) => {
+const EditModal: FC<SingleShopProductProps> = ({ productOfShoppingList }) => {
   const [editAmount, setEditAmount] = useState(1);
 
   const CanceledEdit = (
@@ -20,10 +20,11 @@ const EditModal: FC<SingleShopProductProps> = ({ productOfShoppingList: shopping
       amount,
       isEditing: !isEditing,
       title,
+      createdAt: productOfShoppingList.createdAt
     });
   };
 
-  const handleEdit = (
+  const acceptEdit = (
     id: string,
     title: string,
     isEditing: boolean,
@@ -36,12 +37,14 @@ const EditModal: FC<SingleShopProductProps> = ({ productOfShoppingList: shopping
         amount: amount - editAmount,
         isEditing: !isEditing,
         inBag: false,
+        createdAt: productOfShoppingList.createdAt
       });
       addDoc(collection(db, "shoppingList"), {
         title,
         amount: editAmount,
         isEditing: !isEditing,
         inBag: true,
+        createdAt: productOfShoppingList.createdAt
       });
     } else if (editAmount > amount) {
       setDoc(ref, {
@@ -49,6 +52,7 @@ const EditModal: FC<SingleShopProductProps> = ({ productOfShoppingList: shopping
         amount: editAmount,
         isEditing: !isEditing,
         inBag: true,
+        createdAt: productOfShoppingList.createdAt
       });
     } else if (editAmount === amount) {
       setDoc(ref, {
@@ -56,6 +60,7 @@ const EditModal: FC<SingleShopProductProps> = ({ productOfShoppingList: shopping
         amount,
         isEditing: !isEditing.valueOf,
         inBag: true,
+        createdAt: productOfShoppingList.createdAt
       });
     }
   };
@@ -65,7 +70,7 @@ const EditModal: FC<SingleShopProductProps> = ({ productOfShoppingList: shopping
     <div className="edit-modal">
       <div className="modal-title" title="Basic Modal">
         <p>
-          Required amount: {shoppingListProduct.title} - {shoppingListProduct.amount}
+          Required amount: {productOfShoppingList.title} - {productOfShoppingList.amount}
         </p>
       </div>
 
@@ -86,10 +91,10 @@ const EditModal: FC<SingleShopProductProps> = ({ productOfShoppingList: shopping
           className="btn"
           onClick={() =>
             CanceledEdit(
-              shoppingListProduct.id,
-              shoppingListProduct.title,
-              shoppingListProduct.amount,
-              shoppingListProduct.isEditing
+              productOfShoppingList.id,
+              productOfShoppingList.title,
+              productOfShoppingList.amount,
+              productOfShoppingList.isEditing
             )
           }
         >
@@ -97,11 +102,11 @@ const EditModal: FC<SingleShopProductProps> = ({ productOfShoppingList: shopping
         </button>
         <img
           onClick={() =>
-            handleEdit(
-              shoppingListProduct.id,
-              shoppingListProduct.title,
-              shoppingListProduct.isEditing,
-              shoppingListProduct.amount
+            acceptEdit(
+              productOfShoppingList.id,
+              productOfShoppingList.title,
+              productOfShoppingList.isEditing,
+              productOfShoppingList.amount
             )
           }
           src={check}

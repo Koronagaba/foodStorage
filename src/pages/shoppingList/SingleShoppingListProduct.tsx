@@ -25,7 +25,7 @@ const SingleItem: React.FC<SingleShopProductProps> = ({ productOfShoppingList })
       amount,
       inBag: !inBag,
       isEditing: false,
-      createdAt: shoppingList.createdAt
+      createdAt: productOfShoppingList.createdAt
     })    
   };
 
@@ -48,6 +48,7 @@ const SingleItem: React.FC<SingleShopProductProps> = ({ productOfShoppingList })
           amount,
           isEditing: !isEditing,
           title,
+          createdAt: productOfShoppingList.createdAt
         });
     }
   };
