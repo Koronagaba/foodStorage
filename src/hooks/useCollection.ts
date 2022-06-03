@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { db } from "../firebase/config";
 import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
-import { Product, ShopProduct } from "../types/type";
+import { StockProduct, ShoppingListProduct } from "../types/type";
 
-export type CollectionType = Product | ShopProduct;
+export type CollectionType = StockProduct | ShoppingListProduct;
 
 export const useCollection = <T extends CollectionType>(c: string, order: string) => {
   const [documents, setDocuments] = useState<T[]>([]);

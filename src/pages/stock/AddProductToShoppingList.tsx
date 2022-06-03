@@ -2,14 +2,20 @@ import React, { useState, useContext } from "react";
 import { FoodStorageContext } from "../../context/FoodStorageContext";
 
 import { db } from "../../firebase/config";
-import { doc, setDoc, collection, addDoc } from "firebase/firestore";
+import {
+  doc,
+  setDoc,
+  collection,
+  addDoc,
+  serverTimestamp,
+} from "firebase/firestore";
 
 import add_shopping_cart from "../../icons/add_shopping_cart.svg";
-import { ShopProduct, Product } from "../../types/type";
+import { ShoppingListProduct, StockProduct } from "../../types/type";
 
 interface AddProductProps {
   inputRef: React.MutableRefObject<HTMLInputElement | null>;
-  product: Product;
+  product: StockProduct;
 }
 
 const AddProduct = ({ inputRef, product }: AddProductProps) => {
@@ -22,29 +28,25 @@ const AddProduct = ({ inputRef, product }: AddProductProps) => {
 
   const addProductToShoppingList = () => {
     if (numberOfProductsAddedToCart > 0) {
-      const theSameTitle = (sameTitle: ShopProduct) => {
+      const theSameTitle = (sameTitle: ShoppingListProduct) => {
         return sameTitle.title.toLowerCase() === title.toLowerCase();
       };
 
       const filteredTheSameTitle = shoppingList
         .filter(theSameTitle)
-        .map((prod: ShopProduct) => {
+        .map((prod: ShoppingListProduct) => {
           return prod;
         });
       if (filteredTheSameTitle.length) {
         setDoc(
-          doc(
-            db,
-            "shoppingList",
-            filteredTheSameTitle[filteredTheSameTitle.length - 1].id
-          ),
-          {
+          doc(db,"shoppingList",filteredTheSameTitle[filteredTheSameTitle.length - 1].id),{
             title,
             amount:
               filteredTheSameTitle[filteredTheSameTitle.length - 1].amount +
               numberOfProductsAddedToCart,
             inBag: false,
             isEditing: false,
+            createdAt: serverTimestamp(),
           }
         );
         setNumberOfProductsAddedToCart(0);
@@ -54,6 +56,7 @@ const AddProduct = ({ inputRef, product }: AddProductProps) => {
           inBag: false,
           isEditing: false,
           title,
+          createdAt: serverTimestamp(),
         });
         setNumberOfProductsAddedToCart(0);
       }

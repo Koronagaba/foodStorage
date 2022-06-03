@@ -4,14 +4,14 @@ import "./ShoppingList.css";
 // import { message } from 'antd';
 
 import { FoodStorageContext } from "../../context/FoodStorageContext";
-import { ShopProduct, Product } from "../../types/type";
+import { ShoppingListProduct, StockProduct } from "../../types/type";
 
 import SingleShoppingListProduct from "./SingleShoppingListProduct";
 import ModalShoppingCompleted from "./ModalShoppingCompleted";
 
 const ShoppingList = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const [filteredProducts, setFilteredProducts] = useState<ShopProduct[]>([]);
+  const [filteredProducts, setFilteredProducts] = useState<ShoppingListProduct[]>([]);
 
   const { shoppingList, stockProductsList }: any =
     useContext(FoodStorageContext);
@@ -22,8 +22,8 @@ const ShoppingList = () => {
 
   const handleShoppingCompleted = () => {
     const filteredShoppingList = shoppingList
-      .filter((item: ShopProduct) => item.inBag)
-      .map((filteredProd: Product) => filteredProd);
+      .filter((item: ShoppingListProduct) => item.inBag)
+      .map((filteredProd: StockProduct) => filteredProd);
 
     setFilteredProducts(filteredShoppingList);
     if (filteredShoppingList.length) {
@@ -47,10 +47,10 @@ const ShoppingList = () => {
         {shoppingList.length ? (
           <>
             <h3>ShoppingList</h3>
-            {shoppingList.map((product: ShopProduct) => (
+            {shoppingList.map((productOfShoppingList: ShoppingListProduct) => (
               <SingleShoppingListProduct
-                key={product.id}
-                product={product}
+                key={productOfShoppingList.id}
+                productOfShoppingList={productOfShoppingList}
                 // toggleEdit={toggleEdit}
                 // handleEdit={editItemFromShoppingList}
                 // moveProductIntoBag={moveProductIntoBag}

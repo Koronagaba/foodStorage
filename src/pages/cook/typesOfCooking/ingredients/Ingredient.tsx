@@ -6,11 +6,11 @@ import "./Ingredient.css";
 import add_circle from "../../../../icons/add_circle.svg";
 
 
-import { Product } from "../../../../types/type";
+import { StockProduct } from "../../../../types/type";
 
 
 interface IngredientProps {
-  stockProduct: Product,
+  stockProduct: StockProduct,
   nameOfCollection: string
 }
 

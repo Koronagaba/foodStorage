@@ -6,7 +6,7 @@ import "./Modal.css";
 import check from "../../icons/check.svg";
 import { SingleShopProductProps } from "../../types/type";
 
-const EditModal: FC<SingleShopProductProps> = ({ product }) => {
+const EditModal: FC<SingleShopProductProps> = ({ productOfShoppingList: shoppingListProduct }) => {
   const [editAmount, setEditAmount] = useState(1);
 
   const CanceledEdit = (
@@ -65,7 +65,7 @@ const EditModal: FC<SingleShopProductProps> = ({ product }) => {
     <div className="edit-modal">
       <div className="modal-title" title="Basic Modal">
         <p>
-          Required amount: {product.title} - {product.amount}
+          Required amount: {shoppingListProduct.title} - {shoppingListProduct.amount}
         </p>
       </div>
 
@@ -86,10 +86,10 @@ const EditModal: FC<SingleShopProductProps> = ({ product }) => {
           className="btn"
           onClick={() =>
             CanceledEdit(
-              product.id,
-              product.title,
-              product.amount,
-              product.isEditing
+              shoppingListProduct.id,
+              shoppingListProduct.title,
+              shoppingListProduct.amount,
+              shoppingListProduct.isEditing
             )
           }
         >
@@ -98,10 +98,10 @@ const EditModal: FC<SingleShopProductProps> = ({ product }) => {
         <img
           onClick={() =>
             handleEdit(
-              product.id,
-              product.title,
-              product.isEditing,
-              product.amount
+              shoppingListProduct.id,
+              shoppingListProduct.title,
+              shoppingListProduct.isEditing,
+              shoppingListProduct.amount
             )
           }
           src={check}

@@ -9,7 +9,7 @@ import add from "../../icons/add.svg";
 import SearchBar from "../../components/stockComponents/SearchBar";
 import CreateProduct from "../../components/createProduct/CreateProduct";
 import ProductsList from "./ProductsList";
-import { Product } from "../../types/type";
+import { StockProduct } from "../../types/type";
 import { CollectionType } from "../../hooks/useCollection";
 import { SearchContext } from "../../context/SearchContext";
 

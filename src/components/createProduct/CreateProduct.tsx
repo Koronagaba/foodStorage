@@ -13,7 +13,7 @@ import "./CreateProduct.css";
 
 import close_white_36 from "../../icons/close_white_36.svg";
 import { FoodStorageContext } from "../../context/FoodStorageContext";
-import { Product } from "../../types/type";
+import { StockProduct } from "../../types/type";
 
 type Props = {
   setToggleModal: (x: boolean) => void;
@@ -59,7 +59,7 @@ const CreateProduct: React.FC<Props> = ({ setToggleModal }) => {
   };
 
   const createProduct = (e: SyntheticEvent) => {
-    const theSameTitle = (item: Product) => {
+    const theSameTitle = (item: StockProduct) => {
       return item.title.toLowerCase() === state.name.toLowerCase();
     };
 
@@ -67,7 +67,7 @@ const CreateProduct: React.FC<Props> = ({ setToggleModal }) => {
     if (state.name) {
       const productExist = stockProductsList
         .filter(theSameTitle)
-        .map((product: Product) => {
+        .map((product: StockProduct) => {
           return product;
         });
       if (!productExist.length) {

@@ -2,10 +2,10 @@ import React from "react";
 
 import SingleStockProduct from "./SingleStockProduct";
 
-import { Product } from "../../types/type";
+import { StockProduct } from "../../types/type";
 
 interface ProductsProps {
-  stockProductsList: Product[];
+  stockProductsList: StockProduct[];
   searchStock: string;
 }
 
@@ -13,7 +13,7 @@ const ProductsList: React.FC<ProductsProps> = ({
   stockProductsList,
   searchStock,
 }) => {
-  const filterMatchedProducts = (product: Product) => {
+  const filterMatchedProducts = (product: StockProduct) => {
     return product.title.toLowerCase().includes(searchStock.toLowerCase());
   };
 

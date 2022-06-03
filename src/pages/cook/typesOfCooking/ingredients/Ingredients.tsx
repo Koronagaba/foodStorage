@@ -1,6 +1,6 @@
 import { FC, useContext } from "react";
 import { FoodStorageContext } from "../../../../context/FoodStorageContext";
-import { Product } from "../../../../types/type";
+import { StockProduct } from "../../../../types/type";
 import TypesOfCooking from "../TypesOfCooking";
 
 import Ingredient from "./Ingredient";
@@ -15,7 +15,7 @@ const Ingredients: FC<IngredientsProps> = ({ nameOfCollection }) => {
     <div>
       <TypesOfCooking />
       {stockProductsList
-      .map((stockProduct: Product) => (
+      .map((stockProduct: StockProduct) => (
         <Ingredient
           key={stockProduct.id}
           stockProduct={stockProduct}

@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { db } from "../../firebase/config";
-import { doc, deleteDoc, setDoc } from "firebase/firestore";
+import { doc, deleteDoc, setDoc, serverTimestamp  } from "firebase/firestore";
 
 import "./SingleShoppingListProduct.css";
 
@@ -11,31 +11,24 @@ import clear from "../../icons/clear.svg";
 import local_shipping from "../../icons/local_shipping_black.svg";
 import { FoodStorageContext } from "../../context/FoodStorageContext";
 import EditModal from "./EditModal";
-import { ShopProduct, Product, SingleShopProductProps } from "../../types/type";
+import { ShoppingListProduct, StockProduct, SingleShopProductProps } from "../../types/type";
 
-// import { message, Button } from 'antd';
-
-
-
-const SingleItem: React.FC<SingleShopProductProps> = ({ product }) => {
+const SingleItem: React.FC<SingleShopProductProps> = ({ productOfShoppingList }) => {
   const { stockProductsList, shoppingList }: any= useContext(FoodStorageContext);
 
-  const style = product.inBag ? { textDecoration: "line-through" }: undefined; 
+  const style = productOfShoppingList.inBag ? { textDecoration: "line-through" }: undefined; 
 
-  // const success = () => {                                             :(((
-  //   message.success({
-  //     content: 'This is a prompt message with custom className and style',
-  //     className: 'custom-class',
-  //     style: {
-  //       marginTop: '20vh',
-  //     },
-  //   });
-  // };
-
-  const handleDelete = async (id: string) => {
-    const ref = doc(db, "shoppingList", id);
-    await deleteDoc(ref);
+  
+  const moveProductIntoBag = ( id: string, title: string, amount: number, inBag: boolean) => {
+    setDoc(doc(db, 'shoppingList', id ), {
+      title,
+      amount,
+      inBag: !inBag,
+      isEditing: false,
+      createdAt: shoppingList.createdAt
+    })    
   };
+
 
   const toggleEdit = (
     id: string,
@@ -45,7 +38,7 @@ const SingleItem: React.FC<SingleShopProductProps> = ({ product }) => {
   ) => {
     const ref = doc(db, "shoppingList", id);
 
-    const listWhenIsEditing = shoppingList.filter((item: ShopProduct) => (
+    const listWhenIsEditing = shoppingList.filter((item: ShoppingListProduct) => (
       item.isEditing
     ))
     console.log(listWhenIsEditing);
@@ -59,22 +52,19 @@ const SingleItem: React.FC<SingleShopProductProps> = ({ product }) => {
     }
   };
 
-  // const handleEdit = (id: any, title: string, isEditing: boolean, amount: number) => {
+  
+  const handleDelete = async (id: string) => {
+    const ref = doc(db, "shoppingList", id);
+    await deleteDoc(ref);
+  };
 
-  //   setDoc(doc(db, "shoppingList", id), {
-  //     title,
-  //     amount: editAmount,
-  //     isEditing: !isEditing,
-  //     inBag: false,
-  //   });
-  // };
 
   const handleSendToStock = async (
     id: string,
     title: string,
     amount: number
   ) => {
-    await stockProductsList.forEach((prod: Product) => {
+    await stockProductsList.forEach((prod: StockProduct) => {
       if (title === prod.title) {
         const ref = doc(db, "products", prod.id);
         setDoc(ref, {
@@ -89,24 +79,15 @@ const SingleItem: React.FC<SingleShopProductProps> = ({ product }) => {
   
   };
 
-  const moveProductIntoBag = ( id: string, title: string, amount: number, inBag: boolean) => {
-    setDoc(doc(db, 'shoppingList', id ), {
-      title,
-      amount,
-      inBag: !inBag,
-      isEditing: false
-    })    
-  };
-
   return (
     <>
-      {product.isEditing && <EditModal product={product} /> }
+      {productOfShoppingList.isEditing && <EditModal productOfShoppingList={productOfShoppingList} /> }
     <div className="single-item-container">
 
       <div className="single-item" style={style}>
         
         <p>
-          {product.title} - {product.amount}
+          {productOfShoppingList.title} - {productOfShoppingList.amount}
         </p>
         {/* {product.isEditing && <EditModal product={product} />
         (
@@ -132,24 +113,24 @@ const SingleItem: React.FC<SingleShopProductProps> = ({ product }) => {
 
         <div className="icons">
           <img
-            onClick={() => moveProductIntoBag( product.id, product.title, product.amount, product.inBag) }
+            onClick={() => moveProductIntoBag( productOfShoppingList.id, productOfShoppingList.title, productOfShoppingList.amount, productOfShoppingList.inBag) }
             src={shopping_cart}
             alt="In shopping cart"
           />
           <img
             onClick={() =>
               toggleEdit(
-                product.id,
-                product.title,
-                product.amount,
-                product.isEditing
+                productOfShoppingList.id,
+                productOfShoppingList.title,
+                productOfShoppingList.amount,
+                productOfShoppingList.isEditing
               )
             }
             src={edit}
             alt="edit"
           />
           <img
-            onClick={() => handleDelete(product.id)}
+            onClick={() => handleDelete(productOfShoppingList.id)}
             src={clear}
             alt="clear"
           />
@@ -158,7 +139,7 @@ const SingleItem: React.FC<SingleShopProductProps> = ({ product }) => {
 
       <img
         onClick={() =>
-          handleSendToStock(product.id, product.title, product.amount)
+          handleSendToStock(productOfShoppingList.id, productOfShoppingList.title, productOfShoppingList.amount)
         }
         className="send-img"
         src={local_shipping}

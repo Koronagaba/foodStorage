@@ -1,9 +1,9 @@
 import React, { useRef } from "react";
-import { Product } from "../../types/type";
+import { StockProduct } from "../../types/type";
 import AddProductToShoppingList from "./AddProductToShoppingList";
 
 interface ProductProps {
-  product: Product
+  product: StockProduct
 }
 
 const SingleStockProduct: React.FC<ProductProps> = ({ product }) => {

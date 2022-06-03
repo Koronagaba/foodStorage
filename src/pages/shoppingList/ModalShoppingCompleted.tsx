@@ -2,13 +2,13 @@ import React, { FC, useContext } from "react";
 import { doc, setDoc, deleteDoc } from "firebase/firestore";
 import { db } from "../../firebase/config";
 import { FoodStorageContext } from "../../context/FoodStorageContext";
-import { Product, ShopProduct } from "../../types/type";
+import { StockProduct, ShoppingListProduct } from "../../types/type";
 import "./Modal.css";
 
 
 interface PropsModalShoppingCompleted {
   setIsModalVisible: (arg: boolean) => void;
-  filteredProducts: ShopProduct[];
+  filteredProducts: ShoppingListProduct[];
 }
 
 
@@ -25,8 +25,8 @@ const ModalShoppingCompleted: FC<PropsModalShoppingCompleted> = ({
   const handleModalOk = () => {
 
  
-    stockProductsList.forEach((item: ShopProduct) => {            // How to compare two arrays?
-      filteredProducts.forEach((prod: Product) => {
+    stockProductsList.forEach((item: ShoppingListProduct) => {            // How to compare two arrays?
+      filteredProducts.forEach((prod: StockProduct) => {
         if (item.title === prod.title) {
           setDoc(doc(db, "products", item.id), {
             title: item.title,
@@ -56,7 +56,7 @@ const ModalShoppingCompleted: FC<PropsModalShoppingCompleted> = ({
   //   setIsModalVisible(false);
   // };
 
-  const productsInBag = filteredProducts.map((prod: ShopProduct) => (
+  const productsInBag = filteredProducts.map((prod: ShoppingListProduct) => (
     <>
       <p key={prod.id}>
         {prod.title} - {prod.amount}
