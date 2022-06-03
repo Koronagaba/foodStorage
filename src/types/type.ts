@@ -4,12 +4,18 @@ export interface StockProduct {
   id: string;
 }
 
+interface At {
+  nanoseconds: number
+  seconds: number
+}
+
 export interface ShoppingListProduct {
   title: string;
   amount: number;
   isEditing: boolean;
   inBag: boolean;
   id: string; 
+  createdAt: At
 }
 
 export interface MealIngredient {
