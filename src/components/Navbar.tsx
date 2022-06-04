@@ -6,13 +6,11 @@ import "./Navbar.css";
 const Navbar = () => {
   const [stickyStyle, setStickyStyle] = useState("navbar");
 
-  // const activeLink:React.FC<ActiveLink> = ({ isActive}) => (isActive ? activeStyle : null);
-
   const activeLink = ({ isActive }: any) => ({ color: isActive ? "#fff" : "" });
 
   const handleScroll = () => {
     if (window.scrollY > 0) {
-      setStickyStyle("sticky");
+      setStickyStyle("sticky sticky-opacity");
     } else {
       setStickyStyle("navbar");
     }

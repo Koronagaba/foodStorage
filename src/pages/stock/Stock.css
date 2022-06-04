@@ -4,16 +4,15 @@
 
 .stock-container {
     background-color: #026773;
-    min-height: 100vh;
-    position:relative
+    min-height: 90vh;
 }
 
 .stock .add-icon{
     width: 60px;
     transition: 0.2s ease-in-out;
     position: absolute;
-    left: 120px;
-    top: 9px
+    left: 100px;
+    top: 70px
 }
 .stock-container .add-icon:hover{
     cursor: pointer;
