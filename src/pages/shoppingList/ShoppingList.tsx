@@ -1,20 +1,21 @@
 import React, { useState, useContext } from "react";
 
-import "./ShoppingList.css";
-// import { message } from 'antd';
-
 import { FoodStorageContext } from "../../context/FoodStorageContext";
 import { ShoppingListProduct, StockProduct } from "../../types/type";
 
+import "./ShoppingList.css";
+
 import SingleShoppingListProduct from "./SingleShoppingListProduct";
-import ModalShoppingCompleted from "./ModalShoppingCompleted";
+import ModalShoppingCompleted from "./components/ModalShoppingCompleted";
+import EmptyShoppingList from "./components/EmptyShoppingList";
 
 const ShoppingList = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const [filteredProducts, setFilteredProducts] = useState<ShoppingListProduct[]>([]);
+  const [filteredProducts, setFilteredProducts] = useState<
+    ShoppingListProduct[]
+  >([]);
 
-  const { shoppingList, stockProductsList }: any =
-    useContext(FoodStorageContext);
+  const { shoppingList }: any = useContext(FoodStorageContext);
 
   const showModal = () => {
     setIsModalVisible(true);
@@ -31,10 +32,6 @@ const ShoppingList = () => {
     }
   };
 
-  // const success = () => {
-  //   message.success('This is a prompt message for success, and it will disappear in 10 seconds', 10);
-  // };
-
   return (
     <div className="shoppingList-container">
       {isModalVisible && (
@@ -43,28 +40,21 @@ const ShoppingList = () => {
           filteredProducts={filteredProducts}
         />
       )}
-      <div className="shoppingList">
-        {shoppingList.length ? (
-          <>
-            <h3>ShoppingList</h3>
-            {shoppingList.map((productOfShoppingList: ShoppingListProduct) => (
-              <SingleShoppingListProduct
-                key={productOfShoppingList.id}
-                productOfShoppingList={productOfShoppingList}
-                // toggleEdit={toggleEdit}
-                // handleEdit={editItemFromShoppingList}
-                // moveProductIntoBag={moveProductIntoBag}
-                // handleSendToStock={handleSendToStock}
-              />
-            ))}
-            <button onClick={handleShoppingCompleted}>
-              Shopping Completed
-            </button>
-          </>
-        ) : (
-          <p>Shopping list is empty</p>
-        )}
-      </div>
+      {shoppingList.length ? (
+        <div className="shoppingList">
+          <h3>ShoppingList</h3>
+          {shoppingList.map((productOfShoppingList: ShoppingListProduct) => (
+            <SingleShoppingListProduct
+              key={productOfShoppingList.id}
+              productOfShoppingList={productOfShoppingList}
+            />
+          ))}
+          <button onClick={handleShoppingCompleted}>Shopping Completed</button>
+        </div>
+        
+      ) : (
+        <EmptyShoppingList />
+      )}
     </div>
   );
 };

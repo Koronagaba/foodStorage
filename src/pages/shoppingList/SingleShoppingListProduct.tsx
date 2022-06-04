@@ -10,7 +10,7 @@ import clear from "../../icons/clear.svg";
 // import check from "../../icons/check.svg";
 import local_shipping from "../../icons/local_shipping_black.svg";
 import { FoodStorageContext } from "../../context/FoodStorageContext";
-import EditModal from "./EditModal";
+import EditModal from "./components/EditModal";
 import { ShoppingListProduct, StockProduct, SingleShopProductProps } from "../../types/type";
 
 const SingleItem: React.FC<SingleShopProductProps> = ({ productOfShoppingList }) => {
@@ -28,7 +28,6 @@ const SingleItem: React.FC<SingleShopProductProps> = ({ productOfShoppingList })
       createdAt: productOfShoppingList.createdAt
     })    
   };
-
 
   const toggleEdit = (
     id: string,

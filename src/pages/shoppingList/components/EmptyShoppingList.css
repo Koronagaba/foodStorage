@@ -1,0 +1,19 @@
+ .empty-shopping-list {
+margin: auto;
+width: min(90%, 70.5rem);
+}
+
+.empty-shopping-list img {
+    display:block;
+    max-width: 18rem;
+    margin: auto;
+    padding: 1rem 0 ;
+}
+
+ .empty-shopping-list p {
+    margin: 0 auto;
+    max-width: 13.5rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+
+}  

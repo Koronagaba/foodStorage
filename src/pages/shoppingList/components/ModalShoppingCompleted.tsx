@@ -1,16 +1,16 @@
 import React, { FC, useContext } from "react";
 import { doc, setDoc, deleteDoc } from "firebase/firestore";
-import { db } from "../../firebase/config";
-import { FoodStorageContext } from "../../context/FoodStorageContext";
-import { StockProduct, ShoppingListProduct } from "../../types/type";
-import "./Modal.css";
+import { db } from "../../../firebase/config";
 
+import { FoodStorageContext } from "../../../context/FoodStorageContext";
+import { StockProduct, ShoppingListProduct } from "../../../types/type";
+
+import "./Modals.css";
 
 interface PropsModalShoppingCompleted {
   setIsModalVisible: (arg: boolean) => void;
   filteredProducts: ShoppingListProduct[];
 }
-
 
 const ModalShoppingCompleted: FC<PropsModalShoppingCompleted> = ({
   setIsModalVisible,
@@ -22,10 +22,8 @@ const ModalShoppingCompleted: FC<PropsModalShoppingCompleted> = ({
     setIsModalVisible(false);
   };
 
-  const handleModalOk = () => {
-
- 
-    stockProductsList.forEach((item: ShoppingListProduct) => {            // How to compare two arrays?
+  const acceptModal = () => {
+    stockProductsList.forEach((item: ShoppingListProduct) => {
       filteredProducts.forEach((prod: StockProduct) => {
         if (item.title === prod.title) {
           setDoc(doc(db, "products", item.id), {
@@ -39,23 +37,6 @@ const ModalShoppingCompleted: FC<PropsModalShoppingCompleted> = ({
 
     setIsModalVisible(false);
   };
-
-  // const handleModalOk = () => {
-  //   stockProductsList.forEach((item: ShopProduct) => {
-  //     filteredProducts.forEach((prod: Product) => {
-  //       if (item.title === prod.title) {
-  //         setDoc(doc(db, "products", item.id), {
-  //           title: item.title,
-  //           amount: item.amount + prod.amount,
-  //         });
-  //         deleteDoc(doc(db, "shoppingList", prod.id));
-  //       }
-  //     });
-  //   });
-
-  //   setIsModalVisible(false);
-  // };
-
   const productsInBag = filteredProducts.map((prod: ShoppingListProduct) => (
     <>
       <p key={prod.id}>
@@ -72,7 +53,7 @@ const ModalShoppingCompleted: FC<PropsModalShoppingCompleted> = ({
         </div>
         <div className="content-modal">{productsInBag}</div>
         <div className="btns">
-          <button className="btn" onClick={handleModalOk}>
+          <button className="btn" onClick={acceptModal}>
             Yes
           </button>
           <button className="btn" onClick={handleModalCancel}>

@@ -1,10 +1,12 @@
 import { useState, FC } from "react";
-import { db } from "../../firebase/config";
+import { db } from "../../../firebase/config";
 import { doc, setDoc, collection, addDoc } from "firebase/firestore";
 
-import "./Modal.css";
-import check from "../../icons/check.svg";
-import { SingleShopProductProps } from "../../types/type";
+import { SingleShopProductProps } from "../../../types/type";
+
+import "./Modals.css";
+import check from "../../../icons/check.svg";
+
 
 const EditModal: FC<SingleShopProductProps> = ({ productOfShoppingList }) => {
   const [editAmount, setEditAmount] = useState(1);
@@ -66,7 +68,6 @@ const EditModal: FC<SingleShopProductProps> = ({ productOfShoppingList }) => {
   };
 
   return (
-    // <div className="modal-container">
     <div className="edit-modal">
       <div className="modal-title" title="Basic Modal">
         <p>
@@ -114,7 +115,6 @@ const EditModal: FC<SingleShopProductProps> = ({ productOfShoppingList }) => {
         />
       </div>
     </div>
-    // </div>
   );
 };
 
