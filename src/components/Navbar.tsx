@@ -6,6 +6,7 @@ import "./Navbar.css";
 const Navbar = () => {
   const [stickyStyle, setStickyStyle] = useState("navbar");
 
+
   const activeLink = ({ isActive }: any) => ({ color: isActive ? "#fff" : "" });
 
   const handleScroll = () => {
