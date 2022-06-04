@@ -1,11 +1,12 @@
 .navbar{
     background-color: #000;
-    padding: 20px 100px;
+    padding: 1.25rem 2.5rem;
+
 }
 
 .sticky{
     background-color: #000;
-    padding: 20px 100px;
+    padding: 1.25rem 2.5rem;
     position:fixed;
     top: 0;
     width: 100%
@@ -26,7 +27,7 @@
 .navbar nav a {
     text-decoration: none;
     color: #777;
-    margin: 0 20px;
+    margin: 0 1rem;
     font-size: 20px;
 }
 
@@ -42,7 +43,7 @@
 .sticky nav a {
     text-decoration: none;
     color: #777;
-    margin: 0 20px;
+    margin: 0 1rem;
     font-size: 20px;
 }
 
@@ -51,4 +52,19 @@
 }
 .is-active{
     color: pink;
+}
+
+@media (max-width:770px) {
+    .navbar{
+        padding: 1.25rem 0.7rem;
+    }
+    .navbar nav a {
+        margin: 0 0.5rem;
+    }
+    .sticky  {
+        padding: 1.25rem 0.7rem;
+    }
+     .sticky nav a {
+        margin: 0 0.5rem;
+    }
 }
