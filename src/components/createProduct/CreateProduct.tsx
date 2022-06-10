@@ -4,16 +4,16 @@ import React, {
   useReducer,
   useRef,
   useState,
-} from "react";
-import { useNavigate } from "react-router-dom";
-import { db } from "../../firebase/config";
-import { collection, addDoc } from "firebase/firestore";
+} from 'react';
+import { useNavigate } from 'react-router-dom';
+import { db } from '../../firebase/config';
+import { collection, addDoc } from 'firebase/firestore';
 
-import "./CreateProduct.css";
+import './CreateProduct.css';
 
-import close_white_36 from "../../icons/close_white_36.svg";
-import { FoodStorageContext } from "../../context/FoodStorageContext";
-import { StockProduct } from "../../types/type";
+import close_white_36 from '../../icons/close_white_36.svg';
+import { FoodStorageContext } from '../../context/FoodStorageContext';
+import { StockProduct } from '../../types/type';
 
 type Props = {
   setToggleModal: (x: boolean) => void;
@@ -31,14 +31,14 @@ interface Action {
 }
 
 const CreateProduct: React.FC<Props> = ({ setToggleModal }) => {
-  const { stockProductsList }: any = useContext(FoodStorageContext);
+  const { stockProductsList } = useContext(FoodStorageContext);
 
   const focusInput = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
 
   const reducer = (state: State, action: Action) => {
     switch (action.type) {
-      case "HANDLE_INPUT_FORM":
+      case 'HANDLE_INPUT_FORM':
         return { ...state, [action.field]: action.payload };
       default:
         return state;
@@ -46,13 +46,13 @@ const CreateProduct: React.FC<Props> = ({ setToggleModal }) => {
   };
 
   const [state, dispatch] = useReducer(reducer, {
-    name: "",
+    name: '',
     amount: 0,
   });
 
   const handleForm = (e: any) => {
     dispatch({
-      type: "HANDLE_INPUT_FORM",
+      type: 'HANDLE_INPUT_FORM',
       field: e.target.name,
       payload: e.target.value,
     });
@@ -71,15 +71,15 @@ const CreateProduct: React.FC<Props> = ({ setToggleModal }) => {
           return product;
         });
       if (!productExist.length) {
-        const ref = collection(db, "products");
+        const ref = collection(db, 'products');
         addDoc(ref, {
           amount: state.amount,
           title: state.name.toLowerCase(),
         });
         setToggleModal(false);
-        navigate("/stock");
+        navigate('/stock');
       } else {
-        alert("This product is already exist");
+        alert('This product is already exist');
       }
     } else {
       focusInput.current?.focus();
@@ -88,7 +88,7 @@ const CreateProduct: React.FC<Props> = ({ setToggleModal }) => {
 
   const handleCloseModal = () => {
     setToggleModal(false);
-    navigate("/stock");
+    navigate('/stock');
   };
 
   return (

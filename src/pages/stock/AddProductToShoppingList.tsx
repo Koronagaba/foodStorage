@@ -1,17 +1,17 @@
-import React, { useState, useContext } from "react";
-import { FoodStorageContext } from "../../context/FoodStorageContext";
+import React, { useState, useContext } from 'react';
+import { FoodStorageContext } from '../../context/FoodStorageContext';
 
-import { db } from "../../firebase/config";
+import { db } from '../../firebase/config';
 import {
   doc,
   setDoc,
   collection,
   addDoc,
   serverTimestamp,
-} from "firebase/firestore";
+} from 'firebase/firestore';
 
-import add_shopping_cart from "../../icons/add_shopping_cart.svg";
-import { ShoppingListProduct, StockProduct } from "../../types/type";
+import add_shopping_cart from '../../icons/add_shopping_cart.svg';
+import { ShoppingListProduct, StockProduct } from '../../types/type';
 
 interface AddProductProps {
   inputRef: React.MutableRefObject<HTMLInputElement | null>;
@@ -22,7 +22,7 @@ const AddProduct = ({ inputRef, product }: AddProductProps) => {
   const [numberOfProductsAddedToCart, setNumberOfProductsAddedToCart] =
     useState(0);
 
-  const { shoppingList }: any = useContext(FoodStorageContext);
+  const { shoppingList } = useContext(FoodStorageContext);
 
   const { title } = product;
 
@@ -39,7 +39,12 @@ const AddProduct = ({ inputRef, product }: AddProductProps) => {
         });
       if (filteredTheSameTitle.length) {
         setDoc(
-          doc(db,"shoppingList",filteredTheSameTitle[filteredTheSameTitle.length - 1].id),{
+          doc(
+            db,
+            'shoppingList',
+            filteredTheSameTitle[filteredTheSameTitle.length - 1].id
+          ),
+          {
             title,
             amount:
               filteredTheSameTitle[filteredTheSameTitle.length - 1].amount +
@@ -50,8 +55,8 @@ const AddProduct = ({ inputRef, product }: AddProductProps) => {
           }
         );
         setNumberOfProductsAddedToCart(0);
-      } else {  
-        addDoc(collection(db, "shoppingList"), {
+      } else {
+        addDoc(collection(db, 'shoppingList'), {
           amount: numberOfProductsAddedToCart,
           inBag: false,
           isEditing: false,

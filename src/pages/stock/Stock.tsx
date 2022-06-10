@@ -1,19 +1,19 @@
-import { useState, useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { useState, useContext } from 'react';
+import { NavLink } from 'react-router-dom';
 
-import { FoodStorageContext } from "../../context/FoodStorageContext";
-import { SearchContext } from "../../context/SearchContext";
+import { FoodStorageContext } from '../../context/FoodStorageContext';
+import { SearchContext } from '../../context/SearchContext';
 
-import "./Stock.css";
-import add from "../../icons/add.svg";
+import './Stock.css';
+import add from '../../icons/add.svg';
 
-import SearchBar from "../../components/stockComponents/SearchBar";
-import CreateProduct from "../../components/createProduct/CreateProduct";
-import ProductsList from "./ProductsList";
+import SearchBar from '../../components/stockComponents/SearchBar';
+import CreateProduct from '../../components/createProduct/CreateProduct';
+import ProductsList from './ProductsList';
 
 const Stock = () => {
-  const { stockProductsList }: any = useContext(FoodStorageContext);
-  const { searchStock }: any = useContext(SearchContext);
+  const { stockProductsList } = useContext(FoodStorageContext);
+  const { searchStock } = useContext(SearchContext);
 
   const [toggleModal, setToggleModal] = useState(false);
 
@@ -25,7 +25,7 @@ const Stock = () => {
     <div className="stock-container">
       {toggleModal && <CreateProduct setToggleModal={setToggleModal} />}
       <div className="stock">
-        <NavLink to={"createProduct"}>
+        <NavLink to={'createProduct'}>
           <img
             className="add-icon"
             src={add}
