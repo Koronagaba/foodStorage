@@ -1,28 +1,25 @@
-import { useRef, SyntheticEvent, useContext } from "react";
+import { useRef, SyntheticEvent, useContext } from 'react';
 
-import "./SearchBar.css";
-import search_icon from "../../icons/search.svg";
-import { SearchContext } from "../../context/SearchContext";
-
+import './SearchBar.css';
+import search_icon from '../../icons/search.svg';
+import { SearchContext } from '../../context/SearchContext';
 
 // interface SearchBarProps {
 //   searchText: string,
 //   setSearchText: (firstArg: string) => void
 // }
 
-
-
 const SearchBar = () => {
-  const { searchStock, setSearchStock } : any= useContext(SearchContext)
+  const { searchStock, setSearchStock }: any = useContext(SearchContext);
 
-  const searchFocus = useRef<HTMLInputElement>(null);      
+  const searchFocus = useRef<HTMLInputElement>(null);
 
-  const handleSubmit = (e:SyntheticEvent) => {
+  const handleSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
-    setSearchStock("");
+    setSearchStock('');
   };
 
-  const handleSearchText = (e: {target: HTMLInputElement}) => {
+  const handleSearchText = (e: { target: HTMLInputElement }) => {
     setSearchStock(e.target.value);
   };
 
@@ -48,7 +45,6 @@ const SearchBar = () => {
           onChange={handleSearchText}
         />
       </form>
-    
     </div>
   );
 };

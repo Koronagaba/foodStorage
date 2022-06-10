@@ -1,23 +1,21 @@
-import { useContext, useRef, SyntheticEvent } from "react";
+import { useContext, useRef, SyntheticEvent } from 'react';
 
-import search_icon from "../../../../icons/search.svg";
+import search_icon from '../../../../icons/search.svg';
 
-import { SearchContext } from "../../../../context/SearchContext";
-
-
+import { SearchContext } from '../../../../context/SearchContext';
 
 interface SearchBarProps {
   collection: any;
 }
 
 const SearchBarMeal = ({ collection }: SearchBarProps) => {
-  const { searchMeal, setSearchMeal }:any = useContext(SearchContext)
+  const { searchMeal, setSearchMeal }= useContext(SearchContext);
 
   const searchFocus = useRef<HTMLInputElement>(null);
 
   const handleSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
-    setSearchMeal("");
+    setSearchMeal('');
   };
 
   const handleSearchText = (e: { target: HTMLInputElement }) => {
@@ -26,9 +24,6 @@ const SearchBarMeal = ({ collection }: SearchBarProps) => {
     // const filteredCollection = collection.filter((item: MealIngredient) => (
     //   item.title.toLocaleLowerCase().includes(searchText.toLocaleLowerCase())
     // ))
-
-  
-    
   };
 
   const searchInputFocus = () => {
