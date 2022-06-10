@@ -1,5 +1,5 @@
-import { FC } from "react";
-import { useNavigate } from "react-router-dom";
+import { FC } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 interface AddMoreProps {
   path: string;
@@ -16,7 +16,7 @@ const AddMoreButton: FC<AddMoreProps> = ({ path, collection }) => {
   return (
     <div>
       <button onClick={addMoreIngredientsToBreakfast}>
-        {collection.length ? "Add more" : "Add"}
+        {collection.length ? 'Add more' : 'Add'}
       </button>
     </div>
   );

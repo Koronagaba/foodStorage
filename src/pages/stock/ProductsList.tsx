@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 
-import SingleStockProduct from "./SingleStockProduct";
+import SingleStockProduct from './SingleStockProduct';
 
-import { StockProduct } from "../../types/type";
+import { StockProduct } from '../../types/type';
 
 interface ProductsProps {
   stockProductsList: StockProduct[];

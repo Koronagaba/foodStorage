@@ -1,12 +1,11 @@
-import { useState, FC } from "react";
-import { db } from "../../../firebase/config";
-import { doc, setDoc, collection, addDoc } from "firebase/firestore";
+import { useState, FC } from 'react';
+import { db } from '../../../firebase/config';
+import { doc, setDoc, collection, addDoc } from 'firebase/firestore';
 
-import { SingleShopProductProps } from "../../../types/type";
+import { SingleShopProductProps } from '../../../types/type';
 
-import "./Modals.css";
-import check from "../../../icons/check.svg";
-
+import './Modals.css';
+import check from '../../../icons/check.svg';
 
 const EditModal: FC<SingleShopProductProps> = ({ productOfShoppingList }) => {
   const [editAmount, setEditAmount] = useState(1);
@@ -17,12 +16,12 @@ const EditModal: FC<SingleShopProductProps> = ({ productOfShoppingList }) => {
     amount: number,
     isEditing: boolean
   ) => {
-    const ref = doc(db, "shoppingList", id);
+    const ref = doc(db, 'shoppingList', id);
     setDoc(ref, {
       amount,
       isEditing: !isEditing,
       title,
-      createdAt: productOfShoppingList.createdAt
+      createdAt: productOfShoppingList.createdAt,
     });
   };
 
@@ -32,21 +31,21 @@ const EditModal: FC<SingleShopProductProps> = ({ productOfShoppingList }) => {
     isEditing: boolean,
     amount: number
   ) => {
-    const ref = doc(db, "shoppingList", id);
+    const ref = doc(db, 'shoppingList', id);
     if (editAmount < amount) {
       setDoc(ref, {
         title,
         amount: amount - editAmount,
         isEditing: !isEditing,
         inBag: false,
-        createdAt: productOfShoppingList.createdAt
+        createdAt: productOfShoppingList.createdAt,
       });
-      addDoc(collection(db, "shoppingList"), {
+      addDoc(collection(db, 'shoppingList'), {
         title,
         amount: editAmount,
         isEditing: !isEditing,
         inBag: true,
-        createdAt: productOfShoppingList.createdAt
+        createdAt: productOfShoppingList.createdAt,
       });
     } else if (editAmount > amount) {
       setDoc(ref, {
@@ -54,7 +53,7 @@ const EditModal: FC<SingleShopProductProps> = ({ productOfShoppingList }) => {
         amount: editAmount,
         isEditing: !isEditing,
         inBag: true,
-        createdAt: productOfShoppingList.createdAt
+        createdAt: productOfShoppingList.createdAt,
       });
     } else if (editAmount === amount) {
       setDoc(ref, {
@@ -62,7 +61,7 @@ const EditModal: FC<SingleShopProductProps> = ({ productOfShoppingList }) => {
         amount,
         isEditing: !isEditing.valueOf,
         inBag: true,
-        createdAt: productOfShoppingList.createdAt
+        createdAt: productOfShoppingList.createdAt,
       });
     }
   };
@@ -71,7 +70,8 @@ const EditModal: FC<SingleShopProductProps> = ({ productOfShoppingList }) => {
     <div className="edit-modal">
       <div className="modal-title" title="Basic Modal">
         <p>
-          Required amount: {productOfShoppingList.title} - {productOfShoppingList.amount}
+          Required amount: {productOfShoppingList.title} -{' '}
+          {productOfShoppingList.amount}
         </p>
       </div>
 

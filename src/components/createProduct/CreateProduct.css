@@ -1,71 +1,69 @@
 .createProduct-container {
-    background-color: rgba(0, 0, 0, 0.7);
-    height: 100%;
-    width: 100%;
-    position: fixed;
+  background-color: rgba(0, 0, 0, 0.7);
+  height: 100%;
+  width: 100%;
+  position: fixed;
 }
 
 .form-container {
-    background-color: rgba(0, 0, 0, 0.8);
-    width: 500px;
-    height: 300px;
-    margin: 100px auto 0 auto;
-    display: flex; 
-    flex-direction: column;
-    justify-content: space-around ;
-    align-items: center;
-    position: relative
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 500px;
+  height: 300px;
+  margin: 100px auto 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
 }
 
 .createProduct-container h3 {
-    color: #ddd
+  color: #ddd;
 }
 
 .form-container .form-item {
-    background-color: #F2E3D5;
-    height: 40px;
-    line-height: 40px;
-    padding: 0 30px 0 30px;
-    margin: 20px 0;
-    border-radius: 5px;
-    font-size: 18px
+  background-color: #f2e3d5;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 30px 0 30px;
+  margin: 20px 0;
+  border-radius: 5px;
+  font-size: 18px;
 }
 
 .form-container div input {
-    height: 25px;
-    border: none;
-    border-radius: 5px;
+  height: 25px;
+  border: none;
+  border-radius: 5px;
 }
-.form-container div input:focus{
-    outline: none;
-    
+.form-container div input:focus {
+  outline: none;
 }
 
 .form-container button {
-    background-color: #F2E3D5;
-    width: 220px;
-    height: 40px;
-    border: none;
-    border-radius: 5px;
-    margin-top: 10px;
-    transition: .2s ease-in;
+  background-color: #f2e3d5;
+  width: 220px;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 10px;
+  transition: 0.2s ease-in;
 }
 
 .form-container button:hover {
-    cursor: pointer;
-    background-color: #ddd;
-
+  cursor: pointer;
+  background-color: #ddd;
 }
 
-.form-container .close-icon{
-    transition: ease-in .1s;
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin: 10px
+.form-container .close-icon {
+  transition: ease-in 0.1s;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 10px;
 }
 
-.form-container .close-icon:hover{
-   cursor: pointer;
-   transform: scale(1.15)
-} 
+.form-container .close-icon:hover {
+  cursor: pointer;
+  transform: scale(1.15);
+}

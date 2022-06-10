@@ -1,12 +1,12 @@
-import { FC, useContext } from "react";
+import { FC, useContext } from 'react';
 
-import "./MealList.css";
+import './MealList.css';
 
-import { MealIngredient } from "../../../../types/type";
-import AddMoreButton from "./AddMoreButton";
-import EmptyList from "./EmptyList";
+import { MealIngredient } from '../../../../types/type';
+import AddMoreButton from './AddMoreButton';
+import EmptyList from './EmptyList';
 
-import { SearchContext } from "../../../../context/SearchContext";
+import { SearchContext } from '../../../../context/SearchContext';
 
 interface MealListProps {
   collection: any;
@@ -40,8 +40,8 @@ const MealList: FC<MealListProps> = ({
       <div
         className={
           collection.length
-            ? "typesOfMeals-header"
-            : "typesOfMeals-empty-header"
+            ? 'typesOfMeals-header'
+            : 'typesOfMeals-empty-header'
         }
       >
         <img src={iconName} alt={altProp} />

@@ -1,77 +1,72 @@
-.searchBar{
-padding: 15px;
+.searchBar {
+  padding: 15px;
 }
-.searchBar .search-icon:hover{
-cursor: pointer
-}
-
-.search-form{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #F2E3D5;
-    padding: 5px 0;
-    border-radius: 80px;
-    outline: #aaa 1px solid
+.searchBar .search-icon:hover {
+  cursor: pointer;
 }
 
-.searchBar .search-input{
-    width: 470px;
-    height: 40px;
-    border: none;
-    font-size: 17px;
-    background-color: #F2E3D5;
+.search-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f2e3d5;
+  padding: 5px 0;
+  border-radius: 80px;
+  outline: #aaa 1px solid;
 }
 
-.searchBar .search-input:focus{
-    outline: none;
+.searchBar .search-input {
+  width: 470px;
+  height: 40px;
+  border: none;
+  font-size: 17px;
+  background-color: #f2e3d5;
 }
 
-.products-list{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 10px 0;
-    padding: 8px;
-    font-size: 17px;
-    border-top: 1px solid #999;  
-    border-bottom: 1px solid #999;   
-    border-radius: 5px;
-    background-color: #F2E3D5;
-  
+.searchBar .search-input:focus {
+  outline: none;
 }
 
-.products-list:hover{
-    cursor: pointer;
-    background-color: #e1d2c4;
-
+.products-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+  padding: 8px;
+  font-size: 17px;
+  border-top: 1px solid #999;
+  border-bottom: 1px solid #999;
+  border-radius: 5px;
+  background-color: #f2e3d5;
 }
 
-.products-list .first-div{
-    display: flex;
-    justify-content: space-between;
-    width: 300px
+.products-list:hover {
+  cursor: pointer;
+  background-color: #e1d2c4;
 }
 
-.products-list .second-div{
-    display: flex;
-    align-items: center;
-
+.products-list .first-div {
+  display: flex;
+  justify-content: space-between;
+  width: 300px;
 }
 
-.products-list div label input{
-    width: 60px;
-    height: 30px;
-    border: 0;
-    outline: #aaa 1px solid;
-    background-color: #F2E3D5;
- 
+.products-list .second-div {
+  display: flex;
+  align-items: center;
 }
 
-.products-list .img-add-to-cart{
-    margin-left: 10px;
-
+.products-list div label input {
+  width: 60px;
+  height: 30px;
+  border: 0;
+  outline: #aaa 1px solid;
+  background-color: #f2e3d5;
 }
-.products-list .img-add-to-cart:hover{
-outline: #777 1px solid;
+
+.products-list .img-add-to-cart {
+  margin-left: 10px;
+}
+.products-list .img-add-to-cart:hover {
+  outline: #777 1px solid;
 }

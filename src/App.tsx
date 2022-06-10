@@ -1,27 +1,27 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { useState, useContext } from "react";
-import { MealsContext } from "./context/MealsContext";
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { useState, useContext } from 'react';
+import { MealsContext } from './context/MealsContext';
 
-import "./App.css";
-import breakfast_icon from "./icons/breakfast_icon.png";
-import lunch_icon from "./icons/lunch_icon.png";
-import salad_icon from "./icons/salad_icon.png";
-import snack_icon from "./icons/snack_icon.png";
+import './App.css';
+import breakfast_icon from './icons/breakfast_icon.png';
+import lunch_icon from './icons/lunch_icon.png';
+import salad_icon from './icons/salad_icon.png';
+import snack_icon from './icons/snack_icon.png';
 
-import Navbar from "./components/Navbar";
-import Cook from "./pages/cook/Cook";
-import Stock from "./pages/stock/Stock";
-import ShoppingList from "./pages/shoppingList/ShoppingList";
+import Navbar from './components/Navbar';
+import Cook from './pages/cook/Cook';
+import Stock from './pages/stock/Stock';
+import ShoppingList from './pages/shoppingList/ShoppingList';
 
-import CreateProduct from "./components/createProduct/CreateProduct";
-import Ingredients from "./pages/cook/typesOfCooking/ingredients/Ingredients";
-import CreateRecipe from "./pages/cook/typesOfCooking/createRecipe/CreateRecipe";
-import RecipeList from "./pages/cook/typesOfCooking/recipeList/RecipeList";
-import FavoriteFood from "./pages/cook/typesOfCooking/favoriteFood/FavoriteFood";
-import NoMatch from "./components/NoMatch/NoMatch";
+import CreateProduct from './components/createProduct/CreateProduct';
+import Ingredients from './pages/cook/typesOfCooking/ingredients/Ingredients';
+import CreateRecipe from './pages/cook/typesOfCooking/createRecipe/CreateRecipe';
+import RecipeList from './pages/cook/typesOfCooking/recipeList/RecipeList';
+import FavoriteFood from './pages/cook/typesOfCooking/favoriteFood/FavoriteFood';
+import NoMatch from './components/NoMatch/NoMatch';
 
-import Meal from "./pages/cook/meals/meal/Meal";
-import MealList from "./pages/cook/meals/mealList/MealList";
+import Meal from './pages/cook/meals/meal/Meal';
+import MealList from './pages/cook/meals/mealList/MealList';
 
 function App() {
   const { breakfastList, lunchList, supperList, snackList } =
@@ -39,10 +39,10 @@ function App() {
             path="/cook/breakfast"
             element={
               <Meal
-                title={"Breakfast"}
-                backToCook={"/*"}
-                backToMealList={"breakfast"}
-                navToList={"breakfastList"}
+                title={'Breakfast'}
+                backToCook={'/*'}
+                backToMealList={'breakfast'}
+                navToList={'breakfastList'}
                 collection={breakfastList}
               />
             }
@@ -53,14 +53,14 @@ function App() {
                 <MealList
                   collection={breakfastList}
                   iconName={breakfast_icon}
-                  altProp={"breakfast icon"}
-                  path={"breakfast"}
+                  altProp={'breakfast icon'}
+                  path={'breakfast'}
                 />
               }
             ></Route>
             <Route
               path="ingredients"
-              element={<Ingredients nameOfCollection={"breakfast"} />}
+              element={<Ingredients nameOfCollection={'breakfast'} />}
             ></Route>
             <Route path="recipeList" element={<RecipeList />}></Route>
             <Route path="favoriteFood" element={<FavoriteFood />}></Route>
@@ -71,10 +71,10 @@ function App() {
             path="/cook/lunch"
             element={
               <Meal
-                title={"Lunch"}
-                backToCook={"/*"}
-                backToMealList={"lunch"}
-                navToList={"lunchList"}
+                title={'Lunch'}
+                backToCook={'/*'}
+                backToMealList={'lunch'}
+                navToList={'lunchList'}
                 collection={lunchList}
               />
             }
@@ -85,14 +85,14 @@ function App() {
                 <MealList
                   collection={lunchList}
                   iconName={lunch_icon}
-                  altProp={"lunch icon"}
-                  path={"lunch"}
+                  altProp={'lunch icon'}
+                  path={'lunch'}
                 />
               }
             ></Route>
             <Route
               path="ingredients"
-              element={<Ingredients nameOfCollection={"lunch"} />}
+              element={<Ingredients nameOfCollection={'lunch'} />}
             ></Route>
             <Route path="recipeList" element={<RecipeList />}></Route>
             <Route path="favoriteFood" element={<FavoriteFood />}></Route>
@@ -103,10 +103,10 @@ function App() {
             path="/cook/supper"
             element={
               <Meal
-                title={"Supper"}
-                backToCook={"/*"}
-                backToMealList={"supper"}
-                navToList={"supperList"}
+                title={'Supper'}
+                backToCook={'/*'}
+                backToMealList={'supper'}
+                navToList={'supperList'}
                 collection={supperList}
               />
             }
@@ -117,14 +117,14 @@ function App() {
                 <MealList
                   collection={supperList}
                   iconName={salad_icon}
-                  altProp={"salad icon"}
-                  path={"supper"}
+                  altProp={'salad icon'}
+                  path={'supper'}
                 />
               }
             ></Route>
             <Route
               path="ingredients"
-              element={<Ingredients nameOfCollection={"supper"} />}
+              element={<Ingredients nameOfCollection={'supper'} />}
             ></Route>
             <Route path="recipeList" element={<RecipeList />}></Route>
             <Route path="favoriteFood" element={<FavoriteFood />}></Route>
@@ -136,10 +136,10 @@ function App() {
             path="/cook/snack"
             element={
               <Meal
-                title={"Snack"}
-                backToCook={"/*"}
-                backToMealList={"snack"}
-                navToList={"snackList"}
+                title={'Snack'}
+                backToCook={'/*'}
+                backToMealList={'snack'}
+                navToList={'snackList'}
                 collection={snackList}
               />
             }
@@ -150,14 +150,14 @@ function App() {
                 <MealList
                   collection={snackList}
                   iconName={snack_icon}
-                  altProp={"snack icon"}
-                  path={"snack"}
+                  altProp={'snack icon'}
+                  path={'snack'}
                 />
               }
             ></Route>
             <Route
               path="ingredients"
-              element={<Ingredients nameOfCollection={"snack"} />}
+              element={<Ingredients nameOfCollection={'snack'} />}
             ></Route>
             <Route path="recipeList" element={<RecipeList />}></Route>
             <Route path="favoriteFood" element={<FavoriteFood />}></Route>

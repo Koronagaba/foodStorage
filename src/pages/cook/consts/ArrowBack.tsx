@@ -1,8 +1,8 @@
-import { useContext, FC } from "react";
-import { useNavigate } from "react-router-dom";
+import { useContext, FC } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-import arrow_back from "../../../icons/arrow_back.svg";
-import { MealsContext } from "../../../context/MealsContext";
+import arrow_back from '../../../icons/arrow_back.svg';
+import { MealsContext } from '../../../context/MealsContext';
 
 interface BackToMealListProps {
   path: string;
@@ -12,7 +12,7 @@ export const BackToCook = () => {
   const navigate = useNavigate();
   return (
     <img
-      onClick={() => navigate("/cook")}
+      onClick={() => navigate('/cook')}
       src={arrow_back}
       alt="arrow back"
       className="arrow-back"
@@ -28,7 +28,7 @@ export const BackToMealList: FC<BackToMealListProps> = ({ path }) => {
     if (breakfastList) {
       navigate(`/cook/${path}`);
     } else {
-      navigate("/cook");
+      navigate('/cook');
     }
   };
 

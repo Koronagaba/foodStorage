@@ -1,11 +1,15 @@
-import { useEffect, useState } from "react";
-import { db } from "../firebase/config";
-import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
-import { StockProduct, ShoppingListProduct } from "../types/type";
+import { useEffect, useState } from 'react';
+import { db } from '../firebase/config';
+import { collection, onSnapshot, orderBy, query } from 'firebase/firestore';
+import { StockProduct, ShoppingListProduct } from '../types/type';
+import { CollectionName } from '../enum/enum';
 
 export type CollectionType = StockProduct | ShoppingListProduct;
 
-export const useCollection = <T extends CollectionType>(c: string, order: string) => {
+export const useCollection = <T extends CollectionType>(
+  c: CollectionName,
+  order: string
+) => {
   const [documents, setDocuments] = useState<T[]>([]);
 
   useEffect(() => {

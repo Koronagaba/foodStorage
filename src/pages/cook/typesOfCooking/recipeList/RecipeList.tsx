@@ -1,5 +1,5 @@
-import React from "react";
-import TypesOfCooking from "../TypesOfCooking";
+import React from 'react';
+import TypesOfCooking from '../TypesOfCooking';
 
 const RecipeList = () => {
   return (

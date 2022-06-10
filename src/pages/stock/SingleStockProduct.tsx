@@ -1,19 +1,18 @@
-import React, { useRef } from "react";
-import { StockProduct } from "../../types/type";
-import AddProductToShoppingList from "./AddProductToShoppingList";
+import React, { useRef } from 'react';
+import { StockProduct } from '../../types/type';
+import AddProductToShoppingList from './AddProductToShoppingList';
 
 interface ProductProps {
-  product: StockProduct
+  product: StockProduct;
 }
 
 const SingleStockProduct: React.FC<ProductProps> = ({ product }) => {
-  const inputRef = useRef<HTMLInputElement| null>(null);               
+  const inputRef = useRef<HTMLInputElement | null>(null);
 
   const handleFocusInput = () => {
-    if(inputRef.current){
+    if (inputRef.current) {
       inputRef.current.focus();
     }
-    
   };
 
   return (
@@ -23,7 +22,7 @@ const SingleStockProduct: React.FC<ProductProps> = ({ product }) => {
         <p>quantity: {product.amount}</p>
       </div>
       <div className="second-div">
-        <AddProductToShoppingList inputRef={inputRef} product={product}/>
+        <AddProductToShoppingList inputRef={inputRef} product={product} />
       </div>
     </div>
   );

@@ -1,10 +1,10 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-import App from "./App";
-import { FoodStorageContextProvider } from "./context/FoodStorageContext";
-import { MealsContextProvider } from "./context/MealsContext";
-import { SearchContextProvider } from "./context/SearchContext";
+import App from './App';
+import { FoodStorageContextProvider } from './context/FoodStorageContext';
+import { MealsContextProvider } from './context/MealsContext';
+import { SearchContextProvider } from './context/SearchContext';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -16,5 +16,5 @@ ReactDOM.render(
       </SearchContextProvider>
     </FoodStorageContextProvider>
   </React.StrictMode>,
-  document.getElementById("root")
+  document.getElementById('root')
 );

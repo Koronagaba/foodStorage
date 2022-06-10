@@ -1,11 +1,7 @@
-import './NoMatch.css'
+import './NoMatch.css';
 
 const NoMatch = () => {
-    return (
-        <div>
-            NoMatch
-        </div>
-    )
-}
+  return <div>NoMatch</div>;
+};
 
-export default NoMatch
+export default NoMatch;

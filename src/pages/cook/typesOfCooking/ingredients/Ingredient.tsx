@@ -1,48 +1,48 @@
-import { FC, useState, useRef } from "react";
-import { collection, addDoc, doc, setDoc } from "firebase/firestore"; 
-import { db } from "../../../../firebase/config";
+import { FC, useState, useRef } from 'react';
+import { collection, addDoc, doc, setDoc } from 'firebase/firestore';
+import { db } from '../../../../firebase/config';
 
-import "./Ingredient.css";
-import add_circle from "../../../../icons/add_circle.svg";
+import './Ingredient.css';
+import add_circle from '../../../../icons/add_circle.svg';
 
-
-import { StockProduct } from "../../../../types/type";
-
+import { StockProduct } from '../../../../types/type';
 
 interface IngredientProps {
-  stockProduct: StockProduct,
-  nameOfCollection: string
+  stockProduct: StockProduct;
+  nameOfCollection: string;
 }
 
-const Ingredient: FC<IngredientProps> = ({ stockProduct, nameOfCollection }) => {
+const Ingredient: FC<IngredientProps> = ({
+  stockProduct,
+  nameOfCollection,
+}) => {
   const [inputNumber, setInputNumber] = useState(0);
-   const ref = useRef<HTMLInputElement| null>(null)
-  
-const handleFocusInput = () => {
-  if(ref.current){
-    ref.current.focus()
-  }
+  const ref = useRef<HTMLInputElement | null>(null);
 
-}
+  const handleFocusInput = () => {
+    if (ref.current) {
+      ref.current.focus();
+    }
+  };
 
   const addIngredientToMeal = async () => {
-    if( inputNumber > 0 ){
-      if( inputNumber <= stockProduct.amount){
-        await addDoc(collection(db, `${nameOfCollection}` ), {
+    if (inputNumber > 0) {
+      if (inputNumber <= stockProduct.amount) {
+        await addDoc(collection(db, `${nameOfCollection}`), {
           amount: inputNumber,
           isEditing: false,
-          title: stockProduct.title
-        })
-    
+          title: stockProduct.title,
+        });
+
         await setDoc(doc(db, 'products', stockProduct.id), {
           amount: stockProduct.amount - inputNumber,
-          title: stockProduct.title
-        })
-        setInputNumber(0)
-      }else{
-        alert('There are not enough products in stock')
+          title: stockProduct.title,
+        });
+        setInputNumber(0);
+      } else {
+        alert('There are not enough products in stock');
       }
-  }
+    }
   };
 
   return (
@@ -51,20 +51,18 @@ const handleFocusInput = () => {
       <form>
         <label>amount: </label>
         <input
-          ref = {ref}
+          ref={ref}
           type="number"
           value={inputNumber}
           min={0}
           max={stockProduct.amount}
           onChange={(e) => setInputNumber(parseInt(e.target.value))}
-          onFocus={(e: React.ChangeEvent<HTMLInputElement>)=> e.target.select()}
+          onFocus={(e: React.ChangeEvent<HTMLInputElement>) =>
+            e.target.select()
+          }
         />
       </form>
-      <img
-        onClick={addIngredientToMeal}
-        src={add_circle}
-        alt="add circle"
-      />
+      <img onClick={addIngredientToMeal} src={add_circle} alt="add circle" />
     </div>
   );
 };

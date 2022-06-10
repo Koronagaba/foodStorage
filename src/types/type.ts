@@ -5,8 +5,8 @@ export interface StockProduct {
 }
 
 interface At {
-  nanoseconds: number
-  seconds: number
+  nanoseconds: number;
+  seconds: number;
 }
 
 export interface ShoppingListProduct {
@@ -14,15 +14,15 @@ export interface ShoppingListProduct {
   amount: number;
   isEditing: boolean;
   inBag: boolean;
-  id: string; 
-  createdAt: At
+  id: string;
+  createdAt: At;
 }
 
 export interface MealIngredient {
   title: string;
   amount: number;
   isEditing: boolean;
-  id: string
+  id: string;
 }
 
 // export type SingleItemProps = {
@@ -35,13 +35,12 @@ export interface MealIngredient {
 // };
 export type SingleShopProductProps = {
   productOfShoppingList: ShoppingListProduct;
-    // toggleEdit: (id: number, itemTitle: string, itemAmount: number, itemIsEditing: boolean) => void;
-    // handleEdit: (a: number, b: string, c: number | undefined, d: number) => void; //1tttttttttttttttttttttt
-    // handleDelete: (a: number) => void;
-    // moveProductIntoBag: (a: string, b: string, c: number, d: boolean) => void;
-    // handleSendToStock: (a: string, b: number) => void;
-  };
-
+  // toggleEdit: (id: number, itemTitle: string, itemAmount: number, itemIsEditing: boolean) => void;
+  // handleEdit: (a: number, b: string, c: number | undefined, d: number) => void; //1tttttttttttttttttttttt
+  // handleDelete: (a: number) => void;
+  // moveProductIntoBag: (a: string, b: string, c: number, d: boolean) => void;
+  // handleSendToStock: (a: string, b: number) => void;
+};
 
 // export interface ToggleEditProps {
 //   id: number | undefined;
