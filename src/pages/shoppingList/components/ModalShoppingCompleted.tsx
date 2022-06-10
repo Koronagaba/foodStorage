@@ -1,11 +1,11 @@
-import React, { FC, useContext } from "react";
-import { doc, setDoc, deleteDoc } from "firebase/firestore";
-import { db } from "../../../firebase/config";
+import React, { FC, useContext } from 'react';
+import { doc, setDoc, deleteDoc } from 'firebase/firestore';
+import { db } from '../../../firebase/config';
 
-import { FoodStorageContext } from "../../../context/FoodStorageContext";
-import { StockProduct, ShoppingListProduct } from "../../../types/type";
+import { FoodStorageContext } from '../../../context/FoodStorageContext';
+import { StockProduct, ShoppingListProduct } from '../../../types/type';
 
-import "./Modals.css";
+import './Modals.css';
 
 interface PropsModalShoppingCompleted {
   setIsModalVisible: (arg: boolean) => void;
@@ -16,33 +16,61 @@ const ModalShoppingCompleted: FC<PropsModalShoppingCompleted> = ({
   setIsModalVisible,
   filteredProducts,
 }) => {
-  const { stockProductsList }: any = useContext(FoodStorageContext);
+  const { stockProductsList } = useContext(FoodStorageContext);
 
   const handleModalCancel = () => {
     setIsModalVisible(false);
   };
 
-  const acceptModal = () => {
-    stockProductsList.forEach((item: ShoppingListProduct) => {
-      filteredProducts.forEach((prod: StockProduct) => {
+  interface ProductToBuy {
+    title: string;
+    amountInStock: number;
+    quantity: number;
+    itemId: string;
+  }
+
+  const acceptModal = async () => {
+    const mergedList: ProductToBuy[] = [];
+    stockProductsList.forEach((item) => {
+      filteredProducts.forEach((prod) => {
         if (item.title === prod.title) {
-          setDoc(doc(db, "products", item.id), {
-            title: item.title,
-            amount: item.amount + prod.amount,
-          });
-          deleteDoc(doc(db, "shoppingList", prod.id));
+          const indexInMergedList = mergedList.findIndex(
+            ({ title }) => title === prod.title
+          );
+
+          if (indexInMergedList === -1) {
+            mergedList.push({
+              title: prod.title,
+              amountInStock: item.amount,
+              quantity: prod.amount,
+              itemId: item.id,
+            });
+          } else {
+            mergedList[indexInMergedList].quantity =
+              mergedList[indexInMergedList].quantity + prod.amount;
+          }
+
+          deleteDoc(doc(db, 'shoppingList', prod.id));
         }
       });
     });
 
-    setIsModalVisible(false);
+    Promise.allSettled(
+      mergedList.map(({ itemId, amountInStock, quantity, title }) =>
+        setDoc(doc(db, 'products', itemId), {
+          title: title,
+          amount: amountInStock + quantity,
+        })
+      )
+    ).finally(() => {
+      setIsModalVisible(false);
+    });
   };
+
   const productsInBag = filteredProducts.map((prod: ShoppingListProduct) => (
-    <>
-      <p key={prod.id}>
-        {prod.title} - {prod.amount}
-      </p>
-    </>
+    <p key={prod.id}>
+      {prod.title} - {prod.amount}
+    </p>
   ));
 
   return (
