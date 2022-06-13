@@ -31,14 +31,16 @@ const ModalShoppingCompleted: FC<PropsModalShoppingCompleted> = ({
 
   const acceptModal = async () => {
     const mergedList: ProductToBuy[] = [];
+
     stockProductsList.forEach((item) => {
       filteredProducts.forEach((prod) => {
         if (item.title === prod.title) {
-          const indexInMergedList = mergedList.findIndex(
+          const indexMergedList = mergedList.findIndex(
             ({ title }) => title === prod.title
           );
 
-          if (indexInMergedList === -1) {
+          console.log(indexMergedList);
+          if (indexMergedList === -1) {
             mergedList.push({
               title: prod.title,
               amountInStock: item.amount,
@@ -46,8 +48,8 @@ const ModalShoppingCompleted: FC<PropsModalShoppingCompleted> = ({
               itemId: item.id,
             });
           } else {
-            mergedList[indexInMergedList].quantity =
-              mergedList[indexInMergedList].quantity + prod.amount;
+            mergedList[indexMergedList].quantity =
+              mergedList[indexMergedList].quantity + prod.amount;
           }
 
           deleteDoc(doc(db, 'shoppingList', prod.id));
@@ -56,7 +58,7 @@ const ModalShoppingCompleted: FC<PropsModalShoppingCompleted> = ({
     });
 
     Promise.allSettled(
-      mergedList.map(({ itemId, amountInStock, quantity, title }) =>
+      mergedList.map(({ itemId, title, amountInStock, quantity }) =>
         setDoc(doc(db, 'products', itemId), {
           title: title,
           amount: amountInStock + quantity,
