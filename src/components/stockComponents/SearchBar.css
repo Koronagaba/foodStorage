@@ -10,16 +10,16 @@
   align-items: center;
   justify-content: center;
   background-color: #f2e3d5;
-  padding: 5px 0;
+  padding: 5px 15px;
   border-radius: 80px;
   outline: #aaa 1px solid;
 }
 
-.searchBar .search-input {
-  width: 470px;
-  height: 40px;
+.search-input {
+  width: 90%;
+  height: 2.5rem;
   border: none;
-  font-size: 17px;
+  font-size: 1.1rem;
   background-color: #f2e3d5;
 }
 
