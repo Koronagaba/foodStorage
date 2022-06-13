@@ -1,43 +1,53 @@
-import { useEffect, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { useEffect, useState } from 'react';
+import { Link, NavLink } from 'react-router-dom';
 
-import "./Navbar.css";
+import './Navbar.css';
 
 const Navbar = () => {
-  const [stickyStyle, setStickyStyle] = useState("navbar");
+  const [stickyStyle, setStickyStyle] = useState('navbar');
+  const [toggleClass, setToggleClass] = useState(false);
 
-
-  const activeLink = ({ isActive }: any) => ({ color: isActive ? "#fff" : "" });
+  const activeLink = ({ isActive }: any) => ({ color: isActive ? '#fff' : '' });
 
   const handleScroll = () => {
     if (window.scrollY > 0) {
-      setStickyStyle("sticky sticky-opacity");
+      setStickyStyle('sticky');
     } else {
-      setStickyStyle("navbar");
+      setStickyStyle('navbar');
     }
   };
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
   });
 
+  const handleToggle = () => {
+    setToggleClass(!toggleClass);
+  };
+
   return (
-    <div className={stickyStyle}>
+    <div className={`navigation ${stickyStyle}`}>
       <nav>
-        <Link to={"/cook"} className="logo">
+        <Link to={'/cook'} className="logo">
           Let's cook with koro!
         </Link>
-        <div>
-          <NavLink to={"/cook"} style={activeLink}>
+        <div onClick={handleToggle} className="hamburger-icon">
+          <div className={`icon-1 ${toggleClass ? 'icon-a' : null}`}></div>
+          <div className={`icon-2 ${toggleClass ? 'icon-b' : null} `}></div>
+          <div className={`icon-3 ${toggleClass ? 'icon-c' : null} `}></div>
+          <div className="clear"></div>
+        </div>
+        <div className={`options ${toggleClass ? 'show' : null} `}>
+          <NavLink to={'/cook'} style={activeLink}>
             Cook
           </NavLink>
-          <NavLink to={"/createNewProduct"}  style={activeLink}>
+          <NavLink to={'/createNewProduct'} style={activeLink}>
             Create
           </NavLink>
-          <NavLink to={"/stock"} style={activeLink}>
+          <NavLink to={'/stock'} style={activeLink}>
             Stock
           </NavLink>
-          <NavLink to={"/shoppingList"} style={activeLink}>
+          <NavLink to={'/shoppingList'} style={activeLink}>
             Shopping List
           </NavLink>
         </div>
