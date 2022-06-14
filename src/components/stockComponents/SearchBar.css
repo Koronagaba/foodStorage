@@ -1,6 +1,7 @@
 .searchBar {
-  padding: 15px;
-  margin-bottom: 25px;
+  padding: 15px 0;
+  margin-bottom: 20px ;
+  width: 100%;
 }
 .searchBar .search-icon:hover {
   cursor: pointer;
@@ -12,13 +13,13 @@
   justify-content: center;
   background-color: #f2e3d5;
   padding: 5px 15px;
-  border-radius: 80px;
+  border-radius: 10px;
   outline: #aaa 1px solid;
 }
 
 .search-input {
   width: 90%;
-  height: 2.5rem;
+  padding: 7px;
   border: none;
   font-size: 1.1rem;
   background-color: #f2e3d5;

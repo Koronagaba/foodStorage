@@ -7,9 +7,7 @@
 .add-icon {
   width: 60px;
   transition: 0.2s ease-in-out;
-  position: absolute;
-  left: 100px;
-  top: 70px;
+  padding: 8px 0;
 }
 .add-icon:hover {
   cursor: pointer;
@@ -22,6 +20,10 @@
   margin: 0 auto;
 }
 
+.header-search-create {
+  display: flex;
+}
+
 /* ProductsList component  */
 
 .product-list {
@@ -29,7 +31,7 @@
   justify-content: space-between;
   align-items: center;
   margin: 8px 0;
-  padding: 8px;
+  padding: 7px;
   border-top: 1px solid #999;
   border-bottom: 1px solid #999;
   border-radius: 5px;
@@ -76,7 +78,7 @@
 
 
 @media (max-width: 600px){
-  .product-list span:hover {
+  .product-list span {
     display: none;
   
   }

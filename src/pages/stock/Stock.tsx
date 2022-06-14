@@ -25,15 +25,18 @@ const Stock = () => {
     <div className="stock-container">
       {toggleModal && <CreateProduct setToggleModal={setToggleModal} />}
       <div className="inside-container">
-        <NavLink to={'createProduct'}>
-          <img
-            className="add-icon"
-            src={add}
-            alt="create new product"
-            onClick={handleToggleModal}
-          />
-        </NavLink>
-        <SearchBar />
+        <div className='header-search-create'>
+          <NavLink to={'createProduct'}>
+            <img
+              className="add-icon"
+              src={add}
+              alt="create new product"
+              onClick={handleToggleModal}
+            />
+          </NavLink>
+          <SearchBar />
+        </div>
+
         <ProductsList
           stockProductsList={stockProductsList}
           searchStock={searchStock}
