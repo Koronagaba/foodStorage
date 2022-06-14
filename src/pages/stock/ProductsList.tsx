@@ -19,11 +19,6 @@ const ProductsList: React.FC<ProductsProps> = ({
 
   return (
     <>
-      <div className="title">
-        <p>Name:</p>
-        <p>Current state:</p>
-        <p>Order:</p>
-      </div>
       {stockProductsList.filter(filterMatchedProducts).map((product) => (
         <SingleStockProduct key={product.id} product={product} />
       ))}

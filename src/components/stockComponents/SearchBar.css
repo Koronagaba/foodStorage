@@ -1,5 +1,6 @@
 .searchBar {
   padding: 15px;
+  margin-bottom: 25px;
 }
 .searchBar .search-icon:hover {
   cursor: pointer;
@@ -25,48 +26,4 @@
 
 .searchBar .search-input:focus {
   outline: none;
-}
-
-.products-list {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 10px 0;
-  padding: 8px;
-  font-size: 17px;
-  border-top: 1px solid #999;
-  border-bottom: 1px solid #999;
-  border-radius: 5px;
-  background-color: #f2e3d5;
-}
-
-.products-list:hover {
-  cursor: pointer;
-  background-color: #e1d2c4;
-}
-
-.products-list .first-div {
-  display: flex;
-  justify-content: space-between;
-  width: 300px;
-}
-
-.products-list .second-div {
-  display: flex;
-  align-items: center;
-}
-
-.products-list div label input {
-  width: 60px;
-  height: 30px;
-  border: 0;
-  outline: #aaa 1px solid;
-  background-color: #f2e3d5;
-}
-
-.products-list .img-add-to-cart {
-  margin-left: 10px;
-}
-.products-list .img-add-to-cart:hover {
-  outline: #777 1px solid;
 }

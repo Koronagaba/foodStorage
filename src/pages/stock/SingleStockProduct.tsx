@@ -16,10 +16,9 @@ const SingleStockProduct: React.FC<ProductProps> = ({ product }) => {
   };
 
   return (
-    <div onClick={handleFocusInput} className="products-list">
+    <div onClick={handleFocusInput} className="product-list">
       <div className="first-div">
-        <p>{product.title}</p>
-        <p>quantity: {product.amount}</p>
+        <p>{`${product.title} (${product.amount})`}</p>
       </div>
       <div className="second-div">
         <AddProductToShoppingList inputRef={inputRef} product={product} />

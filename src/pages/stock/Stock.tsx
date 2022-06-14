@@ -24,7 +24,7 @@ const Stock = () => {
   return (
     <div className="stock-container">
       {toggleModal && <CreateProduct setToggleModal={setToggleModal} />}
-      <div className="stock">
+      <div className="inside-container">
         <NavLink to={'createProduct'}>
           <img
             className="add-icon"
