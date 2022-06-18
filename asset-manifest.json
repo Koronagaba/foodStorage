@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/foodStorage/static/css/main.06021159.css",
-    "main.js": "/foodStorage/static/js/main.b1a951f8.js",
+    "main.css": "/foodStorage/static/css/main.44fd1595.css",
+    "main.js": "/foodStorage/static/js/main.4bc6d629.js",
     "static/media/lunch_icon.png": "/foodStorage/static/media/lunch_icon.ffefbe648768275c66ec.png",
     "static/media/salad_icon.png": "/foodStorage/static/media/salad_icon.2220d81f9bac33378771.png",
     "static/media/breakfast_icon.png": "/foodStorage/static/media/breakfast_icon.a6b69665e541f93acc10.png",
@@ -20,11 +20,11 @@
     "static/media/check.svg": "/foodStorage/static/media/check.222a1c7ef846e3979556e4c12528d041.svg",
     "static/media/add.svg": "/foodStorage/static/media/add.376e9b6a44e5b3142f1239a3cc8504d0.svg",
     "static/media/arrow_back.svg": "/foodStorage/static/media/arrow_back.b9b1b1b9f53a15c0c8d85bc6a29ce4a1.svg",
-    "main.06021159.css.map": "/foodStorage/static/css/main.06021159.css.map",
-    "main.b1a951f8.js.map": "/foodStorage/static/js/main.b1a951f8.js.map"
+    "main.44fd1595.css.map": "/foodStorage/static/css/main.44fd1595.css.map",
+    "main.4bc6d629.js.map": "/foodStorage/static/js/main.4bc6d629.js.map"
   },
   "entrypoints": [
-    "static/css/main.06021159.css",
-    "static/js/main.b1a951f8.js"
+    "static/css/main.44fd1595.css",
+    "static/js/main.4bc6d629.js"
   ]
 }
