@@ -49,7 +49,7 @@ const ShoppingList = () => {
               productOfShoppingList={productOfShoppingList}
             />
           ))}
-          <button onClick={handleShoppingCompleted}>Shopping Completed</button>
+          <button className="btn-shopping-complete"onClick={handleShoppingCompleted}>Shopping Completed</button>
         </div>
       ) : (
         <EmptyShoppingList />

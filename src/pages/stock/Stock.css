@@ -16,7 +16,7 @@
 .inside-container {
   position: relative;
   width: 90%;
-  max-width: 600px;
+  max-width: 580px;
   margin: 0 auto;
 }
 
@@ -46,7 +46,6 @@
 .product-list .first-div {
   display: flex;
   justify-content: space-between;
-  /* width: 50%; */
   flex-wrap: nowrap;
 }
 

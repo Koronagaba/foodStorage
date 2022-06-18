@@ -95,31 +95,9 @@ const SingleItem: React.FC<SingleShopProductProps> = ({
       )}
       <div className="single-item-container">
         <div className="single-item" style={style}>
-          <p>
+          <p className='product-info'>
             {productOfShoppingList.title} - {productOfShoppingList.amount}
           </p>
-          {/* {product.isEditing && <EditModal product={product} />
-        (
-          <div className="form-edit">
-            <input
-              type="number"
-              min="0"
-              value={editAmount}
-              onChange={(e: { target: HTMLInputElement }) =>
-                setEditAmount(e.target.valueAsNumber)
-              }
-            />
-            <img
-              onClick={
-                () => handleEdit(product.id, product.title, product.isEditing, product.amount) //1ttttttttttttttttttttttttttttt
-              }
-              src={check}
-              alt="approve the changes"
-            />
-          </div>
-        )
-        } */}
-
           <div className="icons">
             <img
               onClick={() =>
@@ -153,7 +131,7 @@ const SingleItem: React.FC<SingleShopProductProps> = ({
           </div>
         </div>
 
-        <img
+        <img 
           onClick={() =>
             handleSendToStock(
               productOfShoppingList.id,
