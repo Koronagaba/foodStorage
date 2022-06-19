@@ -37,19 +37,21 @@ const Navbar = () => {
           <div className={`icon-3 ${toggleClass ? 'icon-c' : null} `}></div>
           <div className="clear"></div>
         </div>
-        <div className={`options ${toggleClass ? 'show' : null} `}>
-          <NavLink to={'/cook'} style={activeLink}>
-            Cook
-          </NavLink>
-          <NavLink to={'/createNewProduct'} style={activeLink}>
-            Create
-          </NavLink>
-          <NavLink to={'/stock'} style={activeLink}>
-            Stock
-          </NavLink>
-          <NavLink to={'/shoppingList'} style={activeLink}>
-            Shopping List
-          </NavLink>
+        <div className={`options ${toggleClass ? 'show-options' : null} `}>
+          <div className="inside-options">
+            <NavLink to={'/cook'} style={activeLink}>
+              Cook
+            </NavLink>
+            <NavLink to={'/createNewProduct'} style={activeLink}>
+              Create
+            </NavLink>
+            <NavLink to={'/stock'} style={activeLink}>
+              Stock
+            </NavLink>
+            <NavLink to={'/shoppingList'} style={activeLink}>
+              Shopping List
+            </NavLink>
+          </div>
         </div>
       </nav>
     </div>
