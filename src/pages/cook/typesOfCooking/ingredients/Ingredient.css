@@ -3,14 +3,22 @@
   align-items: center;
   border-radius: 10px;
   margin: 10px 0;
-  padding: 0 15px;
+  padding: 0 2%;
   justify-content: space-between;
-  /* background-color: #f2e3d5; */
   background-color: hsl(33, 100%, 88%);
   transition: ease-in-out 0.2s;
 }
 .ingredient:hover {
   background-color: #ddc2a2;
+}
+.ingredient-title {
+  width: 80%;
+  margin-right: 20px;;
+}
+
+.ingredient form {
+  width: 30%;
+  margin-right: 5px;
 }
 
 .ingredient img {
