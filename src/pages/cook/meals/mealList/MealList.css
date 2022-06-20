@@ -33,7 +33,8 @@
   position: fixed;
   bottom: 5%;
   left: 50%;
-  transform: translateX(-50%);
+  margin-left: -53.66px;
+  /* transform: translateX(-50%); */
   background: linear-gradient(
     90deg,
     rgba(0, 7, 36, 1) 0%,
@@ -48,7 +49,7 @@
   transition: ease 0.2s;
 }
 
-.typesOfMeals-container button:hover {
+.btn-add-more-mealList:hover {
   cursor: pointer;
   transform: scale(1.04);
 }
