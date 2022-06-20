@@ -10,26 +10,27 @@ import ingredients from '../../../icons/ingredients.png';
 const TypesOfCooking = () => {
   return (
     <div className="meal-types-of-cooking">
-      <Link to={'/cook/breakfast/ingredients'}>
-        <img
-          src={ingredients}
-          alt="food (ingredients)"
-          className="meal-ingredients"
-        />
-      </Link>
-
-      <div className="disabled">
-        <Link to={''}>
+      <div>
+        <Link to={'/cook/breakfast/ingredients'}>
+          <img
+            src={ingredients}
+            alt="food (ingredients)"
+            className="meal-ingredients"
+          />
+        </Link>
+        <Link to={''} className="disabled">
           {/* /cook/breakfast/recipeList */}
           <img src={recipe} alt="recipes" className="meal-recipes" />
           <p className="textHide">This functionality will be activated soon</p>
         </Link>
-        <Link to={''}>
+      </div>
+      <div>
+        <Link to={''} className="disabled">
           {/* /cook/breakfast/favoriteFood */}
           <img src={favorite} alt="favorite" className="meal-favorite" />
           <p className="textHide">this functionality will be activated soon</p>
         </Link>
-        <Link to={''}>
+        <Link to={''} className="disabled">
           {/* /cook/breakfast/createRecipe */}
           <img
             src={add_circle}

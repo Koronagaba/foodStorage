@@ -1,8 +1,4 @@
 .meal-types-of-cooking {
-  /* grid-area: 3 / 1 / 4 / 5; */
-  /* display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 100%;  */
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -14,8 +10,6 @@
   background-color: coral;
   margin: 5px 15px;
   border-radius: 20px;
-}
-.meal-types-of-cooking img:hover {
 }
 
 .meal-ingredients {
@@ -48,4 +42,11 @@
 }
 .disabled :hover .textHide {
   visibility: visible;
+}
+
+@media (max-width: 600px){
+  
+  .meal-types-of-cooking img {
+    margin: 5px 1.1rem;
+  }
 }
