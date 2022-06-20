@@ -29,10 +29,11 @@
   transition: ease-in-out 0.2s;
 }
 
-.typesOfMeals-container button {
+.btn-add-more-mealList{
   position: fixed;
   bottom: 5%;
-  left: 47%;
+  left: 50%;
+  transform: translateX(-50%);
   background: linear-gradient(
     90deg,
     rgba(0, 7, 36, 1) 0%,
@@ -40,7 +41,6 @@
     rgba(0, 92, 255, 1) 100%
   );
   color: #fff;
-  margin: 10px;
   padding: 10px 15px;
   border-radius: 10px;
   border: none;

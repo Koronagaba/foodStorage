@@ -31,7 +31,7 @@ const Meal: FC<MealProps> = ({
 
   return (
     <div className="meal-container">
-      <div className="meal">
+      <div className="inside-meal">
         <div className="meal-header">
           <Routes>
             <Route path={backToCook} element={<BackToCook />} />

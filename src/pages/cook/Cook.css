@@ -1,13 +1,14 @@
 .cook-container {
 /* border: 2px solid green; */
 background-color: darkslategray;
+/* height: 100vh; */
 }
 
 .inside-cook {
   /* border: 2px solid red; */
   /* width: 90%; */
   max-width: 700px;
-  height: 90vh;
+  min-height: 90vh;
   margin: 0 auto;
   display: grid;
   grid-template-columns: .1fr 50fr 50fr .1fr;

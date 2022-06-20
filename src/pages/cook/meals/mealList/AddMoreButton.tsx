@@ -15,7 +15,7 @@ const AddMoreButton: FC<AddMoreProps> = ({ path, collection }) => {
 
   return (
     <div>
-      <button onClick={addMoreIngredientsToBreakfast}>
+      <button className='btn-add-more-mealList' onClick={addMoreIngredientsToBreakfast}>
         {collection.length ? 'Add more' : 'Add'}
       </button>
     </div>

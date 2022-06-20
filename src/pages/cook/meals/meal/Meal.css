@@ -4,13 +4,9 @@
   /* background-color: #8C3B07; */
   min-height: 90vh;
 }
-.meal {
-  width: 600px;
-  /* display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 2fr;
-    grid-gap: 20px; */
-  /* display: flex; */
+.inside-meal {
+  max-width: 600px;
+ width: 90%;
   margin: 0 auto;
 }
 
@@ -54,7 +50,7 @@
 }
 
 .meal-search-input {
-  width: 500px;
+  width: 80%;
   height: 40px;
   border: none;
   font-size: 17px;
