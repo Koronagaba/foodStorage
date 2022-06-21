@@ -11,7 +11,7 @@
   
   .sticky {
     position: fixed;
-    z-index: 100;
+    z-index: 1;
     top: 0;
     width: 100%;
     padding: 0.8rem 2.5rem;
@@ -35,7 +35,7 @@
     color: #eee;
   }
   
-  .options a {
+  .sroptions a {
     text-decoration: none;
     font-size: 1.3rem;
     color: #777;
@@ -54,7 +54,9 @@
   .is-active {
     color: pink;
   }
-  
+  .inside-hamburger {
+    display: none
+  }
   @media (max-width: 770px) {
     .navbar {
       padding: 1.25rem 1.5%;
@@ -64,7 +66,7 @@
       letter-spacing: 0.8px;
     }
   
-    .options a {
+    .sroptions a {
       margin: 0 0.4rem;
       letter-spacing: 0.4px;
       font-size: 1.2rem;
@@ -84,21 +86,41 @@
 
   
   @media (max-width: 600px) {
+    .sroptions {
+      display: none
+    }
     .options {
+      margin: 0 0.5rem;
+      background:   #222;
+      position: fixed;
+      top: 65px;
+      right: -8px;
+      /* height: 100vh; */
+      /* width: 0%; */
+      z-index: -100;
+      padding: 30px 0;
+      /* opacity: 0; */
+      animation: slideOut .3s cubic-bezier(0.62, 0.04, 0.3, 1.56);
+      transition-delay: 100ms;
+    }
+
+   .navigation .sticky .options {
       margin: 0 0.5rem;
       background:   #222;
       position: absolute;
       top: 65px;
       right: -8px;
-      height: 100vh;
+      /* height: 100vh; */
+      /* width: 0%; */
       z-index: -10;
       padding: 30px 0;
       opacity: 0;
-      animation: slideOut .4s cubic-bezier(0.62, 0.04, 0.3, 1.56);
+      animation: slideOut .3s cubic-bezier(0.62, 0.04, 0.3, 1.56);
       transition-delay: 100ms;
     }
   
-    .inside-options {
+  
+    .inside-hamburger {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -107,39 +129,20 @@
       margin: 0 auto;
     }
 
-@keyframes slideIn {
-  0% {
- opacity: 0;
- width: 0%;
-  }
-  100% {
- opacity: 1;
- width: 75%
-  }
-}
-
-@keyframes slideOut {
-  0% {
-    opacity: 1;
-    width: 75%;
-    z-index: 10;
-     }
-  100% {
-    opacity: 0;
-    width: 0%;
-    z-index: 10;
-}
-}
-
     .options a {
       width: 90%;
       letter-spacing: 1.7px;
       line-height: 1.6;
       text-transform: uppercase;
-    }
+
+      text-decoration: none;
+      font-size: 1.2rem;
+      color: #777;
+      margin: 0 0.8rem;
+    } 
   
     .show-options {
-      width: 50%;
+      /* width: 50%; */
       z-index: 10;
       opacity: 1;
       display: flex;
@@ -148,22 +151,52 @@
       animation-fill-mode: forwards;
     }
   
+
+    @keyframes slideIn {
+      0% {
+     opacity: 0;
+     width: 0%;
+      }
+      100% {
+     opacity: 1;
+     width: 75%
+      }
+    }
+    
+    @keyframes slideOut {
+      0% {
+        opacity: 1;
+        width: 75%;
+        z-index: 10;
+         }
+      100% {
+        opacity: 0;
+        width: 0%;
+        z-index: 10;
+    }
+    }
+
+    
     .hamburger-icon {
-      margin-right: 29px;
+      position: fixed;
+      top: 19px;
+      right: 25px;
+      /* margin-right: 29px; */
       height: 25px;
       width: 40px;
       z-index: 1000;
       cursor: pointer;
       border-radius: 5px;
-      transition: background-color .1s ease-in-out
+      transition: background-color .1s ease-in-out;
+      background-color: #777;
     }
 
     .icon-1,
     .icon-2,
     .icon-3 {
       position: absolute;
-      right: 42px;
-      top: 47%;
+      right: 4px;
+      top: 45%;
       width: 32px;
       height: 3px;
       background-color: white;
