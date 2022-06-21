@@ -3,7 +3,6 @@ import React, {
   useContext,
   useReducer,
   useRef,
-  useState,
 } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { db } from '../../firebase/config';
@@ -71,13 +70,17 @@ const CreateProduct: React.FC<Props> = ({ setToggleModal }) => {
           return product;
         });
       if (!productExist.length) {
+
         const ref = collection(db, 'products');
         addDoc(ref, {
-          amount: state.amount,
+          amount: parseInt(`${state.amount}`),
           title: state.name.toLowerCase(),
         });
         setToggleModal(false);
         navigate('/stock');
+      
+      
+      
       } else {
         alert('This product is already exist');
       }
