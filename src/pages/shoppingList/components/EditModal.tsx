@@ -1,4 +1,4 @@
-import { useState, FC } from 'react';
+import { useState, useContext, FC } from 'react';
 import { db } from '../../../firebase/config';
 import { doc, setDoc, collection, addDoc } from 'firebase/firestore';
 
@@ -6,9 +6,11 @@ import { SingleShopProductProps } from '../../../types/type';
 
 import './Modals.css';
 import check from '../../../icons/check.svg';
+import { TranslationContext } from '../../../context/TranslationContext';
 
 const EditModal: FC<SingleShopProductProps> = ({ productOfShoppingList }) => {
   const [editAmount, setEditAmount] = useState(1);
+  const { isEnglish } = useContext(TranslationContext);
 
   const CanceledEdit = (
     id: string,
@@ -70,13 +72,13 @@ const EditModal: FC<SingleShopProductProps> = ({ productOfShoppingList }) => {
     <div className="edit-modal">
       <div className="modal-title" title="Basic Modal">
         <p>
-          Required amount: {productOfShoppingList.title} -{' '}
+          {isEnglish ? 'Required amount:' : 'Wymagana ilośc:'} {productOfShoppingList.title} -
           {productOfShoppingList.amount}
         </p>
       </div>
 
       <div className="content-edit-modal">
-        <p>I bought</p>
+        <p>{isEnglish ? 'I bought' : 'Kupiłem'}</p>
         <input
           type="number"
           min="1"
@@ -99,7 +101,7 @@ const EditModal: FC<SingleShopProductProps> = ({ productOfShoppingList }) => {
             )
           }
         >
-          Cancel
+          {isEnglish ? 'Cancel' : 'Anuluj'}
         </button>
         <img
           onClick={() =>

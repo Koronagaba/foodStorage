@@ -3,6 +3,7 @@ import { useContext, useRef, SyntheticEvent } from 'react';
 import search_icon from '../../../../icons/search.svg';
 
 import { SearchContext } from '../../../../context/SearchContext';
+import { TranslationContext } from '../../../../context/TranslationContext';
 
 interface SearchBarProps {
   collection: any;
@@ -10,6 +11,7 @@ interface SearchBarProps {
 
 const SearchBarMeal = ({ collection }: SearchBarProps) => {
   const { searchMeal, setSearchMeal }= useContext(SearchContext);
+  const {isEnglish} = useContext(TranslationContext)
 
   const searchFocus = useRef<HTMLInputElement>(null);
 
@@ -38,7 +40,7 @@ const SearchBarMeal = ({ collection }: SearchBarProps) => {
           className="meal-search-input"
           ref={searchFocus}
           type="text"
-          placeholder="Search..."
+          placeholder={isEnglish ? "Search..." : "Wyszukaj"}
           value={searchMeal}
           onChange={handleSearchText}
         />

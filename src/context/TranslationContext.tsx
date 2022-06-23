@@ -16,7 +16,7 @@ export const TranslationContext = createContext<TranslateContextType>(initialVal
 
 
 export const TranslationContextProvider: FC = ({children}) => {
-    const [isEnglish, setIsEnglish] = useState(true)
+    const [isEnglish, setIsEnglish] = useState(false)
    
     return(
         <TranslationContext.Provider value={{isEnglish, setIsEnglish}}>
