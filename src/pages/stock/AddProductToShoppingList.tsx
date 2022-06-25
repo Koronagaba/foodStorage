@@ -12,7 +12,7 @@ import {
 
 import add_shopping_cart from '../../icons/add_shopping_cart.svg';
 import { ShoppingListProduct, StockProduct } from '../../types/type';
-import { TranslationContext } from '../../context/TranslationContext';
+import { TranslateContext } from '../../context/TranslationContext';
 
 interface AddProductProps {
   inputRef: React.MutableRefObject<HTMLInputElement | null>;
@@ -24,7 +24,7 @@ const AddProduct = ({ inputRef, product }: AddProductProps) => {
     useState(0);
 
   const { shoppingList } = useContext(FoodStorageContext);
-  const { isEnglish } = useContext(TranslationContext);
+  const { isEnglish } = useContext(TranslateContext);
 
   const { title } = product;
 

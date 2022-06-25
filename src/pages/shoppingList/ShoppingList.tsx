@@ -8,7 +8,7 @@ import './ShoppingList.css';
 import SingleShoppingListProduct from './SingleShoppingListProduct';
 import ModalShoppingCompleted from './components/ModalShoppingCompleted';
 import EmptyShoppingList from './components/EmptyShoppingList';
-import { TranslationContext } from '../../context/TranslationContext';
+import { TranslateContext } from '../../context/TranslationContext';
 
 const ShoppingList = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -17,7 +17,7 @@ const ShoppingList = () => {
   >([]);
 
   const { shoppingList } = useContext(FoodStorageContext);
-  const { isEnglish } = useContext(TranslationContext);
+  const { isEnglish } = useContext(TranslateContext);
 
   const showModal = () => {
     setIsModalVisible(true);
@@ -51,7 +51,12 @@ const ShoppingList = () => {
               productOfShoppingList={productOfShoppingList}
             />
           ))}
-          <button className="btn-shopping-complete"onClick={handleShoppingCompleted}>{isEnglish ? 'Shopping Completed' : 'Zakupy'}</button>
+          <button
+            className="btn-shopping-complete"
+            onClick={handleShoppingCompleted}
+          >
+            {isEnglish ? 'Shopping Completed' : 'Zakupy'}
+          </button>
         </div>
       ) : (
         <EmptyShoppingList />

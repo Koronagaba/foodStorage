@@ -6,7 +6,7 @@ import { FoodStorageContext } from '../../../context/FoodStorageContext';
 import { StockProduct, ShoppingListProduct } from '../../../types/type';
 
 import './Modals.css';
-import { TranslationContext } from '../../../context/TranslationContext';
+import { TranslateContext } from '../../../context/TranslationContext';
 
 interface PropsModalShoppingCompleted {
   setIsModalVisible: (arg: boolean) => void;
@@ -18,7 +18,7 @@ const ModalShoppingCompleted: FC<PropsModalShoppingCompleted> = ({
   filteredProducts,
 }) => {
   const { stockProductsList } = useContext(FoodStorageContext);
-  const { isEnglish } = useContext(TranslationContext);
+  const { isEnglish } = useContext(TranslateContext);
 
   const handleModalCancel = () => {
     setIsModalVisible(false);
@@ -81,7 +81,11 @@ const ModalShoppingCompleted: FC<PropsModalShoppingCompleted> = ({
     <div className="modal-container">
       <div className="modal">
         <div className="modal-title" title="Basic Modal">
-          <p>{isEnglish ? "Are You sure you bought the following products?" : "Jesteś pewien że kupiłeś poniższe produkty?"}</p>
+          <p>
+            {isEnglish
+              ? 'Are You sure you bought the following products?'
+              : 'Jesteś pewien że kupiłeś poniższe produkty?'}
+          </p>
         </div>
         <div className="content-modal">{productsInBag}</div>
         <div className="btns">
@@ -89,7 +93,7 @@ const ModalShoppingCompleted: FC<PropsModalShoppingCompleted> = ({
             {isEnglish ? 'Yes' : 'Tak'}
           </button>
           <button className="btn" onClick={handleModalCancel}>
-          {isEnglish ? 'Cancel' : 'Anuluj'}
+            {isEnglish ? 'Cancel' : 'Anuluj'}
           </button>
         </div>
       </div>

@@ -5,16 +5,16 @@ import App from './App';
 import { FoodStorageContextProvider } from './context/FoodStorageContext';
 import { MealsContextProvider } from './context/MealsContext';
 import { SearchContextProvider } from './context/SearchContext';
-import { TranslationContextProvider } from './context/TranslationContext';
+import { TranslateContextProvider } from './context/TranslationContext';
 
 ReactDOM.render(
   <React.StrictMode>
     <FoodStorageContextProvider>
       <SearchContextProvider>
         <MealsContextProvider>
-          <TranslationContextProvider>
+          <TranslateContextProvider>
             <App />
-          </TranslationContextProvider>
+          </TranslateContextProvider>
         </MealsContextProvider>
       </SearchContextProvider>
     </FoodStorageContextProvider>

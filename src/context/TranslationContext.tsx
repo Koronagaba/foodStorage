@@ -1,26 +1,24 @@
-import { createContext, FC, useState } from 'react'
+import { createContext, FC, useState } from 'react';
 
 type TranslateContextType = {
-    isEnglish: boolean,
-    setIsEnglish: React.Dispatch<React.SetStateAction<boolean>>
-}
+  isEnglish: boolean;
+  setIsEnglish: React.Dispatch<React.SetStateAction<boolean>>;
+};
 
 const initialValue = {
-    isEnglish: true,
-    setIsEnglish: () => {}
+  isEnglish: true,
+  setIsEnglish: () => {},
+};
 
-}
+export const TranslateContext =
+  createContext<TranslateContextType>(initialValue);
 
-export const TranslationContext = createContext<TranslateContextType>(initialValue)
+export const TranslateContextProvider: FC = ({ children }) => {
+  const [isEnglish, setIsEnglish] = useState(false);
 
-
-
-export const TranslationContextProvider: FC = ({children}) => {
-    const [isEnglish, setIsEnglish] = useState(false)
-   
-    return(
-        <TranslationContext.Provider value={{isEnglish, setIsEnglish}}>
-            {children}
-        </TranslationContext.Provider>
-    )
-}
+  return (
+    <TranslateContext.Provider value={{ isEnglish, setIsEnglish }}>
+      {children}
+    </TranslateContext.Provider>
+  );
+};

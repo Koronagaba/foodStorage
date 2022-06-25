@@ -9,12 +9,12 @@ import salad_icon from '../../icons/salad_icon.png';
 import snack_icon from '../../icons/snack_icon.png';
 
 import { MealsContext } from '../../context/MealsContext';
-import { TranslationContext } from '../../context/TranslationContext';
+import { TranslateContext } from '../../context/TranslationContext';
 
 const Cook = () => {
   const { breakfastList, lunchList, supperList, snackList }: any =
     useContext(MealsContext);
-  const { isEnglish } = useContext(TranslationContext);
+  const { isEnglish } = useContext(TranslateContext);
 
   return (
     <div className="cook-container">

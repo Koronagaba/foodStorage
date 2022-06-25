@@ -1,0 +1,22 @@
+.multi-languages {
+    position: absolute; 
+    right: 10px;
+     margin: 5px ;
+     /* border: pink 3px solid; */
+     display: flex;
+     align-items: center;
+}
+.multi-languages img {
+    margin: 5px;
+    transition: .15s ease-in;
+}
+
+.multi-languages img:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+.multi-languages img:active{
+    width: 40px
+}
+

@@ -1,6 +1,6 @@
 import { useContext, FC, Dispatch, SetStateAction } from 'react';
 import { NavLink } from 'react-router-dom';
-import { TranslationContext } from '../context/TranslationContext';
+import { TranslateContext } from '../context/TranslationContext';
 
 interface HamburgerProps {
   toggleOptions: boolean;
@@ -13,7 +13,7 @@ const Hamburger: FC<HamburgerProps> = ({
   setToggleOptions,
   activeLink,
 }) => {
-  const { isEnglish } = useContext(TranslationContext);
+  const { isEnglish } = useContext(TranslateContext);
 
   const handleToggle = () => {
     setToggleOptions(!toggleOptions);

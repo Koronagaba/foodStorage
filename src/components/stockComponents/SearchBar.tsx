@@ -3,7 +3,7 @@ import { useRef, SyntheticEvent, useContext } from 'react';
 import './SearchBar.css';
 import search_icon from '../../icons/search.svg';
 import { SearchContext } from '../../context/SearchContext';
-import { TranslationContext } from '../../context/TranslationContext';
+import { TranslateContext } from '../../context/TranslationContext';
 
 // interface SearchBarProps {
 //   searchText: string,
@@ -12,7 +12,7 @@ import { TranslationContext } from '../../context/TranslationContext';
 
 const SearchBar = () => {
   const { searchStock, setSearchStock }: any = useContext(SearchContext);
-  const { isEnglish } = useContext(TranslationContext);
+  const { isEnglish } = useContext(TranslateContext);
 
   const searchFocus = useRef<HTMLInputElement>(null);
 

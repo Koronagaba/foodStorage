@@ -1,12 +1,12 @@
-import React, {useContext} from 'react';
-import { TranslationContext } from '../../../../context/TranslationContext';
+import React, { useContext } from 'react';
+import { TranslateContext } from '../../../../context/TranslationContext';
 
 interface EmptyListProps {
   title: string;
 }
 
 const EmptyList = ({ title }: EmptyListProps) => {
-  const {isEnglish} = useContext(TranslationContext)
+  const { isEnglish } = useContext(TranslateContext);
 
   const capitalize = (tit: any) => {
     return tit.slice(0, 1).toUpperCase() + tit.slice(1);
@@ -14,8 +14,12 @@ const EmptyList = ({ title }: EmptyListProps) => {
 
   return (
     <div className="emptyList">
-      <p>{capitalize(title)} {isEnglish ? 'list is empty.' : 'jest puste.'}</p>
-      <p>{isEnglish ? 'Add ingredients of' : 'Dodaj składnik posiłku:'} {title}</p>
+      <p>
+        {capitalize(title)} {isEnglish ? 'list is empty.' : 'jest puste.'}
+      </p>
+      <p>
+        {isEnglish ? 'Add ingredients of' : 'Dodaj składnik posiłku:'} {title}
+      </p>
     </div>
   );
 };

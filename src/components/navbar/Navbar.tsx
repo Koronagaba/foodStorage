@@ -1,14 +1,14 @@
 import { useEffect, useState, useRef, useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import { TranslationContext } from '../context/TranslationContext';
-import Hamburger from './Hamburger';
+import { TranslateContext } from '../../context/TranslationContext';
+import Hamburger from '../Hamburger';
 
 import './Navbar.css';
 
 const Navbar = () => {
   const [stickyStyle, setStickyStyle] = useState('navbar');
   const [toggleOptions, setToggleOptions] = useState(false);
-  const { isEnglish } = useContext(TranslationContext);
+  const { isEnglish } = useContext(TranslateContext);
 
   const ref: any = useRef();
   const activeLink = ({ isActive }: any) => ({ color: isActive ? '#fff' : '' });
@@ -42,18 +42,12 @@ const Navbar = () => {
     };
   }, [toggleOptions]);
 
-  const conditionalStyles = () => {
-    if (stickyStyle === 'navbar') {
-      return 'inside-options';
-    }
-  };
-
   return (
     <>
       <div className={`navigation ${stickyStyle}`}>
         <nav>
           <Link to={'/cook'} className="logo">
-            {isEnglish ? "Let's cook with koro!" : 'Gotuj razem z koro!'}
+            {isEnglish ? "Let's cook with koro!" : 'Gotuj z koro!'}
           </Link>
           <div>
             <div className={`sroptions`}>

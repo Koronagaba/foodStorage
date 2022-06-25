@@ -6,11 +6,11 @@ import { SingleShopProductProps } from '../../../types/type';
 
 import './Modals.css';
 import check from '../../../icons/check.svg';
-import { TranslationContext } from '../../../context/TranslationContext';
+import { TranslateContext } from '../../../context/TranslationContext';
 
 const EditModal: FC<SingleShopProductProps> = ({ productOfShoppingList }) => {
   const [editAmount, setEditAmount] = useState(1);
-  const { isEnglish } = useContext(TranslationContext);
+  const { isEnglish } = useContext(TranslateContext);
 
   const CanceledEdit = (
     id: string,
@@ -72,8 +72,8 @@ const EditModal: FC<SingleShopProductProps> = ({ productOfShoppingList }) => {
     <div className="edit-modal">
       <div className="modal-title" title="Basic Modal">
         <p>
-          {isEnglish ? 'Required amount:' : 'Wymagana ilośc:'} {productOfShoppingList.title} -
-          {productOfShoppingList.amount}
+          {isEnglish ? 'Required amount:' : 'Wymagana ilośc:'}{' '}
+          {productOfShoppingList.title} -{productOfShoppingList.amount}
         </p>
       </div>
 

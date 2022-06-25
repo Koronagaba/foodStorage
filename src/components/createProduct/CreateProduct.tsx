@@ -8,7 +8,7 @@ import './CreateProduct.css';
 import close_white_36 from '../../icons/close_white_36.svg';
 import { FoodStorageContext } from '../../context/FoodStorageContext';
 import { StockProduct } from '../../types/type';
-import { TranslationContext } from '../../context/TranslationContext';
+import { TranslateContext } from '../../context/TranslationContext';
 
 type Props = {
   setToggleModal: (x: boolean) => void;
@@ -27,7 +27,7 @@ interface Action {
 
 const CreateProduct: React.FC<Props> = ({ setToggleModal }) => {
   const { stockProductsList } = useContext(FoodStorageContext);
-  const { isEnglish } = useContext(TranslationContext);
+  const { isEnglish } = useContext(TranslateContext);
 
   const focusInput = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();

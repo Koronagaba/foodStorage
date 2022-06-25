@@ -8,7 +8,7 @@ import lunch_icon from './icons/lunch_icon.png';
 import salad_icon from './icons/salad_icon.png';
 import snack_icon from './icons/snack_icon.png';
 
-import Navbar from './components/Navbar';
+import Navbar from './components/navbar/Navbar';
 import Cook from './pages/cook/Cook';
 import Stock from './pages/stock/Stock';
 import ShoppingList from './pages/shoppingList/ShoppingList';
@@ -22,6 +22,7 @@ import NoMatch from './components/NoMatch/NoMatch';
 
 import Meal from './pages/cook/meals/meal/Meal';
 import MealList from './pages/cook/meals/mealList/MealList';
+import MultiLanguages from './components/multiLanguages/MultiLanguages';
 
 function App() {
   const { breakfastList, lunchList, supperList, snackList } =
@@ -31,6 +32,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Navbar />
+        <MultiLanguages />
         <Routes>
           <Route path="/cook" element={<Cook />}></Route>
           <Route path="*" element={<Navigate to="/cook" />} />
