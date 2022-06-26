@@ -15,6 +15,8 @@ const SingleStockProduct: React.FC<ProductProps> = ({ product }) => {
     }
   };
 
+  
+
   return (
     <div onClick={handleFocusInput} className="product-list">
       <div className="first-div">

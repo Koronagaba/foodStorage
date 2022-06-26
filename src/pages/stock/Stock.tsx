@@ -15,11 +15,14 @@ const Stock = () => {
   const { stockProductsList } = useContext(FoodStorageContext);
   const { searchStock } = useContext(SearchContext);
 
+
   const [toggleModal, setToggleModal] = useState(false);
 
   const handleToggleModal = () => {
     setToggleModal(!toggleModal);
   };
+
+  console.log(stockProductsList);
 
   return (
     <div className="stock-container">
