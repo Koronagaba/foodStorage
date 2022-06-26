@@ -9,6 +9,7 @@
 .multi-languages img {
     margin: 5px;
     transition: .15s ease-in;
+    z-index: 1
 }
 
 .multi-languages img:hover {
@@ -20,3 +21,6 @@
     width: 40px
 }
 
+.disabled {
+    opacity: 0.2
+}
