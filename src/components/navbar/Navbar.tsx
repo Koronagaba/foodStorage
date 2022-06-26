@@ -6,8 +6,6 @@ import { TranslateContext } from '../../context/TranslationContext';
 
 import Hamburger from '../Hamburger';
 
-
-
 import './Navbar.css';
 
 const Navbar = () => {
@@ -15,7 +13,7 @@ const Navbar = () => {
   const [toggleOptions, setToggleOptions] = useState(false);
   const { isEnglish } = useContext(TranslateContext);
 
-  const { t } = useTranslation() 
+  const { t } = useTranslation();
 
   const ref: any = useRef();
   const activeLink = ({ isActive }: any) => ({ color: isActive ? '#fff' : '' });
