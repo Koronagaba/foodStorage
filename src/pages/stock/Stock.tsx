@@ -22,8 +22,6 @@ const Stock = () => {
     setToggleModal(!toggleModal);
   };
 
-  console.log(stockProductsList);
-
   return (
     <div className="stock-container">
       {toggleModal && <CreateProduct setToggleModal={setToggleModal} />}
