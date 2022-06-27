@@ -34,16 +34,4 @@ i18next
         react: {
             useSuspense: false
         }
-        // resources: {
-            // en: {
-            //     translation: {
-            //         welcome: 'Hi Koronagaba'
-            //     }
-            // },
-            // pl: {
-            //     translation: {
-            //         welcome: 'Cześć Koronagaba'
-            //     }
-            // }
-        // }
 });

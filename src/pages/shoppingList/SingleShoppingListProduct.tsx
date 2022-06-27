@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { db } from '../../firebase/config';
 import { doc, deleteDoc, setDoc, serverTimestamp } from 'firebase/firestore';
+import { useTranslation } from 'react-i18next'
 
 import './SingleShoppingListProduct.css';
 
@@ -20,8 +21,8 @@ import {
 const SingleItem: React.FC<SingleShopProductProps> = ({
   productOfShoppingList,
 }) => {
-  const { stockProductsList, shoppingList } =
-    useContext(FoodStorageContext);
+  const { stockProductsList, shoppingList } = useContext(FoodStorageContext);
+const { t } = useTranslation()
 
   const style = productOfShoppingList.inBag
     ? { textDecoration: 'line-through' }
@@ -96,7 +97,7 @@ const SingleItem: React.FC<SingleShopProductProps> = ({
       <div className="single-item-container">
         <div className="single-item" style={style}>
           <p className='product-info'>
-            {productOfShoppingList.title} - {productOfShoppingList.amount}
+            {t(productOfShoppingList.title)} - {productOfShoppingList.amount}
           </p>
           <div className="icons">
             <img

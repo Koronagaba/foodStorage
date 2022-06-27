@@ -1,6 +1,7 @@
 import { FC, useState, useRef } from 'react';
 import { collection, addDoc, doc, setDoc } from 'firebase/firestore';
 import { db } from '../../../../firebase/config';
+import { useTranslation } from 'react-i18next';
 
 import './Ingredient.css';
 import add_circle from '../../../../icons/add_circle.svg';
@@ -18,6 +19,7 @@ const Ingredient: FC<IngredientProps> = ({
 }) => {
   const [inputNumber, setInputNumber] = useState(0);
   const ref = useRef<HTMLInputElement | null>(null);
+  const { t } = useTranslation()
 
   const handleFocusInput = () => {
     if (ref.current) {
@@ -47,7 +49,7 @@ const Ingredient: FC<IngredientProps> = ({
 
   return (
     <div onClick={handleFocusInput} className="ingredient">
-      <p className="ingredient-title">{`${stockProduct.title} (${stockProduct.amount})`}</p>
+      <p className="ingredient-title">{`${t(stockProduct.title)} (${stockProduct.amount})`}</p>
       <form>
         <label>amount: </label>
         <input

@@ -1,12 +1,14 @@
 import { FC, useContext } from 'react';
+import { useTranslation } from 'react-i18next';
 
-import './MealList.css';
 
 import { MealIngredient } from '../../../../types/type';
 import AddMoreButton from './AddMoreButton';
 import EmptyList from './EmptyList';
 
 import { SearchContext } from '../../../../context/SearchContext';
+
+import './MealList.css';
 
 interface MealListProps {
   collection: any;
@@ -22,6 +24,7 @@ const MealList: FC<MealListProps> = ({
   path,
 }) => {
   const { searchMeal }: any = useContext(SearchContext);
+  const { t } = useTranslation()
 
   const displayList = collection
     .filter((item: MealIngredient) =>
@@ -30,7 +33,7 @@ const MealList: FC<MealListProps> = ({
     // .sort(sortTitle)
     .map((doc: MealIngredient) => (
       <div className="typesOfMeals-list" key={doc.id}>
-        <p>{doc.title}</p>
+        <p>{t(doc.title)}</p>
         <p>{doc.amount}</p>
       </div>
     ));
