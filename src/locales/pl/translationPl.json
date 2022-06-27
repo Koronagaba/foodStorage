@@ -1,4 +1,27 @@
 {
     "welcome": "Cześć Koronagaba",
-    "shopping_list": "Lista zakupów"
+    "shopping_list": "Lista zakupów",
+    "apple": "jabłko",
+    "banana": "banan",
+    "bread": "chleb",
+    "butter": "masło",
+    "chocolate cookie": "ciastka czekoladowe",
+    "cottage cheese": "serek wiejski",
+    "cucumber": "ogórek",
+    "eggs": "jajka",
+    "feta": "feta",
+    "kiwi": "kiwi",
+    "margarine": "margaryna",
+    "milk": "mleko",
+    "muesli": "musli",
+    "onion": "cebula",
+    "oranga": "pomarańcza",
+    "pasta": "makaron",
+    "pear": "gruszka",
+    "potato": "ziemniak",
+    "red been": "czerwona fasola",
+    "rise": "ryż",
+    "sugar": "cukier",
+    "tomato": "pomidor",
+    "yoghurt": "jogurt"
 }
