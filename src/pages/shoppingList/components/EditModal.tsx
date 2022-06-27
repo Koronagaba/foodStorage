@@ -1,16 +1,18 @@
 import { useState, useContext, FC } from 'react';
 import { db } from '../../../firebase/config';
 import { doc, setDoc, collection, addDoc } from 'firebase/firestore';
+import { useTranslation } from 'react-i18next';
 
 import { SingleShopProductProps } from '../../../types/type';
 
 import './Modals.css';
 import check from '../../../icons/check.svg';
-import { TranslateContext } from '../../../context/TranslationContext';
+
 
 const EditModal: FC<SingleShopProductProps> = ({ productOfShoppingList }) => {
   const [editAmount, setEditAmount] = useState(1);
-  const { isEnglish } = useContext(TranslateContext);
+
+  const { t } = useTranslation()
 
   const CanceledEdit = (
     id: string,
@@ -72,13 +74,13 @@ const EditModal: FC<SingleShopProductProps> = ({ productOfShoppingList }) => {
     <div className="edit-modal">
       <div className="modal-title" title="Basic Modal">
         <p>
-          {isEnglish ? 'Required amount:' : 'Wymagana ilośc:'}{' '}
+          {t('required_amount')}
           {productOfShoppingList.title} -{productOfShoppingList.amount}
         </p>
       </div>
 
       <div className="content-edit-modal">
-        <p>{isEnglish ? 'I bought' : 'Kupiłem'}</p>
+        <p>{t('bought')}</p>
         <input
           type="number"
           min="1"
@@ -101,7 +103,7 @@ const EditModal: FC<SingleShopProductProps> = ({ productOfShoppingList }) => {
             )
           }
         >
-          {isEnglish ? 'Cancel' : 'Anuluj'}
+          {t('cancel')}
         </button>
         <img
           onClick={() =>
@@ -113,7 +115,7 @@ const EditModal: FC<SingleShopProductProps> = ({ productOfShoppingList }) => {
             )
           }
           src={check}
-          alt="approve the changes"
+          alt={t('approve_changes')}
         />
       </div>
     </div>

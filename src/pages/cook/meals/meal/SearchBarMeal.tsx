@@ -1,9 +1,10 @@
 import { useContext, useRef, SyntheticEvent } from 'react';
-
-import search_icon from '../../../../icons/search.svg';
+import { useTranslation } from 'react-i18next';
 
 import { SearchContext } from '../../../../context/SearchContext';
-import { TranslateContext } from '../../../../context/TranslationContext';
+
+
+import search_icon from '../../../../icons/search.svg';
 
 interface SearchBarProps {
   collection: any;
@@ -11,7 +12,7 @@ interface SearchBarProps {
 
 const SearchBarMeal = ({ collection }: SearchBarProps) => {
   const { searchMeal, setSearchMeal } = useContext(SearchContext);
-  const { isEnglish } = useContext(TranslateContext);
+const { t } = useTranslation()
 
   const searchFocus = useRef<HTMLInputElement>(null);
 
@@ -40,7 +41,7 @@ const SearchBarMeal = ({ collection }: SearchBarProps) => {
           className="meal-search-input"
           ref={searchFocus}
           type="text"
-          placeholder={isEnglish ? 'Search...' : 'Wyszukaj'}
+          placeholder={t('search')}
           value={searchMeal}
           onChange={handleSearchText}
         />

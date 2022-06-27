@@ -1,10 +1,10 @@
 import { useRef, SyntheticEvent, useContext } from 'react';
+import { useTranslation } from 'react-i18next';
+
+import { SearchContext } from '../../context/SearchContext';
 
 import './SearchBar.css';
 import search_icon from '../../icons/search.svg';
-import { SearchContext } from '../../context/SearchContext';
-import { TranslateContext } from '../../context/TranslationContext';
-
 // interface SearchBarProps {
 //   searchText: string,
 //   setSearchText: (firstArg: string) => void
@@ -12,7 +12,8 @@ import { TranslateContext } from '../../context/TranslationContext';
 
 const SearchBar = () => {
   const { searchStock, setSearchStock }: any = useContext(SearchContext);
-  const { isEnglish } = useContext(TranslateContext);
+
+  const { t } = useTranslation();
 
   const searchFocus = useRef<HTMLInputElement>(null);
 
@@ -42,7 +43,7 @@ const SearchBar = () => {
           className="search-input"
           ref={searchFocus}
           type="text"
-          placeholder={isEnglish ? 'Search...' : 'Wyszukaj'}
+          placeholder={t('serach')}
           value={searchStock}
           onChange={handleSearchText}
         />

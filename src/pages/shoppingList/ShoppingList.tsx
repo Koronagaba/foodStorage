@@ -9,7 +9,7 @@ import './ShoppingList.css';
 import SingleShoppingListProduct from './SingleShoppingListProduct';
 import ModalShoppingCompleted from './components/ModalShoppingCompleted';
 import EmptyShoppingList from './components/EmptyShoppingList';
-import { TranslateContext } from '../../context/TranslationContext';
+
 
 const ShoppingList = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -18,7 +18,6 @@ const ShoppingList = () => {
   >([]);
 
   const { shoppingList } = useContext(FoodStorageContext);
-  const { isEnglish } = useContext(TranslateContext);
 
   const { t } = useTranslation("translation")
 
@@ -60,7 +59,7 @@ const ShoppingList = () => {
             className="btn-shopping-complete"
             onClick={handleShoppingCompleted}
           >
-            {isEnglish ? 'Shopping Completed' : 'Zakupy'}
+            {t('shopping_completed')}
           </button>
         </div>
       ) : (

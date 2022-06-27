@@ -1,21 +1,14 @@
-import { useContext } from 'react';
+import { useTranslation } from 'react-i18next';
+
 import './EmptyShoppingList.css';
 import empty_list from '../../../icons/empty_list.png';
-import { TranslateContext } from '../../../context/TranslationContext';
 
 const EmptyShoppingList = () => {
-  const { isEnglish } = useContext(TranslateContext);
+  const { t } = useTranslation();
   return (
     <div className="empty-shopping-list">
-      <p>
-        {isEnglish
-          ? 'Your shopping list is empty...'
-          : 'Twoja lista zakupów jest pusta'}
-      </p>
-      <img
-        src={empty_list}
-        alt={isEnglish ? 'Empty shoppping list' : 'Pusta Lista zakupów'}
-      />
+      <p>{t('empty_shopping_list')}</p>
+      <img src={empty_list} alt={t('empty_shopping_list_alt')} />
     </div>
   );
 };

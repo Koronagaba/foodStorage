@@ -62,28 +62,28 @@ const Navbar = () => {
                 style={activeLink}
                 onClick={() => setToggleOptions(false)}
               >
-                {isEnglish ? 'Cook' : 'Gotuj'}
+                {t('cook')}
               </NavLink>
               <NavLink
                 to={'/createNewProduct'}
                 style={activeLink}
                 onClick={() => setToggleOptions(false)}
               >
-                {isEnglish ? 'Create' : 'Utwórz'}
+                {t('create')}
               </NavLink>
               <NavLink
                 to={'/stock'}
                 style={activeLink}
                 onClick={() => setToggleOptions(false)}
               >
-                {isEnglish ? 'Stock' : 'Magazyn'}
+                {t('stock')}
               </NavLink>
               <NavLink
                 to={'/shoppingList'}
                 style={activeLink}
                 onClick={() => setToggleOptions(false)}
               >
-                {isEnglish ? 'Shopping list' : 'Lista zakupów'}
+                {t('shopping_list')}
               </NavLink>
             </div>
           </div>

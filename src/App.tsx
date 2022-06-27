@@ -1,6 +1,9 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { useState, useContext } from 'react';
+import { useTranslation } from 'react-i18next';
+
 import { MealsContext } from './context/MealsContext';
+
 
 import './App.css';
 import breakfast_icon from './icons/breakfast_icon.png';
@@ -28,6 +31,8 @@ function App() {
   const { breakfastList, lunchList, supperList, snackList } =
     useContext(MealsContext);
   const [toggleModal, setToggleModal] = useState(false);
+
+  const { t } = useTranslation()
   return (
     <div className="App">
       <BrowserRouter>
@@ -41,7 +46,7 @@ function App() {
             path="/cook/breakfast"
             element={
               <Meal
-                title={'Breakfast'}
+                title={t('breakfast')}
                 backToCook={'/*'}
                 backToMealList={'breakfast'}
                 navToList={'breakfastList'}
@@ -73,7 +78,7 @@ function App() {
             path="/cook/lunch"
             element={
               <Meal
-                title={'Lunch'}
+                title={t('lunch')}
                 backToCook={'/*'}
                 backToMealList={'lunch'}
                 navToList={'lunchList'}
@@ -105,7 +110,7 @@ function App() {
             path="/cook/supper"
             element={
               <Meal
-                title={'Supper'}
+                title={t('supper')}
                 backToCook={'/*'}
                 backToMealList={'supper'}
                 navToList={'supperList'}
@@ -138,7 +143,7 @@ function App() {
             path="/cook/snack"
             element={
               <Meal
-                title={'Snack'}
+                title={t('snacks')}
                 backToCook={'/*'}
                 backToMealList={'snack'}
                 navToList={'snackList'}

@@ -1,6 +1,4 @@
 import React, { useState, useContext } from 'react';
-import { FoodStorageContext } from '../../context/FoodStorageContext';
-
 import { db } from '../../firebase/config';
 import {
   doc,
@@ -9,10 +7,12 @@ import {
   addDoc,
   serverTimestamp,
 } from 'firebase/firestore';
+import { useTranslation } from 'react-i18next';
+
+import { FoodStorageContext } from '../../context/FoodStorageContext';
 
 import add_shopping_cart from '../../icons/add_shopping_cart.svg';
 import { ShoppingListProduct, StockProduct } from '../../types/type';
-import { TranslateContext } from '../../context/TranslationContext';
 
 interface AddProductProps {
   inputRef: React.MutableRefObject<HTMLInputElement | null>;
@@ -24,7 +24,8 @@ const AddProduct = ({ inputRef, product }: AddProductProps) => {
     useState(0);
 
   const { shoppingList } = useContext(FoodStorageContext);
-  const { isEnglish } = useContext(TranslateContext);
+
+  const { t } = useTranslation();
 
   const { title } = product;
 
@@ -73,7 +74,7 @@ const AddProduct = ({ inputRef, product }: AddProductProps) => {
   return (
     <>
       <label>
-        <span>{isEnglish ? 'Add to cart:' : 'Dodaj do'} </span>
+        <span>{t('add_to_cart')} </span>
         <input
           ref={inputRef}
           type="number"

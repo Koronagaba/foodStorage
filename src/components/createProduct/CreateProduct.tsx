@@ -2,13 +2,14 @@ import React, { SyntheticEvent, useContext, useReducer, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { db } from '../../firebase/config';
 import { collection, addDoc } from 'firebase/firestore';
+import { useTranslation } from 'react-i18next';
 
 import './CreateProduct.css';
 
 import close_white_36 from '../../icons/close_white_36.svg';
 import { FoodStorageContext } from '../../context/FoodStorageContext';
 import { StockProduct } from '../../types/type';
-import { TranslateContext } from '../../context/TranslationContext';
+// import { TranslateContext } from '../../context/TranslationContext';
 
 type Props = {
   setToggleModal: (x: boolean) => void;
@@ -27,7 +28,8 @@ interface Action {
 
 const CreateProduct: React.FC<Props> = ({ setToggleModal }) => {
   const { stockProductsList } = useContext(FoodStorageContext);
-  const { isEnglish } = useContext(TranslateContext);
+  // const { isEnglish } = useContext(TranslateContext);
+  const { t } = useTranslation()
 
   const focusInput = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
@@ -75,7 +77,7 @@ const CreateProduct: React.FC<Props> = ({ setToggleModal }) => {
         setToggleModal(false);
         navigate('/stock');
       } else {
-        alert('This product is already exist');
+        alert(`${t('alert_product_exist')}`);
       }
     } else {
       focusInput.current?.focus();
@@ -97,10 +99,12 @@ const CreateProduct: React.FC<Props> = ({ setToggleModal }) => {
             src={close_white_36}
             alt="close create product modal"
           />
-          <h3>{isEnglish ? 'Create new product' : 'Utwórz nowy produkt'}</h3>
+          {/* <h3>{isEnglish ? 'Create new product' : 'Utwórz nowy produkt'}</h3> */}
+          <h3>{t('create_new_product')}</h3>
           <div>
             <div className="form-item">
-              <label>{isEnglish ? 'Name: ' : 'Imię'}</label>
+              {/* <label>{isEnglish ? 'Name: ' : 'Nazwa'}</label> */}
+              <label>{t('new_product_name')}</label>
               <input
                 type="text"
                 name="name"
@@ -109,7 +113,7 @@ const CreateProduct: React.FC<Props> = ({ setToggleModal }) => {
               />
             </div>
             <div className="form-item">
-              <label>{isEnglish ? 'Amount:' : 'Ilość'}</label>
+              <label>{t('new_product_amount')}</label>
               <input
                 type="number"
                 name="amount"
@@ -121,7 +125,7 @@ const CreateProduct: React.FC<Props> = ({ setToggleModal }) => {
               />
             </div>
           </div>
-          <button>{isEnglish ? 'Submit' : 'Zatwierdź'}</button>
+          <button>{t('new_product_submit')}</button>
         </div>
       </form>
     </div>

@@ -1,12 +1,12 @@
 import React, { FC, useContext } from 'react';
 import { doc, setDoc, deleteDoc } from 'firebase/firestore';
 import { db } from '../../../firebase/config';
+import { useTranslation } from 'react-i18next';
 
 import { FoodStorageContext } from '../../../context/FoodStorageContext';
 import { StockProduct, ShoppingListProduct } from '../../../types/type';
 
 import './Modals.css';
-import { TranslateContext } from '../../../context/TranslationContext';
 
 interface PropsModalShoppingCompleted {
   setIsModalVisible: (arg: boolean) => void;
@@ -18,7 +18,8 @@ const ModalShoppingCompleted: FC<PropsModalShoppingCompleted> = ({
   filteredProducts,
 }) => {
   const { stockProductsList } = useContext(FoodStorageContext);
-  const { isEnglish } = useContext(TranslateContext);
+
+  const { t } = useTranslation()
 
   const handleModalCancel = () => {
     setIsModalVisible(false);
@@ -82,18 +83,16 @@ const ModalShoppingCompleted: FC<PropsModalShoppingCompleted> = ({
       <div className="modal">
         <div className="modal-title" title="Basic Modal">
           <p>
-            {isEnglish
-              ? 'Are You sure you bought the following products?'
-              : 'Jesteś pewien że kupiłeś poniższe produkty?'}
+            {t('ask_shopping_completed')}
           </p>
         </div>
         <div className="content-modal">{productsInBag}</div>
         <div className="btns">
           <button className="btn" onClick={acceptModal}>
-            {isEnglish ? 'Yes' : 'Tak'}
+            {t('yes')}
           </button>
           <button className="btn" onClick={handleModalCancel}>
-            {isEnglish ? 'Cancel' : 'Anuluj'}
+            {t('cancel')}
           </button>
         </div>
       </div>
