@@ -43,7 +43,7 @@ const SearchBar = () => {
           className="search-input"
           ref={searchFocus}
           type="text"
-          placeholder={t('serach')}
+          placeholder={t('search')}
           value={searchStock}
           onChange={handleSearchText}
         />
