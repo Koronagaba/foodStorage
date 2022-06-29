@@ -12,35 +12,32 @@
   border-radius: 20px;
 }
 
+.text-relative {
+  position: relative;
+}
+
 .meal-ingredients {
   transition: ease 0.1s;
+
 }
 .meal-ingredients:hover {
   cursor: pointer;
   transform: scale(1.05);
 }
 
-.disabled img {
-  opacity: 0.2;
-  cursor: auto;
-}
-.disabled a {
-  position: relative;
-}
 .textHide {
   position: absolute;
-  top: 9px;
-  left: 90px;
+  top: -160px;
+  left: -10%;
+  min-width: 160px;
   visibility: hidden;
   color: #000;
   background-color: #eee;
   border-radius: 10px;
-  width: 260%;
-  max-height: 40px;
   padding: 10px;
   font-size: 18px;
 }
-.disabled :hover .textHide {
+.text-relative:hover .textHide {
   visibility: visible;
 }
 
