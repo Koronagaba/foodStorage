@@ -46,9 +46,7 @@ const ShoppingList = () => {
       )}
       {shoppingList.length ? (
         <div className="shoppingList">
-          {/* <h3>{isEnglish ? 'ShoppingList' : 'Lista zakupów'}</h3> */}
-          <h3>{t('shopping_list')}</h3>
-
+          {/* <h3>{t('shopping_list')}</h3> */}
           {shoppingList.map((productOfShoppingList: ShoppingListProduct) => (
             <SingleShoppingListProduct
               key={productOfShoppingList.id}

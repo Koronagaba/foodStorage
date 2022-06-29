@@ -27,7 +27,7 @@
  text-align: center;
 }
  .form-item {
-  background-color: #f2e3d5;
+  background-color:#f0e7e0;
   padding: .4em .5em;
   margin: 20px 0;
   border-radius: 5px;
@@ -42,13 +42,15 @@
   margin-left: .2em;
   border: none;
   border-radius: 5px;
+  background-color:#f0e7e0;
 }
 .form-item input:focus {
   outline: none;
 }
 
 .form-container button {
-  background-color: #f2e3d5;
+  /* background-color: #f2e3d5; */
+  background-color:#f0e7e0;
   width: 90%;
   max-width: 15em;
   padding: .8em 0;

@@ -1,5 +1,7 @@
 .shoppingList-container {
-  background-color: #f28db2;
+  /* background-color: #f28db2; */
+  /* background-color: #026773; */
+  background-color: var(--main-bg-color);
   min-height: 90vh;
   box-sizing: border-box;
 }
@@ -11,10 +13,12 @@
   padding-bottom: 15px;
 }
 
-.shoppingList h3 {
+/* .shoppingList h3 {
   padding: 10px;
   font-size: 22px;
-}
+  color: #fff;
+} */
+
 .btn-shopping-complete {
   width: 60%;
   padding: 8px 10px;
@@ -24,9 +28,11 @@
   margin: 10px auto 0 auto;
   font-size: 20px;
   transition: 0.1s ease-in;
+  background-color: var(--fields-bg-color)
 }
 .btn-shopping-complete:hover {
   cursor: pointer;
   transform: scale(1.02);
   z-index: 0;
+  background-color: var(--fields-hover-bg-color)
 }

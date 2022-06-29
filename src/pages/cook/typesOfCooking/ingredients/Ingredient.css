@@ -2,14 +2,15 @@
   display: flex;
   align-items: center;
   border-radius: 10px;
-  margin: 10px 0;
+  margin: 7px 0;
   padding: 0 2%;
   justify-content: space-between;
-  background-color: hsl(33, 100%, 88%);
+  /* background-color: hsl(33, 100%, 88%); */
+  background-color: var(--fields-bg-color);
   transition: ease-in-out 0.2s;
 }
 .ingredient:hover {
-  background-color: #ddc2a2;
+  background-color: var(--fields-hover-bg-color);
 }
 .ingredient-title {
   width: 80%;
@@ -23,6 +24,7 @@
 
 .ingredient img {
   transition: ease 0.2s;
+  width: 42px
 }
 .ingredient img:hover {
   transform: scale(1.15);

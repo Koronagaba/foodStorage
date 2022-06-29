@@ -6,6 +6,13 @@
   font-family: 'Lato', sans-serif;
 }
 
+:root {
+  --main-bg-color: #026773;
+  --fields-bg-color: #f0e0d4;
+  /* --fields-bg-color: #f3f4e6; */
+  --fields-hover-bg-color: #e0d0c3;
+}
+
 .disabled {
     opacity: 0.3;
     cursor: auto;

@@ -1,7 +1,7 @@
 .cook-container {
-/* border: 2px solid green; */
 background-color: darkslategray;
-/* height: 100vh; */
+/* background-color: var(--main-bg-color); */
+
 }
 
 .inside-cook {

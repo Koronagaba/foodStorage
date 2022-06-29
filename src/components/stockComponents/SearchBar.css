@@ -22,7 +22,7 @@
   padding: 7px;
   border: none;
   font-size: 1.1rem;
-  background-color: #f2e3d5;
+  background-color: var(--fields-bg-color);
 }
 
 .searchBar .search-input:focus {
