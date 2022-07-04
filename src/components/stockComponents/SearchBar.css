@@ -11,7 +11,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #f2e3d5;
+  background-color: var(--fields-bg-color);
   padding: 5px 15px;
   border-radius: 10px;
   outline: #aaa 1px solid;

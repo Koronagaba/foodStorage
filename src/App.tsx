@@ -21,11 +21,13 @@ import Ingredients from './pages/cook/typesOfCooking/ingredients/Ingredients';
 import CreateRecipe from './pages/cook/typesOfCooking/createRecipe/CreateRecipe';
 import RecipeList from './pages/cook/typesOfCooking/recipeList/RecipeList';
 import FavoriteFood from './pages/cook/typesOfCooking/favoriteFood/FavoriteFood';
-import NoMatch from './components/NoMatch/NoMatch';
+// import NoMatch from './components/NoMatch/NoMatch';
 
 import Meal from './pages/cook/meals/meal/Meal';
 import MealList from './pages/cook/meals/mealList/MealList';
 import MultiLanguages from './components/multiLanguages/MultiLanguages';
+import LightMode from './components/lightMode/LightMode';
+
 
 function App() {
   const { breakfastList, lunchList, supperList, snackList } =
@@ -37,6 +39,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Navbar />
+        <LightMode />
         <MultiLanguages />
         <Routes>
           <Route path="/cook" element={<Cook />}></Route>

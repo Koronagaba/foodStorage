@@ -5,13 +5,27 @@
   box-sizing: border-box;
   font-family: 'Lato', sans-serif;
 }
-
+/* bg-colors: darkslategray, #026773; */
 :root {
-  --main-bg-color: #026773;
-  --fields-bg-color: #f0e0d4;
+  --main-bg-color: darkslategray;
+  --fields-bg-color: #f2e5dc;
   /* --fields-bg-color: #f3f4e6; */
   --fields-hover-bg-color: #e0d0c3;
+  --nav-bg-color: #000;
+  --nav-color: #777;
 }
+
+body.dark {
+  --main-bg-color: #000;
+  --fields-bg-color:  #f7f2ee;
+  --fields-hover-bg-color: #cdc5c0;
+  --nav-bg-color: #222;
+  --nav-color: #999;
+}
+
+/* [data-theme="light"] {
+  --main-bg-color: #fcfcfc;
+} */
 
 .disabled {
     opacity: 0.3;

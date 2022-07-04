@@ -56,7 +56,7 @@ const Navbar = () => {
             {t('welcome')}
           </Link>
           <div>
-            <div className={`sroptions`}>
+            <div className={`options`}>
               <NavLink
                 to={'/cook'}
                 style={activeLink}

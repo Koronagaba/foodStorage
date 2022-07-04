@@ -1,5 +1,5 @@
 .navigation {
-  background-color: #000;
+  background-color: var(--nav-bg-color);
   padding: 1.25rem 4%;
   transition: 0.4s ease;
 }
@@ -23,35 +23,23 @@
 }
 
 .navigation nav .logo {
-  color: #ccc;
+  color: #eee;
   text-decoration: none;
   font-size: 1.3rem;
   letter-spacing: 1.5px;
   margin: 0 1rem;
 }
 
-.navbar nav .logo:hover {
-  color: #eee;
-}
-
-.sroptions a {
+.options a {
   text-decoration: none;
   font-size: 1.3rem;
-  color: #777;
+  color: var(--nav-color);
   margin: 0 0.8rem;
   letter-spacing: 1.7px;
 }
 
-.sticky nav .logo {
-  color: #ccc;
-}
-
 .navbar nav a:hover {
   color: #fff;
-}
-
-.is-active {
-  color: pink;
 }
 
 .inside-hamburger {

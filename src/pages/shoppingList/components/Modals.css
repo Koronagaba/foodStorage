@@ -42,6 +42,7 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
+  
 }
 
 .btn {
@@ -52,9 +53,10 @@
   border-radius: 5px;
   background-color: #f2e3d5;
   transition: 0.1s ease-in;
+  background-color: var(--fields-bg-color);
 }
 .btns img {
-  background-color: #fff;
+  background-color: var(--fields-bg-color);
   height: 28px;
   transition: 0.1s ease-in;
   margin-top: 15px;
@@ -75,7 +77,8 @@
 
   top: 100px;
   padding: 20px;
-  background-color: rgba(0, 0, 0);
+  /* background-color: rgba(0, 0, 0); */
+  background-color: #222;
   color: #eee;
   display: flex;
   flex-direction: column;
@@ -87,6 +90,12 @@
 .content-edit-modal {
   display: flex;
 }
+
+.content-edit-modal input {
+  background-color: var(--fields-bg-color);
+}
+
+
 .content-edit-modal :first-child {
   padding: 0 15px;
 }

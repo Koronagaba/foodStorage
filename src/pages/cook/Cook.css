@@ -1,5 +1,5 @@
 .cook-container {
-background-color: darkslategray;
+background-color: var(--main-bg-color)
 /* background-color: var(--main-bg-color); */
 
 }

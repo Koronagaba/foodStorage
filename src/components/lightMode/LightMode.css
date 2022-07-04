@@ -71,7 +71,7 @@
     width: 55px;
     border-radius: 50px;
     background-color: #000;
-
+    z-index: 1
 
   }
 
@@ -93,7 +93,7 @@
     transform: translateX(22px);
   }
   body.dark .icon-theme::after{
-    background-color: #000;
+    background-color: #444;
     position: absolute;
     top: 1.3px;
     left: -2px;
@@ -103,4 +103,8 @@
     display: block;
     border-radius: 50%
 
+  }
+
+  body.dark  .toggle-theme{
+    background-color: #444;
   }

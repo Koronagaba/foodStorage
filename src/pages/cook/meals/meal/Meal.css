@@ -1,7 +1,7 @@
 .meal-container {
   /* background-color: #51959E; */
-  background-color: darkslategray;
   /* background-color: #8C3B07; */
+  background-color: var(--main-bg-color);
   min-height: 90vh;
 }
 .inside-meal {

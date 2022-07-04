@@ -21,7 +21,7 @@
     "cancel": "Cancel",
     "empty_shopping_list": "Your shopping list is empty.",
     "empty_shopping_list_alt": "Empty shoppping list",
-    "required_amount": "Required amount",
+    "required_amount": "Required amount: ",
     "bought": "I bought",
     "approve_changes": "Approve the changes",
     "arrow_back": "arrow back",
