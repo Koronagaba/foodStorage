@@ -1,6 +1,6 @@
-import './LightMode.css';
+import './DarkMode.css';
 
-const LightMode = () => {
+const DarkMode = () => {
 
   const toggleTheme = () => {
     document.body.classList.toggle('dark')
@@ -13,4 +13,4 @@ const LightMode = () => {
   );
 };
 
-export default LightMode;
+export default DarkMode;

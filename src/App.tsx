@@ -4,7 +4,6 @@ import { useTranslation } from 'react-i18next';
 
 import { MealsContext } from './context/MealsContext';
 
-
 import './App.css';
 import breakfast_icon from './icons/breakfast_icon.png';
 import lunch_icon from './icons/lunch_icon.png';
@@ -26,21 +25,24 @@ import FavoriteFood from './pages/cook/typesOfCooking/favoriteFood/FavoriteFood'
 import Meal from './pages/cook/meals/meal/Meal';
 import MealList from './pages/cook/meals/mealList/MealList';
 import MultiLanguages from './components/multiLanguages/MultiLanguages';
-import LightMode from './components/lightMode/LightMode';
-
+import DarkMode from './components/darkMode/DarkMode';
 
 function App() {
   const { breakfastList, lunchList, supperList, snackList } =
     useContext(MealsContext);
   const [toggleModal, setToggleModal] = useState(false);
 
-  const { t } = useTranslation()
+  const { t } = useTranslation();
   return (
     <div className="App">
       <BrowserRouter>
         <Navbar />
-        <LightMode />
-        <MultiLanguages />
+        <div className="darkMode-language-container">
+          <div className="darkMode-language-inside">
+            <DarkMode />
+            <MultiLanguages />
+          </div>
+        </div>
         <Routes>
           <Route path="/cook" element={<Cook />}></Route>
           <Route path="*" element={<Navigate to="/cook" />} />

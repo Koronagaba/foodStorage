@@ -12,7 +12,7 @@ background-color: var(--main-bg-color)
   margin: 0 auto;
   display: grid;
   grid-template-columns: .1fr 50fr 50fr .1fr;
-  grid-template-rows: 1fr 7fr 7fr 1fr;
+  grid-template-rows: .1fr 7fr 7fr 1fr;
   gap: 2.4rem;
 }
 

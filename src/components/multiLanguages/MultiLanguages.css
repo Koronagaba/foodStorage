@@ -1,8 +1,7 @@
 .multi-languages {
-    position: absolute; 
-    right: 10px;
-     margin: 5px ;
-     /* border: pink 3px solid; */
+    /* position: absolute;  */
+    /* right: 10px; */
+     /* margin: 5px ; */
      display: flex;
      align-items: center;
 }

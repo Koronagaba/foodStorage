@@ -1,10 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Lato', sans-serif;
-}
+
 /* bg-colors: darkslategray, #026773; */
 :root {
   --main-bg-color: darkslategray;
@@ -14,6 +9,14 @@
   --nav-bg-color: #000;
   --nav-color: #777;
 }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
+}
+
 
 body.dark {
   --main-bg-color: #000;
@@ -27,7 +30,22 @@ body.dark {
   --main-bg-color: #fcfcfc;
 } */
 
+.darkMode-language-container {
+  position: relative;
+  background-color: var(--main-bg-color);
+}
+
+.darkMode-language-inside {
+  max-width: 600px;
+  width: 92%;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding-top: 5px;
+}
+
 .disabled {
     opacity: 0.3;
     cursor: auto;
 }
+

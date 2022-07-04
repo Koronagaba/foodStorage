@@ -20,6 +20,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-width: 1000px;
+  margin: 0 auto
 }
 
 .navigation nav .logo {
@@ -55,7 +57,7 @@
     letter-spacing: 0.8px;
   }
 
-  .sroptions a {
+  .options a {
     margin: 0 0.4rem;
     letter-spacing: 0.4px;
     font-size: 1.2rem;
@@ -70,8 +72,8 @@
 /* hamburger menu */
 
 
-@media (max-width: 600px) {
-  .sroptions {
+@media (max-width: 650px) {
+  .options {
     display: none
   }
 

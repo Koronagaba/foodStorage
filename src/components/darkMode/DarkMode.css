@@ -65,9 +65,9 @@
 
 
   .toggle-theme {
-    position: absolute;
-    margin: 5px;
-    left: 10px;
+    /* position: absolute; */
+    /* margin: 5px; */
+    /* left: 10px; */
     width: 55px;
     border-radius: 50px;
     background-color: #000;
