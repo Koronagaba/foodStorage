@@ -29,7 +29,7 @@ i18next
     },
     debug: true,
     fallbackLng: 'en',
-    lng: 'en', // default language
+    lng: localStorage.getItem('i18nextLng') || 'en',  // keep language preference
     keySeparator: false,
     react: {
       useSuspense: false,
