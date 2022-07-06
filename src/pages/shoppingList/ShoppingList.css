@@ -2,7 +2,6 @@
   /* background-color: #f28db2; */
   /* background-color: #026773; */
   background-color: var(--main-bg-color);
-  min-height: 90vh;
   box-sizing: border-box;
 }
 
@@ -12,12 +11,6 @@
   margin: 0 auto;
   padding-bottom: 15px;
 }
-
-/* .shoppingList h3 {
-  padding: 10px;
-  font-size: 22px;
-  color: #fff;
-} */
 
 .btn-shopping-complete {
   width: 60%;
@@ -30,6 +23,7 @@
   transition: 0.1s ease-in;
   background-color: var(--fields-bg-color)
 }
+
 .btn-shopping-complete:hover {
   cursor: pointer;
   transform: scale(1.02);

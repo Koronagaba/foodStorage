@@ -2,7 +2,6 @@
   /* background-color: #51959E; */
   /* background-color: #8C3B07; */
   background-color: var(--main-bg-color);
-  min-height: 90vh;
 }
 .inside-meal {
   max-width: 600px;
