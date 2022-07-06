@@ -1,14 +1,6 @@
 .cook-container {
-background-color: var(--main-bg-color)
-/* background-color: var(--main-bg-color); */
-
-}
-
-.inside-cook {
-  /* border: 2px solid red; */
-  /* width: 90%; */
+  background-color: var(--main-bg-color);
   max-width: 700px;
-  min-height: 90vh;
   margin: 0 auto;
   display: grid;
   grid-template-columns: .1fr 50fr 50fr .1fr;
@@ -16,7 +8,7 @@ background-color: var(--main-bg-color)
   gap: 2.4rem;
 }
 
-.inside-cook a {
+.cook-container a {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -26,22 +18,23 @@ background-color: var(--main-bg-color)
   color: #000;
   position: relative;
 }
-.inside-cook a:hover {
+.cook-container a:hover {
   cursor: pointer;
   transform: scale(1.014);
 }
 
-.inside-cook img {
+.cook-container img {
   transition: 0.2s ease;
 }
-.inside-cook img:hover {
+.cook-container img:hover {
   transform: scale(1.07);
 }
 .cook-icon {
-  width: 110px;
+  width: 100px;
+  margin: 30px
 }
 
-.inside-cook .type-of-meal {
+.cook-container .type-of-meal {
   position: absolute;
   bottom: 0px;
   right: 0px;
@@ -82,7 +75,7 @@ background-color: var(--main-bg-color)
 }
 
 @media (max-width: 600px){
-  .inside-cook {
+  .cook-container {
     grid-template-rows: 1fr 3fr 3fr 1fr;
     gap: .9rem
   }

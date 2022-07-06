@@ -19,7 +19,6 @@ const Cook = () => {
 
   return (
     <div className="cook-container">
-      <div className="inside-cook">
         <NavLink to={'breakfast'} className="breakfast">
           <div>
             {breakfastList.length ? (
@@ -81,7 +80,6 @@ const Cook = () => {
           <p className="type-of-meal">{t('snacks')}</p>
         </NavLink>
       </div>
-    </div>
   );
 };
 
