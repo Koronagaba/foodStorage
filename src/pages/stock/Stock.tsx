@@ -25,6 +25,7 @@ const Stock = () => {
   return (
     <div className="stock-container">
       {toggleModal && <CreateProduct setToggleModal={setToggleModal} />}
+
       <div className="inside-container">
         <div className='header-search-create'>
           <NavLink to={'createProduct'}>

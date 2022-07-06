@@ -9,7 +9,6 @@ import './CreateProduct.css';
 import close_white_36 from '../../icons/close_white_36.svg';
 import { FoodStorageContext } from '../../context/FoodStorageContext';
 import { StockProduct } from '../../types/type';
-// import { TranslateContext } from '../../context/TranslationContext';
 
 type Props = {
   setToggleModal: (x: boolean) => void;
@@ -22,14 +21,13 @@ interface State {
 
 interface Action {
   type: string;
-  payload: string;
+  payload?: string;
   field: string;
 }
 
 const CreateProduct: React.FC<Props> = ({ setToggleModal }) => {
   const { stockProductsList } = useContext(FoodStorageContext);
-  // const { isEnglish } = useContext(TranslateContext);
-  const { t } = useTranslation()
+  const { t } = useTranslation();
 
   const focusInput = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
@@ -38,6 +36,8 @@ const CreateProduct: React.FC<Props> = ({ setToggleModal }) => {
     switch (action.type) {
       case 'HANDLE_INPUT_FORM':
         return { ...state, [action.field]: action.payload };
+      case 'RESET_INPUT_FIELDS':
+        return { ...state, name: '', amount: 0}
       default:
         return state;
     }
@@ -84,49 +84,49 @@ const CreateProduct: React.FC<Props> = ({ setToggleModal }) => {
     }
   };
 
-  const handleCloseModal = () => {
+  const handleCancel = () => {
     setToggleModal(false);
-    navigate('/stock');
+    dispatch({
+      type: 'RESET_INPUT_FIELDS',
+      field: 'name' && 'amount'
+    });
   };
 
   return (
+
     <div className="createProduct-container">
       <form onSubmit={createProduct}>
-        <div className="form-container">
-          <img
-            className="close-icon"
-            onClick={handleCloseModal}
-            src={close_white_36}
-            alt="close create product modal"
-          />
-          {/* <h3>{isEnglish ? 'Create new product' : 'Utwórz nowy produkt'}</h3> */}
-          <h3>{t('create_new_product')}</h3>
-          <div>
-            <div className="form-item">
-              {/* <label>{isEnglish ? 'Name: ' : 'Nazwa'}</label> */}
-              <label>{t('new_product_name')}</label>
-              <input
-                type="text"
-                name="name"
-                value={state.name}
-                onChange={handleForm}
-              />
-            </div>
-            <div className="form-item">
-              <label>{t('new_product_amount')}</label>
-              <input
-                type="number"
-                name="amount"
-                value={state.amount}
-                onChange={handleForm}
-                onFocus={(e: React.ChangeEvent<HTMLInputElement>) =>
-                  e.target.select()
-                }
-              />
-            </div>
+        <img
+          className="close-icon"
+          onClick={handleCancel}
+          src={close_white_36}
+          alt="close create product modal"
+        />
+        <h3>{t('create_new_product')}</h3>
+        <div>
+          <div className="form-item">
+            <label>{t('new_product_name')}</label>
+            <input
+              type="text"
+              name="name"
+              value={state.name}
+              onChange={handleForm}
+            />
           </div>
-          <button>{t('new_product_submit')}</button>
+          <div className="form-item">
+            <label>{t('new_product_amount')}</label>
+            <input
+              type="number"
+              name="amount"
+              value={state.amount}
+              onChange={handleForm}
+              onFocus={(e: React.ChangeEvent<HTMLInputElement>) =>
+                e.target.select()
+              }
+            />
+          </div>
         </div>
+        <button>{t('new_product_submit')}</button>
       </form>
     </div>
   );

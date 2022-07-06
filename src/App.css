@@ -1,6 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
 /* bg-colors: darkslategray, #026773; */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
+}
+
+.App {
+  height: 100vh;
+  background-color: var(--main-bg-color);
+}
+
 :root {
   --main-bg-color: darkslategray;
   --fields-bg-color: #f2e5dc;
@@ -10,12 +22,6 @@
   --nav-color: #777;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Lato', sans-serif;
-}
 
 
 body.dark {
