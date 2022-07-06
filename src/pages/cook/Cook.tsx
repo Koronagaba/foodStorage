@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import './Cook.css';
 import add_circle from '../../icons/add_circle.svg';
@@ -9,12 +10,12 @@ import salad_icon from '../../icons/salad_icon.png';
 import snack_icon from '../../icons/snack_icon.png';
 
 import { MealsContext } from '../../context/MealsContext';
-import { TranslateContext } from '../../context/TranslationContext';
 
 const Cook = () => {
   const { breakfastList, lunchList, supperList, snackList }: any =
     useContext(MealsContext);
-  const { isEnglish } = useContext(TranslateContext);
+
+  const { t } = useTranslation();
 
   return (
     <div className="cook-container">
@@ -34,9 +35,7 @@ const Cook = () => {
               </>
             )}
           </div>
-          <p className="type-of-meal">
-            {isEnglish ? 'Breakfast' : 'Śniadanie'}
-          </p>
+          <p className="type-of-meal">{t('breakfast')}</p>
         </NavLink>
 
         <NavLink to={'lunch'} className="lunch">
@@ -46,12 +45,12 @@ const Cook = () => {
             ) : (
               <>
                 <img src={add_circle} alt="add icon" />
-                <p>{isEnglish ? 'add' : 'dodaj'}</p>
+                <p>add</p>
               </>
             )}
           </div>
 
-          <p className="type-of-meal">{isEnglish ? 'Lunch' : 'Obiad'}</p>
+          <p className="type-of-meal">{t('lunch')}</p>
         </NavLink>
 
         <NavLink to={'supper'} className="supper">
@@ -61,11 +60,11 @@ const Cook = () => {
             ) : (
               <>
                 <img src={add_circle} alt="add icon" />
-                <p>{isEnglish ? 'add' : 'dodaj'}</p>
+                <p>add</p>
               </>
             )}
           </div>
-          <p className="type-of-meal">{isEnglish ? 'Supper' : 'Kolacja'}</p>
+          <p className="type-of-meal">{t('supper')}</p>
         </NavLink>
 
         <NavLink to={'snack'} className="snack">
@@ -75,11 +74,11 @@ const Cook = () => {
             ) : (
               <>
                 <img src={add_circle} alt="add icon" />
-                <p>{isEnglish ? 'add' : 'dodaj'}</p>
+                <p>add</p>
               </>
             )}
           </div>
-          <p className="type-of-meal">{isEnglish ? 'Snacks' : 'Przekąski'}</p>
+          <p className="type-of-meal">{t('snacks')}</p>
         </NavLink>
       </div>
     </div>
