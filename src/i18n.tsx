@@ -20,10 +20,10 @@ i18next
   .use(Backend)
   .init({
     resources,
-    // detection: {
-    //     order: ['path', 'htmlTag', 'cookie', 'localStorage', 'subdomain'],
-    //     caches: ['cookie']
-    // },
+    detection: {
+        // order: ['localStorage', 'path', 'htmlTag', 'cookie', 'subdomain'],
+        // caches: ['cookie']
+    },
     backend: {
       loadPath: '/locales/{{lng}}/translation.json',
     },
