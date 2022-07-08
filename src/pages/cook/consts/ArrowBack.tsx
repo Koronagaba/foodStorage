@@ -4,20 +4,27 @@ import { useTranslation } from 'react-i18next';
 
 import arrow_back from '../../../icons/arrow_back.svg';
 import { MealsContext } from '../../../context/MealsContext';
-import { t } from 'i18next';
+import { SearchContext } from '../../../context/SearchContext';
 
 interface BackToMealListProps {
   path: string;
 }
 
 export const BackToCook = () => {
-  const { t } = useTranslation()
+  const { setSearchMeal } = useContext(SearchContext)
   const navigate = useNavigate();
+  const { t } = useTranslation()
+
+  const navigateToCook = () => { 
+    navigate('/cook') 
+    setSearchMeal('')
+  }
+
   return (
     <img
-      onClick={() => navigate('/cook')}
+      onClick={navigateToCook}
       src={arrow_back}
-      alt="arrow back"
+      alt={t('arrow_back')}
       className="arrow-back"
     />
   );
@@ -25,19 +32,24 @@ export const BackToCook = () => {
 
 export const BackToMealList: FC<BackToMealListProps> = ({ path }) => {
   const { breakfastList }: any = useContext(MealsContext);
-  const navigate = useNavigate();
+  const { setSearchMeal } = useContext(SearchContext)
 
-  const handleArrowBackToBreakfast = () => {
+  const navigate = useNavigate();
+  const { t } = useTranslation()
+
+  const handleArrowBackToMeal = () => {
     if (breakfastList) {
       navigate(`/cook/${path}`);
+      setSearchMeal('')
     } else {
       navigate('/cook');
+      setSearchMeal('')
     }
   };
 
   return (
     <img
-      onClick={handleArrowBackToBreakfast}
+      onClick={handleArrowBackToMeal}
       src={arrow_back}
       alt={t('arrow_back')}
       className="arrow-back"
