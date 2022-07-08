@@ -49,7 +49,7 @@ const Ingredient: FC<IngredientProps> = ({
 
   return (
     <div onClick={handleFocusInput} className="ingredient">
-      <p className="ingredient-title">{`${t(stockProduct.title)} (${stockProduct.amount})`}</p>
+      <p className="ingredient-title">{`${t(`key_ingredients.${stockProduct.title}`)} (${stockProduct.amount})`}</p>
       <form>
         <label>amount: </label>
         <input

@@ -30,7 +30,7 @@ i18next
     debug: true,
     fallbackLng: 'en',
     lng: localStorage.getItem('i18nextLng') || 'en',  // keep language preference
-    keySeparator: false,
+    // keySeparator: false, //  the line that I had to remove to make nesting i18n
     react: {
       useSuspense: false,
     },

@@ -33,7 +33,7 @@ const MealList: FC<MealListProps> = ({
     // .sort(sortTitle)
     .map((doc: MealIngredient) => (
       <div className="typesOfMeals-list" key={doc.id}>
-        <p>{t(doc.title)}</p>
+        <p>{t(`key_ingredients.${doc.title}`)}</p>
         <p>{doc.amount}</p>
       </div>
     ));

@@ -97,7 +97,7 @@ const { t } = useTranslation()
       <div className="single-item-container">
         <div className="single-item" style={style}>
           <p className='product-info'>
-            {t(productOfShoppingList.title)} - {productOfShoppingList.amount}
+            {t(`key_ingredients.${productOfShoppingList.title}`)} - {productOfShoppingList.amount}
           </p>
           <div className="icons">
             <img
