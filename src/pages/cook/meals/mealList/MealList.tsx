@@ -23,7 +23,7 @@ const MealList: FC<MealListProps> = ({
   altProp,
   path,
 }) => {
-  const { searchMeal }: any = useContext(SearchContext);
+  const { searchMeal, setSearchMeal } = useContext(SearchContext);
   const { t } = useTranslation()
 
   const displayList = collection
@@ -50,7 +50,7 @@ const MealList: FC<MealListProps> = ({
         <img src={iconName} alt={altProp} />
       </div>
       {collection.length ? displayList : <EmptyList title={path} />}
-      <AddMoreButton path={path} collection={collection} />
+      <AddMoreButton path={path} collection={collection} setSearchMeal={setSearchMeal}/>
     </div>
   );
 };
