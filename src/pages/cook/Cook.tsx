@@ -1,4 +1,6 @@
 import { useContext } from 'react';
+import { deleteDoc, doc } from 'firebase/firestore';
+import { db } from '../../firebase/config';
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
@@ -17,8 +19,17 @@ const Cook = () => {
 
   const { t } = useTranslation();
 
+
+  const deleteEveryDay = () => {
+    const newBreakfast = [...breakfastList]
+     newBreakfast.map(({id}) => {
+      deleteDoc(doc(db, 'breakfast', id))
+    })
+    }
+
   return (
     <div className="cook-container">
+         <button onClick={deleteEveryDay}>Delte Collection</button>
       <NavLink to={'breakfast'} className="breakfast">
         <div>
           {breakfastList.length ? (
@@ -70,6 +81,11 @@ const Cook = () => {
         <div>
           {snackList.length ? (
             <img className="cook-icon" src={snack_icon} alt="snack icon" />
+            // <div>
+            //   {firstThreeBreakfast.map(()=> (
+
+            //   ))}
+            // </div>
           ) : (
             <>
               <img src={add_circle} alt="add icon" />
