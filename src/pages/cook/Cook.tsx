@@ -1,8 +1,7 @@
 import { useContext } from 'react';
-import { deleteDoc, doc } from 'firebase/firestore';
-import { db } from '../../firebase/config';
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+
 
 import './Cook.css';
 import add_circle from '../../icons/add_circle.svg';
@@ -12,6 +11,7 @@ import salad_icon from '../../icons/salad_icon.png';
 import snack_icon from '../../icons/snack_icon.png';
 
 import { MealsContext } from '../../context/MealsContext';
+import { deleteMidnight } from './consts/deleteMidnight';
 
 const Cook = () => {
   const { breakfastList, lunchList, supperList, snackList }: any =
@@ -19,17 +19,18 @@ const Cook = () => {
 
   const { t } = useTranslation();
 
+  const schedule = require('node-schedule');
+  schedule.scheduleJob('01 18 * * *', () => {deleteEveryDay();}); // run everyday at midnight
 
   const deleteEveryDay = () => {
-    const newBreakfast = [...breakfastList]
-     newBreakfast.map(({id}) => {
-      deleteDoc(doc(db, 'breakfast', id))
-    })
-    }
+    deleteMidnight(breakfastList, 'breakfast');
+    deleteMidnight(lunchList, 'lunch');
+    deleteMidnight(supperList, 'supper');
+    deleteMidnight(snackList, 'snack');
+  };
 
   return (
     <div className="cook-container">
-         <button onClick={deleteEveryDay}>Delte Collection</button>
       <NavLink to={'breakfast'} className="breakfast">
         <div>
           {breakfastList.length ? (
@@ -81,12 +82,12 @@ const Cook = () => {
         <div>
           {snackList.length ? (
             <img className="cook-icon" src={snack_icon} alt="snack icon" />
+          ) : (
             // <div>
             //   {firstThreeBreakfast.map(()=> (
 
             //   ))}
             // </div>
-          ) : (
             <>
               <img src={add_circle} alt="add icon" />
               <p>{t('add_small')}</p>

@@ -25,6 +25,19 @@ export interface MealIngredient {
   id: string;
 }
 
+export interface MergedStockProdAndShopProd {
+  title: string,
+  amount: number,
+  quantity: number
+}
+
+export interface NewStockProduct {
+  title: string;
+  amount: number;
+  shoppingListAmount: number;
+  id: string;
+}
+
 // export type SingleItemProps = {
 //   item: ShopList;
 //   toggleEdit: (id: number, itemTitle: string, itemAmount: number, itemIsEditing: boolean) => void;
