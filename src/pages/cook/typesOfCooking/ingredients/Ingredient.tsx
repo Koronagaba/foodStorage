@@ -42,7 +42,7 @@ const Ingredient: FC<IngredientProps> = ({
         });
         setInputNumber(0);
       } else {
-        alert('There are not enough products in stock');
+        alert(t('alert_not_enough'));
       }
     }
   };

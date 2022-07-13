@@ -33,6 +33,7 @@
     "list": "Lista",
     "snack": "przekąski",
     "alert_not_activated": "Ta funkcjonalność wkrótce zostanie aktywowana",
+    "alert_not_enough": "Niewystarczająca ilość produktu w magazynie",
     "key_ingredients": {
         "apple": "jabłko",
         "banana": "banan",
