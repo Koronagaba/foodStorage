@@ -20,7 +20,7 @@ const Cook = () => {
   const { t } = useTranslation();
 
   const schedule = require('node-schedule');
-  schedule.scheduleJob('01 18 * * *', () => {deleteEveryDay();}); // run everyday at midnight
+  schedule.scheduleJob('0 0 * * *', () => {deleteEveryDay();}); // run everyday at midnight
 
   const deleteEveryDay = () => {
     deleteMidnight(breakfastList, 'breakfast');
