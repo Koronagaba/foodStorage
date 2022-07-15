@@ -1,6 +1,7 @@
 export interface StockProduct {
   title: string;
   amount: number;
+  shoppingListAmount: number,
   id: string;
 }
 
@@ -27,6 +28,7 @@ export interface MealIngredient {
 
 export interface MergedStockProdAndShopProd {
   title: string,
+  id: string,
   amount: number,
   quantity: number
 }

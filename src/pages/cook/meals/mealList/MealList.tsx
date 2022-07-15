@@ -1,7 +1,6 @@
 import { FC, useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 
-
 import { MealIngredient } from '../../../../types/type';
 import AddMoreButton from './AddMoreButton';
 import EmptyList from './EmptyList';
@@ -24,7 +23,7 @@ const MealList: FC<MealListProps> = ({
   path,
 }) => {
   const { searchMeal, setSearchMeal } = useContext(SearchContext);
-  const { t } = useTranslation()
+  const { t } = useTranslation();
 
   const displayList = collection
     .filter((item: MealIngredient) =>
@@ -50,7 +49,11 @@ const MealList: FC<MealListProps> = ({
         <img src={iconName} alt={altProp} />
       </div>
       {collection.length ? displayList : <EmptyList title={path} />}
-      <AddMoreButton path={path} collection={collection} setSearchMeal={setSearchMeal}/>
+      <AddMoreButton
+        path={path}
+        collection={collection}
+        setSearchMeal={setSearchMeal}
+      />
     </div>
   );
 };

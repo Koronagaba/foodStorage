@@ -5,6 +5,7 @@ import { useCollection } from '../hooks/useCollection';
 export interface MealItem {
   title: string;
   amount: number;
+  shoppingListAmount: number,
   isEditing: boolean;
   id: string;
 }

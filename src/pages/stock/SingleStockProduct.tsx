@@ -7,10 +7,12 @@ interface ProductProps {
   product: StockProduct;
 }
 
-const SingleStockProduct: React.FC<ProductProps> = ({ product }) => {
+const SingleStockProduct: React.FC<ProductProps> = ({
+  product,
+}) => {
   const inputRef = useRef<HTMLInputElement | null>(null);
 
-  const { t } = useTranslation()
+  const { t } = useTranslation();
 
   const handleFocusInput = () => {
     if (inputRef.current) {
@@ -18,13 +20,11 @@ const SingleStockProduct: React.FC<ProductProps> = ({ product }) => {
     }
   };
 
-  
-
   return (
     <div onClick={handleFocusInput} className="product-list">
       <div className="first-div">
-        <p>{`${t(`key_ingredients.${product.title}`)} (${product.amount})`}</p>
-      </div>
+      <p>{`${t(`key_ingredients.${product.title}`)} (${product.amount }) -(${product.shoppingListAmount})`}</p>
+           </div>
       <div className="second-div">
         <AddProductToShoppingList inputRef={inputRef} product={product} />
       </div>

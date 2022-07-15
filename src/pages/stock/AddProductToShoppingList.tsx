@@ -27,18 +27,21 @@ const AddProduct = ({ inputRef, product }: AddProductProps) => {
 
   const { t } = useTranslation();
 
-  const { title } = product;
-
   const addProductToShoppingList = () => {
     if (numberOfProductsAddedToCart > 0) {
+      setDoc(doc(db, 'products', product.id), {
+        title: product.title,
+        amount: product.amount,
+        shoppingListAmount: product.shoppingListAmount + numberOfProductsAddedToCart
+      })
       const theSameTitle = (sameTitle: ShoppingListProduct) => {
-        return sameTitle.title.toLowerCase() === title.toLowerCase();
+        return sameTitle.title.toLowerCase() === product.title.toLowerCase();
       };
 
       const filteredTheSameTitle = shoppingList
         .filter(theSameTitle)
-        .map((prod: ShoppingListProduct) => {
-          return prod;
+        .map((shopProd: ShoppingListProduct) => {
+          return shopProd;
         });
       if (filteredTheSameTitle.length) {
         setDoc(
@@ -48,7 +51,7 @@ const AddProduct = ({ inputRef, product }: AddProductProps) => {
             filteredTheSameTitle[filteredTheSameTitle.length - 1].id
           ),
           {
-            title,
+            title: product.title,
             amount:
               filteredTheSameTitle[filteredTheSameTitle.length - 1].amount +
               numberOfProductsAddedToCart,
@@ -63,7 +66,7 @@ const AddProduct = ({ inputRef, product }: AddProductProps) => {
           amount: numberOfProductsAddedToCart,
           inBag: false,
           isEditing: false,
-          title,
+          title: product.title,
           createdAt: serverTimestamp(),
         });
         setNumberOfProductsAddedToCart(0);

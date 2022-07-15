@@ -7,12 +7,13 @@ import { SingleShopProductProps } from '../../../types/type';
 
 import './Modals.css';
 import check from '../../../icons/check.svg';
-
+import { FoodStorageContext } from '../../../context/FoodStorageContext';
 
 const EditModal: FC<SingleShopProductProps> = ({ productOfShoppingList }) => {
+  const { stockProductsList } = useContext(FoodStorageContext);
   const [editAmount, setEditAmount] = useState(1);
 
-  const { t } = useTranslation()
+  const { t } = useTranslation();
 
   const CanceledEdit = (
     id: string,
@@ -58,6 +59,15 @@ const EditModal: FC<SingleShopProductProps> = ({ productOfShoppingList }) => {
         isEditing: !isEditing,
         inBag: true,
         createdAt: productOfShoppingList.createdAt,
+      });
+      stockProductsList.forEach((product) => {
+        if (product.title === title) {
+          setDoc(doc(db, 'products', product.id), {
+            title,
+            amount: product.amount,
+            shoppingListAmount: editAmount,
+          });
+        }
       });
     } else if (editAmount === amount) {
       setDoc(ref, {

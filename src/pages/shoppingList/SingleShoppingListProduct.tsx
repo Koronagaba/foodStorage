@@ -66,7 +66,17 @@ const { t } = useTranslation()
     }
   };
 
-  const handleDelete = async (id: string) => {
+  const handleDelete = async (title: string, amount:number, id: string) => {
+      stockProductsList.forEach(product => {
+      if(product.title === title){
+        setDoc(doc(db, 'products', product.id), {
+          title,
+          amount: product.amount,
+          shoppingListAmount: product.shoppingListAmount - amount
+        });
+      }
+    })
+
     const ref = doc(db, 'shoppingList', id);
     await deleteDoc(ref);
   };
@@ -74,14 +84,15 @@ const { t } = useTranslation()
   const handleSendToStock = async (
     id: string,
     title: string,
-    amount: number
+    shoppingListAmount: number
   ) => {
-    await stockProductsList.forEach((prod: StockProduct) => {
-      if (title === prod.title) {
-        const ref = doc(db, 'products', prod.id);
+    await stockProductsList.forEach((product: StockProduct) => {
+      if (title === product.title) {
+        const ref = doc(db, 'products', product.id);
         setDoc(ref, {
           title,
-          amount: prod.amount + amount,
+          amount: product.amount + shoppingListAmount,
+          shoppingListAmount: product.shoppingListAmount - shoppingListAmount
         });
       }
     });
@@ -125,7 +136,7 @@ const { t } = useTranslation()
               alt="edit"
             />
             <img
-              onClick={() => handleDelete(productOfShoppingList.id)}
+              onClick={() => handleDelete( productOfShoppingList.title, productOfShoppingList.amount, productOfShoppingList.id)}
               src={clear}
               alt="clear"
             />

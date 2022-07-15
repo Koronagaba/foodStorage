@@ -4,7 +4,7 @@ import { db } from '../../../firebase/config';
 import { useTranslation } from 'react-i18next';
 
 import { FoodStorageContext } from '../../../context/FoodStorageContext';
-import { StockProduct, ShoppingListProduct } from '../../../types/type';
+import { ShoppingListProduct } from '../../../types/type';
 
 import './Modals.css';
 
@@ -30,41 +30,40 @@ const ModalShoppingCompleted: FC<PropsModalShoppingCompleted> = ({
     amountInStock: number;
     quantity: number;
     itemId: string;
+    shoppingListAmount: number
   }
 
   const acceptModal = async () => {
     const mergedList: ProductToBuy[] = [];
 
-    stockProductsList.forEach((item) => {
-      filteredProducts.forEach((prod) => {
-        if (item.title === prod.title) {
+    stockProductsList.forEach((product) => {
+      filteredProducts.forEach((item) => {
+        if (product.title === item.title) {
           const indexMergedList = mergedList.findIndex(
-            ({ title }) => title === prod.title
+            ({ title }) => title === item.title
           );
-
-          console.log(indexMergedList);
           if (indexMergedList === -1) {
             mergedList.push({
-              title: prod.title,
-              amountInStock: item.amount,
-              quantity: prod.amount,
-              itemId: item.id,
+              title: item.title,
+              amountInStock: product.amount,
+              quantity: item.amount,
+              itemId: product.id,
+              shoppingListAmount: product.shoppingListAmount
             });
           } else {
-            mergedList[indexMergedList].quantity =
-              mergedList[indexMergedList].quantity + prod.amount;
+            mergedList[indexMergedList].quantity = mergedList[indexMergedList].quantity + item.amount;
           }
-
-          deleteDoc(doc(db, 'shoppingList', prod.id));
+          deleteDoc(doc(db, 'shoppingList', item.id));
         }
       });
     });
 
     Promise.allSettled(
-      mergedList.map(({ itemId, title, amountInStock, quantity }) =>
+      mergedList.map(({ itemId, title, amountInStock, quantity, shoppingListAmount }) =>
         setDoc(doc(db, 'products', itemId), {
           title: title,
           amount: amountInStock + quantity,
+          shoppingListAmount: shoppingListAmount - quantity
         })
       )
     ).finally(() => {
