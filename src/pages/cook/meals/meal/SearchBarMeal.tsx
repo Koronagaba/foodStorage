@@ -23,6 +23,12 @@ const { t } = useTranslation()
 
   const handleSearchText = (e: { target: HTMLInputElement }) => {
     setSearchMeal(e.target.value);
+    // if(localStorage.getItem('i18nextLng') === 'en'){
+    // console.log(i18next.store.data.en.translation);
+    // }else {
+    //   console.log(i18next.store.data.pl.translation);
+    // }
+
 
     // const filteredCollection = collection.filter((item: MealIngredient) => (
     //   item.title.toLocaleLowerCase().includes(searchText.toLocaleLowerCase())

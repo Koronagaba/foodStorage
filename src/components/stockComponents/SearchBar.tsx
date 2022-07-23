@@ -5,6 +5,7 @@ import { SearchContext } from '../../context/SearchContext';
 
 import './SearchBar.css';
 import search_icon from '../../icons/search.svg';
+import i18next from 'i18next';
 // interface SearchBarProps {
 //   searchText: string,
 //   setSearchText: (firstArg: string) => void
@@ -24,6 +25,11 @@ const SearchBar = () => {
 
   const handleSearchText = (e: { target: HTMLInputElement }) => {
     setSearchStock(e.target.value);
+    if(localStorage.getItem('i18nextLng') === 'en'){
+      const i18Data = i18next.store.data.en.translation
+      console.log(i18Data);
+      }else {
+      }
   };
 
   const searchInputFocus = () => {
