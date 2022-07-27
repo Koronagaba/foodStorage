@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/foodStorage/static/css/main.c2986e00.css",
-    "main.js": "/foodStorage/static/js/main.41a600c0.js",
+    "main.js": "/foodStorage/static/js/main.c53d8c91.js",
     "static/media/lunch_icon.png": "/foodStorage/static/media/lunch_icon.ffefbe648768275c66ec.png",
     "static/media/salad_icon.png": "/foodStorage/static/media/salad_icon.2220d81f9bac33378771.png",
     "static/media/breakfast_icon.png": "/foodStorage/static/media/breakfast_icon.a6b69665e541f93acc10.png",
@@ -22,10 +22,10 @@
     "static/media/add.svg": "/foodStorage/static/media/add.376e9b6a44e5b3142f1239a3cc8504d0.svg",
     "static/media/arrow_back.svg": "/foodStorage/static/media/arrow_back.b9b1b1b9f53a15c0c8d85bc6a29ce4a1.svg",
     "main.c2986e00.css.map": "/foodStorage/static/css/main.c2986e00.css.map",
-    "main.41a600c0.js.map": "/foodStorage/static/js/main.41a600c0.js.map"
+    "main.c53d8c91.js.map": "/foodStorage/static/js/main.c53d8c91.js.map"
   },
   "entrypoints": [
     "static/css/main.c2986e00.css",
-    "static/js/main.41a600c0.js"
+    "static/js/main.c53d8c91.js"
   ]
 }
