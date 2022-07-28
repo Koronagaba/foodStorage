@@ -39,6 +39,7 @@ const Ingredient: FC<IngredientProps> = ({
         await setDoc(doc(db, 'products', stockProduct.id), {
           amount: stockProduct.amount - inputNumber,
           title: stockProduct.title,
+          shoppingListAmount: stockProduct.shoppingListAmount
         });
         setInputNumber(0);
       } else {
