@@ -15,7 +15,7 @@ import Cook from './pages/cook/Cook';
 import Stock from './pages/stock/Stock';
 import ShoppingList from './pages/shoppingList/ShoppingList';
 
-import CreateProduct from './components/createProduct/CreateProduct';
+// import CreateProduct from './components/createProduct/CreateProduct';
 import Ingredients from './pages/cook/typesOfCooking/ingredients/Ingredients';
 import CreateRecipe from './pages/cook/typesOfCooking/createRecipe/CreateRecipe';
 import RecipeList from './pages/cook/typesOfCooking/recipeList/RecipeList';
@@ -176,10 +176,10 @@ function App() {
             <Route path="createRecipe" element={<CreateRecipe />} />
           </Route>
           {/* *********************************************************** */}
-          <Route
+          {/* <Route
             path="/createNewProduct"
             element={<CreateProduct setToggleModal={setToggleModal} />}
-          />
+          /> */}
           <Route path="/stock" element={<Stock />}>
             <Route path="/stock/createProduct" element={<Stock />} />
           </Route>

@@ -60,13 +60,13 @@ const Navbar = () => {
               >
                 {t('cook')}
               </NavLink>
-              <NavLink
+              {/* <NavLink
                 to={'/createNewProduct'}
                 style={activeLink}
                 onClick={() => setToggleOptions(false)}
               >
                 {t('create')}
-              </NavLink>
+              </NavLink> */}
               <NavLink
                 to={'/stock'}
                 style={activeLink}

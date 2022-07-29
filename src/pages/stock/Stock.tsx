@@ -8,7 +8,7 @@ import './Stock.css';
 import add from '../../icons/add.svg';
 
 import SearchBar from '../../components/stockComponents/SearchBar';
-import CreateProduct from '../../components/createProduct/CreateProduct';
+// import CreateProduct from '../../components/createProduct/CreateProduct';
 import ProductsList from './ProductsList';
 
 const Stock = () => {
@@ -24,18 +24,18 @@ const Stock = () => {
 
   return (
     <div className="stock-container">
-      {toggleModal && <CreateProduct setToggleModal={setToggleModal} />}
+      {/* {toggleModal && <CreateProduct setToggleModal={setToggleModal} />} */}
 
       <div className="inside-container">
         <div className='header-search-create'>
-          <NavLink to={'createProduct'}>
+          {/* <NavLink to={'createProduct'}>
             <img
               className="add-icon"
               src={add}
               alt="create new product"
               onClick={handleToggleModal}
             />
-          </NavLink>
+          </NavLink> */}
           <SearchBar />
         </div>
 
