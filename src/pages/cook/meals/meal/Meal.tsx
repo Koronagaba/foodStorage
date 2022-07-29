@@ -44,7 +44,7 @@ const Meal: FC<MealProps> = ({
             <h2>{title}</h2>
           </Link>
         </div>
-        {collection.length ? <SearchBarMeal collection={collection} /> : null}
+        {collection.length && localStorage.getItem('i18nextLng') === 'en' ? <SearchBarMeal collection={collection} /> : null}
         <div>
           <Outlet />
         </div>
