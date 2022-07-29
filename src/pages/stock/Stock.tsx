@@ -1,11 +1,11 @@
 import { useState, useContext } from 'react';
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
 
 import { FoodStorageContext } from '../../context/FoodStorageContext';
 import { SearchContext } from '../../context/SearchContext';
 
 import './Stock.css';
-import add from '../../icons/add.svg';
+// import add from '../../icons/add.svg';
 
 import SearchBar from '../../components/stockComponents/SearchBar';
 // import CreateProduct from '../../components/createProduct/CreateProduct';
@@ -16,11 +16,11 @@ const Stock = () => {
   const { searchStock } = useContext(SearchContext);
 
 
-  const [toggleModal, setToggleModal] = useState(false);
+  // const [toggleModal, setToggleModal] = useState(false);
 
-  const handleToggleModal = () => {
-    setToggleModal(!toggleModal);
-  };
+  // const handleToggleModal = () => {
+  //   setToggleModal(!toggleModal);
+  // };
 
   return (
     <div className="stock-container">
@@ -36,7 +36,8 @@ const Stock = () => {
               onClick={handleToggleModal}
             />
           </NavLink> */}
-          <SearchBar />
+          {localStorage.getItem('i18nextLng') === 'en' ?   <SearchBar /> : null }
+        
         </div>
 
         <ProductsList
