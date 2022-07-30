@@ -34,6 +34,7 @@
     "snack": "snack",
     "alert_not_activated": "This functionality will be activated soon",
     "alert_not_enough": "There are not enough products in stock",
+    "delete_everything": "Delete Everything",
     "key_ingredients": {
         "apple": "apple",
         "banana": "banana",

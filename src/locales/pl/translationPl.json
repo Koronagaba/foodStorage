@@ -34,6 +34,7 @@
     "snack": "przekąski",
     "alert_not_activated": "Ta funkcjonalność wkrótce zostanie aktywowana",
     "alert_not_enough": "Niewystarczająca ilość produktu w magazynie",
+    "delete_everything": "Usuń wszystko",
     "key_ingredients": {
         "apple": "jabłko",
         "banana": "banan",
