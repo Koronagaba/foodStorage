@@ -2,7 +2,6 @@ import { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-
 import './Cook.css';
 import add_circle from '../../icons/add_circle.svg';
 import breakfast_icon from '../../icons/breakfast_icon.png';
@@ -40,13 +39,13 @@ const Cook = () => {
               alt="breakfast icon"
             />
           ) : (
-            <>
+            <div className="empty-list">
               <img src={add_circle} alt="add icon" />
               <p>{t('add_small')}</p>
-            </>
+            </div>
           )}
+          <p className="type-of-meal">{t('breakfast')}</p>
         </div>
-        <p className="type-of-meal">{t('breakfast')}</p>
       </NavLink>
 
       <NavLink to={'lunch'} className="lunch">
@@ -54,10 +53,10 @@ const Cook = () => {
           {lunchList.length ? (
             <img className="cook-icon" src={lunch_icon} alt="lunch icon" />
           ) : (
-            <>
+            <div className="empty-list">
               <img src={add_circle} alt="add icon" />
               <p>{t('add_small')}</p>
-            </>
+            </div>
           )}
         </div>
 
@@ -69,10 +68,10 @@ const Cook = () => {
           {supperList.length ? (
             <img className="cook-icon" src={salad_icon} alt="supper icon" />
           ) : (
-            <>
+            <div className="empty-list">
               <img src={add_circle} alt="add icon" />
               <p>{t('add_small')}</p>
-            </>
+            </div>
           )}
         </div>
         <p className="type-of-meal">{t('supper')}</p>
@@ -83,15 +82,10 @@ const Cook = () => {
           {snackList.length ? (
             <img className="cook-icon" src={snack_icon} alt="snack icon" />
           ) : (
-            // <div>
-            //   {firstThreeBreakfast.map(()=> (
-
-            //   ))}
-            // </div>
-            <>
+            <div className="empty-list">
               <img src={add_circle} alt="add icon" />
               <p>{t('add_small')}</p>
-            </>
+            </div>
           )}
         </div>
         <p className="type-of-meal">{t('snacks')}</p>
@@ -101,8 +95,6 @@ const Cook = () => {
 };
 
 export default Cook;
-
-
 
 // import { useContext } from 'react'
 // import { db } from '../src/firebase/config'
@@ -122,8 +114,8 @@ export default Cook;
 // const { breakfastList, lunchList, supperList, snackList }: any =
 // useContext(MealsContext);
 
-// const deleteMidnight = (mealList: MealItem[], collection: string ) => {  
-//   mealList.map(({ id }: any) => deleteDoc(doc(db, collection, id)));  
+// const deleteMidnight = (mealList: MealItem[], collection: string ) => {
+//   mealList.map(({ id }: any) => deleteDoc(doc(db, collection, id)));
 // }
 
 // const deleteEveryDay = () => {
@@ -132,7 +124,6 @@ export default Cook;
 //   deleteMidnight(supperList, 'supper');
 //   deleteMidnight(snackList, 'snack');
 // };
-
 
 // exports.scheduledFunctionDelete = functions.pubsub
 //   .schedule('*/2 * * * *')
@@ -144,11 +135,6 @@ export default Cook;
 //     return console.log('Succesful delete collection!');
 //   });
 
-
-
-
 //      // "npm --prefix \"$RESOURCE_DIR\" run lint"
 
 //       // "deploy": "firebase deploy --only functions",
-
-      

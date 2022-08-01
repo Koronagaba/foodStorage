@@ -1,11 +1,17 @@
 .cook-container {
   background-color: var(--main-bg-color);
   max-width: 700px;
+  padding: 4%;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: .1fr 50fr 50fr .1fr;
-  grid-template-rows: .1fr 7fr 7fr 1fr;
-  gap: 2.4rem;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 1.4rem;
+  margin-top: 20px
+}
+
+.cook-container .empty-list {
+  margin: 70% 0
 }
 
 .cook-container a {
@@ -18,6 +24,7 @@
   color: #000;
   position: relative;
 }
+
 .cook-container a:hover {
   cursor: pointer;
   transform: scale(1.014);
@@ -26,9 +33,11 @@
 .cook-container img {
   transition: 0.2s ease;
 }
+
 .cook-container img:hover {
   transform: scale(1.07);
 }
+
 .cook-icon {
   width: 100px;
   margin: 30px
@@ -38,12 +47,10 @@
   position: absolute;
   bottom: 0px;
   right: 0px;
-  background: linear-gradient(
-    90deg,
-    rgba(0, 7, 36, 1) 0%,
-    rgba(9, 55, 121, 1) 75%,
-    rgba(0, 92, 255, 1) 100%
-  );
+  background: linear-gradient(90deg,
+      rgba(0, 7, 36, 1) 0%,
+      rgba(9, 55, 121, 1) 75%,
+      rgba(0, 92, 255, 1) 100%);
   color: #fff;
   margin: 10px;
   padding: 5px 15px;
@@ -52,31 +59,42 @@
 
 .breakfast {
   background-color: bisque;
-  grid-column: 2 / 3;
-  grid-row: 2 / 3;
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
 }
 
 .lunch {
   background-color: bisque;
-  grid-column: 3 / 4;
-  grid-row: 2 / 3;
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
 }
 
 .supper {
   background-color: bisque;
-  grid-column: 2 / 3;
-  grid-row: 3 / 4;
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
 }
 
 .snack {
   background-color: bisque;
-  grid-column: 3 / 4;
-  grid-row: 3 / 4;
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
 }
 
-@media (max-width: 600px){
-  .cook-container {
-    grid-template-rows: 1fr 3fr 3fr 1fr;
-    gap: .9rem
+@media (max-width: 600px) {
+  .cook-container .empty-list p {
+    display: none
+  }
+
+  .cook-container .type-of-meal {
+    bottom: 0px;
+    left: 0px;
+  }
+  .empty-list img {
+    padding-bottom: 30px
+  }
+  
+  .cook-icon {
+    padding-bottom: 10px
   }
 }
