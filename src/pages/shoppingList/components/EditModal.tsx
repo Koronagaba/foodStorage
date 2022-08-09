@@ -81,52 +81,54 @@ const EditModal: FC<SingleShopProductProps> = ({ productOfShoppingList }) => {
   };
 
   return (
-    <div className="edit-modal">
-      <div className="modal-title" title="Basic Modal">
-        <p>
-          {t('required_amount')}
-          {productOfShoppingList.title} -{productOfShoppingList.amount}
-        </p>
-      </div>
+    <div className="modal-container">
+      <div className="edit-modal">
+        <div className="modal-title" title="Basic Modal">
+          <p>
+            {t('required_amount')}
+            {productOfShoppingList.title} -{productOfShoppingList.amount}
+          </p>
+        </div>
 
-      <div className="content-edit-modal">
-        <p>{t('bought')}</p>
-        <input
-          type="number"
-          min="1"
-          value={editAmount}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-            setEditAmount(parseInt(e.target.value))
-          }
-        />
-      </div>
+        <div className="content-edit-modal">
+          <p>{t('bought')}</p>
+          <input
+            type="number"
+            min="1"
+            value={editAmount}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              setEditAmount(parseInt(e.target.value))
+            }
+          />
+        </div>
 
-      <div className="btns">
-        <button
-          className="btn"
-          onClick={() =>
-            CanceledEdit(
-              productOfShoppingList.id,
-              productOfShoppingList.title,
-              productOfShoppingList.amount,
-              productOfShoppingList.isEditing
-            )
-          }
-        >
-          {t('cancel')}
-        </button>
-        <img
-          onClick={() =>
-            acceptEdit(
-              productOfShoppingList.id,
-              productOfShoppingList.title,
-              productOfShoppingList.isEditing,
-              productOfShoppingList.amount
-            )
-          }
-          src={check}
-          alt={t('approve_changes')}
-        />
+        <div className="btns">
+          <button
+            className="btn"
+            onClick={() =>
+              CanceledEdit(
+                productOfShoppingList.id,
+                productOfShoppingList.title,
+                productOfShoppingList.amount,
+                productOfShoppingList.isEditing
+              )
+            }
+          >
+            {t('cancel')}
+          </button>
+          <img
+            onClick={() =>
+              acceptEdit(
+                productOfShoppingList.id,
+                productOfShoppingList.title,
+                productOfShoppingList.isEditing,
+                productOfShoppingList.amount
+              )
+            }
+            src={check}
+            alt={t('approve_changes')}
+          />
+        </div>
       </div>
     </div>
   );

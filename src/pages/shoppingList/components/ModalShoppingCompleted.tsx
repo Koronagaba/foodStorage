@@ -19,7 +19,7 @@ const ModalShoppingCompleted: FC<PropsModalShoppingCompleted> = ({
 }) => {
   const { stockProductsList } = useContext(FoodStorageContext);
 
-  const { t } = useTranslation()
+  const { t } = useTranslation();
 
   const handleModalCancel = () => {
     setIsModalVisible(false);
@@ -30,7 +30,7 @@ const ModalShoppingCompleted: FC<PropsModalShoppingCompleted> = ({
     amountInStock: number;
     quantity: number;
     itemId: string;
-    shoppingListAmount: number
+    shoppingListAmount: number;
   }
 
   const acceptModal = async () => {
@@ -48,10 +48,11 @@ const ModalShoppingCompleted: FC<PropsModalShoppingCompleted> = ({
               amountInStock: product.amount,
               quantity: item.amount,
               itemId: product.id,
-              shoppingListAmount: product.shoppingListAmount
+              shoppingListAmount: product.shoppingListAmount,
             });
           } else {
-            mergedList[indexMergedList].quantity = mergedList[indexMergedList].quantity + item.amount;
+            mergedList[indexMergedList].quantity =
+              mergedList[indexMergedList].quantity + item.amount;
           }
           deleteDoc(doc(db, 'shoppingList', item.id));
         }
@@ -59,12 +60,13 @@ const ModalShoppingCompleted: FC<PropsModalShoppingCompleted> = ({
     });
 
     Promise.allSettled(
-      mergedList.map(({ itemId, title, amountInStock, quantity, shoppingListAmount }) =>
-        setDoc(doc(db, 'products', itemId), {
-          title: title,
-          amount: amountInStock + quantity,
-          shoppingListAmount: shoppingListAmount - quantity
-        })
+      mergedList.map(
+        ({ itemId, title, amountInStock, quantity, shoppingListAmount }) =>
+          setDoc(doc(db, 'products', itemId), {
+            title: title,
+            amount: amountInStock + quantity,
+            shoppingListAmount: shoppingListAmount - quantity,
+          })
       )
     ).finally(() => {
       setIsModalVisible(false);
@@ -81,17 +83,15 @@ const ModalShoppingCompleted: FC<PropsModalShoppingCompleted> = ({
     <div className="modal-container">
       <div className="modal">
         <div className="modal-title" title="Basic Modal">
-          <p>
-            {t('ask_shopping_completed')}
-          </p>
+          <p>{t('ask_shopping_completed')}</p>
         </div>
         <div className="content-modal">{productsInBag}</div>
         <div className="btns">
-          <button className="btn" onClick={acceptModal}>
-            {t('yes')}
-          </button>
           <button className="btn" onClick={handleModalCancel}>
             {t('cancel')}
+          </button>
+          <button className="btn" onClick={acceptModal}>
+            {t('yes')}
           </button>
         </div>
       </div>
