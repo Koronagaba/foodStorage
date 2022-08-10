@@ -14,7 +14,7 @@ const EditModal: FC<SingleShopProductProps> = ({ productOfShoppingList }) => {
   const [editAmount, setEditAmount] = useState(1);
 
   const { t } = useTranslation();
-  const wrapperRef: any = useRef();
+  const wrapperRef = useRef<HTMLDivElement>(null);
 
   const { id, title, amount, isEditing, createdAt } = productOfShoppingList;
 

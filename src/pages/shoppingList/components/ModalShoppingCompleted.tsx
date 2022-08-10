@@ -1,4 +1,4 @@
-import React, { FC, useContext } from 'react';
+import React, { FC, useContext, useRef, useEffect } from 'react';
 import { doc, setDoc, deleteDoc } from 'firebase/firestore';
 import { db } from '../../../firebase/config';
 import { useTranslation } from 'react-i18next';
@@ -20,6 +20,7 @@ const ModalShoppingCompleted: FC<PropsModalShoppingCompleted> = ({
   const { stockProductsList } = useContext(FoodStorageContext);
 
   const { t } = useTranslation();
+  const wrapperRef = useRef<HTMLDivElement>(null);
 
   const handleModalCancel = () => {
     setIsModalVisible(false);
@@ -79,9 +80,22 @@ const ModalShoppingCompleted: FC<PropsModalShoppingCompleted> = ({
     </p>
   ));
 
+  useEffect(() => {
+    const handleClickOutside = (event: any) => {
+      if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
+        setIsModalVisible(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [setIsModalVisible]);
+
   return (
     <div className="modal-container">
-      <div className="modal">
+      <div ref={wrapperRef} className="modal">
         <div className="modal-title" title="Basic Modal">
           <p>{t('ask_shopping_completed')}</p>
         </div>
