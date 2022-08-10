@@ -10,7 +10,6 @@ import SingleShoppingListProduct from './SingleShoppingListProduct';
 import ModalShoppingCompleted from './components/ModalShoppingCompleted';
 import EmptyShoppingList from './components/EmptyShoppingList';
 
-
 const ShoppingList = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [filteredProducts, setFilteredProducts] = useState<
@@ -19,7 +18,7 @@ const ShoppingList = () => {
 
   const { shoppingList } = useContext(FoodStorageContext);
 
-  const { t } = useTranslation("translation")
+  const { t } = useTranslation('translation');
 
   const showModal = () => {
     setIsModalVisible(true);

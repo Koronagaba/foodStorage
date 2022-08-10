@@ -1,7 +1,7 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import { db } from '../../firebase/config';
 import { doc, deleteDoc, setDoc, serverTimestamp } from 'firebase/firestore';
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from 'react-i18next';
 
 import './SingleShoppingListProduct.css';
 
@@ -22,7 +22,7 @@ const SingleItem: React.FC<SingleShopProductProps> = ({
   productOfShoppingList,
 }) => {
   const { stockProductsList, shoppingList } = useContext(FoodStorageContext);
-const { t } = useTranslation()
+  const { t } = useTranslation();
 
   const style = productOfShoppingList.inBag
     ? { textDecoration: 'line-through' }
@@ -66,16 +66,16 @@ const { t } = useTranslation()
     }
   };
 
-  const handleDelete = async (title: string, amount:number, id: string) => {
-      stockProductsList.forEach(product => {
-      if(product.title === title){
+  const handleDelete = async (title: string, amount: number, id: string) => {
+    stockProductsList.forEach((product) => {
+      if (product.title === title) {
         setDoc(doc(db, 'products', product.id), {
           title,
           amount: product.amount,
-          shoppingListAmount: product.shoppingListAmount - amount
+          shoppingListAmount: product.shoppingListAmount - amount,
         });
       }
-    })
+    });
 
     const ref = doc(db, 'shoppingList', id);
     await deleteDoc(ref);
@@ -92,7 +92,7 @@ const { t } = useTranslation()
         setDoc(ref, {
           title,
           amount: product.amount + shoppingListAmount,
-          shoppingListAmount: product.shoppingListAmount - shoppingListAmount
+          shoppingListAmount: product.shoppingListAmount - shoppingListAmount,
         });
       }
     });
@@ -107,8 +107,9 @@ const { t } = useTranslation()
       )}
       <div className="single-item-container">
         <div className="single-item" style={style}>
-          <p className='product-info'>
-            {t(`key_ingredients.${productOfShoppingList.title}`)} - {productOfShoppingList.amount}
+          <p className="product-info">
+            {t(`key_ingredients.${productOfShoppingList.title}`)} -{' '}
+            {productOfShoppingList.amount}
           </p>
           <div className="icons">
             <img
@@ -136,14 +137,20 @@ const { t } = useTranslation()
               alt="edit"
             />
             <img
-              onClick={() => handleDelete( productOfShoppingList.title, productOfShoppingList.amount, productOfShoppingList.id)}
+              onClick={() =>
+                handleDelete(
+                  productOfShoppingList.title,
+                  productOfShoppingList.amount,
+                  productOfShoppingList.id
+                )
+              }
               src={clear}
               alt="clear"
             />
           </div>
         </div>
 
-        <img 
+        <img
           onClick={() =>
             handleSendToStock(
               productOfShoppingList.id,

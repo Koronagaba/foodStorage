@@ -1,4 +1,4 @@
-import { useState, useContext, FC } from 'react';
+import { useState, useContext, FC, useRef, useEffect } from 'react';
 import { db } from '../../../firebase/config';
 import { doc, setDoc, collection, addDoc } from 'firebase/firestore';
 import { useTranslation } from 'react-i18next';
@@ -14,6 +14,9 @@ const EditModal: FC<SingleShopProductProps> = ({ productOfShoppingList }) => {
   const [editAmount, setEditAmount] = useState(1);
 
   const { t } = useTranslation();
+  const wrapperRef: any = useRef();
+
+  const { id, title, amount, isEditing, createdAt } = productOfShoppingList;
 
   const CanceledEdit = (
     id: string,
@@ -80,9 +83,28 @@ const EditModal: FC<SingleShopProductProps> = ({ productOfShoppingList }) => {
     }
   };
 
+  useEffect(() => {
+    const handleClickOutside = (event: any) => {
+      if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
+        console.log('You clicked outside of me!', isEditing);
+        setDoc(doc(db, 'shoppingList', id), {
+          title,
+          amount,
+          isEditing: !isEditing,
+          createdAt,
+        });
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [id, title, amount, isEditing, createdAt]);
+
   return (
     <div className="modal-container">
-      <div className="edit-modal">
+      <div ref={wrapperRef} className="edit-modal">
         <div className="modal-title" title="Basic Modal">
           <p>
             {t('required_amount')}
