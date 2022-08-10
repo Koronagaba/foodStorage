@@ -84,8 +84,11 @@ const EditModal: FC<SingleShopProductProps> = ({ productOfShoppingList }) => {
   };
 
   useEffect(() => {
-    const handleClickOutside = (event: any) => {
-      if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        wrapperRef.current &&
+        !wrapperRef.current.contains(event.target as Node)
+      ) {
         console.log('You clicked outside of me!', isEditing);
         setDoc(doc(db, 'shoppingList', id), {
           title,
