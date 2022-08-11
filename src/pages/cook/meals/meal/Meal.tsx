@@ -27,7 +27,7 @@ const Meal: FC<MealProps> = ({
     if (!collection.length) {
       navigate('ingredients');
     }
-  }, []);
+  }, [collection.length, navigate]);
 
   return (
     <div className="meal-container">

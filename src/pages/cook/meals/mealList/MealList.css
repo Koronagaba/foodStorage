@@ -18,7 +18,7 @@
   width: 150px;
 }
 
-.typesOfMeals-list {
+.single-meal {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -28,7 +28,7 @@
   background-color: var(--fields-bg-color);
   transition: ease-in-out 0.2s;
 }
-.typesOfMeals-list:hover{
+.single-meal:hover{
   background-color: var(--fields-hover-bg-color);
 }
 

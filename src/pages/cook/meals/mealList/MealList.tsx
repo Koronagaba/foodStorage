@@ -1,13 +1,12 @@
 import { FC, useContext } from 'react';
-import { useTranslation } from 'react-i18next';
 
-import { MealIngredient } from '../../../../types/type';
 import AddMoreButton from './AddMoreButton';
 import EmptyList from './EmptyList';
 
 import { SearchContext } from '../../../../context/SearchContext';
 
 import './MealList.css';
+import SingleMealProduct from './SingleMealProduct';
 
 interface MealListProps {
   collection: any;
@@ -22,20 +21,7 @@ const MealList: FC<MealListProps> = ({
   altProp,
   path,
 }) => {
-  const { searchMeal, setSearchMeal } = useContext(SearchContext);
-  const { t } = useTranslation();
-
-  const displayList = collection
-    .filter((item: MealIngredient) =>
-      item.title.toLocaleLowerCase().includes(searchMeal.toLowerCase())
-    )
-    // .sort(sortTitle)
-    .map((doc: MealIngredient) => (
-      <div className="typesOfMeals-list" key={doc.id}>
-        <p>{t(`key_ingredients.${doc.title}`)}</p>
-        <p>{doc.amount}</p>
-      </div>
-    ));
+  const { setSearchMeal } = useContext(SearchContext);
 
   return (
     <div className="typesOfMeals-container">
@@ -48,7 +34,11 @@ const MealList: FC<MealListProps> = ({
       >
         <img src={iconName} alt={altProp} />
       </div>
-      {collection.length ? displayList : <EmptyList title={path} />}
+      {collection.length ? (
+        <SingleMealProduct collection={collection} />
+      ) : (
+        <EmptyList title={path} />
+      )}
       <AddMoreButton
         path={path}
         collection={collection}
