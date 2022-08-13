@@ -1,30 +1,42 @@
-import { useContext} from 'react'
+import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
-import { SearchContext } from '../../../../context/SearchContext';
+import { collection, addDoc } from 'firebase/firestore';
+import { db } from '../../../../firebase/config';
+// import { SearchContext } from '../../../../context/SearchContext';
 import { MealIngredient } from '../../../../types/type';
+import { Link } from 'react-router-dom';
 
-
-const SingleMealProduct = ( {collection}:any ) => {
-    const { searchMeal } = useContext(SearchContext);
-
-    const { t } = useTranslation();
-
-    const displayList = collection
-    .filter((item: MealIngredient) =>
-      item.title.toLocaleLowerCase().includes(searchMeal.toLowerCase())
-    )
-    // .sort(sortTitle)
-    .map((doc: MealIngredient) => (
-      <div className="single-meal" key={doc.id}>
-        <p>{t(`key_ingredients.${doc.title}`)}</p>
-        <p>{doc.amount}</p>
-      </div>
-    ));
-
-
-  return (
-    <>{displayList}</>
-  )
+interface SingleMealProductProps {
+  singleProduct: MealIngredient;
 }
 
-export default SingleMealProduct
+const SingleMealProduct: FC<SingleMealProductProps> = ({ singleProduct }) => {
+  const { t } = useTranslation();
+
+  const { id, title, amount } = singleProduct;
+
+  const handleClickSingleProduct = () => {
+    console.log(title);
+
+    addDoc(collection(db, 'editMealProduct'), {
+      title,
+      amount,
+    });
+  };
+
+  return (
+    <>
+      <Link
+        to={'edit'}
+        className="single-meal"
+        key={id}
+        onClick={handleClickSingleProduct}
+      >
+        <p>{t(`key_ingredients.${title}`)}</p>
+        <p>{amount}</p>
+      </Link>
+    </>
+  );
+};
+
+export default SingleMealProduct;
