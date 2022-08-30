@@ -5,7 +5,7 @@ export interface StockProduct {
   id: string;
 }
 
-interface At {
+export interface At {
   nanoseconds: number;
   seconds: number;
 }
