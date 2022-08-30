@@ -9,7 +9,7 @@ import lunch_icon from '../../icons/lunch_icon.png';
 import salad_icon from '../../icons/salad_icon.png';
 import snack_icon from '../../icons/snack_icon.png';
 
-import { MealsContext } from '../../context/MealsContext';
+import { MealsContext } from '../../context/MealsContext'; 
 // import { deleteMidnight } from './consts/deleteMidnight';
 
 const Cook = () => {

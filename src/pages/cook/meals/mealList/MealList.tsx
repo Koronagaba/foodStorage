@@ -1,5 +1,6 @@
 import { FC, useContext } from 'react';
 
+import { MealIngredient } from '../../../../types/type';
 import AddMoreButton from './AddMoreButton';
 import EmptyList from './EmptyList';
 
@@ -21,7 +22,18 @@ const MealList: FC<MealListProps> = ({
   altProp,
   path,
 }) => {
-  const { setSearchMeal } = useContext(SearchContext);
+  const { searchMeal, setSearchMeal } = useContext(SearchContext);
+
+  const displayList = collection
+    .filter((item: MealIngredient) =>
+      item.title.toLocaleLowerCase().includes(searchMeal.toLowerCase())
+    )
+    // .sort(sortTitle)
+    .map((singleProduct: MealIngredient) => (
+      <div key={singleProduct.id}>
+        <SingleMealProduct singleProduct={singleProduct} />
+      </div>
+    ));
 
   return (
     <div className="typesOfMeals-container">
@@ -34,11 +46,7 @@ const MealList: FC<MealListProps> = ({
       >
         <img src={iconName} alt={altProp} />
       </div>
-      {collection.length ? (
-        <SingleMealProduct collection={collection} />
-      ) : (
-        <EmptyList title={path} />
-      )}
+      {collection.length ? displayList : <EmptyList title={path} />}
       <AddMoreButton
         path={path}
         collection={collection}
