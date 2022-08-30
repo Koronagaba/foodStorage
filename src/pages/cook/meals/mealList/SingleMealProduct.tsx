@@ -1,10 +1,13 @@
-import { FC } from 'react';
+import { FC, useContext } from 'react';
 import { useTranslation } from 'react-i18next';
-import { collection, addDoc } from 'firebase/firestore';
+import { collection, addDoc, deleteDoc, doc } from 'firebase/firestore';
 import { db } from '../../../../firebase/config';
-// import { SearchContext } from '../../../../context/SearchContext';
+
+
+
 import { MealIngredient } from '../../../../types/type';
 import { Link } from 'react-router-dom';
+import { EditMealContext } from '../../../../context/EditMealContext';
 
 interface SingleMealProductProps {
   singleProduct: MealIngredient;
@@ -12,11 +15,16 @@ interface SingleMealProductProps {
 
 const SingleMealProduct: FC<SingleMealProductProps> = ({ singleProduct }) => {
   const { t } = useTranslation();
+  const { editMealProduct } = useContext(EditMealContext);
 
   const { id, title, amount } = singleProduct;
+  const editMeal = { ...editMealProduct };
+
 
   const handleClickSingleProduct = () => {
     console.log(title);
+
+    deleteDoc(doc(db, 'editMealProduct', editMeal[0].id));
 
     addDoc(collection(db, 'editMealProduct'), {
       title,
