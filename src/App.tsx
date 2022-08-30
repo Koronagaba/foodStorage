@@ -27,6 +27,7 @@ import MealList from './pages/cook/meals/mealList/MealList';
 import MultiLanguages from './components/multiLanguages/MultiLanguages';
 import DarkMode from './components/darkMode/DarkMode';
 import HandleRemoval from './components/handleRemoval/HandleRemoval';
+import EditSingleMealProduct from './pages/cook/meals/mealList/EditSingleMealProduct';
 
 function App() {
   const { breakfastList, lunchList, supperList, snackList } =
@@ -34,6 +35,7 @@ function App() {
   const [toggleModal, setToggleModal] = useState(false);
 
   useLocation();
+
 
   const { t } = useTranslation();
   return (
@@ -48,7 +50,7 @@ function App() {
       </div>
       <Routes>
         <Route path="/cook" element={<Cook />}></Route>
-        <Route path="*" element={<Navigate to="/cook" />} />
+        {/* <Route path="*" element={<Navigate to="/cook" />} /> */}
         {/* *********************************** */}
         <Route
           path="/cook/breakfast"
@@ -73,6 +75,9 @@ function App() {
               />
             }
           ></Route>
+          <Route 
+            path='/cook/breakfast/edit' element={<EditSingleMealProduct />}
+          />
           <Route
             path="ingredients"
             element={<Ingredients nameOfCollection={'breakfast'} />}
@@ -105,6 +110,7 @@ function App() {
               />
             }
           ></Route>
+          <Route  path="/cook/lunch/edit" element={<EditSingleMealProduct />}/>
           <Route
             path="ingredients"
             element={<Ingredients nameOfCollection={'lunch'} />}
@@ -137,6 +143,7 @@ function App() {
               />
             }
           ></Route>
+          <Route path='/cook/supper/edit' element={<EditSingleMealProduct />}/>
           <Route
             path="ingredients"
             element={<Ingredients nameOfCollection={'supper'} />}
@@ -170,6 +177,7 @@ function App() {
               />
             }
           ></Route>
+          <Route path='/cook/snack/edit' element={<EditSingleMealProduct />}/>
           <Route
             path="ingredients"
             element={<Ingredients nameOfCollection={'snack'} />}
