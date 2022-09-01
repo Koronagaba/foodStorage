@@ -76,7 +76,9 @@ function App() {
           ></Route>
           <Route
             path="/cook/breakfast/edit"
-            element={<EditSingleMealProduct />}
+            element={
+              <EditSingleMealProduct nameOfMealCollection={'breakfast'} />
+            }
           />
           <Route
             path="ingredients"
@@ -110,7 +112,10 @@ function App() {
               />
             }
           ></Route>
-          <Route path="/cook/lunch/edit" element={<EditSingleMealProduct />} />
+          <Route
+            path="/cook/lunch/edit"
+            element={<EditSingleMealProduct nameOfMealCollection={'lunch'} />}
+          />
           <Route
             path="ingredients"
             element={<Ingredients nameOfCollection={'lunch'} />}
@@ -143,7 +148,10 @@ function App() {
               />
             }
           ></Route>
-          <Route path="/cook/supper/edit" element={<EditSingleMealProduct />} />
+          <Route
+            path="/cook/supper/edit"
+            element={<EditSingleMealProduct nameOfMealCollection={'supper'} />}
+          />
           <Route
             path="ingredients"
             element={<Ingredients nameOfCollection={'supper'} />}
@@ -177,7 +185,10 @@ function App() {
               />
             }
           ></Route>
-          <Route path="/cook/snack/edit" element={<EditSingleMealProduct />} />
+          <Route
+            path="/cook/snack/edit"
+            element={<EditSingleMealProduct nameOfMealCollection={'snack'} />}
+          />
           <Route
             path="ingredients"
             element={<Ingredients nameOfCollection={'snack'} />}
