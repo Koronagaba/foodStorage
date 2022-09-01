@@ -10,21 +10,21 @@ import './MealList.css';
 import SingleMealProduct from './SingleMealProduct';
 
 interface MealListProps {
-  collection: any;
+  collectionName: any;
   iconName: string;
   altProp: string;
   path: string;
 }
 
 const MealList: FC<MealListProps> = ({
-  collection,
+  collectionName,
   iconName,
   altProp,
   path,
 }) => {
   const { searchMeal, setSearchMeal } = useContext(SearchContext);
 
-  const displayList = collection
+  const displayList = collectionName
     .filter((item: MealIngredient) =>
       item.title.toLocaleLowerCase().includes(searchMeal.toLowerCase())
     )
@@ -39,17 +39,17 @@ const MealList: FC<MealListProps> = ({
     <div className="typesOfMeals-container">
       <div
         className={
-          collection.length
+          collectionName.length
             ? 'typesOfMeals-header'
             : 'typesOfMeals-empty-header'
         }
       >
         <img src={iconName} alt={altProp} />
       </div>
-      {collection.length ? displayList : <EmptyList title={path} />}
+      {collectionName.length ? displayList : <EmptyList title={path} />}
       <AddMoreButton
         path={path}
-        collection={collection}
+        collection={collectionName}
         setSearchMeal={setSearchMeal}
       />
     </div>

@@ -1,9 +1,7 @@
 import { FC, useContext } from 'react';
 import { useTranslation } from 'react-i18next';
-import { collection, addDoc, deleteDoc, doc } from 'firebase/firestore';
+import { collection, addDoc, deleteDoc, doc, setDoc } from 'firebase/firestore';
 import { db } from '../../../../firebase/config';
-
-
 
 import { MealIngredient } from '../../../../types/type';
 import { Link } from 'react-router-dom';
@@ -20,15 +18,15 @@ const SingleMealProduct: FC<SingleMealProductProps> = ({ singleProduct }) => {
   const { id, title, amount } = singleProduct;
   const editMeal = { ...editMealProduct };
 
+  const handleClickSingleProduct = async () => {
+    console.log(title, id);
 
-  const handleClickSingleProduct = () => {
-    console.log(title);
+    await deleteDoc(doc(db, 'editMealProduct', editMeal[0].id));
 
-    deleteDoc(doc(db, 'editMealProduct', editMeal[0].id));
-
-    addDoc(collection(db, 'editMealProduct'), {
+    await setDoc(doc(db, 'editMealProduct', id), {
       title,
       amount,
+      isEditing: true,
     });
   };
 

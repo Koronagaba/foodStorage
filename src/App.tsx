@@ -36,7 +36,6 @@ function App() {
 
   useLocation();
 
-
   const { t } = useTranslation();
   return (
     <div className="App">
@@ -68,15 +67,16 @@ function App() {
             path="/cook/breakfast"
             element={
               <MealList
-                collection={breakfastList}
+                collectionName={breakfastList}
                 iconName={breakfast_icon}
                 altProp={'breakfast icon'}
                 path={'breakfast'}
               />
             }
           ></Route>
-          <Route 
-            path='/cook/breakfast/edit' element={<EditSingleMealProduct />}
+          <Route
+            path="/cook/breakfast/edit"
+            element={<EditSingleMealProduct />}
           />
           <Route
             path="ingredients"
@@ -103,14 +103,14 @@ function App() {
             path="/cook/lunch"
             element={
               <MealList
-                collection={lunchList}
+                collectionName={lunchList}
                 iconName={lunch_icon}
                 altProp={'lunch icon'}
                 path={'lunch'}
               />
             }
           ></Route>
-          <Route  path="/cook/lunch/edit" element={<EditSingleMealProduct />}/>
+          <Route path="/cook/lunch/edit" element={<EditSingleMealProduct />} />
           <Route
             path="ingredients"
             element={<Ingredients nameOfCollection={'lunch'} />}
@@ -136,14 +136,14 @@ function App() {
             path="/cook/supper"
             element={
               <MealList
-                collection={supperList}
+                collectionName={supperList}
                 iconName={salad_icon}
                 altProp={'salad icon'}
                 path={'supper'}
               />
             }
           ></Route>
-          <Route path='/cook/supper/edit' element={<EditSingleMealProduct />}/>
+          <Route path="/cook/supper/edit" element={<EditSingleMealProduct />} />
           <Route
             path="ingredients"
             element={<Ingredients nameOfCollection={'supper'} />}
@@ -170,14 +170,14 @@ function App() {
             path="/cook/snack"
             element={
               <MealList
-                collection={snackList}
+                collectionName={snackList}
                 iconName={snack_icon}
                 altProp={'snack icon'}
                 path={'snack'}
               />
             }
           ></Route>
-          <Route path='/cook/snack/edit' element={<EditSingleMealProduct />}/>
+          <Route path="/cook/snack/edit" element={<EditSingleMealProduct />} />
           <Route
             path="ingredients"
             element={<Ingredients nameOfCollection={'snack'} />}

@@ -47,10 +47,7 @@
   position: absolute;
   bottom: 0px;
   right: 0px;
-  background: linear-gradient(90deg,
-      rgba(0, 7, 36, 1) 0%,
-      rgba(9, 55, 121, 1) 75%,
-      rgba(0, 92, 255, 1) 100%);
+  background: var(--btns-bg);
   color: #fff;
   margin: 10px;
   padding: 5px 15px;

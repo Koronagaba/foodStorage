@@ -2,7 +2,7 @@ import { createContext, FC } from 'react';
 import { CollectionName } from '../enum/enum';
 import { useCollection } from '../hooks/useCollection';
 
-interface EditMeal {
+export interface EditMeal {
   title: string;
   amount: number;
   id: string;
