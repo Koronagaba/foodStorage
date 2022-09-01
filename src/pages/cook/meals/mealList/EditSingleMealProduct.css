@@ -1,0 +1,48 @@
+.editSingleMealProduct{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+}
+
+.title{
+    background-color: var(--fields-bg-color);
+    margin: 20px 0;
+    padding: 30px 0;
+    font-weight: bold;
+    font-size: 1.2em;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.editSingleMealProduct button{
+    background: var(--btns-bg );
+    align-self: center;
+    margin: 30px;
+    padding: 10px 30px;
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    font-size: 1em
+}
+
+.form-editMealProduct {
+    display: flex;
+    background-color: var(--fields-bg-color);
+    padding: 20px 0;
+    border-radius: 5px;
+}
+
+.form-editMealProduct input {
+    width: 15%;
+    padding: 5px;
+    margin: 0 1em;
+    border: 1px solid gray;
+    border-radius: 5px
+}
+
+.form-editMealProduct p {
+    width: 50%;
+    padding: 5px;
+    border: 1px solid gray;
+    border-radius: 5px
+}
