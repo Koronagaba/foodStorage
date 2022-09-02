@@ -19,14 +19,11 @@ const SingleMealProduct: FC<SingleMealProductProps> = ({ singleProduct }) => {
   const editMeal = { ...editMealProduct };
 
   const handleClickSingleProduct = async () => {
-    console.log(title, id);
-
     await deleteDoc(doc(db, 'editMealProduct', editMeal[0].id));
 
     await setDoc(doc(db, 'editMealProduct', id), {
       title,
       amount,
-      isEditing: true,
     });
   };
 

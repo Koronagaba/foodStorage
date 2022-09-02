@@ -32,7 +32,6 @@ import EditSingleMealProduct from './pages/cook/meals/mealList/EditSingleMealPro
 function App() {
   const { breakfastList, lunchList, supperList, snackList } =
     useContext(MealsContext);
-  const [toggleModal, setToggleModal] = useState(false);
 
   useLocation();
 
@@ -49,7 +48,7 @@ function App() {
       </div>
       <Routes>
         <Route path="/cook" element={<Cook />}></Route>
-        {/* <Route path="*" element={<Navigate to="/cook" />} /> */}
+        <Route path="*" element={<Navigate to="/cook" />} />
         {/* *********************************** */}
         <Route
           path="/cook/breakfast"

@@ -22,7 +22,6 @@ export interface ShoppingListProduct {
 export interface MealIngredient {
   title: string;
   amount: number;
-  isEditing: boolean;
   id: string;
 }
 

@@ -1,51 +1,98 @@
-import { FC, useState } from 'react';
+import { FC, useState, useContext } from 'react';
+import { FoodStorageContext } from '../../../../context/FoodStorageContext';
 import { EditMeal } from '../../../../context/EditMealContext';
 import { useTranslation } from 'react-i18next';
 import { setDoc, doc } from 'firebase/firestore';
 import { db } from '../../../../firebase/config';
 
 interface Props {
-  editProd: EditMeal;
+  editProduct: EditMeal;
   nameOfMealCollection: string;
 }
 
 const SaveSingleEditProduct: FC<Props> = ({
-  editProd,
+  editProduct,
   nameOfMealCollection,
 }) => {
-  const [editProdAmount, setEditProdAmount] = useState(editProd.amount);
+  const { stockProductsList } = useContext(FoodStorageContext);
+  const [editInputProdAmount, setEditProdAmount] = useState<number>(
+    editProduct.amount
+  );
   const { t } = useTranslation();
 
   const saveChanges = () => {
-    setDoc(doc(db, 'editMealProduct', editProd.id), {
-      title: editProd.title,
-      amount: editProdAmount,
+    const matchedStockProduct = stockProductsList.filter((stockProd) => {
+      return stockProd.id === editProduct.id;
     });
+    matchedStockProduct.forEach((stockProduct) => {
+      const differenceToSubstraction = editInputProdAmount - editProduct.amount;
 
-    setDoc(doc(db, nameOfMealCollection, editProd.id), {
-      title: editProd.title,
-      amount: editProdAmount,
-      isEditing: false,
+      if (
+        editInputProdAmount > editProduct.amount &&
+        editInputProdAmount <= stockProduct.amount + editProduct.amount
+      ) {
+        setDoc(doc(db, 'editMealProduct', editProduct.id), {
+          title: editProduct.title,
+          amount: editInputProdAmount,
+        });
+        setDoc(doc(db, nameOfMealCollection, editProduct.id), {
+          title: editProduct.title,
+          amount: editInputProdAmount,
+        });
+
+        setDoc(doc(db, 'products', stockProduct.id), {
+          title: stockProduct.title,
+          amount: stockProduct.amount - differenceToSubstraction,
+          shoppingListAmount: stockProduct.shoppingListAmount,
+        });
+        console.log('input > editProd', differenceToSubstraction);
+      } else if (
+        editInputProdAmount < editProduct.amount &&
+        editInputProdAmount <= stockProduct.amount + editProduct.amount
+      ) {
+        const differenceToAddition = editProduct.amount - editInputProdAmount;
+
+        setDoc(doc(db, 'editMealProduct', editProduct.id), {
+          title: editProduct.title,
+          amount: editInputProdAmount,
+        });
+        setDoc(doc(db, nameOfMealCollection, editProduct.id), {
+          title: editProduct.title,
+          amount: editInputProdAmount,
+        });
+
+        setDoc(doc(db, 'products', stockProduct.id), {
+          title: stockProduct.title,
+          amount: stockProduct.amount + differenceToAddition,
+          shoppingListAmount: stockProduct.shoppingListAmount,
+        });
+        console.log('editProd > input', differenceToAddition);
+      } else if (
+        editInputProdAmount >
+        stockProduct.amount + editProduct.amount
+      ) {
+        alert('not enough');
+      }
     });
   };
 
-  const handleChangeAmount = (e: any) => {
-    setEditProdAmount(e.target.value);
+  const handleChangeAmount = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEditProdAmount(parseInt(e.target.value));
   };
 
   return (
-    <div className="editSingleMealProduct" key={editProd.id}>
+    <div className="editSingleMealProduct" key={editProduct.id}>
       <div className="title">
-        <p>{t(`key_ingredients.${editProd.title}`)}</p>
+        <p>{t(`key_ingredients.${editProduct.title}`)}</p>
       </div>
       <button onClick={saveChanges}>Save</button>
       <div className="form-editMealProduct">
         <input
           type="number"
-          value={editProdAmount}
+          value={editInputProdAmount}
           onChange={handleChangeAmount}
         />
-        <p>{t(`key_ingredients.${editProd.title}`)}</p>
+        <p>{t(`key_ingredients.${editProduct.title}`)}</p>
       </div>
     </div>
   );

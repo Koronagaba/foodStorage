@@ -10,9 +10,9 @@ interface Props {
 const EditSingleMealProduct: FC<Props> = ({ nameOfMealCollection }) => {
   const { editMealProduct } = useContext(EditMealContext);
 
-  const displayScore = editMealProduct?.map((editProd) => (
+  const displayScore = editMealProduct?.map((editProduct) => (
     <SaveSingleEditProduct
-      editProd={editProd}
+      editProduct={editProduct}
       nameOfMealCollection={nameOfMealCollection}
     />
   ));
