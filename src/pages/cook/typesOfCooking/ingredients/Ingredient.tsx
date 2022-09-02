@@ -30,7 +30,7 @@ const Ingredient: FC<IngredientProps> = ({
   const addIngredientToMeal = async () => {
     if (inputNumber > 0) {
       if (inputNumber <= stockProduct.amount) {
-        await addDoc(collection(db, `${nameOfCollection}`), {
+        await setDoc(doc(db, `${nameOfCollection}`, stockProduct.id), {
           amount: inputNumber,
           isEditing: false,
           title: stockProduct.title,
