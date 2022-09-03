@@ -42,7 +42,7 @@ const Meal: FC<MealProps> = ({
             <Route
               path="ingredients"
               element={
-                <BackToMealList nameOfMealCollection={nameOfMealCollection} />
+                <BackToMealList nameOfMealCollection={nameOfMealCollection} collection={collection}/>
               }
             />
             <Route

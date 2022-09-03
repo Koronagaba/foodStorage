@@ -3,12 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 import arrow_back from '../../../icons/arrow_back.svg';
-import { MealsContext } from '../../../context/MealsContext';
 import { SearchContext } from '../../../context/SearchContext';
 
-interface BackToMealListProps {
-  nameOfMealCollection: string;
-}
 
 export const BackToCook = () => {
   const { setSearchMeal } = useContext(SearchContext)
@@ -31,15 +27,20 @@ export const BackToCook = () => {
   );
 };
 
-export const BackToMealList: FC<BackToMealListProps> = ({ nameOfMealCollection }) => {
-  const { breakfastList }: any = useContext(MealsContext);
+interface BackToMealListProps {
+  nameOfMealCollection: string;
+  collection: any
+}
+
+
+export const BackToMealList: FC<BackToMealListProps> = ({ nameOfMealCollection, collection }) => {
   const { setSearchMeal } = useContext(SearchContext)
 
   const navigate = useNavigate();
   const { t } = useTranslation()
 
   const navigateToMeal = () => {
-    if (breakfastList) {
+    if (collection.length) {
       navigate(`/cook/${nameOfMealCollection}`);
       setSearchMeal('')
       console.log('if',nameOfMealCollection);
