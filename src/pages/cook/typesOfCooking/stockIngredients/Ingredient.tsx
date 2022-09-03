@@ -1,5 +1,5 @@
 import { FC, useState, useRef } from 'react';
-import { collection, addDoc, doc, setDoc } from 'firebase/firestore';
+import { doc, setDoc } from 'firebase/firestore';
 import { db } from '../../../../firebase/config';
 import { useTranslation } from 'react-i18next';
 

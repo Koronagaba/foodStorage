@@ -1,7 +1,7 @@
 import { FC, useContext } from 'react';
-import { EditMealContext } from '../../../../context/EditMealContext';
+import { EditMealContext } from '../../../../../context/EditMealContext';
 import './EditSingleMealProduct.css';
-import SaveSingleEditProduct from './SaveSingleEditProduct';
+import FormSingleEditProduct from './FormSingleEditProduct';
 
 interface Props {
   nameOfMealCollection: string;
@@ -11,7 +11,7 @@ const EditSingleMealProduct: FC<Props> = ({ nameOfMealCollection }) => {
   const { editMealProduct } = useContext(EditMealContext);
 
   const displayScore = editMealProduct?.map((editProduct) => (
-    <SaveSingleEditProduct
+    <FormSingleEditProduct
       editProduct={editProduct}
       nameOfMealCollection={nameOfMealCollection}
     />

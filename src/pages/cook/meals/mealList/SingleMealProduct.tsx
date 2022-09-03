@@ -20,8 +20,6 @@ const SingleMealProduct: FC<SingleMealProductProps> = ({ singleProduct }) => {
 
   const handleClickSingleProduct = () => {
     if (editMealProduct?.length) {
-      console.log('w ifie', editMealProduct, '-', editMeal[0]);
-      
       deleteDoc(doc(db, 'editMealProduct', editMeal[0].id));
     }
 
@@ -29,8 +27,6 @@ const SingleMealProduct: FC<SingleMealProductProps> = ({ singleProduct }) => {
       title,
       amount,
     });
-    console.log(editMealProduct);
-    // console.log(editMeal);
   };
 
   return (

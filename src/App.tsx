@@ -16,7 +16,7 @@ import Stock from './pages/stock/Stock';
 import ShoppingList from './pages/shoppingList/ShoppingList';
 
 // import CreateProduct from './components/createProduct/CreateProduct';
-import Ingredients from './pages/cook/typesOfCooking/ingredients/Ingredients';
+import Ingredients from './pages/cook/typesOfCooking/stockIngredients/Ingredients';
 import CreateRecipe from './pages/cook/typesOfCooking/createRecipe/CreateRecipe';
 import RecipeList from './pages/cook/typesOfCooking/recipeList/RecipeList';
 import FavoriteFood from './pages/cook/typesOfCooking/favoriteFood/FavoriteFood';
@@ -27,7 +27,7 @@ import MealList from './pages/cook/meals/mealList/MealList';
 import MultiLanguages from './components/multiLanguages/MultiLanguages';
 import DarkMode from './components/darkMode/DarkMode';
 import HandleRemoval from './components/handleRemoval/HandleRemoval';
-import EditSingleMealProduct from './pages/cook/meals/mealList/EditSingleMealProduct';
+import EditSingleMealProduct from './pages/cook/meals/mealList/editSingleMeal/EditSingleMealProduct';
 
 function App() {
   const { breakfastList, lunchList, supperList, snackList } =
