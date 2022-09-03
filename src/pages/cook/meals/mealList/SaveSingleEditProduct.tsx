@@ -29,7 +29,8 @@ const SaveSingleEditProduct: FC<Props> = ({
 
       if (
         editInputProdAmount > editProduct.amount &&
-        editInputProdAmount <= stockProduct.amount + editProduct.amount
+        editInputProdAmount <= stockProduct.amount + editProduct.amount &&
+        editInputProdAmount >= 0
       ) {
         setDoc(doc(db, 'editMealProduct', editProduct.id), {
           title: editProduct.title,
@@ -48,7 +49,8 @@ const SaveSingleEditProduct: FC<Props> = ({
         console.log('input > editProd', differenceToSubstraction);
       } else if (
         editInputProdAmount < editProduct.amount &&
-        editInputProdAmount <= stockProduct.amount + editProduct.amount
+        editInputProdAmount <= stockProduct.amount + editProduct.amount &&
+        editInputProdAmount >= 0
       ) {
         const differenceToAddition = editProduct.amount - editInputProdAmount;
 
@@ -89,6 +91,7 @@ const SaveSingleEditProduct: FC<Props> = ({
       <div className="form-editMealProduct">
         <input
           type="number"
+          min={0}
           value={editInputProdAmount}
           onChange={handleChangeAmount}
         />
