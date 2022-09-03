@@ -1,9 +1,12 @@
 import { FC, useState, useContext, useRef } from 'react';
-import { FoodStorageContext } from '../../../../../context/FoodStorageContext';
-import { EditMeal } from '../../../../../context/EditMealContext';
 import { useTranslation } from 'react-i18next';
 import { setDoc, doc } from 'firebase/firestore';
 import { db } from '../../../../../firebase/config';
+import { useNavigate } from 'react-router-dom';
+
+import { FoodStorageContext } from '../../../../../context/FoodStorageContext';
+import { EditMeal } from '../../../../../context/EditMealContext';
+
 import DeleteEditSingleMeal from './DeleteEditSingleMeal';
 
 interface Props {
@@ -20,8 +23,9 @@ const FormSingleEditProduct: FC<Props> = ({
     editProduct.amount
   );
   const { t } = useTranslation();
-  const inputRef = useRef<HTMLInputElement>(null)
-                                                                                
+  const inputRef = useRef<HTMLInputElement>(null);
+  const navigate = useNavigate();
+
   const saveChanges = () => {
     const matchedStockProduct = stockProductsList.filter((stockProd) => {
       return stockProd.id === editProduct.id;
@@ -80,24 +84,27 @@ const FormSingleEditProduct: FC<Props> = ({
       return stockProduct;
     });
 
+    navigate(`/cook/${nameOfMealCollection}`);
+
   };
 
   const handleChangeAmount = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEditProdAmount(parseInt(e.target.value));
   };
   const handleRef = () => {
-    if(null !== inputRef.current){
-      inputRef.current.focus()
+    if (null !== inputRef.current) {
+      inputRef.current.focus();
     }
-    
-  }
+  };
 
   return (
     <div className="editSingleMealProduct" key={editProduct.id}>
       <div className="title">
         <p>{t(`key_ingredients.${editProduct.title}`)}</p>
       </div>
-      <button className="save-button" onClick={saveChanges}>Save</button>
+      <button className="save-button" onClick={saveChanges}>
+        Save
+      </button>
       <div onClick={handleRef} className="form-editMealProduct">
         <input
           ref={inputRef}
@@ -108,9 +115,9 @@ const FormSingleEditProduct: FC<Props> = ({
         />
         <p>{t(`key_ingredients.${editProduct.title}`)}</p>
         <DeleteEditSingleMeal
-          // stockProduct={stockProd}
-          // nameOfMealCollection={nameOfMealCollection}
-          // editProduct={editProduct}
+        // stockProduct={stockProd}
+        nameOfMealCollection={nameOfMealCollection}
+        // editProduct={editProduct}
         />
       </div>
     </div>

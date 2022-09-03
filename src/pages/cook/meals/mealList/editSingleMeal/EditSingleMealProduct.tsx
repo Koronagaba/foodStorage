@@ -12,6 +12,7 @@ const EditSingleMealProduct: FC<Props> = ({ nameOfMealCollection }) => {
 
   const displayScore = editMealProduct?.map((editProduct) => (
     <FormSingleEditProduct
+      key={editProduct.id}
       editProduct={editProduct}
       nameOfMealCollection={nameOfMealCollection}
     />
