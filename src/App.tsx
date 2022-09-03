@@ -56,7 +56,7 @@ function App() {
             <Meal
               title={t('breakfast')}
               backToCook={'/*'}
-              backToMealList={'breakfast'}
+              nameOfMealCollection={'breakfast'}
               navToList={'breakfastList'}
               collection={breakfastList}
             />
@@ -94,7 +94,7 @@ function App() {
             <Meal
               title={t('lunch')}
               backToCook={'/*'}
-              backToMealList={'lunch'}
+              nameOfMealCollection={'lunch'}
               navToList={'lunchList'}
               collection={lunchList}
             />
@@ -130,7 +130,7 @@ function App() {
             <Meal
               title={t('supper')}
               backToCook={'/*'}
-              backToMealList={'supper'}
+              nameOfMealCollection={'supper'}
               navToList={'supperList'}
               collection={supperList}
             />
@@ -167,7 +167,7 @@ function App() {
             <Meal
               title={t('snacks')}
               backToCook={'/*'}
-              backToMealList={'snack'}
+              nameOfMealCollection={'snack'}
               navToList={'snackList'}
               collection={snackList}
             />

@@ -4,12 +4,16 @@ import { Link, useNavigate, Outlet, Routes, Route } from 'react-router-dom';
 import './Meal.css';
 
 import SearchBarMeal from './SearchBarMeal';
-import { BackToCook, BackToMealList } from '../../consts/ArrowBack';
+import {
+  BackToCook,
+  BackToMealList,
+  BackToMealListFromEdit,
+} from '../../consts/ArrowBack';
 
 interface MealProps {
   title: string;
   backToCook: string;
-  backToMealList: string;
+  nameOfMealCollection: string;
   navToList: string;
   collection: any;
 }
@@ -17,7 +21,7 @@ interface MealProps {
 const Meal: FC<MealProps> = ({
   title,
   backToCook,
-  backToMealList,
+  nameOfMealCollection,
   navToList,
   collection,
 }) => {
@@ -37,14 +41,26 @@ const Meal: FC<MealProps> = ({
             <Route path={backToCook} element={<BackToCook />} />
             <Route
               path="ingredients"
-              element={<BackToMealList path={backToMealList} />}
+              element={
+                <BackToMealList nameOfMealCollection={nameOfMealCollection} />
+              }
+            />
+            <Route
+              path="edit"
+              element={
+                <BackToMealListFromEdit
+                  nameOfMealCollection={nameOfMealCollection}
+                />
+              }
             />
           </Routes>
           <Link to={'/cook'} className="meal-title">
             <h2>{title}</h2>
           </Link>
         </div>
-        {collection.length && localStorage.getItem('i18nextLng') === 'en' ? <SearchBarMeal collection={collection} /> : null}
+        {collection.length && localStorage.getItem('i18nextLng') === 'en' ? (
+          <SearchBarMeal collection={collection} />
+        ) : null}
         <div>
           <Outlet />
         </div>

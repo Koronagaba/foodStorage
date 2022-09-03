@@ -7,7 +7,7 @@ import { MealsContext } from '../../../context/MealsContext';
 import { SearchContext } from '../../../context/SearchContext';
 
 interface BackToMealListProps {
-  path: string;
+  nameOfMealCollection: string;
 }
 
 export const BackToCook = () => {
@@ -18,6 +18,7 @@ export const BackToCook = () => {
   const navigateToCook = () => { 
     navigate('/cook') 
     setSearchMeal('')
+    console.log('BackToCook');
   }
 
   return (
@@ -30,29 +31,59 @@ export const BackToCook = () => {
   );
 };
 
-export const BackToMealList: FC<BackToMealListProps> = ({ path }) => {
+export const BackToMealList: FC<BackToMealListProps> = ({ nameOfMealCollection }) => {
   const { breakfastList }: any = useContext(MealsContext);
   const { setSearchMeal } = useContext(SearchContext)
 
   const navigate = useNavigate();
   const { t } = useTranslation()
 
-  const handleArrowBackToMeal = () => {
+  const navigateToMeal = () => {
     if (breakfastList) {
-      navigate(`/cook/${path}`);
+      navigate(`/cook/${nameOfMealCollection}`);
       setSearchMeal('')
+      console.log('if',nameOfMealCollection);
     } else {
       navigate('/cook');
       setSearchMeal('')
+      console.log('else',nameOfMealCollection);
     }
   };
 
   return (
     <img
-      onClick={handleArrowBackToMeal}
+      onClick={navigateToMeal}
       src={arrow_back}
       alt={t('arrow_back')}
       className="arrow-back"
     />
   );
 };
+
+
+interface PropsBackToMealListFromEdit {
+  nameOfMealCollection: string
+}
+
+
+export const BackToMealListFromEdit = ({nameOfMealCollection} :PropsBackToMealListFromEdit) => {
+  
+  const navigate = useNavigate();
+  const { t } = useTranslation()
+
+  const navigateToMealFromEdit = () => {
+    navigate(`/cook/${nameOfMealCollection}`)
+    console.log(nameOfMealCollection);
+    
+
+  }
+
+  return (
+    <img
+    onClick={navigateToMealFromEdit}
+    src={arrow_back}
+    alt={t('arrow_back')}
+    className="arrow-back"
+  />
+  )
+}
