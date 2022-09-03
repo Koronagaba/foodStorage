@@ -1,4 +1,4 @@
-import { FC, useState, useContext } from 'react';
+import { FC, useState, useContext, useRef } from 'react';
 import { FoodStorageContext } from '../../../../../context/FoodStorageContext';
 import { EditMeal } from '../../../../../context/EditMealContext';
 import { useTranslation } from 'react-i18next';
@@ -20,7 +20,8 @@ const FormSingleEditProduct: FC<Props> = ({
     editProduct.amount
   );
   const { t } = useTranslation();
-
+  const inputRef = useRef<HTMLInputElement>(null)
+                                                                                
   const saveChanges = () => {
     const matchedStockProduct = stockProductsList.filter((stockProd) => {
       return stockProd.id === editProduct.id;
@@ -84,6 +85,12 @@ const FormSingleEditProduct: FC<Props> = ({
   const handleChangeAmount = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEditProdAmount(parseInt(e.target.value));
   };
+  const handleRef = () => {
+    if(null !== inputRef.current){
+      inputRef.current.focus()
+    }
+    
+  }
 
   return (
     <div className="editSingleMealProduct" key={editProduct.id}>
@@ -91,8 +98,9 @@ const FormSingleEditProduct: FC<Props> = ({
         <p>{t(`key_ingredients.${editProduct.title}`)}</p>
       </div>
       <button className="save-button" onClick={saveChanges}>Save</button>
-      <div className="form-editMealProduct">
+      <div onClick={handleRef} className="form-editMealProduct">
         <input
+          ref={inputRef}
           type="number"
           min={0}
           value={editInputProdAmount}
