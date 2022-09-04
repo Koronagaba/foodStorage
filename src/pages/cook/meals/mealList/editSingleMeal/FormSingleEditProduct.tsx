@@ -26,11 +26,12 @@ const FormSingleEditProduct: FC<Props> = ({
   const inputRef = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
 
+  const matchedStockAndEditProduct = stockProductsList.filter((stockProd) => {
+    return stockProd.id === editProduct.id;
+  });
+
   const saveChanges = () => {
-    const matchedStockProduct = stockProductsList.filter((stockProd) => {
-      return stockProd.id === editProduct.id;
-    });
-    matchedStockProduct.forEach((stockProduct) => {
+    matchedStockAndEditProduct.forEach((stockProduct) => {
       const differenceToSubstraction = editInputProdAmount - editProduct.amount;
 
       if (editInputProdAmount >= 0) {
@@ -85,7 +86,6 @@ const FormSingleEditProduct: FC<Props> = ({
     });
 
     navigate(`/cook/${nameOfMealCollection}`);
-
   };
 
   const handleChangeAmount = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -115,9 +115,9 @@ const FormSingleEditProduct: FC<Props> = ({
         />
         <p>{t(`key_ingredients.${editProduct.title}`)}</p>
         <DeleteEditSingleMeal
-        // stockProduct={stockProd}
-        nameOfMealCollection={nameOfMealCollection}
-        // editProduct={editProduct}
+          matchedStockAndEditProduct={matchedStockAndEditProduct}
+          nameOfMealCollection={nameOfMealCollection}
+          editProduct={editProduct}
         />
       </div>
     </div>
