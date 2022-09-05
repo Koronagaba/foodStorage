@@ -31,7 +31,7 @@ const FormSingleEditProduct: FC<Props> = ({
   });
 
   const saveChanges = () => {
-    matchedStockAndEditProduct.forEach((stockProduct) => {
+    const singleProdusct = matchedStockAndEditProduct.map((stockProduct) => {
       const differenceToSubstraction = editInputProdAmount - editProduct.amount;
 
       if (editInputProdAmount >= 0) {
@@ -81,11 +81,12 @@ const FormSingleEditProduct: FC<Props> = ({
         ) {
           alert('not enough');
         }
-      }
-      return stockProduct;
-    });
 
-    navigate(`/cook/${nameOfMealCollection}`);
+        if (editInputProdAmount < stockProduct.amount + editProduct.amount) {
+          navigate(`/cook/${nameOfMealCollection}`);
+        }
+      }
+    });
   };
 
   const handleChangeAmount = (e: React.ChangeEvent<HTMLInputElement>) => {
