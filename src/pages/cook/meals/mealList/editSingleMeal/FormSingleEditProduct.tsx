@@ -26,18 +26,19 @@ const FormSingleEditProduct: FC<Props> = ({
   const inputRef = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
 
-  const matchedStockAndEditProduct = stockProductsList.filter((stockProd) => {
+  const matchedStockAndEditProduct = stockProductsList.find((stockProd) => {
     return stockProd.id === editProduct.id;
   });
 
   const saveChanges = () => {
-    const singleProdusct = matchedStockAndEditProduct.map((stockProduct) => {
+    if (matchedStockAndEditProduct) {
       const differenceToSubstraction = editInputProdAmount - editProduct.amount;
 
       if (editInputProdAmount >= 0) {
         if (
           editInputProdAmount > editProduct.amount &&
-          editInputProdAmount <= stockProduct.amount + editProduct.amount
+          editInputProdAmount <=
+            matchedStockAndEditProduct.amount + editProduct.amount
         ) {
           setDoc(doc(db, 'editMealProduct', editProduct.id), {
             title: editProduct.title,
@@ -48,15 +49,17 @@ const FormSingleEditProduct: FC<Props> = ({
             amount: editInputProdAmount,
           });
 
-          setDoc(doc(db, 'products', stockProduct.id), {
-            title: stockProduct.title,
-            amount: stockProduct.amount - differenceToSubstraction,
-            shoppingListAmount: stockProduct.shoppingListAmount,
+          setDoc(doc(db, 'products', matchedStockAndEditProduct.id), {
+            title: matchedStockAndEditProduct.title,
+            amount:
+              matchedStockAndEditProduct.amount - differenceToSubstraction,
+            shoppingListAmount: matchedStockAndEditProduct.shoppingListAmount,
           });
           console.log('input > editProd', differenceToSubstraction);
         } else if (
           editInputProdAmount < editProduct.amount &&
-          editInputProdAmount <= stockProduct.amount + editProduct.amount
+          editInputProdAmount <=
+            matchedStockAndEditProduct.amount + editProduct.amount
         ) {
           const differenceToAddition = editProduct.amount - editInputProdAmount;
 
@@ -69,24 +72,27 @@ const FormSingleEditProduct: FC<Props> = ({
             amount: editInputProdAmount,
           });
 
-          setDoc(doc(db, 'products', stockProduct.id), {
-            title: stockProduct.title,
-            amount: stockProduct.amount + differenceToAddition,
-            shoppingListAmount: stockProduct.shoppingListAmount,
+          setDoc(doc(db, 'products', matchedStockAndEditProduct.id), {
+            title: matchedStockAndEditProduct.title,
+            amount: matchedStockAndEditProduct.amount + differenceToAddition,
+            shoppingListAmount: matchedStockAndEditProduct.shoppingListAmount,
           });
           console.log('editProd > input', differenceToAddition);
         } else if (
           editInputProdAmount >
-          stockProduct.amount + editProduct.amount
+          matchedStockAndEditProduct.amount + editProduct.amount
         ) {
           alert('not enough');
         }
 
-        if (editInputProdAmount < stockProduct.amount + editProduct.amount) {
+        if (
+          editInputProdAmount <
+          matchedStockAndEditProduct.amount + editProduct.amount
+        ) {
           navigate(`/cook/${nameOfMealCollection}`);
         }
       }
-    });
+    }
   };
 
   const handleChangeAmount = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -115,11 +121,13 @@ const FormSingleEditProduct: FC<Props> = ({
           onChange={handleChangeAmount}
         />
         <p>{t(`key_ingredients.${editProduct.title}`)}</p>
-        <DeleteEditSingleMeal
-          matchedStockAndEditProduct={matchedStockAndEditProduct}
-          nameOfMealCollection={nameOfMealCollection}
-          editProduct={editProduct}
-        />
+        {matchedStockAndEditProduct && (
+          <DeleteEditSingleMeal
+            matchedStockAndEditProduct={matchedStockAndEditProduct}
+            nameOfMealCollection={nameOfMealCollection}
+            editProduct={editProduct}
+          />
+        )}
       </div>
     </div>
   );

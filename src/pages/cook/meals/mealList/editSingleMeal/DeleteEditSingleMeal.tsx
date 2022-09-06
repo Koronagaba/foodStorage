@@ -11,7 +11,7 @@ import { StockProduct } from '../../../../../types/type';
 interface Props {
   nameOfMealCollection: string;
   editProduct: EditMeal;
-  matchedStockAndEditProduct: StockProduct[];
+  matchedStockAndEditProduct: StockProduct;
 }
 
 const DeleteEditSingleMeal: FC<Props> = ({
@@ -22,14 +22,12 @@ const DeleteEditSingleMeal: FC<Props> = ({
   const navigate = useNavigate();
 
   const removeProductFromAddedMeal = () => {
-    matchedStockAndEditProduct.forEach((stockProduct) => {
-      deleteDoc(doc(db, 'editMealProduct', editProduct.id));
-      deleteDoc(doc(db, nameOfMealCollection, editProduct.id));
-      setDoc(doc(db, 'products', stockProduct.id), {
-        title: stockProduct.title,
-        amount: stockProduct.amount + editProduct.amount,
-        shoppingListAmount: stockProduct.shoppingListAmount,
-      });
+    deleteDoc(doc(db, 'editMealProduct', editProduct.id));
+    deleteDoc(doc(db, nameOfMealCollection, editProduct.id));
+    setDoc(doc(db, 'products', matchedStockAndEditProduct.id), {
+      title: matchedStockAndEditProduct.title,
+      amount: matchedStockAndEditProduct.amount + editProduct.amount,
+      shoppingListAmount: matchedStockAndEditProduct.shoppingListAmount,
     });
 
     navigate(`/cook/${nameOfMealCollection}`);
