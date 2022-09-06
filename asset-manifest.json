@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/foodStorage/static/css/main.15ee11c3.css",
-    "main.js": "/foodStorage/static/js/main.ab9bbaac.js",
+    "main.js": "/foodStorage/static/js/main.9f920856.js",
     "static/media/lunch_icon.png": "/foodStorage/static/media/lunch_icon.ffefbe648768275c66ec.png",
     "static/media/salad_icon.png": "/foodStorage/static/media/salad_icon.2220d81f9bac33378771.png",
     "static/media/breakfast_icon.png": "/foodStorage/static/media/breakfast_icon.a6b69665e541f93acc10.png",
     "static/media/empty_list.png": "/foodStorage/static/media/empty_list.dcb701bab950a006c748.png",
     "static/media/snack_icon.png": "/foodStorage/static/media/snack_icon.333a729ca5572e6d3819.png",
-    "static/media/favorite.svg": "/foodStorage/static/media/favorite.dacd13dc37e1ce65fd8593d432759721.svg",
     "index.html": "/foodStorage/index.html",
+    "static/media/favorite.svg": "/foodStorage/static/media/favorite.dacd13dc37e1ce65fd8593d432759721.svg",
     "static/media/add_circle.svg": "/foodStorage/static/media/add_circle.4a7bccde8ffd5ffcc46a7c222ddcf793.svg",
     "static/media/local_shipping_black.svg": "/foodStorage/static/media/local_shipping_black.f35f23e284477ecd9c590130d408ebbf.svg",
     "static/media/shopping_cart.svg": "/foodStorage/static/media/shopping_cart.0f0cd44e7206cc6af6327851ca250b91.svg",
@@ -21,10 +21,10 @@
     "static/media/check.svg": "/foodStorage/static/media/check.222a1c7ef846e3979556e4c12528d041.svg",
     "static/media/arrow_back.svg": "/foodStorage/static/media/arrow_back.b9b1b1b9f53a15c0c8d85bc6a29ce4a1.svg",
     "main.15ee11c3.css.map": "/foodStorage/static/css/main.15ee11c3.css.map",
-    "main.ab9bbaac.js.map": "/foodStorage/static/js/main.ab9bbaac.js.map"
+    "main.9f920856.js.map": "/foodStorage/static/js/main.9f920856.js.map"
   },
   "entrypoints": [
     "static/css/main.15ee11c3.css",
-    "static/js/main.ab9bbaac.js"
+    "static/js/main.9f920856.js"
   ]
 }
