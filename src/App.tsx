@@ -69,8 +69,7 @@ function App() {
               title={t('breakfast')}
               backToCook={'/*'}
               nameOfMealCollection={'breakfast'}
-              navToList={'breakfastList'}
-              collection={breakfastList}
+              mealCollection={breakfastList}
             />
           }
         >
@@ -78,7 +77,7 @@ function App() {
             path="/cook/breakfast"
             element={
               <MealList
-                collectionName={breakfastList}
+                mealCollection={breakfastList}
                 iconName={breakfast_icon}
                 altProp={'breakfast icon'}
                 path={'breakfast'}
@@ -93,7 +92,12 @@ function App() {
           />
           <Route
             path="ingredients"
-            element={<Ingredients nameOfCollection={'breakfast'} />}
+            element={
+              <Ingredients
+                nameOfMealCollection={'breakfast'}
+                mealCollection={breakfastList}
+              />
+            }
           ></Route>
           <Route path="recipeList" element={<RecipeList />}></Route>
           <Route path="favoriteFood" element={<FavoriteFood />}></Route>
@@ -107,8 +111,7 @@ function App() {
               title={t('lunch')}
               backToCook={'/*'}
               nameOfMealCollection={'lunch'}
-              navToList={'lunchList'}
-              collection={lunchList}
+              mealCollection={lunchList}
             />
           }
         >
@@ -116,7 +119,7 @@ function App() {
             path="/cook/lunch"
             element={
               <MealList
-                collectionName={lunchList}
+                mealCollection={lunchList}
                 iconName={lunch_icon}
                 altProp={'lunch icon'}
                 path={'lunch'}
@@ -129,7 +132,12 @@ function App() {
           />
           <Route
             path="ingredients"
-            element={<Ingredients nameOfCollection={'lunch'} />}
+            element={
+              <Ingredients
+                nameOfMealCollection={'lunch'}
+                mealCollection={lunchList}
+              />
+            }
           ></Route>
           <Route path="recipeList" element={<RecipeList />}></Route>
           <Route path="favoriteFood" element={<FavoriteFood />}></Route>
@@ -143,8 +151,7 @@ function App() {
               title={t('supper')}
               backToCook={'/*'}
               nameOfMealCollection={'supper'}
-              navToList={'supperList'}
-              collection={supperList}
+              mealCollection={supperList}
             />
           }
         >
@@ -152,7 +159,7 @@ function App() {
             path="/cook/supper"
             element={
               <MealList
-                collectionName={supperList}
+                mealCollection={supperList}
                 iconName={salad_icon}
                 altProp={'salad icon'}
                 path={'supper'}
@@ -165,7 +172,12 @@ function App() {
           />
           <Route
             path="ingredients"
-            element={<Ingredients nameOfCollection={'supper'} />}
+            element={
+              <Ingredients
+                nameOfMealCollection={'supper'}
+                mealCollection={supperList}
+              />
+            }
           ></Route>
           <Route path="recipeList" element={<RecipeList />}></Route>
           <Route path="favoriteFood" element={<FavoriteFood />}></Route>
@@ -180,8 +192,7 @@ function App() {
               title={t('snacks')}
               backToCook={'/*'}
               nameOfMealCollection={'snack'}
-              navToList={'snackList'}
-              collection={snackList}
+              mealCollection={snackList}
             />
           }
         >
@@ -189,7 +200,7 @@ function App() {
             path="/cook/snack"
             element={
               <MealList
-                collectionName={snackList}
+                mealCollection={snackList}
                 iconName={snack_icon}
                 altProp={'snack icon'}
                 path={'snack'}
@@ -202,7 +213,12 @@ function App() {
           />
           <Route
             path="ingredients"
-            element={<Ingredients nameOfCollection={'snack'} />}
+            element={
+              <Ingredients
+                nameOfMealCollection={'snack'}
+                mealCollection={snackList}
+              />
+            }
           ></Route>
           <Route path="recipeList" element={<RecipeList />}></Route>
           <Route path="favoriteFood" element={<FavoriteFood />}></Route>

@@ -5,17 +5,15 @@ import { useTranslation } from 'react-i18next';
 import arrow_back from '../../../icons/arrow_back.svg';
 import { SearchContext } from '../../../context/SearchContext';
 
-
 export const BackToCook = () => {
-  const { setSearchMeal } = useContext(SearchContext)
+  const { setSearchMeal } = useContext(SearchContext);
   const navigate = useNavigate();
-  const { t } = useTranslation()
+  const { t } = useTranslation();
 
-  const navigateToCook = () => { 
-    navigate('/cook') 
-    setSearchMeal('')
-    console.log('BackToCook');
-  }
+  const navigateToCook = () => {
+    navigate('/cook');
+    setSearchMeal('');
+  };
 
   return (
     <img
@@ -29,25 +27,25 @@ export const BackToCook = () => {
 
 interface BackToMealListProps {
   nameOfMealCollection: string;
-  collection: any
+  collection: any;
 }
 
-
-export const BackToMealList: FC<BackToMealListProps> = ({ nameOfMealCollection, collection }) => {
-  const { setSearchMeal } = useContext(SearchContext)
+export const BackToMealList: FC<BackToMealListProps> = ({
+  nameOfMealCollection,
+  collection,
+}) => {
+  const { setSearchMeal } = useContext(SearchContext);
 
   const navigate = useNavigate();
-  const { t } = useTranslation()
+  const { t } = useTranslation();
 
   const navigateToMeal = () => {
     if (collection.length) {
       navigate(`/cook/${nameOfMealCollection}`);
-      setSearchMeal('')
-      console.log('if',nameOfMealCollection);
+      setSearchMeal('');
     } else {
       navigate('/cook');
-      setSearchMeal('')
-      console.log('else',nameOfMealCollection);
+      setSearchMeal('');
     }
   };
 
@@ -61,30 +59,26 @@ export const BackToMealList: FC<BackToMealListProps> = ({ nameOfMealCollection, 
   );
 };
 
-
 interface PropsBackToMealListFromEdit {
-  nameOfMealCollection: string
+  nameOfMealCollection: string;
 }
 
-
-export const BackToMealListFromEdit = ({nameOfMealCollection} :PropsBackToMealListFromEdit) => {
-  
+export const BackToMealListFromEdit = ({
+  nameOfMealCollection,
+}: PropsBackToMealListFromEdit) => {
   const navigate = useNavigate();
-  const { t } = useTranslation()
+  const { t } = useTranslation();
 
   const navigateToMealFromEdit = () => {
-    navigate(`/cook/${nameOfMealCollection}`)
-    console.log(nameOfMealCollection);
-    
-
-  }
+    navigate(`/cook/${nameOfMealCollection}`);
+  };
 
   return (
     <img
-    onClick={navigateToMealFromEdit}
-    src={arrow_back}
-    alt={t('arrow_back')}
-    className="arrow-back"
-  />
-  )
-}
+      onClick={navigateToMealFromEdit}
+      src={arrow_back}
+      alt={t('arrow_back')}
+      className="arrow-back"
+    />
+  );
+};

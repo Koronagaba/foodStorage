@@ -3,16 +3,11 @@ import { useTranslation } from 'react-i18next';
 
 import { SearchContext } from '../../../../context/SearchContext';
 
-
 import search_icon from '../../../../icons/search.svg';
 
-interface SearchBarProps {
-  collection: any;
-}
-
-const SearchBarMeal = ({ collection }: SearchBarProps) => {
+const SearchBarMeal = () => {
   const { searchMeal, setSearchMeal } = useContext(SearchContext);
-const { t } = useTranslation()
+  const { t } = useTranslation();
 
   const searchFocus = useRef<HTMLInputElement>(null);
 
@@ -28,7 +23,6 @@ const { t } = useTranslation()
     // }else {
     //   console.log(i18next.store.data.pl.translation);
     // }
-
 
     // const filteredCollection = collection.filter((item: MealIngredient) => (
     //   item.title.toLocaleLowerCase().includes(searchText.toLocaleLowerCase())

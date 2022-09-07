@@ -55,7 +55,6 @@ const FormSingleEditProduct: FC<Props> = ({
               matchedStockAndEditProduct.amount - differenceToSubstraction,
             shoppingListAmount: matchedStockAndEditProduct.shoppingListAmount,
           });
-          console.log('input > editProd', differenceToSubstraction);
         } else if (
           editInputProdAmount < editProduct.amount &&
           editInputProdAmount <=

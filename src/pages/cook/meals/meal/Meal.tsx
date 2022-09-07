@@ -14,24 +14,22 @@ interface MealProps {
   title: string;
   backToCook: string;
   nameOfMealCollection: string;
-  navToList: string;
-  collection: any;
+  mealCollection: any;
 }
 
 const Meal: FC<MealProps> = ({
   title,
   backToCook,
   nameOfMealCollection,
-  navToList,
-  collection,
+  mealCollection,
 }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!collection.length) {
+    if (!mealCollection.length) {
       navigate('ingredients');
     }
-  }, [collection.length, navigate]);
+  }, [mealCollection.length, navigate]);
 
   return (
     <div className="meal-container">
@@ -42,7 +40,10 @@ const Meal: FC<MealProps> = ({
             <Route
               path="ingredients"
               element={
-                <BackToMealList nameOfMealCollection={nameOfMealCollection} collection={collection}/>
+                <BackToMealList
+                  nameOfMealCollection={nameOfMealCollection}
+                  collection={mealCollection}
+                />
               }
             />
             <Route
@@ -58,8 +59,9 @@ const Meal: FC<MealProps> = ({
             <h2>{title}</h2>
           </Link>
         </div>
-        {collection.length && localStorage.getItem('i18nextLng') === 'en' ? (
-          <SearchBarMeal collection={collection} />
+        {mealCollection.length &&
+        localStorage.getItem('i18nextLng') === 'en' ? (
+          <SearchBarMeal />
         ) : null}
         <div>
           <Outlet />

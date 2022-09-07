@@ -9,10 +9,14 @@ import TypesOfCooking from '../TypesOfCooking';
 import Ingredient from './Ingredient';
 
 interface IngredientsProps {
-  nameOfCollection: string;
+  nameOfMealCollection: string;
+  mealCollection: any;
 }
 
-const Ingredients: FC<IngredientsProps> = ({ nameOfCollection }) => {
+const Ingredients: FC<IngredientsProps> = ({
+  nameOfMealCollection,
+  mealCollection,
+}) => {
   const { stockProductsList }: any = useContext(FoodStorageContext);
   const { searchMeal } = useContext(SearchContext);
 
@@ -24,7 +28,8 @@ const Ingredients: FC<IngredientsProps> = ({ nameOfCollection }) => {
       <Ingredient
         key={stockProduct.id}
         stockProduct={stockProduct}
-        nameOfCollection={nameOfCollection}
+        nameOfMealCollection={nameOfMealCollection}
+        mealCollection={mealCollection}
       />
     ));
 
