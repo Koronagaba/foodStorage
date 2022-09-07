@@ -5,5 +5,6 @@ export enum CollectionName {
   LUNCH = 'lunch',
   SUPPER = 'supper',
   SNACK = 'snack',
-  EDIT_MEAL_PRODUCT='editMealProduct'
+  EDIT_MEAL_PRODUCT='editMealProduct',
+  HISTORY_OF_COOKING = 'historyOfCooking'
 }

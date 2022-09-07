@@ -1,7 +1,7 @@
 export interface StockProduct {
   title: string;
   amount: number;
-  shoppingListAmount: number,
+  shoppingListAmount: number;
   id: string;
 }
 
@@ -26,10 +26,10 @@ export interface MealIngredient {
 }
 
 export interface MergedStockProdAndShopProd {
-  title: string,
-  id: string,
-  amount: number,
-  quantity: number
+  title: string;
+  id: string;
+  amount: number;
+  quantity: number;
 }
 
 export interface NewStockProduct {
@@ -37,6 +37,19 @@ export interface NewStockProduct {
   amount: number;
   shoppingListAmount: number;
   id: string;
+}
+
+export interface EditMeal {
+  title: string;
+  amount: number;
+  id: string;
+}
+
+export interface SingleHistoryOfCooking {
+  title: string;
+  amount: number;
+  createdAt: At;
+  nameOfMeal: string;
 }
 
 // export type SingleItemProps = {
