@@ -1,5 +1,11 @@
 import { FC, useState, useRef } from 'react';
-import { doc, setDoc } from 'firebase/firestore';
+import {
+  addDoc,
+  collection,
+  doc,
+  serverTimestamp,
+  setDoc,
+} from 'firebase/firestore';
 import { db } from '../../../../firebase/config';
 import { useTranslation } from 'react-i18next';
 
@@ -19,7 +25,9 @@ const Ingredient: FC<IngredientProps> = ({
 }) => {
   const [inputNumber, setInputNumber] = useState(0);
   const ref = useRef<HTMLInputElement | null>(null);
-  const { t } = useTranslation()
+  const { t } = useTranslation();
+
+  const { id, title, amount, shoppingListAmount } = stockProduct;
 
   const handleFocusInput = () => {
     if (ref.current) {
@@ -30,17 +38,25 @@ const Ingredient: FC<IngredientProps> = ({
   const addIngredientToMeal = async () => {
     if (inputNumber > 0) {
       if (inputNumber <= stockProduct.amount) {
-        await setDoc(doc(db, `${nameOfCollection}`, stockProduct.id), {
+        await setDoc(doc(db, `${nameOfCollection}`, id), {
           amount: inputNumber,
           isEditing: false,
           title: stockProduct.title,
         });
 
-        await setDoc(doc(db, 'products', stockProduct.id), {
-          amount: stockProduct.amount - inputNumber,
-          title: stockProduct.title,
-          shoppingListAmount: stockProduct.shoppingListAmount
+        await setDoc(doc(db, 'products', id), {
+          amount: amount - inputNumber,
+          title: title,
+          shoppingListAmount: shoppingListAmount,
         });
+
+        await addDoc(collection(db, 'historyOfCooking'), {
+          title,
+          amount: inputNumber,
+          createdAt: serverTimestamp(),
+          nameOfMeal: nameOfCollection,
+        });
+
         setInputNumber(0);
       } else {
         alert(t('alert_not_enough'));
@@ -50,7 +66,9 @@ const Ingredient: FC<IngredientProps> = ({
 
   return (
     <div onClick={handleFocusInput} className="ingredient">
-      <p className="ingredient-title">{`${t(`key_ingredients.${stockProduct.title}`)} (${stockProduct.amount})`}</p>
+      <p className="ingredient-title">{`${t(
+        `key_ingredients.${stockProduct.title}`
+      )} (${stockProduct.amount})`}</p>
       <form>
         <label>amount: </label>
         <input
