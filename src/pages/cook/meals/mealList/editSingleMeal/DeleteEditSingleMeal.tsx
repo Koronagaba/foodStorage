@@ -3,7 +3,7 @@ import { deleteDoc, doc, setDoc } from 'firebase/firestore';
 import { db } from '../../../../../firebase/config';
 import { useNavigate } from 'react-router-dom';
 
-import { EditMeal } from '../../../../../context/EditMealContext';
+import { EditMeal } from '../../../../../types/type';
 
 import close_black from '../../../../../icons/close_black.svg';
 import { StockProduct } from '../../../../../types/type';

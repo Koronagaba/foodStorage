@@ -1,4 +1,10 @@
-import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import {
+  Routes,
+  Route,
+  Navigate,
+  useLocation,
+  useNavigate,
+} from 'react-router-dom';
 import { useState, useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -28,12 +34,14 @@ import MultiLanguages from './components/multiLanguages/MultiLanguages';
 import DarkMode from './components/darkMode/DarkMode';
 import HandleRemoval from './components/handleRemoval/HandleRemoval';
 import EditSingleMealProduct from './pages/cook/meals/mealList/editSingleMeal/EditSingleMealProduct';
+import HistoryOfCooking from './pages/cook/historyOfCooking/HistoryOfCooking';
 
 function App() {
   const { breakfastList, lunchList, supperList, snackList } =
     useContext(MealsContext);
 
   useLocation();
+  const navigate = useNavigate();
 
   const { t } = useTranslation();
   return (
@@ -42,12 +50,16 @@ function App() {
       <div className="darkMode-language-container">
         <div className="darkMode-language-inside">
           <DarkMode />
+          {window.location.pathname === '/cook' ? (
+            <button onClick={() => navigate('/cook/history')}>History</button>
+          ) : null}
           {window.location.pathname === '/cook' ? <HandleRemoval /> : null}
           <MultiLanguages />
         </div>
       </div>
       <Routes>
         <Route path="/cook" element={<Cook />}></Route>
+        <Route path="/cook/history" element={<HistoryOfCooking />} />
         <Route path="*" element={<Navigate to="/cook" />} />
         {/* *********************************** */}
         <Route

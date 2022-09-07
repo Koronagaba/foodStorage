@@ -5,7 +5,7 @@ import { db } from '../../../../../firebase/config';
 import { useNavigate } from 'react-router-dom';
 
 import { FoodStorageContext } from '../../../../../context/FoodStorageContext';
-import { EditMeal } from '../../../../../context/EditMealContext';
+import { EditMeal } from '../../../../../types/type';
 
 import DeleteEditSingleMeal from './DeleteEditSingleMeal';
 

@@ -22,7 +22,6 @@ const SingleMealProduct: FC<SingleMealProductProps> = ({ singleProduct }) => {
     if (editMealProduct?.length) {
       deleteDoc(doc(db, 'editMealProduct', editMeal[0].id));
     }
-
     setDoc(doc(db, 'editMealProduct', id), {
       title,
       amount,

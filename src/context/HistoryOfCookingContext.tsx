@@ -3,12 +3,12 @@ import { CollectionName } from '../enum/enum';
 import { useCollection } from '../hooks/useCollection';
 import { SingleHistoryOfCooking } from '../types/type';
 
-interface HistoryOfCookingCollection {
-  historyOfCooking: SingleHistoryOfCooking[];
+export interface HistoryOfCookingCollection {
+  historyOfCooking?: SingleHistoryOfCooking[];
 }
 
 export const HistoryOfCookingContext =
-  createContext<HistoryOfCookingCollection | null>(null);
+  createContext<HistoryOfCookingCollection>({});
 
 const HistoryOfCookingContextProvider: FC = ({ children }) => {
   const { documents: historyOfCooking } = useCollection<SingleHistoryOfCooking>(

@@ -9,7 +9,7 @@ import { FoodStorageContextProvider } from './context/FoodStorageContext';
 import { MealsContextProvider } from './context/MealsContext';
 import { SearchContextProvider } from './context/SearchContext';
 import EditMealProvider from './context/EditMealContext';
-import HistoryOfCookingContextProvider from './context/HistoryofCookingContext';
+import HistoryOfCookingContextProvider from './context/HistoryOfCookingContext';
 
 ReactDOM.render(
   <React.StrictMode>
