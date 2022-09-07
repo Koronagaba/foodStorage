@@ -16,12 +16,14 @@ import { StockProduct } from '../../../../types/type';
 
 interface IngredientProps {
   stockProduct: StockProduct;
-  nameOfCollection: string;
+  nameOfMealCollection: string;
+  mealCollection: any;
 }
 
 const Ingredient: FC<IngredientProps> = ({
   stockProduct,
-  nameOfCollection,
+  nameOfMealCollection,
+  mealCollection,
 }) => {
   const [inputNumber, setInputNumber] = useState(0);
   const ref = useRef<HTMLInputElement | null>(null);
@@ -36,17 +38,28 @@ const Ingredient: FC<IngredientProps> = ({
   };
 
   const addIngredientToMeal = async () => {
+    const itemMealCollection = mealCollection.find(
+      (findItem: any) => findItem.id === id
+     
+    );
     if (inputNumber > 0) {
       if (inputNumber <= stockProduct.amount) {
-        await setDoc(doc(db, `${nameOfCollection}`, id), {
-          amount: inputNumber,
-          isEditing: false,
-          title: stockProduct.title,
-        });
-
+        if(itemMealCollection){
+          await setDoc(doc(db, `${nameOfMealCollection}`, id), {
+            title: stockProduct.title,
+            amount:  itemMealCollection.amount + inputNumber,
+            isEditing: false,
+          });
+        }else {
+          await setDoc(doc(db, `${nameOfMealCollection}`, id), {
+            title: stockProduct.title,
+            amount: inputNumber,
+            isEditing: false,
+          });
+        }
         await setDoc(doc(db, 'products', id), {
-          amount: amount - inputNumber,
           title: title,
+          amount: amount - inputNumber,
           shoppingListAmount: shoppingListAmount,
         });
 
@@ -54,7 +67,7 @@ const Ingredient: FC<IngredientProps> = ({
           title,
           amount: inputNumber,
           createdAt: serverTimestamp(),
-          nameOfMeal: nameOfCollection,
+          nameOfMeal: nameOfMealCollection,
         });
 
         setInputNumber(0);
