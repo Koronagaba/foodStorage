@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import { db } from '../firebase/config';
 import { collection, onSnapshot, orderBy, query } from 'firebase/firestore';
-import { StockProduct, ShoppingListProduct } from '../types/type';
+import { StockProduct, ShoppingListProduct, SingleHistoryOfCooking, EditMeal } from '../types/type';
 import { CollectionName } from '../enum/enum';
 
-export type CollectionType = StockProduct | ShoppingListProduct;
+export type CollectionType = StockProduct | ShoppingListProduct | EditMeal | SingleHistoryOfCooking;
 
 export const useCollection = <T extends CollectionType>(
   c: CollectionName,

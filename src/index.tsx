@@ -9,6 +9,7 @@ import { FoodStorageContextProvider } from './context/FoodStorageContext';
 import { MealsContextProvider } from './context/MealsContext';
 import { SearchContextProvider } from './context/SearchContext';
 import EditMealProvider from './context/EditMealContext';
+import HistoryOfCookingContextProvider from './context/HistoryofCookingContext';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -16,9 +17,11 @@ ReactDOM.render(
       <SearchContextProvider>
         <MealsContextProvider>
           <EditMealProvider>
-            <BrowserRouter>
-              <App />
-            </BrowserRouter>
+            <HistoryOfCookingContextProvider>
+              <BrowserRouter>
+                <App />
+              </BrowserRouter>
+            </HistoryOfCookingContextProvider>
           </EditMealProvider>
         </MealsContextProvider>
       </SearchContextProvider>
