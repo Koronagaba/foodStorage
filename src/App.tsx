@@ -35,6 +35,7 @@ import DarkMode from './components/darkMode/DarkMode';
 import HandleRemoval from './components/handleRemoval/HandleRemoval';
 import EditSingleMealProduct from './pages/cook/meals/mealList/editSingleMeal/EditSingleMealProduct';
 import HistoryOfCooking from './pages/cook/historyOfCooking/HistoryOfCooking';
+import AllHistory from './pages/cook/historyOfCooking/components/AllHistory';
 
 function App() {
   const { breakfastList, lunchList, supperList, snackList } =
@@ -59,7 +60,12 @@ function App() {
       </div>
       <Routes>
         <Route path="/cook" element={<Cook />}></Route>
-        <Route path="/cook/history" element={<HistoryOfCooking />} />
+        <Route path="/cook/history" element={<HistoryOfCooking />}>
+          <Route
+            path="/cook/history/allHistory"
+            element={<AllHistory />}
+          ></Route>
+        </Route>
         <Route path="*" element={<Navigate to="/cook" />} />
         {/* *********************************** */}
         <Route

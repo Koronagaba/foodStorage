@@ -1,5 +1,6 @@
 import { useContext, useState } from 'react';
 import { HistoryOfCookingContext } from '../../../context/HistoryOfCookingContext';
+import { useNavigate, Outlet } from 'react-router-dom';
 import useTimestampConvert from '../../../hooks/useTimestampConvert';
 import { SingleHistoryOfCooking } from '../../../types/type';
 import DayHistory from './DayHistory';
@@ -9,6 +10,7 @@ const HistoryOfCooking = () => {
   const [dayList, setDayList] = useState<SingleHistoryOfCooking[]>([]);
 
   const displayDate = useTimestampConvert();
+  const navigate = useNavigate()
 
   const downloadData = () => {
     const sumList: SingleHistoryOfCooking[] = [];
@@ -44,13 +46,20 @@ const HistoryOfCooking = () => {
     });
   };
 
+
+  const allHistoryDownload = () => {
+    navigate('/cook/history/allHistory')   
+  }
+
   return (
     <div>
       <div>
         <h3>History of Cooking</h3>
         <button onClick={downloadData}>fetch data</button>
+        <button onClick={allHistoryDownload}>All history</button>
       </div>
       <DayHistory dayList={dayList} />
+      <Outlet />
     </div>
   );
 };
