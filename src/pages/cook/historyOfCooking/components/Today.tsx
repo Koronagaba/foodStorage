@@ -3,7 +3,7 @@ import { HistoryOfCookingContext } from '../../../../context/HistoryOfCookingCon
 import useTimestampConvert from '../../../../hooks/useTimestampConvert';
 import { SingleHistoryOfCooking } from '../../../../types/type';
 
-const ThisYear = () => {
+const Today = () => {
   const [copySumList, setCopySumList] = useState<SingleHistoryOfCooking[]>([]);
   const { historyOfCooking } = useContext(HistoryOfCookingContext);
 
@@ -11,14 +11,15 @@ const ThisYear = () => {
   const sumList: SingleHistoryOfCooking[] = [];
 
   useEffect(() => {
+    const filteredList = historyOfCooking?.filter(
+      (item) => item.createdAt.seconds * 1000
+    );
+
     historyOfCooking?.forEach((product) => {
       const newDate = new Date();
-      const currentYear = newDate.getFullYear();
-      const productYear = new Date(
-        product.createdAt.seconds * 1000
-      ).getFullYear();
-
-      if (productYear === currentYear) {
+      const currentDay = newDate.getDate();
+      const productDay = new Date(product.createdAt.seconds * 1000).getDate();
+      if (productDay === currentDay) {
         const index = sumList.findIndex((itemNewList) => {
           return itemNewList.title === product.title;
         });
@@ -61,10 +62,10 @@ const ThisYear = () => {
 
   return (
     <div>
-      <h1>ThisYear</h1>
+      <h1>Today</h1>
       {displayHistoryList}
     </div>
   );
 };
 
-export default ThisYear;
+export default Today;

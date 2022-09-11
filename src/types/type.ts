@@ -6,15 +6,15 @@ export interface StockProduct {
 }
 
 export interface At {
-  // nanoseconds: number | string;
-  nanoseconds: number ;
-  // seconds: number | string;
+  nanoseconds: number;
   seconds: number;
 }
 
 export interface Date {
-  date: string,
-  atTime: string
+  day: number;
+  month: number;
+  year: number;
+  atTime: string;
 }
 
 export interface ShoppingListProduct {
@@ -58,7 +58,7 @@ export interface SingleHistoryOfCooking {
   createdAt: At;
   nameOfMeal: string;
   id: string;
-  date?: Date
+  date?: Date;
 }
 
 export type SingleShopProductProps = {

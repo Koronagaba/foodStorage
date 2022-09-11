@@ -36,6 +36,8 @@ import HandleRemoval from './components/handleRemoval/HandleRemoval';
 import EditSingleMealProduct from './pages/cook/meals/mealList/editSingleMeal/EditSingleMealProduct';
 import HistoryOfCooking from './pages/cook/historyOfCooking/HistoryOfCooking';
 import AllHistory from './pages/cook/historyOfCooking/components/AllHistory';
+import ThisYear from './pages/cook/historyOfCooking/components/ThisYear';
+import Today from './pages/cook/historyOfCooking/components/Today';
 
 function App() {
   const { breakfastList, lunchList, supperList, snackList } =
@@ -65,6 +67,8 @@ function App() {
             path="/cook/history/allHistory"
             element={<AllHistory />}
           ></Route>
+          <Route path="/cook/history/thisYear" element={<ThisYear />}></Route>
+          <Route path="/cook/history/today" element={<Today />}></Route>
         </Route>
         <Route path="*" element={<Navigate to="/cook" />} />
         {/* *********************************** */}
