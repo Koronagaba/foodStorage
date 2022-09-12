@@ -1,4 +1,5 @@
 import { createContext, FC, useState } from 'react';
+import { ChildrenProps } from '../types/type';
 
 interface SearchType {
   searchStock: string;
@@ -16,7 +17,7 @@ const initialValue: SearchType = {
 
 export const SearchContext = createContext<SearchType>(initialValue);
 
-export const SearchContextProvider: FC = ({ children }) => {
+export const SearchContextProvider: FC<ChildrenProps> = ({ children }) => {
   const [searchStock, setSearchStock] = useState('');
   const [searchMeal, setSearchMeal] = useState('');
 

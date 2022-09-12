@@ -69,3 +69,8 @@ export type SingleShopProductProps = {
   // moveProductIntoBag: (a: string, b: string, c: number, d: boolean) => void;
   // handleSendToStock: (a: string, b: number) => void;
 };
+
+
+export interface ChildrenProps {
+  children: React.ReactNode;
+}

@@ -6,18 +6,18 @@ const AllHistory = () => {
   const { historyOfCooking } = useContext(HistoryOfCookingContext);
   const displayDate = useTimestampConvert();
 
-    const allHistoryList = historyOfCooking?.map((historyItem) => {
-      const { date, atTime } = displayDate(historyItem.createdAt);
+  const allHistoryList = historyOfCooking?.map((historyItem) => {
+    const { day, month, year, atTime } = displayDate(historyItem.createdAt);
 
-      return (
-        <>
-          <p>
-            {historyItem.title} - {historyItem.amount} - {date}, {atTime} -
-            {historyItem.nameOfMeal}
-          </p>
-        </>
-      );
-    });
+    return (
+      <div key={historyItem.id}>
+        <p>
+          {historyItem.title} - {historyItem.amount} - {day}.{month}.{year}-{' '}
+          {atTime} -{historyItem.nameOfMeal}
+        </p>
+      </div>
+    );
+  });
 
   return (
     <div>

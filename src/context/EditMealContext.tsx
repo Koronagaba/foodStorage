@@ -1,7 +1,7 @@
 import { createContext, FC } from 'react';
 import { CollectionName } from '../enum/enum';
 import { useCollection } from '../hooks/useCollection';
-import { EditMeal } from '../types/type';
+import { ChildrenProps, EditMeal } from '../types/type';
 
 interface Collection {
   editMealProduct?: EditMeal[];
@@ -9,7 +9,7 @@ interface Collection {
 
 export const EditMealContext = createContext<Collection>({});
 
-const EditMealProvider: FC = ({ children }) => {
+const EditMealProvider: FC<ChildrenProps> = ({ children }) => {
   const { documents: editMealProduct } = useCollection<EditMeal>(
     CollectionName.EDIT_MEAL_PRODUCT,
     'title'

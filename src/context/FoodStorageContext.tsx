@@ -1,6 +1,6 @@
 import { createContext, FC } from 'react';
 import { useCollection } from '../hooks/useCollection';
-import { StockProduct, ShoppingListProduct } from '../types/type';
+import { StockProduct, ShoppingListProduct, ChildrenProps } from '../types/type';
 import { CollectionName } from '../enum/enum';
 
 export interface CollectionType {
@@ -15,7 +15,7 @@ const initialValue: CollectionType = {
 
 export const FoodStorageContext = createContext<CollectionType>(initialValue);
 
-export const FoodStorageContextProvider: FC = ({ children }) => {
+export const FoodStorageContextProvider: FC<ChildrenProps> = ({ children }) => {
   const { documents: stockProductsList } = useCollection<StockProduct>(
     CollectionName.PRODUCTS,
     'title'

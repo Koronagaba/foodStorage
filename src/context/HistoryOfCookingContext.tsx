@@ -1,16 +1,18 @@
-import { createContext, FC } from 'react';
+import { createContext, FC, ReactNode } from 'react';
 import { CollectionName } from '../enum/enum';
 import { useCollection } from '../hooks/useCollection';
-import { SingleHistoryOfCooking } from '../types/type';
+import { ChildrenProps, SingleHistoryOfCooking } from '../types/type';
 
 export interface HistoryOfCookingCollection {
   historyOfCooking?: SingleHistoryOfCooking[];
 }
 
 export const HistoryOfCookingContext =
-  createContext<HistoryOfCookingCollection>({});
+  createContext<HistoryOfCookingCollection>({})
 
-const HistoryOfCookingContextProvider: FC = ({ children }) => {
+
+
+const HistoryOfCookingContextProvider: FC<ChildrenProps>  = ({ children }) => {
   const { documents: historyOfCooking } = useCollection<SingleHistoryOfCooking>(
     CollectionName.HISTORY_OF_COOKING,
     'createdAt'

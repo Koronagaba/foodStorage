@@ -1,6 +1,7 @@
 import { createContext, FC } from 'react';
 import { CollectionName } from '../enum/enum';
 import { useCollection } from '../hooks/useCollection';
+import { ChildrenProps } from '../types/type';
 
 export interface MealItem {
   title: string;
@@ -18,7 +19,7 @@ interface Collections {
 }
 export const MealsContext = createContext<Collections>({});
 
-export const MealsContextProvider: FC = ({ children }) => {
+export const MealsContextProvider: FC<ChildrenProps> = ({ children }) => {
   const { documents: breakfastList } = useCollection<MealItem>(
     CollectionName.BREAKFAST,
     'title'
