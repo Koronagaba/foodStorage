@@ -1,9 +1,11 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { DatePicker, Space } from 'antd';
 import type { RangePickerProps } from 'antd/es/date-picker';
 import moment from 'moment';
 import { HistoryOfCookingContext } from '../../../../context/HistoryOfCookingContext';
 import { SingleHistoryOfCooking } from '../../../../types/type';
+import useSearchHisory from '../../../../hooks/useSearchHistory';
+import ThisMonth from './ThisMonth';
 
 const { RangePicker } = DatePicker;
 
@@ -40,6 +42,8 @@ const sumList: SingleHistoryOfCooking[] = [];
 
 const HistoryRange: React.FC = () => {
   const { historyOfCooking } = useContext(HistoryOfCookingContext);
+  const summingHistoryList = useSearchHisory();
+  const [monthList, setMonthList] = useState<SingleHistoryOfCooking[]>([]);
 
   const disabledDate: RangePickerProps['disabledDate'] = (current) => {
     // Can not select days after today and
@@ -48,8 +52,8 @@ const HistoryRange: React.FC = () => {
 
   const onChange: RangePickerProps['onChange'] = (dates, dateStrings) => {
     if (dates) {
-      // console.log('From: ', dates[0], ', to: ', dates[1]);
-      // console.log('From: ', dateStrings[0], ', to: ', dateStrings[1]);
+      console.log('From: ', dates[0], ', to: ', dates[1]);
+      console.log('From: ', dateStrings[0], ', to: ', dateStrings[1]);
       // console.log(dateStrings);
 
       // Single day, month, year from datepicker
@@ -59,7 +63,6 @@ const HistoryRange: React.FC = () => {
       const toDatepickerDay = parseInt(dateStrings[1].slice(0, 2));
       const toDatepickerMonth = parseInt(dateStrings[1].slice(3, 5));
       const toDatepickerYear = parseInt(dateStrings[1].slice(6));
-
 
       historyOfCooking?.forEach((historyItem) => {
         const historyItemTimestamp = historyItem.createdAt.seconds * 1000;
@@ -96,29 +99,51 @@ const HistoryRange: React.FC = () => {
             };
           }
         }
-        console.log(sumList);
       });
     } else {
       console.log('Clear');
     }
   };
 
+  const handleSelectMonth = (dates: any, dateStrings: any) => {
+    const singleDatepickerMonth = parseInt(dateStrings.slice(5));
+
+    const [sumList] = summingHistoryList();
+    const sumMonthList: SingleHistoryOfCooking[] = [];
+
+    sumList.forEach((item) => {
+      const month = new Date(item.createdAt.seconds * 1000).getMonth() + 1;
+      if (singleDatepickerMonth === month) {
+        sumMonthList.push({
+          title: item.title,
+          amount: item.amount,
+          createdAt: item.createdAt,
+          nameOfMeal: item.nameOfMeal,
+          id: item.id,
+          date: item.date,
+        });
+      }
+    });
+    setMonthList(sumMonthList);
+  };
+
   return (
-    <Space direction="vertical" size={12}>
-      {/* <DatePicker
-      format="YYYY-MM-DD HH:mm:ss"
-      disabledDate={disabledDate}
-      disabledTime={disabledDateTime}
-      showTime={{ defaultValue: moment('00:00:00', 'HH:mm:ss') }}
-    /> */}
-      {/* <DatePicker picker="month" disabledDate={disabledDate} />
-      <DatePicker picker="year" disabledDate={disabledDate} /> */}
-      <RangePicker
-        disabledDate={disabledDate}
-        onChange={onChange}
-        format="DD-MM-YYYY"
-      />
-    </Space>
+    <>
+      <Space direction="vertical" size={12}>
+        <DatePicker
+          picker="month"
+          disabledDate={disabledDate}
+          onChange={handleSelectMonth}
+        />
+
+        <RangePicker
+          disabledDate={disabledDate}
+          onChange={onChange}
+          format="DD-MM-YYYY"
+        />
+      </Space>
+      <ThisMonth monthList={monthList} />
+    </>
   );
 };
 
