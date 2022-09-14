@@ -1,7 +1,7 @@
 import { useNavigate, Outlet } from 'react-router-dom';
 
-import HistoryFromTo from './components/HistoryFromTo';
-import './HistoryOfCooking.css'
+import HistoryRange from './components/HistoryRange';
+import './HistoryOfCooking.css';
 
 const HistoryOfCooking = () => {
   const navigate = useNavigate();
@@ -18,7 +18,7 @@ const HistoryOfCooking = () => {
   };
 
   return (
-    <div className='classForAntd'>
+    <div className="classForAntd">
       <div>
         <h3>History of Cooking</h3>
         <button onClick={allHistoryDownload}>All history</button>
@@ -26,8 +26,8 @@ const HistoryOfCooking = () => {
         {/* <button onClick={yearHistoryDownload}>This Month</button> */}
         <button onClick={downloadTodayHistory}>Today</button>
       </div>
-      <br/>
-      <HistoryFromTo />
+      <br />
+      <HistoryRange />
       <Outlet />
     </div>
   );
