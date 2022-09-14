@@ -5,7 +5,7 @@ import {
   useLocation,
   useNavigate,
 } from 'react-router-dom';
-import { useState, useContext } from 'react';
+import { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { MealsContext } from './context/MealsContext';
@@ -36,9 +36,9 @@ import DarkMode from './components/darkMode/DarkMode';
 import HandleRemoval from './components/handleRemoval/HandleRemoval';
 import EditSingleMealProduct from './pages/cook/meals/mealList/editSingleMeal/EditSingleMealProduct';
 import HistoryOfCooking from './pages/cook/historyOfCooking/HistoryOfCooking';
-import AllHistory from './pages/cook/historyOfCooking/components/AllHistory';
 import ThisYear from './pages/cook/historyOfCooking/components/ThisYear';
 import Today from './pages/cook/historyOfCooking/components/Today';
+import ThisMonth from './pages/cook/historyOfCooking/components/ThisMonth';
 
 function App() {
   const { breakfastList, lunchList, supperList, snackList } =
@@ -64,15 +64,12 @@ function App() {
       <Routes>
         <Route path="/cook" element={<Cook />}></Route>
         <Route path="/cook/history" element={<HistoryOfCooking />}>
-          <Route
-            path="/cook/history/allHistory"
-            element={<AllHistory />}
-          ></Route>
-          <Route path="/cook/history/thisYear" element={<ThisYear />}></Route>
+          <Route path="/cook/history/month" element={<ThisMonth />}></Route>
+          <Route path="/cook/history/year" element={<ThisYear />}></Route>
           <Route path="/cook/history/today" element={<Today />}></Route>
         </Route>
         <Route path="*" element={<Navigate to="/cook" />} />
-        {/* *********************************** */}
+        {/* ***************** Breakfast ***************** */}
         <Route
           path="/cook/breakfast"
           element={
@@ -114,7 +111,7 @@ function App() {
           <Route path="favoriteFood" element={<FavoriteFood />}></Route>
           <Route path="createRecipe" element={<CreateRecipe />} />
         </Route>
-        {/* ******************************************** */}
+        {/* ***************** Lunch ***************** */}
         <Route
           path="/cook/lunch"
           element={
@@ -154,7 +151,7 @@ function App() {
           <Route path="favoriteFood" element={<FavoriteFood />}></Route>
           <Route path="createRecipe" element={<CreateRecipe />} />
         </Route>
-        {/* *************************************************** */}
+        {/* ***************** Supper***************** */}
         <Route
           path="/cook/supper"
           element={
@@ -195,7 +192,7 @@ function App() {
           <Route path="createRecipe" element={<CreateRecipe />} />
         </Route>
 
-        {/* *************************************************** */}
+        {/* ***************** Snacks ***************** */}
         <Route
           path="/cook/snack"
           element={
