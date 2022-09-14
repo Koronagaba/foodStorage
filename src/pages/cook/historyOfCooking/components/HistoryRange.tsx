@@ -42,8 +42,9 @@ const sumList: SingleHistoryOfCooking[] = [];
 
 const HistoryRange: React.FC = () => {
   const { historyOfCooking } = useContext(HistoryOfCookingContext);
-  const summingHistoryList = useSearchHisory();
+  const summingTheSameNameHistoryItem = useSearchHisory();
   const [monthList, setMonthList] = useState<SingleHistoryOfCooking[]>([]);
+  const [yearList, setYearList] = useState<SingleHistoryOfCooking[]>([]);
 
   const disabledDate: RangePickerProps['disabledDate'] = (current) => {
     // Can not select days after today and
@@ -108,12 +109,13 @@ const HistoryRange: React.FC = () => {
   const handleSelectMonth = (dates: any, dateStrings: any) => {
     const singleDatepickerMonth = parseInt(dateStrings.slice(5));
 
-    const [sumList] = summingHistoryList();
+    const [sumList] = summingTheSameNameHistoryItem();
     const sumMonthList: SingleHistoryOfCooking[] = [];
 
     sumList.forEach((item) => {
-      const month = new Date(item.createdAt.seconds * 1000).getMonth() + 1;
-      if (singleDatepickerMonth === month) {
+      const monthFromHistory =
+        new Date(item.createdAt.seconds * 1000).getMonth() + 1;
+      if (singleDatepickerMonth === monthFromHistory) {
         sumMonthList.push({
           title: item.title,
           amount: item.amount,
@@ -125,6 +127,32 @@ const HistoryRange: React.FC = () => {
       }
     });
     setMonthList(sumMonthList);
+    console.log(monthList);
+  };
+
+  const handleSelectYear = (dates: any, dateStrings: any) => {
+    const singleDatepickerYear = parseInt(dateStrings.slice(0, 4));
+
+    const [sumList] = summingTheSameNameHistoryItem();
+    const sumYearList: SingleHistoryOfCooking[] = [];
+
+    sumList.forEach((item) => {
+      const yearFromHistory = new Date(
+        item.createdAt.seconds * 1000
+      ).getFullYear();
+      if (singleDatepickerYear === yearFromHistory) {
+        sumYearList.push({
+          title: item.title,
+          amount: item.amount,
+          createdAt: item.createdAt,
+          nameOfMeal: item.nameOfMeal,
+          id: item.id,
+          date: item.date,
+        });
+      }
+    });
+    setYearList(sumYearList);
+    console.log(yearList);
   };
 
   return (
@@ -135,7 +163,11 @@ const HistoryRange: React.FC = () => {
           disabledDate={disabledDate}
           onChange={handleSelectMonth}
         />
-
+        <DatePicker
+          picker="year"
+          disabledDate={disabledDate}
+          onChange={handleSelectYear}
+        />
         <RangePicker
           disabledDate={disabledDate}
           onChange={onChange}

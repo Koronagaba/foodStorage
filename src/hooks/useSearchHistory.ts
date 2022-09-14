@@ -10,7 +10,7 @@ const useSearchHisory = () => {
 
   const sumList: SingleHistoryOfCooking[] = [];
 
-  const summingHistoryList = () => {
+  const summingTheSameNameHistoryItem = () => {
     historyOfCooking?.forEach((product) => {
       const index = sumList.findIndex((itemNewList) => {
         return itemNewList.title === product.title;
@@ -38,7 +38,7 @@ const useSearchHisory = () => {
     });
     return [sumList];
   };
-  return summingHistoryList;
+  return summingTheSameNameHistoryItem;
 };
 
 export default useSearchHisory;
