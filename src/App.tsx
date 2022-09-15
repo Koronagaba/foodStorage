@@ -36,9 +36,9 @@ import DarkMode from './components/darkMode/DarkMode';
 import HandleRemoval from './components/handleRemoval/HandleRemoval';
 import EditSingleMealProduct from './pages/cook/meals/mealList/editSingleMeal/EditSingleMealProduct';
 import HistoryOfCooking from './pages/cook/historyOfCooking/HistoryOfCooking';
-import ThisYear from './pages/cook/historyOfCooking/components/ThisYear';
-import Today from './pages/cook/historyOfCooking/components/Today';
-import ThisMonth from './pages/cook/historyOfCooking/components/ThisMonth';
+import YearHistory from './pages/cook/historyOfCooking/components/YearHistory';
+import MonthHistory from './pages/cook/historyOfCooking/components/MonthHistory';
+import RangeHistoryList from './pages/cook/historyOfCooking/components/RangeHistoryList';
 
 function App() {
   const { breakfastList, lunchList, supperList, snackList } =
@@ -64,9 +64,9 @@ function App() {
       <Routes>
         <Route path="/cook" element={<Cook />}></Route>
         <Route path="/cook/history" element={<HistoryOfCooking />}>
-          <Route path="/cook/history/month" element={<ThisMonth />}></Route>
-          <Route path="/cook/history/year" element={<ThisYear />}></Route>
-          <Route path="/cook/history/today" element={<Today />}></Route>
+          <Route path="/cook/history/month" element={<MonthHistory />}></Route>
+          <Route path="/cook/history/year" element={<YearHistory />}></Route>
+          <Route path="/cook/history/rangeHistory" element={<RangeHistoryList />} ></Route>
         </Route>
         <Route path="*" element={<Navigate to="/cook" />} />
         {/* ***************** Breakfast ***************** */}
