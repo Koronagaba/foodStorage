@@ -4,53 +4,24 @@ import type { RangePickerProps } from 'antd/es/date-picker';
 import moment from 'moment';
 import { useNavigate, Outlet } from 'react-router-dom';
 import { HistoryOfCookingContext } from '../../../context/HistoryOfCookingContext';
-import { SingleHistoryOfCooking } from '../../../types/type';
-import useSearchHisory from '../../../hooks/useSearchHistory';
+import { SingleHistoryList } from '../../../types/type';
+
 import './HistoryOfCooking.css';
 import { NestedHistoryListsContext } from '../../../context/NestedHistoryListsContext';
 import useTimestampConvert from '../../../hooks/useTimestampConvert';
 
 const { RangePicker } = DatePicker;
 
-// const range = (start: number, end: number) => {
-//   const result = [];
-//   for (let i = start; i < end; i++) {
-//     result.push(i);
-//   }
-//   return result;
-// };
-
-// const disabledDateTime = () => ({
-//   disabledHours: () => range(0, 24).splice(4, 20),
-//   disabledMinutes: () => range(30, 60),
-//   disabledSeconds: () => [55, 56],
-// });
-
-// const disabledRangeTime: RangePickerProps['disabledTime'] = (_, type) => {
-//   if (type === 'start') {
-//     return {
-//       disabledHours: () => range(0, 60).splice(4, 20),
-//       disabledMinutes: () => range(30, 60),
-//       disabledSeconds: () => [55, 56],
-//     };
-//   }
-//   return {
-//     disabledHours: () => range(0, 60).splice(20, 4),
-//     disabledMinutes: () => range(0, 31),
-//     disabledSeconds: () => [55, 56],
-//   };
-// };
-
-const sumMonthList: SingleHistoryOfCooking[] = [];
-const sumYearList: SingleHistoryOfCooking[] = [];
-let sumRangeList: SingleHistoryOfCooking[] = [];
+let sumMonthList: SingleHistoryList[] = [];
+let sumYearList: SingleHistoryList[] = [];
+let sumRangeList: SingleHistoryList[] = [];
 
 const HistoryRange: React.FC = () => {
   const { historyOfCooking } = useContext(HistoryOfCookingContext);
-  const summingTheSameNameHistoryItem = useSearchHisory();
-  const [monthList, setMonthList] = useState<SingleHistoryOfCooking[]>([]);
-  const [yearList, setYearList] = useState<SingleHistoryOfCooking[]>([]);
-  const [rangeList, setRangeList] = useState<SingleHistoryOfCooking[]>([]);
+
+  const [monthList, setMonthList] = useState<SingleHistoryList[]>([]);
+  const [yearList, setYearList] = useState<SingleHistoryList[]>([]);
+  const [rangeList, setRangeList] = useState<SingleHistoryList[]>([]);
   const displayDate = useTimestampConvert();
   const navigate = useNavigate();
 
@@ -59,7 +30,10 @@ const HistoryRange: React.FC = () => {
     return current > moment().endOf('day');
   };
 
-  const rangeDateSelect: RangePickerProps['onChange'] = (dates, dateStrings) => {
+  const rangeDateSelect: RangePickerProps['onChange'] = (
+    dates,
+    dateStrings
+  ) => {
     if (dates) {
       // console.log('From: ', dates[0], ', to: ', dates[1]);
       // console.log('From: ', dateStrings[0], ', to: ', dateStrings[1]);
@@ -73,7 +47,7 @@ const HistoryRange: React.FC = () => {
       const toDatepickerYear = parseInt(dateStrings[1].slice(6));
 
       historyOfCooking?.forEach((historyItem) => {
-        const { day, month, year, atTime } = displayDate(historyItem.createdAt);
+        const { day, month, year } = displayDate(historyItem.createdAt);
 
         // const historyItemTimestamp = historyItem.createdAt.seconds * 1000;
         // const historyItemDay = new Date(historyItemTimestamp).getDate();
@@ -96,19 +70,13 @@ const HistoryRange: React.FC = () => {
             sumRangeList.push({
               title: historyItem.title,
               amount: historyItem.amount,
-              nameOfMeal: historyItem.nameOfMeal,
-              createdAt: historyItem.createdAt,
               id: historyItem.id,
-              date: { day, month, year, atTime },
             });
           } else {
             sumRangeList[index] = {
               title: sumRangeList[index].title,
               amount: sumRangeList[index].amount + historyItem.amount,
-              nameOfMeal: sumRangeList[index].nameOfMeal,
-              createdAt: sumRangeList[index].createdAt,
               id: sumRangeList[index].id,
-              date: { day, month, year, atTime },
             };
           }
         }
@@ -123,54 +91,80 @@ const HistoryRange: React.FC = () => {
     }
   };
 
-  
   const monthSelect = (dates: any, dateStrings: any) => {
-    const singleDatepickerMonth = parseInt(dateStrings.slice(5));
+    if (dates) {
+      const singleDatepickerMonth = parseInt(dateStrings.slice(5));
 
-    const [sumList] = summingTheSameNameHistoryItem();
-   
+      historyOfCooking?.forEach((historyItem) => {
+        const monthFromHistory =
+          new Date(historyItem.createdAt.seconds * 1000).getMonth() + 1;
 
-    sumList.forEach((item) => {
-      const monthFromHistory =
-        new Date(item.createdAt.seconds * 1000).getMonth() + 1;
-      if (singleDatepickerMonth === monthFromHistory) {
-        sumMonthList.push({
-          title: item.title,
-          amount: item.amount,
-          createdAt: item.createdAt,
-          nameOfMeal: item.nameOfMeal,
-          id: item.id,
-          date: item.date,
-        });
-      }
-    });
-    setMonthList(sumMonthList);
-    navigate('month');
+        if (singleDatepickerMonth === monthFromHistory) {
+          const index = sumMonthList.findIndex(
+            (monthItem) => monthItem.title === historyItem.title
+          );
+
+          if (index === -1) {
+            sumMonthList.push({
+              title: historyItem.title,
+              amount: historyItem.amount,
+              id: historyItem.id,
+            });
+          } else {
+            sumMonthList[index] = {
+              title: sumMonthList[index].title,
+              amount: sumMonthList[index].amount + historyItem.amount,
+              id: sumMonthList[index].id,
+            };
+          }
+        }
+      });
+
+      setMonthList(sumMonthList);
+      sumMonthList = [];
+      navigate('month'); 
+    } else {
+      console.log('Clear');
+      sumMonthList = [];
+      setMonthList([])
+    }
   };
 
   const yearSelect = (dates: any, dateStrings: any) => {
-    const singleDatepickerYear = parseInt(dateStrings.slice(0, 4));
+    if (dates) {
+      const singleDatepickerYear = parseInt(dateStrings.slice(0, 4));
 
-    const [sumList] = summingTheSameNameHistoryItem();
-
-
-    sumList.forEach((item) => {
-      const yearFromHistory = new Date(
-        item.createdAt.seconds * 1000
-      ).getFullYear();
-      if (singleDatepickerYear === yearFromHistory) {
-        sumYearList.push({
-          title: item.title,
-          amount: item.amount,
-          createdAt: item.createdAt,
-          nameOfMeal: item.nameOfMeal,
-          id: item.id,
-          date: item.date,
-        });
-      }
-    });
-    setYearList(sumYearList);
-    navigate('year');
+      historyOfCooking?.forEach((historyItem) => {
+        const yearFromHistory = new Date(
+          historyItem.createdAt.seconds * 1000
+        ).getFullYear();
+        if (singleDatepickerYear === yearFromHistory) {
+          const index = sumYearList.findIndex(
+            (yearItem) => yearItem.title === historyItem.title
+          );
+          if (index === -1) {
+            sumYearList.push({
+              title: historyItem.title,
+              amount: historyItem.amount,
+              id: historyItem.id,
+            });
+          } else {
+            sumYearList[index] = {
+              title: sumYearList[index].title,
+              amount: sumYearList[index].amount,
+              id: sumYearList[index].id,
+            };
+          }
+        }
+      });
+      setYearList(sumYearList);
+      sumYearList = [];
+      navigate('year');
+    } else {
+      console.log('Clear year');
+      sumYearList = [];
+      setYearList([]);
+    }
   };
 
   return (

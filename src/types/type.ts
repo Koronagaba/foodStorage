@@ -61,6 +61,12 @@ export interface SingleHistoryOfCooking {
   date?: Date;
 }
 
+export interface SingleHistoryList {
+  title: string;
+  amount: number;
+  id: string
+}
+
 export type SingleShopProductProps = {
   productOfShoppingList: ShoppingListProduct;
   // toggleEdit: (id: number, itemTitle: string, itemAmount: number, itemIsEditing: boolean) => void;

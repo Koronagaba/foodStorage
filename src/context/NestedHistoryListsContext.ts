@@ -1,10 +1,10 @@
 import { createContext } from 'react';
-import { SingleHistoryOfCooking } from '../types/type';
+import { SingleHistoryList } from '../types/type';
 
 interface HistoryCollection {
-  monthList: SingleHistoryOfCooking[];
-  yearList: SingleHistoryOfCooking[];
-  rangeList: SingleHistoryOfCooking[];
+  monthList: SingleHistoryList[];
+  yearList: SingleHistoryList[];
+  rangeList: SingleHistoryList[];
 }
 
 const initialValue = {

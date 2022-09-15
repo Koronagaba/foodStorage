@@ -8,8 +8,7 @@ const YearHistory = () => {
     return (
       <div key={item.id}>
         <p>
-          {item.title} -{item.amount} -{item.nameOfMeal} -{item.date?.day}.
-          {item.date?.month}.{item.date?.year}, {item.date?.atTime}
+          {item.title} -{item.amount}
         </p>
       </div>
     );
@@ -18,7 +17,7 @@ const YearHistory = () => {
   return (
     <div>
       <h1>ThisYear</h1>
-      {displayYearList}
+      {yearList.length ? displayYearList : <p>empty history</p>}
     </div>
   );
 };

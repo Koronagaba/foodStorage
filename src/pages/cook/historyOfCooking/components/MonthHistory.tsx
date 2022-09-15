@@ -7,13 +7,12 @@ const MonthHistory = () => {
   const displayMonthList = monthList.map((item) => (
     <div key={item.id}>
       <p>
-        {item.title} -{item.amount} -{item.nameOfMeal} -{item.date?.day}.
-        {item.date?.month}.{item.date?.year}, {item.date?.atTime}
+        {item.title} -{item.amount} 
       </p>
     </div>
   ));
 
-  return <div>{displayMonthList}</div>;
+  return <div>{monthList.length ? displayMonthList : <p>List is empty</p>}</div>;
 };
 
 export default MonthHistory;

@@ -3,18 +3,20 @@ import { NestedHistoryListsContext } from '../../../../context/NestedHistoryList
 
 const RangeHistoryList = () => {
   const { rangeList } = useContext(NestedHistoryListsContext);
-  
+
   const displayRangeHistoryList = rangeList.map((item) => (
     <div key={item.id}>
       <p>
-        {item.title} -{item.amount} -{item.nameOfMeal} -{item.date?.day}.
-        {item.date?.month}.{item.date?.year}, {item.date?.atTime}
+        {item.title} -{item.amount}
       </p>
     </div>
   ));
-  return <>
-  RangeHistory
-  {displayRangeHistoryList}</>;
+  return (
+    <>
+      RangeHistory
+      {rangeList.length ? displayRangeHistoryList : <p>Empty history</p>}
+    </>
+  );
 };
 
 export default RangeHistoryList;
