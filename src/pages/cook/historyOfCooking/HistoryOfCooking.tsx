@@ -1,7 +1,5 @@
 import { useContext, useState } from 'react';
-import { DatePicker, Space } from 'antd';
-import type { RangePickerProps } from 'antd/es/date-picker';
-import moment from 'moment';
+
 import { useNavigate, Outlet } from 'react-router-dom';
 import { HistoryOfCookingContext } from '../../../context/HistoryOfCookingContext';
 import { SingleHistoryList } from '../../../types/type';
@@ -10,7 +8,8 @@ import './HistoryOfCooking.css';
 import { NestedHistoryListsContext } from '../../../context/NestedHistoryListsContext';
 import useTimestampConvert from '../../../hooks/useTimestampConvert';
 
-const { RangePicker } = DatePicker;
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 let sumMonthList: SingleHistoryList[] = [];
 let sumYearList: SingleHistoryList[] = [];
@@ -22,73 +21,59 @@ const HistoryRange: React.FC = () => {
   const [monthList, setMonthList] = useState<SingleHistoryList[]>([]);
   const [yearList, setYearList] = useState<SingleHistoryList[]>([]);
   const [rangeList, setRangeList] = useState<SingleHistoryList[]>([]);
+  const [startDate, setStartDate] = useState();
+  const [endDate, setEndDate] = useState();
+
   const displayDate = useTimestampConvert();
   const navigate = useNavigate();
 
-  const disabledDate: RangePickerProps['disabledDate'] = (current) => {
-    // Can not select days after today and
-    return current > moment().endOf('day');
-  };
+  const dateHandler = (value: any) => {
+    setStartDate(value[0]);
+    setEndDate(value[1]);
+    const fromDatepickerDay = value[0].getDate();
+    const fromDatepickerMonth = value[0].getMonth() + 1;
+    const fromDatepickerYear = value[0].getFullYear();
+    const toDatepickerDay = value[1].getDate();
+    const toDatepickerMonth = value[1].getMonth() + 1;
+    const toDatepickerYear = value[1].getFullYear();
 
-  const rangeDateSelect: RangePickerProps['onChange'] = (
-    dates,
-    dateStrings
-  ) => {
-    if (dates) {
-      // console.log('From: ', dates[0], ', to: ', dates[1]);
-      // console.log('From: ', dateStrings[0], ', to: ', dateStrings[1]);
+    historyOfCooking?.forEach((historyItem) => {
+      const { day, month, year } = displayDate(historyItem.createdAt);
 
-      // Single day, month, year from datepicker
-      const fromDatepickerDay = parseInt(dateStrings[0].slice(0, 2));
-      const fromDatepickerMonth = parseInt(dateStrings[0].slice(3, 5));
-      const fromDatepickerYear = parseInt(dateStrings[0].slice(6));
-      const toDatepickerDay = parseInt(dateStrings[1].slice(0, 2));
-      const toDatepickerMonth = parseInt(dateStrings[1].slice(3, 5));
-      const toDatepickerYear = parseInt(dateStrings[1].slice(6));
-
-      historyOfCooking?.forEach((historyItem) => {
-        const { day, month, year } = displayDate(historyItem.createdAt);
-
-        // const historyItemTimestamp = historyItem.createdAt.seconds * 1000;
-        // const historyItemDay = new Date(historyItemTimestamp).getDate();
-        // const historyItemMonth = new Date(historyItemTimestamp).getMonth() + 1;
-        // const historyItemYear = new Date(historyItemTimestamp).getFullYear();
-        // const atTime = new Date(historyItemTimestamp).toLocaleTimeString()
-
-        if (
-          day >= fromDatepickerDay &&
-          day <= toDatepickerDay &&
-          month >= fromDatepickerMonth &&
-          month <= toDatepickerMonth &&
-          year >= fromDatepickerYear &&
-          year <= toDatepickerYear
-        ) {
-          const index = sumRangeList.findIndex((sumItem) => {
-            return sumItem.title === historyItem.title;
+      if (
+        day >= fromDatepickerDay &&
+        day <= toDatepickerDay &&
+        month >= fromDatepickerMonth &&
+        month <= toDatepickerMonth &&
+        year >= fromDatepickerYear &&
+        year <= toDatepickerYear
+      ) {
+        const index = sumRangeList.findIndex((sumItem) => {
+          return sumItem.title === historyItem.title;
+        });
+        if (index === -1) {
+          sumRangeList.push({
+            title: historyItem.title,
+            amount: historyItem.amount,
+            id: historyItem.id,
           });
-          if (index === -1) {
-            sumRangeList.push({
-              title: historyItem.title,
-              amount: historyItem.amount,
-              id: historyItem.id,
-            });
-          } else {
-            sumRangeList[index] = {
-              title: sumRangeList[index].title,
-              amount: sumRangeList[index].amount + historyItem.amount,
-              id: sumRangeList[index].id,
-            };
-          }
+        } else {
+          sumRangeList[index] = {
+            title: sumRangeList[index].title,
+            amount: sumRangeList[index].amount + historyItem.amount,
+            id: sumRangeList[index].id,
+          };
         }
-      });
-      setRangeList(sumRangeList);
-      sumRangeList = [];
-      navigate('/cook/history/rangeHistory');
-    } else {
-      console.log('Clear');
-      sumRangeList = [];
-      setRangeList([]);
-    }
+      }
+    });
+    setRangeList(sumRangeList);
+    sumRangeList = [];
+    navigate('/cook/history/rangeHistory');
+
+    // //if clear
+    // console.log('Clear');
+    // sumRangeList = [];
+    // setRangeList([]);
   };
 
   const monthSelect = (dates: any, dateStrings: any) => {
@@ -122,11 +107,11 @@ const HistoryRange: React.FC = () => {
 
       setMonthList(sumMonthList);
       sumMonthList = [];
-      navigate('month'); 
+      navigate('month');
     } else {
       console.log('Clear');
       sumMonthList = [];
-      setMonthList([])
+      setMonthList([]);
     }
   };
 
@@ -169,23 +154,13 @@ const HistoryRange: React.FC = () => {
 
   return (
     <>
-      <Space direction="vertical" size={12}>
-        <DatePicker
-          picker="month"
-          disabledDate={disabledDate}
-          onChange={monthSelect}
-        />
-        <DatePicker
-          picker="year"
-          disabledDate={disabledDate}
-          onChange={yearSelect}
-        />
-        <RangePicker
-          disabledDate={disabledDate}
-          onChange={rangeDateSelect}
-          format="DD-MM-YYYY"
-        />
-      </Space>
+      <DatePicker
+        selectsRange={true}
+        startDate={startDate}
+        endDate={endDate}
+        onChange={dateHandler}
+        dateFormat="dd/MM/yyyy"
+      />
       <NestedHistoryListsContext.Provider
         value={{ monthList, yearList, rangeList }}
       >

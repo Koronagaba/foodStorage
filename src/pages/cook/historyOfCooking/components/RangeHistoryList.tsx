@@ -13,7 +13,7 @@ const RangeHistoryList = () => {
   ));
   return (
     <>
-      RangeHistory
+      {/* RangeHistory */}
       {rangeList.length ? displayRangeHistoryList : <p>Empty history</p>}
     </>
   );

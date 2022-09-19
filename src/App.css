@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
-//  @import '~antd/dist/antd.css';
-//  @import '~antd/dist/antd.less'; 
+/* @import 'antd/lib/space/style/index.css'; */
+/* @import "~antd/lib/style/themes/default.less"; */
+/* @import 'antd/lib/date-picker/style/index.css'; */
 
 /* bg-colors: darkslategray, #026773; */
 * {

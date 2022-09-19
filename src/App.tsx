@@ -10,8 +10,7 @@ import { useTranslation } from 'react-i18next';
 
 import { MealsContext } from './context/MealsContext';
 
-// import './App.css';
-import './App.less';
+import './App.css';
 import breakfast_icon from './icons/breakfast_icon.png';
 import lunch_icon from './icons/lunch_icon.png';
 import salad_icon from './icons/salad_icon.png';
