@@ -10,6 +10,7 @@ import useTimestampConvert from '../../../hooks/useTimestampConvert';
 
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import cancel from '../../../icons/cancel.svg';
 
 let sumMonthList: SingleHistoryList[] = [];
 let sumYearList: SingleHistoryList[] = [];
@@ -153,20 +154,29 @@ const HistoryRange: React.FC = () => {
   };
 
   return (
-    <>
-      <DatePicker
-        selectsRange={true}
-        startDate={startDate}
-        endDate={endDate}
-        onChange={dateHandler}
-        dateFormat="dd/MM/yyyy"
-      />
+    <div className='datepicker-wrapper'>
+      <div className="datepicker">
+        <DatePicker
+          selectsRange={true}
+          startDate={startDate}
+          endDate={endDate}
+          onChange={dateHandler}
+          dateFormat="dd/MM/yyyy"
+          className="datepicker-input"
+          placeholderText="Please select date..."
+        ></DatePicker>
+        <img
+          src={cancel}
+          alt="cancel datepicker input"
+          className="cancel-datepicker-img"
+        />
+      </div>
       <NestedHistoryListsContext.Provider
         value={{ monthList, yearList, rangeList }}
       >
         <Outlet />
       </NestedHistoryListsContext.Provider>
-    </>
+    </div>
   );
 };
 

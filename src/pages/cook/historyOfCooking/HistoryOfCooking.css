@@ -1,1 +1,55 @@
  /* @import '~antd/dist/antd.css'; */
+
+ /* .react-datepicker__input-container{
+    width: 30px;
+ } */
+ .react-datepicker-wrapper {
+     /* width: 30% !important; */
+
+ }
+
+ .datepicker-wrapper {
+     max-width: 600px;
+     width: 92%;
+     display: flex;
+     flex-direction: column;
+     /* justify-content: space-between; */
+     margin: 0 auto;
+     padding-top: 5px;
+ }
+
+ .datepicker {
+     position: relative !important;
+     /* width: 20px; */
+     /* width: 100%; */
+     /* padding: 0 17px; */
+     /* border: 2px solid red; */
+ }
+
+ .datepicker-input {
+     text-align: center;
+     min-width: 200px;
+     width: 100%;
+     padding: 7px 17px;
+     border-radius: 6px;
+     border: none;
+     font-size: .9rem;
+     line-height: 1.5;
+ }
+
+ .datepicker-input:focus {
+     outline: none;
+ }
+
+ .cancel-datepicker-img {
+     position: absolute;
+     width: 25px;
+     right: 5px;
+     top: 5px;
+     transition: all ease-in 0.3s
+ }
+
+ .cancel-datepicker-img:hover {
+     transform: rotate(90deg) scale(1.1);
+     cursor: pointer;
+ }
