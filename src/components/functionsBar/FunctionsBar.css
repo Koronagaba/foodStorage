@@ -1,0 +1,23 @@
+.calendar-img {
+    width: 50px;
+    transition: transform ease-in .2s;
+}
+
+.calendar-img:hover {
+    cursor: pointer;
+    transform: scale(1.1)
+}
+
+
+.functionsBar-container {
+    background-color: var(--main-bg-color);
+}
+
+.functionsBar-inside {
+    max-width: 600px;
+    width: 92%;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding-top: 5px;
+}

@@ -154,13 +154,14 @@ const HistoryRange: React.FC = () => {
   };
 
   const clearDatepickerField = () => {
-    setStartDate(undefined)
-    setEndDate(undefined)
-    setRangeList([])
-  }
+    setStartDate(undefined);
+    setEndDate(undefined);
+    setRangeList([]);
+  };
 
   return (
-    <div className='datepicker-wrapper'>
+    <div className="datepicker-wrapper">
+   
       <div className="datepicker">
         <DatePicker
           selectsRange={true}
@@ -177,6 +178,7 @@ const HistoryRange: React.FC = () => {
           className="cancel-datepicker-img"
           onClick={clearDatepickerField}
         />
+       
       </div>
       <NestedHistoryListsContext.Provider
         value={{ monthList, yearList, rangeList }}

@@ -42,20 +42,6 @@ body.dark {
   --main-bg-color: #fcfcfc;
 } */
 
-.darkMode-language-container {
-  position: relative;
-  background-color: var(--main-bg-color);
-}
-
-.darkMode-language-inside {
-  max-width: 600px;
-  width: 92%;
-  display: flex;
-  justify-content: space-between;
-  margin: 0 auto;
-  padding-top: 5px;
-}
-
 .disabled {
   opacity: 0.3;
   cursor: auto;

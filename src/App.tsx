@@ -1,10 +1,4 @@
-import {
-  Routes,
-  Route,
-  Navigate,
-  useLocation,
-  useNavigate,
-} from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -30,36 +24,22 @@ import FavoriteFood from './pages/cook/typesOfCooking/favoriteFood/FavoriteFood'
 
 import Meal from './pages/cook/meals/meal/Meal';
 import MealList from './pages/cook/meals/mealList/MealList';
-import MultiLanguages from './components/multiLanguages/MultiLanguages';
-import DarkMode from './components/darkMode/DarkMode';
-import HandleRemoval from './components/handleRemoval/HandleRemoval';
 import EditSingleMealProduct from './pages/cook/meals/mealList/editSingleMeal/EditSingleMealProduct';
 import HistoryOfCooking from './pages/cook/historyOfCooking/HistoryOfCooking';
 import YearHistory from './pages/cook/historyOfCooking/components/YearHistory';
 import MonthHistory from './pages/cook/historyOfCooking/components/MonthHistory';
 import RangeHistoryList from './pages/cook/historyOfCooking/components/RangeHistoryList';
+import FunctionsBar from './components/functionsBar/FunctionsBar';
 
 function App() {
   const { breakfastList, lunchList, supperList, snackList } =
     useContext(MealsContext);
 
-  useLocation();
-  const navigate = useNavigate();
-
   const { t } = useTranslation();
   return (
     <div className="App">
       <Navbar />
-      <div className="darkMode-language-container">
-        <div className="darkMode-language-inside">
-          <DarkMode />
-          {window.location.pathname === '/cook' ? (
-            <button onClick={() => navigate('/cook/history')}>History</button>
-          ) : null}
-          {window.location.pathname === '/cook' ? <HandleRemoval /> : null}
-          <MultiLanguages />
-        </div>
-      </div>
+      <FunctionsBar />
       <Routes>
         <Route path="/cook" element={<Cook />}></Route>
         <Route path="/cook/history" element={<HistoryOfCooking />}>

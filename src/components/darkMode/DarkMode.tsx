@@ -1,8 +1,6 @@
-
 import './DarkMode.css';
 
 const DarkMode = () => {
-
   const body = document.body;
 
   let storageTheme = localStorage.getItem('theme');
@@ -10,21 +8,18 @@ const DarkMode = () => {
   const toggleTheme = () => {
     if (storageTheme === 'dark') {
       body.classList.remove('dark');
-      storageTheme = "light"
+      storageTheme = 'light';
     } else {
       body.classList.add('dark');
-      storageTheme = "dark"
+      storageTheme = 'dark';
     }
 
-    localStorage.setItem('theme', storageTheme)
+    localStorage.setItem('theme', storageTheme);
   };
-
 
   if (storageTheme === 'dark') {
     body.classList.add('dark');
   }
-
- 
 
   return (
     <button onClick={toggleTheme} className="toggle-theme">
