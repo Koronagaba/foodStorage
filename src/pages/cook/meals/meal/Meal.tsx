@@ -13,14 +13,14 @@ import {
 interface MealProps {
   title: string;
   backToCook: string;
-  nameOfMealCollection: string;
+  nameOfMeal: string;
   mealCollection: any;
 }
 
 const Meal: FC<MealProps> = ({
   title,
   backToCook,
-  nameOfMealCollection,
+  nameOfMeal,
   mealCollection,
 }) => {
   const navigate = useNavigate();
@@ -41,18 +41,14 @@ const Meal: FC<MealProps> = ({
               path="ingredients"
               element={
                 <BackToMealList
-                  nameOfMealCollection={nameOfMealCollection}
+                  nameOfMeal={nameOfMeal}
                   collection={mealCollection}
                 />
               }
             />
             <Route
               path="edit"
-              element={
-                <BackToMealListFromEdit
-                  nameOfMealCollection={nameOfMealCollection}
-                />
-              }
+              element={<BackToMealListFromEdit nameOfMeal={nameOfMeal} />}
             />
           </Routes>
           <Link to={'/cook'} className="meal-title">

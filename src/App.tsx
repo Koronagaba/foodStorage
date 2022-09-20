@@ -65,7 +65,10 @@ function App() {
         <Route path="/cook/history" element={<HistoryOfCooking />}>
           <Route path="/cook/history/month" element={<MonthHistory />}></Route>
           <Route path="/cook/history/year" element={<YearHistory />}></Route>
-          <Route path="/cook/history/rangeHistory" element={<RangeHistoryList />} ></Route>
+          <Route
+            path="/cook/history/rangeHistory"
+            element={<RangeHistoryList />}
+          ></Route>
         </Route>
         <Route path="*" element={<Navigate to="/cook" />} />
         {/* ***************** Breakfast ***************** */}
@@ -75,7 +78,7 @@ function App() {
             <Meal
               title={t('breakfast')}
               backToCook={'/*'}
-              nameOfMealCollection={'breakfast'}
+              nameOfMeal={'breakfast'}
               mealCollection={breakfastList}
             />
           }
@@ -93,9 +96,7 @@ function App() {
           ></Route>
           <Route
             path="/cook/breakfast/edit"
-            element={
-              <EditSingleMealProduct nameOfMealCollection={'breakfast'} />
-            }
+            element={<EditSingleMealProduct nameOfMeal={'breakfast'} />}
           />
           <Route
             path="ingredients"
@@ -117,7 +118,7 @@ function App() {
             <Meal
               title={t('lunch')}
               backToCook={'/*'}
-              nameOfMealCollection={'lunch'}
+              nameOfMeal={'lunch'}
               mealCollection={lunchList}
             />
           }
@@ -135,7 +136,7 @@ function App() {
           ></Route>
           <Route
             path="/cook/lunch/edit"
-            element={<EditSingleMealProduct nameOfMealCollection={'lunch'} />}
+            element={<EditSingleMealProduct nameOfMeal={'lunch'} />}
           />
           <Route
             path="ingredients"
@@ -157,7 +158,7 @@ function App() {
             <Meal
               title={t('supper')}
               backToCook={'/*'}
-              nameOfMealCollection={'supper'}
+              nameOfMeal={'supper'}
               mealCollection={supperList}
             />
           }
@@ -175,7 +176,7 @@ function App() {
           ></Route>
           <Route
             path="/cook/supper/edit"
-            element={<EditSingleMealProduct nameOfMealCollection={'supper'} />}
+            element={<EditSingleMealProduct nameOfMeal={'supper'} />}
           />
           <Route
             path="ingredients"
@@ -198,7 +199,7 @@ function App() {
             <Meal
               title={t('snacks')}
               backToCook={'/*'}
-              nameOfMealCollection={'snack'}
+              nameOfMeal={'snack'}
               mealCollection={snackList}
             />
           }
@@ -216,7 +217,7 @@ function App() {
           ></Route>
           <Route
             path="/cook/snack/edit"
-            element={<EditSingleMealProduct nameOfMealCollection={'snack'} />}
+            element={<EditSingleMealProduct nameOfMeal={'snack'} />}
           />
           <Route
             path="ingredients"

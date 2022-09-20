@@ -26,12 +26,12 @@ export const BackToCook = () => {
 };
 
 interface BackToMealListProps {
-  nameOfMealCollection: string;
+  nameOfMeal: string;
   collection: any;
 }
 
 export const BackToMealList: FC<BackToMealListProps> = ({
-  nameOfMealCollection,
+  nameOfMeal,
   collection,
 }) => {
   const { setSearchMeal } = useContext(SearchContext);
@@ -41,7 +41,7 @@ export const BackToMealList: FC<BackToMealListProps> = ({
 
   const navigateToMeal = () => {
     if (collection.length) {
-      navigate(`/cook/${nameOfMealCollection}`);
+      navigate(`/cook/${nameOfMeal}`);
       setSearchMeal('');
     } else {
       navigate('/cook');
@@ -60,17 +60,17 @@ export const BackToMealList: FC<BackToMealListProps> = ({
 };
 
 interface PropsBackToMealListFromEdit {
-  nameOfMealCollection: string;
+  nameOfMeal: string;
 }
 
 export const BackToMealListFromEdit = ({
-  nameOfMealCollection,
+  nameOfMeal,
 }: PropsBackToMealListFromEdit) => {
   const navigate = useNavigate();
   const { t } = useTranslation();
 
   const navigateToMealFromEdit = () => {
-    navigate(`/cook/${nameOfMealCollection}`);
+    navigate(`/cook/${nameOfMeal}`);
   };
 
   return (

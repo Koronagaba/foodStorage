@@ -4,17 +4,17 @@ import './EditSingleMealProduct.css';
 import FormSingleEditProduct from './FormSingleEditProduct';
 
 interface Props {
-  nameOfMealCollection: string;
+  nameOfMeal: string;
 }
 
-const EditSingleMealProduct: FC<Props> = ({ nameOfMealCollection }) => {
+const EditSingleMealProduct: FC<Props> = ({ nameOfMeal }) => {
   const { editMealProduct } = useContext(EditMealContext);
 
   const displayScore = editMealProduct?.map((editProduct: any) => (
     <FormSingleEditProduct
       key={editProduct.id}
       editProduct={editProduct}
-      nameOfMealCollection={nameOfMealCollection}
+      nameOfMeal={nameOfMeal}
     />
   ));
 

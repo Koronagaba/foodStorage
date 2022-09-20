@@ -1,6 +1,12 @@
 import { FC, useState, useContext, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { setDoc, doc } from 'firebase/firestore';
+import {
+  setDoc,
+  doc,
+  addDoc,
+  collection,
+  serverTimestamp,
+} from 'firebase/firestore';
 import { db } from '../../../../../firebase/config';
 import { useNavigate } from 'react-router-dom';
 
@@ -11,13 +17,10 @@ import DeleteEditSingleMeal from './DeleteEditSingleMeal';
 
 interface Props {
   editProduct: EditMeal;
-  nameOfMealCollection: string;
+  nameOfMeal: string;
 }
 
-const FormSingleEditProduct: FC<Props> = ({
-  editProduct,
-  nameOfMealCollection,
-}) => {
+const FormSingleEditProduct: FC<Props> = ({ editProduct, nameOfMeal }) => {
   const { stockProductsList } = useContext(FoodStorageContext);
   const [editInputProdAmount, setEditProdAmount] = useState<number>(
     editProduct.amount
@@ -44,7 +47,7 @@ const FormSingleEditProduct: FC<Props> = ({
             title: editProduct.title,
             amount: editInputProdAmount,
           });
-          setDoc(doc(db, nameOfMealCollection, editProduct.id), {
+          setDoc(doc(db, nameOfMeal, editProduct.id), {
             title: editProduct.title,
             amount: editInputProdAmount,
           });
@@ -54,6 +57,12 @@ const FormSingleEditProduct: FC<Props> = ({
             amount:
               matchedStockAndEditProduct.amount - differenceToSubstraction,
             shoppingListAmount: matchedStockAndEditProduct.shoppingListAmount,
+          });
+          addDoc(collection(db, 'historyOfCooking'), {
+            title: matchedStockAndEditProduct.title,
+            createdAt: serverTimestamp(),
+            nameOfMeal: nameOfMeal,
+            amount: differenceToSubstraction,
           });
         } else if (
           editInputProdAmount < editProduct.amount &&
@@ -66,7 +75,7 @@ const FormSingleEditProduct: FC<Props> = ({
             title: editProduct.title,
             amount: editInputProdAmount,
           });
-          setDoc(doc(db, nameOfMealCollection, editProduct.id), {
+          setDoc(doc(db, nameOfMeal, editProduct.id), {
             title: editProduct.title,
             amount: editInputProdAmount,
           });
@@ -76,6 +85,14 @@ const FormSingleEditProduct: FC<Props> = ({
             amount: matchedStockAndEditProduct.amount + differenceToAddition,
             shoppingListAmount: matchedStockAndEditProduct.shoppingListAmount,
           });
+          // Add negative number to amount
+          addDoc(collection(db, 'historyOfCooking'), {
+            title: matchedStockAndEditProduct.title,
+            createdAt: serverTimestamp(),
+            nameOfMeal: nameOfMeal,
+            amount: differenceToSubstraction,
+          });
+
           console.log('editProd > input', differenceToAddition);
         } else if (
           editInputProdAmount >
@@ -88,7 +105,7 @@ const FormSingleEditProduct: FC<Props> = ({
           editInputProdAmount <
           matchedStockAndEditProduct.amount + editProduct.amount
         ) {
-          navigate(`/cook/${nameOfMealCollection}`);
+          navigate(`/cook/${nameOfMeal}`);
         }
       }
     }
@@ -123,7 +140,7 @@ const FormSingleEditProduct: FC<Props> = ({
         {matchedStockAndEditProduct && (
           <DeleteEditSingleMeal
             matchedStockAndEditProduct={matchedStockAndEditProduct}
-            nameOfMealCollection={nameOfMealCollection}
+            nameOfMealCollection={nameOfMeal}
             editProduct={editProduct}
           />
         )}
