@@ -1,4 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+
 /* @import 'antd/lib/space/style/index.css'; */
 /* @import "~antd/lib/style/themes/default.less"; */
 /* @import 'antd/lib/date-picker/style/index.css'; */
@@ -9,6 +13,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Lato', sans-serif;
+  font-weight: lighter;
 }
 
 .App {
@@ -18,7 +23,8 @@
 
 :root {
   --main-bg-color: darkslategray;
-  --fields-bg-color: #f2e5dc;
+  /* --fields-bg-color: #f2e5dc; */
+  --fields-bg-color: #fefefe;
   --fields-hover-bg-color: #e0d0c3;
   --nav-bg-color: #000;
   --nav-color: #777;
@@ -32,7 +38,8 @@
 
 body.dark {
   --main-bg-color: #000;
-  --fields-bg-color: #f7f2ee;
+  /* --fields-bg-color: #f7f2ee; */
+  --fields-bg-color: #fff;
   --fields-hover-bg-color: #cdc5c0;
   --nav-bg-color: #222;
   --nav-color: #999;

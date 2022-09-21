@@ -10,7 +10,7 @@ import useTimestampConvert from '../../../hooks/useTimestampConvert';
 
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import cancel from '../../../icons/cancel.svg';
+import close from '../../../icons/close.svg';
 
 let sumMonthList: SingleHistoryList[] = [];
 let sumYearList: SingleHistoryList[] = [];
@@ -28,7 +28,7 @@ const HistoryRange: React.FC = () => {
   const displayDate = useTimestampConvert();
   const navigate = useNavigate();
 
-  const dateHandler = (value: any) => {
+  const rangeDateHandler = (value: any) => {
     setStartDate(value[0]);
     setEndDate(value[1]);
     const fromDatepickerDay = value[0].getDate();
@@ -160,31 +160,31 @@ const HistoryRange: React.FC = () => {
   };
 
   return (
-    <div className="datepicker-wrapper">
-   
-      <div className="datepicker">
-        <DatePicker
-          selectsRange={true}
-          startDate={startDate}
-          endDate={endDate}
-          onChange={dateHandler}
-          dateFormat="dd/MM/yyyy"
-          className="datepicker-input"
-          placeholderText="Please select date..."
-        ></DatePicker>
-        <img
-          src={cancel}
-          alt="cancel datepicker input"
-          className="cancel-datepicker-img"
-          onClick={clearDatepickerField}
-        />
-       
+    <div className="datepicker-container">
+      <div className="datepicker-wrapper">
+        <div className="datepicker">
+          <DatePicker
+            selectsRange={true}
+            startDate={startDate}
+            endDate={endDate}
+            onChange={rangeDateHandler}
+            dateFormat="dd/MM/yyyy"
+            className="datepicker-input"
+            placeholderText="Please select date..."
+          ></DatePicker>
+          <img
+            src={close}
+            alt="cancel datepicker input"
+            className="cancel-datepicker-img"
+            onClick={clearDatepickerField}
+          />
+        </div>
+        <NestedHistoryListsContext.Provider
+          value={{ monthList, yearList, rangeList }}
+        >
+          <Outlet />
+        </NestedHistoryListsContext.Provider>
       </div>
-      <NestedHistoryListsContext.Provider
-        value={{ monthList, yearList, rangeList }}
-      >
-        <Outlet />
-      </NestedHistoryListsContext.Provider>
     </div>
   );
 };

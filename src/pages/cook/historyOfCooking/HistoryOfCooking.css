@@ -1,41 +1,89 @@
- .datepicker-wrapper {
-     display: flex;
-     flex-direction: column;
-     max-width: 600px;
-     width: 92%;
-     margin: 0 auto;
-     padding-top: 5px;
- }
+  /* Datepicker */
+  .datepicker-container {
+      background-color: var(--main-bg-color);
+  }
 
- .datepicker {
-     position: relative;
-     min-width: 220px;
-     width: 70%;
- }
+  .datepicker-wrapper {
+      display: flex;
+      flex-direction: column;
+      max-width: 600px;
+      width: 92%;
+      margin: 0 auto;
+      padding-top: 5px;
 
- .datepicker-input {
-     text-align: center;
-     width: 100%;
-     padding: 7px 17px 7px 7px;
-     border-radius: 6px;
-     border: none;
-     font-size: .9rem;
-     line-height: 1.5;
- }
+  }
 
- .datepicker-input:focus {
-     outline: none;
- }
+  .datepicker {
+      position: relative;
+      min-width: 220px;
+      width: 70%;
+  }
 
- .cancel-datepicker-img {
-     position: absolute;
-     width: 25px;
-     right: 2px;
-     top: 5px;
-     transition: all ease-in 0.3s
- }
+  .datepicker-input {
+      text-align: center;
+      width: 100%;
+      padding: 7px 17px 7px 7px;
+      margin-bottom: 15px;
+      border-radius: 6px;
+      border: none;
+      font-size: .9rem;
+      font-weight: normal;
+      line-height: 1.5;
+      background-color: var(--fields-bg-color);
+  }
 
- .cancel-datepicker-img:hover {
-     transform: rotate(90deg) scale(1.1);
-     cursor: pointer;
- }
+  .datepicker-input:focus {
+      outline: none;
+  }
+
+  .cancel-datepicker-img {
+      position: absolute;
+      width: 25px;
+      right: 2px;
+      top: 5px;
+      transition: transform ease-in 0.1s
+  }
+
+  .cancel-datepicker-img:hover {
+      transform: scale(1.2);
+      cursor: pointer;
+  }
+
+  /* History Single Item */
+
+  .history-single-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 10px;
+      background-color: var(--fields-bg-color);
+      width: 100%;
+      margin: 4px 0;
+      border-radius: 5px;
+      transition: all 0.05s ease;
+  }
+
+  .history-single-item .first-div {
+      display: flex;
+      justify-content: space-between;
+      min-width: 40%;
+      /* margin-right: 20%; */
+  }
+
+  .more-img {
+      height: 32px;
+      transition: transform 0.1s ease-in
+  }
+
+  .more-img:hover {
+      cursor: pointer;
+      transform: scale(1.2)
+  }
+
+
+  @media (max-width: 500px) {
+      .history-single-item .first-div {
+          min-width: 65%;
+
+      }
+  }
