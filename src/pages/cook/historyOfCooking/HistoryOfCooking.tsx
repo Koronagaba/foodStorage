@@ -1,8 +1,7 @@
 import { useContext, useState } from 'react';
-
 import { useNavigate, Outlet } from 'react-router-dom';
 import { HistoryOfCookingContext } from '../../../context/HistoryOfCookingContext';
-import { SingleHistoryList } from '../../../types/type';
+import { MatchedRangeHistoryList, SingleHistoryList, SingleHistoryOfCooking } from '../../../types/type';
 
 import './HistoryOfCooking.css';
 import { NestedHistoryListsContext } from '../../../context/NestedHistoryListsContext';
@@ -14,14 +13,16 @@ import close from '../../../icons/close.svg';
 
 let sumMonthList: SingleHistoryList[] = [];
 let sumYearList: SingleHistoryList[] = [];
-let sumRangeList: SingleHistoryList[] = [];
+let sumRangeList: SingleHistoryOfCooking[] = [];
+let sumMatchedRangeList: MatchedRangeHistoryList[] = [];
 
-const HistoryRange: React.FC = () => {
+const HistoryOfCooking: React.FC = () => {
   const { historyOfCooking } = useContext(HistoryOfCookingContext);
 
   const [monthList, setMonthList] = useState<SingleHistoryList[]>([]);
   const [yearList, setYearList] = useState<SingleHistoryList[]>([]);
-  const [rangeList, setRangeList] = useState<SingleHistoryList[]>([]);
+  const [rangeHistoryList, setRangeHistoryList] = useState<SingleHistoryOfCooking[]>([]);
+  const [matchedRangeHistoryList, setMatchedRangeHistoryList] = useState<MatchedRangeHistoryList[]>([]);
   const [startDate, setStartDate] = useState();
   const [endDate, setEndDate] = useState();
 
@@ -39,7 +40,8 @@ const HistoryRange: React.FC = () => {
     const toDatepickerYear = value[1].getFullYear();
 
     historyOfCooking?.forEach((historyItem) => {
-      const { day, month, year } = displayDate(historyItem.createdAt);
+      const { title, amount, id, nameOfMeal, createdAt } = historyItem;
+      const { day, month, year, atTime } = displayDate(historyItem.createdAt);
 
       if (
         day >= fromDatepickerDay &&
@@ -49,26 +51,42 @@ const HistoryRange: React.FC = () => {
         year >= fromDatepickerYear &&
         year <= toDatepickerYear
       ) {
-        const index = sumRangeList.findIndex((sumItem) => {
+        // Adding a product of history from selected time interval
+        sumRangeList.push({
+          title,
+          amount,
+          date: { day, month, year, atTime },
+          createdAt,
+          id,
+          nameOfMeal,
+        });
+      
+
+        // Adding a product of history from selected time interval with the same title 
+        const index = sumMatchedRangeList.findIndex((sumItem) => {
           return sumItem.title === historyItem.title;
         });
         if (index === -1) {
-          sumRangeList.push({
+          sumMatchedRangeList.push({
             title: historyItem.title,
             amount: historyItem.amount,
             id: historyItem.id,
+            details: false
           });
         } else {
-          sumRangeList[index] = {
-            title: sumRangeList[index].title,
-            amount: sumRangeList[index].amount + historyItem.amount,
-            id: sumRangeList[index].id,
+          sumMatchedRangeList[index] = {
+            title: sumMatchedRangeList[index].title,
+            amount: sumMatchedRangeList[index].amount + historyItem.amount,
+            id: sumMatchedRangeList[index].id,
+            details: false
           };
         }
       }
     });
-    setRangeList(sumRangeList);
+    setRangeHistoryList(sumRangeList);
     sumRangeList = [];
+    setMatchedRangeHistoryList(sumMatchedRangeList)
+    sumMatchedRangeList = []
     navigate('/cook/history/rangeHistory');
 
     // //if clear
@@ -156,7 +174,8 @@ const HistoryRange: React.FC = () => {
   const clearDatepickerField = () => {
     setStartDate(undefined);
     setEndDate(undefined);
-    setRangeList([]);
+    // setRangeHistoryList([]);
+    setMatchedRangeHistoryList([])
   };
 
   return (
@@ -180,7 +199,7 @@ const HistoryRange: React.FC = () => {
           />
         </div>
         <NestedHistoryListsContext.Provider
-          value={{ monthList, yearList, rangeList }}
+          value={{ monthList, yearList, rangeHistoryList, matchedRangeHistoryList}}
         >
           <Outlet />
         </NestedHistoryListsContext.Provider>
@@ -189,4 +208,4 @@ const HistoryRange: React.FC = () => {
   );
 };
 
-export default HistoryRange;
+export default HistoryOfCooking;

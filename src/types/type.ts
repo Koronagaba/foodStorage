@@ -67,6 +67,13 @@ export interface SingleHistoryList {
   id: string
 }
 
+export interface MatchedRangeHistoryList {
+  title: string;
+  amount: number;
+  id: string,
+  details: boolean
+}
+
 export type SingleShopProductProps = {
   productOfShoppingList: ShoppingListProduct;
   // toggleEdit: (id: number, itemTitle: string, itemAmount: number, itemIsEditing: boolean) => void;
