@@ -1,53 +1,66 @@
 import { useContext, FC } from 'react';
 import { NestedHistoryListsContext } from '../../../../context/NestedHistoryListsContext';
-import { SingleHistoryList } from '../../../../types/type';
 import close from '../../../../icons/close.svg';
 
 interface PropsMoreInformation {
-  //   matchedHistoryItemTitle: string;
-  text: string;
-  setText: (text: string) => void;
-
+  historyTitle: string;
+  setHistoryTitle: (text: string) => void;
+  showModal: boolean;
+  setShowModal: (isModal: boolean) => void;
+  historyTotalAmount: number;
 }
 
-const MoreInformation: FC<PropsMoreInformation> = ({ text, setText }) => {
+const MoreInformation: FC<PropsMoreInformation> = ({
+  historyTitle,
+  setHistoryTitle,
+  showModal,
+  setShowModal,
+  historyTotalAmount,
+}) => {
   const { rangeHistoryList } = useContext(NestedHistoryListsContext);
 
   const closeMoreInformation = () => {
-    setText('');
- 
+    setHistoryTitle('');
+    setShowModal(false);
   };
 
   const filteredWithTheSameTitle = rangeHistoryList.filter(
-    (filterItem) => filterItem.title === text
+    (filterItem) => filterItem.title === historyTitle
   );
   console.log(filteredWithTheSameTitle);
 
   const displayList = filteredWithTheSameTitle.map((item) => (
     <div className="history-details-single-item" key={item.id}>
       <div className="first-div">
-        <p>{item.title}</p>
-        <p>{item.amount}</p>
-        <p>{item.nameOfMeal}</p>
-        <p>
-          {item.date?.day}-{item.date?.month}-{item.date?.year}
+        <p >
+          {item.date?.day}/{item.date?.month}/{item.date?.year} -{' '}
+          {item.date?.atTime}
         </p>
+      </div>
+      <div className="second-div">
+        <p>{item.nameOfMeal}</p>
+        <p className='amount'>{item.amount}</p>
       </div>
     </div>
   ));
 
-  // console.log(filteredWithTheSameTitle);
-
+  const modalStyle = showModal ? 'details-modal-container' : '';
   return (
-    <div >
+    <div className={modalStyle}>
       {displayList.length ? (
-        <div className='details-inner' >
-          <img
-            src={close}
-            alt="close"
-            className="more-img"
-            onClick={closeMoreInformation}
-          />
+        <div className="details-inner">
+          <div className="details-header">
+            <div>
+              <p>Total amount: {historyTotalAmount}</p>
+              <img
+                src={close}
+                alt="close"
+                className="close-img"
+                onClick={closeMoreInformation}
+              />
+            </div>
+            <h1>{historyTitle}</h1>
+          </div>
 
           {displayList}
         </div>

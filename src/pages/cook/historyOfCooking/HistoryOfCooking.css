@@ -1,6 +1,7 @@
   /* Datepicker */
   .datepicker-container {
       background-color: var(--main-bg-color);
+
   }
 
   .datepicker-wrapper {
@@ -52,6 +53,7 @@
   /* History Single Item */
 
   .history-single-item {
+      position: relative;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -80,10 +82,90 @@
       transform: scale(1.2)
   }
 
+  /* More information */
+
+  .history-details-single-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 3px 10px;
+      background-color: var(--fields-bg-color);
+      width: 100%;
+      margin: 4px 0;
+      border-radius: 5px;
+      transition: all 0.05s ease;
+  }
+
+  .history-details-single-item .first-div {
+      min-width: 30%;
+
+  }
+  .history-details-single-item p{
+    font-size: .9rem;
+  }
+  .history-details-single-item .amount{
+    font-size: 1.1rem;
+  }
+  .history-details-single-item .second-div{
+    display: flex;
+    justify-content: space-between;
+    min-width: 45%;
+          max-width: 70%;
+  } 
+
+  .details-modal-container {
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.8);
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 10;
+  }
+
+  .details-inner {
+      margin: 11% auto;
+      max-width: 550px;
+      /* width: 80%; */
+      z-index: 111
+  }
+
+  .details-header {
+      background-color: var(--fields-bg-color);
+      text-align: center;
+      padding: 0 10px 10px 10px;
+    border-radius: 7px;
+  }
+
+  .details-header div {
+      display: flex;
+      justify-content: space-between;
+  }
+
+  .details-header p {
+      align-self: center;
+  }
+
+  .close-img {
+      width: 30px;
+      transition: transform 0.1s ease-in
+  }
+
+  .close-img:hover {
+      cursor: pointer;
+      transform: scale(1.2)
+  }
+
 
   @media (max-width: 500px) {
       .history-single-item .first-div {
           min-width: 65%;
+      }
+  
+  }
 
+  @media (max-width: 800px) {
+      .details-inner {
+          width: 93%
       }
   }

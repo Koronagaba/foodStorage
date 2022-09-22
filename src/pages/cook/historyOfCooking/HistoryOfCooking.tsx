@@ -88,11 +88,6 @@ const HistoryOfCooking: React.FC = () => {
     setMatchedRangeHistoryList(sumMatchedRangeList)
     sumMatchedRangeList = []
     navigate('/cook/history/rangeHistory');
-
-    // //if clear
-    // console.log('Clear');
-    // sumRangeList = [];
-    // setRangeList([]);
   };
 
   const monthSelect = (dates: any, dateStrings: any) => {
