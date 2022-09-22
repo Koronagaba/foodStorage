@@ -19,17 +19,18 @@ const MoreInformation: FC<PropsMoreInformation> = ({
 }) => {
   const { rangeHistoryList } = useContext(NestedHistoryListsContext);
 
+  const historyTitleCapitalFirst = historyTitle.charAt(0).toUpperCase() + historyTitle.slice(1);
+
   const closeMoreInformation = () => {
     setHistoryTitle('');
     setShowModal(false);
   };
 
   const filteredWithTheSameTitle = rangeHistoryList.filter(
-    (filterItem) => filterItem.title === historyTitle
+    (filterItem) => filterItem.title.toLowerCase() === historyTitle.toLocaleLowerCase()
   );
 
-  const displayList = filteredWithTheSameTitle.map((item) => {
-    return (
+  const displayList = filteredWithTheSameTitle.map((item) => (
       <div className="history-details-single-item" key={item.id}>
         <div className="first-div">
           <p className="date">
@@ -48,10 +49,10 @@ const MoreInformation: FC<PropsMoreInformation> = ({
           <p className="amount">{item.amount}</p>
         </div>
       </div>
-    );
-  });
+  ));
 
   const modalStyle = showModal ? 'details-modal-container' : '';
+
   return (
     <div className={modalStyle}>
       {displayList.length ? (
@@ -66,7 +67,7 @@ const MoreInformation: FC<PropsMoreInformation> = ({
                 onClick={closeMoreInformation}
               />
             </div>
-            <h1>{historyTitle}</h1>
+            <h1>{historyTitleCapitalFirst}</h1>
           </div>
 
           {displayList}

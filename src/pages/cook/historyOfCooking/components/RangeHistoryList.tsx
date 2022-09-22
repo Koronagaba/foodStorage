@@ -11,7 +11,7 @@ const RangeHistoryList = () => {
   const [showModal, setShowModal] = useState(false);
   const { matchedRangeHistoryList } = useContext(NestedHistoryListsContext);
 
-  const moreInformation = (matchedHistoryItem: MatchedRangeHistoryList) => {
+  const handleShowDetails = (matchedHistoryItem: MatchedRangeHistoryList) => {
     setHistoryTitle(matchedHistoryItem.title);
     setShowModal(true);
     setHistoryTotalAmount(matchedHistoryItem.amount)
@@ -29,7 +29,7 @@ const RangeHistoryList = () => {
             src={expand_more}
             alt="more information"
             className="more-img"
-            onClick={() => moreInformation(matchedHistoryItem)}
+            onClick={() => handleShowDetails(matchedHistoryItem)}
           />
           {/* <img src={more_vert} alt="more information" className='more-img' /> */}
         </div>
