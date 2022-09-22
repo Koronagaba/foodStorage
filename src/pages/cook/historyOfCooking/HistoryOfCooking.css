@@ -1,3 +1,5 @@
+
+
   /* Datepicker */
   .datepicker-container {
       background-color: var(--main-bg-color);
@@ -11,20 +13,31 @@
       width: 92%;
       margin: 0 auto;
       padding-top: 5px;
-
+     
   }
-
   .datepicker {
       position: relative;
       min-width: 220px;
-      width: 70%;
+      width: 100%;
+   
+  }
+
+  .range-history-lisit-container {
+    margin-top: 10px;
+  }
+
+  .space-beetwen{
+    border-bottom: 1px solid black;
+    width: 106%;
+    height: 20px;
+    border-radius: 20px;
+    transform: translateX(-3%);
   }
 
   .datepicker-input {
       text-align: center;
       width: 100%;
       padding: 7px 17px 7px 7px;
-      margin-bottom: 15px;
       border-radius: 6px;
       border: none;
       font-size: .9rem;
@@ -98,13 +111,17 @@
 
   .history-details-single-item .first-div {
       min-width: 30%;
-
   }
-  .history-details-single-item p{
+.history-details-single-item .date{
+    /* font-family: 'Roboto', sans-serif; */
     font-size: .9rem;
+}
+
+  .history-details-single-item p{
+    /* font-size: .9rem; */
   }
   .history-details-single-item .amount{
-    font-size: 1.1rem;
+    /* font-size: 1.1rem; */
   }
   .history-details-single-item .second-div{
     display: flex;
@@ -168,4 +185,5 @@
       .details-inner {
           width: 93%
       }
+    
   }

@@ -193,6 +193,7 @@ const HistoryOfCooking: React.FC = () => {
             onClick={clearDatepickerField}
           />
         </div>
+        <div className="space-beetwen"></div>
         <NestedHistoryListsContext.Provider
           value={{ monthList, yearList, rangeHistoryList, matchedRangeHistoryList}}
         >

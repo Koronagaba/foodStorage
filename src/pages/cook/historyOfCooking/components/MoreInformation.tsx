@@ -32,7 +32,7 @@ const MoreInformation: FC<PropsMoreInformation> = ({
   const displayList = filteredWithTheSameTitle.map((item) => (
     <div className="history-details-single-item" key={item.id}>
       <div className="first-div">
-        <p >
+        <p className="date">
           {item.date?.day}/{item.date?.month}/{item.date?.year} -{' '}
           {item.date?.atTime}
         </p>

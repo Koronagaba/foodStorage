@@ -38,7 +38,7 @@ const RangeHistoryList = () => {
   );
 
   return (
-    <>
+    <div className='range-history-lisit-container'>
       {matchedRangeHistoryList.length ? (
         displayRangeHistoryList
       ) : (
@@ -52,7 +52,7 @@ const RangeHistoryList = () => {
         setShowModal={setShowModal}
         historyTotalAmount={historyTotalAmount}
       />
-    </>
+    </div>
   );
 };
 
