@@ -40,24 +40,23 @@ const HistoryOfCooking: React.FC = () => {
   const rangeDateHandler = (value: any) => {
     setStartDate(value[0]);
     setEndDate(value[1]);
-    const fromDatepickerDay = value[0].getDate();
-    const fromDatepickerMonth = value[0].getMonth() + 1;
-    const fromDatepickerYear = value[0].getFullYear();
-    const toDatepickerDay = value[1].getDate();
-    const toDatepickerMonth = value[1].getMonth() + 1;
-    const toDatepickerYear = value[1].getFullYear();
+    // Calculation datepicker Days from 01/01/1970 - rounded up
+    const fromDatepickerDaysFrom1970 = Math.ceil(value[0].getTime() / 86400000);
+    const toDatepickerDaysFrom1970 = Math.ceil(value[1].getTime() / 86400000);
 
     historyOfCooking?.forEach((historyItem) => {
       const { title, amount, id, nameOfMeal, createdAt } = historyItem;
       const { day, month, year, atTime } = displayDate(historyItem.createdAt);
 
+      // Calculation historyItem Days from 1/1/1970 -  rounded up
+      const historyItemDaysFrom1970 = Math.floor(
+        historyItem.createdAt.seconds / 86400
+      );
+      console.log(historyItemDaysFrom1970);
+
       if (
-        day >= fromDatepickerDay &&
-        day <= toDatepickerDay &&
-        month >= fromDatepickerMonth &&
-        month <= toDatepickerMonth &&
-        year >= fromDatepickerYear &&
-        year <= toDatepickerYear
+        historyItemDaysFrom1970 >= fromDatepickerDaysFrom1970 &&
+        historyItemDaysFrom1970 <= toDatepickerDaysFrom1970
       ) {
         // Adding a product of history from selected time interval
         sumRangeList.push({

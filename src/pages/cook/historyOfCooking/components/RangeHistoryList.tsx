@@ -7,38 +7,40 @@ import MoreInformation from './MoreInformation';
 
 const RangeHistoryList = () => {
   const [historyTitle, setHistoryTitle] = useState('');
-  const [historyTotalAmount, setHistoryTotalAmount] = useState(0)
+  const [historyTotalAmount, setHistoryTotalAmount] = useState(0);
   const [showModal, setShowModal] = useState(false);
   const { matchedRangeHistoryList } = useContext(NestedHistoryListsContext);
 
   const handleShowDetails = (matchedHistoryItem: MatchedRangeHistoryList) => {
     setHistoryTitle(matchedHistoryItem.title);
     setShowModal(true);
-    setHistoryTotalAmount(matchedHistoryItem.amount)
+    setHistoryTotalAmount(matchedHistoryItem.amount);
   };
 
   const displayRangeHistoryList = matchedRangeHistoryList.map(
-    (matchedHistoryItem) => (
-      <>
-        <div className="history-single-item" key={matchedHistoryItem.id}>
-          <div className="first-div">
-            <p>{matchedHistoryItem.title}</p>
-            <p>{matchedHistoryItem.amount}</p>
+    (matchedHistoryItem) => {
+      return (
+        <>
+          <div key={matchedHistoryItem.id} className="history-single-item">
+            <div className="first-div">
+              <p>{matchedHistoryItem.title}</p>
+              <p>{matchedHistoryItem.amount}</p>
+            </div>
+            <img
+              src={expand_more}
+              alt="more information"
+              className="more-img"
+              onClick={() => handleShowDetails(matchedHistoryItem)}
+            />
+            {/* <img src={more_vert} alt="more information" className='more-img' /> */}
           </div>
-          <img
-            src={expand_more}
-            alt="more information"
-            className="more-img"
-            onClick={() => handleShowDetails(matchedHistoryItem)}
-          />
-          {/* <img src={more_vert} alt="more information" className='more-img' /> */}
-        </div>
-      </>
-    )
+        </>
+      );
+    }
   );
 
   return (
-    <div className='range-history-lisit-container'>
+    <div className="range-history-lisit-container">
       {matchedRangeHistoryList.length ? (
         displayRangeHistoryList
       ) : (
