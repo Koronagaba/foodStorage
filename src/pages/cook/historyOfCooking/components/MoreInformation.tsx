@@ -27,22 +27,29 @@ const MoreInformation: FC<PropsMoreInformation> = ({
   const filteredWithTheSameTitle = rangeHistoryList.filter(
     (filterItem) => filterItem.title === historyTitle
   );
-  console.log(filteredWithTheSameTitle);
 
-  const displayList = filteredWithTheSameTitle.map((item) => (
-    <div className="history-details-single-item" key={item.id}>
-      <div className="first-div">
-        <p className="date">
-          {item.date?.day}/{item.date?.month}/{item.date?.year} -{' '}
-          {item.date?.atTime}
-        </p>
+  const displayList = filteredWithTheSameTitle.map((item) => {
+    return (
+      <div className="history-details-single-item" key={item.id}>
+        <div className="first-div">
+          <p className="date">
+            {item.date?.day.toString().length === 1
+              ? 0 + item.date?.day.toString()
+              : item.date?.day}
+            /
+            {item.date?.month.toString().length === 1
+              ? 0 + item.date?.month.toString()
+              : item.date?.month}
+            /{item.date?.year} - {item.date?.atTime}
+          </p>
+        </div>
+        <div className="second-div">
+          <p>{item.nameOfMeal}</p>
+          <p className="amount">{item.amount}</p>
+        </div>
       </div>
-      <div className="second-div">
-        <p>{item.nameOfMeal}</p>
-        <p className='amount'>{item.amount}</p>
-      </div>
-    </div>
-  ));
+    );
+  });
 
   const modalStyle = showModal ? 'details-modal-container' : '';
   return (

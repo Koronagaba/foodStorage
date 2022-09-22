@@ -1,7 +1,11 @@
 import { useContext, useState } from 'react';
 import { useNavigate, Outlet } from 'react-router-dom';
 import { HistoryOfCookingContext } from '../../../context/HistoryOfCookingContext';
-import { MatchedRangeHistoryList, SingleHistoryList, SingleHistoryOfCooking } from '../../../types/type';
+import {
+  MatchedRangeHistoryList,
+  SingleHistoryList,
+  SingleHistoryOfCooking,
+} from '../../../types/type';
 
 import './HistoryOfCooking.css';
 import { NestedHistoryListsContext } from '../../../context/NestedHistoryListsContext';
@@ -21,8 +25,12 @@ const HistoryOfCooking: React.FC = () => {
 
   const [monthList, setMonthList] = useState<SingleHistoryList[]>([]);
   const [yearList, setYearList] = useState<SingleHistoryList[]>([]);
-  const [rangeHistoryList, setRangeHistoryList] = useState<SingleHistoryOfCooking[]>([]);
-  const [matchedRangeHistoryList, setMatchedRangeHistoryList] = useState<MatchedRangeHistoryList[]>([]);
+  const [rangeHistoryList, setRangeHistoryList] = useState<
+    SingleHistoryOfCooking[]
+  >([]);
+  const [matchedRangeHistoryList, setMatchedRangeHistoryList] = useState<
+    MatchedRangeHistoryList[]
+  >([]);
   const [startDate, setStartDate] = useState();
   const [endDate, setEndDate] = useState();
 
@@ -60,9 +68,8 @@ const HistoryOfCooking: React.FC = () => {
           id,
           nameOfMeal,
         });
-      
 
-        // Adding a product of history from selected time interval with the same title 
+        // Adding a product of history from selected time interval with the same title
         const index = sumMatchedRangeList.findIndex((sumItem) => {
           return sumItem.title === historyItem.title;
         });
@@ -71,22 +78,22 @@ const HistoryOfCooking: React.FC = () => {
             title: historyItem.title,
             amount: historyItem.amount,
             id: historyItem.id,
-            details: false
+            details: false,
           });
         } else {
           sumMatchedRangeList[index] = {
             title: sumMatchedRangeList[index].title,
             amount: sumMatchedRangeList[index].amount + historyItem.amount,
             id: sumMatchedRangeList[index].id,
-            details: false
+            details: false,
           };
         }
       }
     });
     setRangeHistoryList(sumRangeList);
     sumRangeList = [];
-    setMatchedRangeHistoryList(sumMatchedRangeList)
-    sumMatchedRangeList = []
+    setMatchedRangeHistoryList(sumMatchedRangeList);
+    sumMatchedRangeList = [];
     navigate('/cook/history/rangeHistory');
   };
 
@@ -170,7 +177,7 @@ const HistoryOfCooking: React.FC = () => {
     setStartDate(undefined);
     setEndDate(undefined);
     // setRangeHistoryList([]);
-    setMatchedRangeHistoryList([])
+    setMatchedRangeHistoryList([]);
   };
 
   return (
@@ -195,7 +202,12 @@ const HistoryOfCooking: React.FC = () => {
         </div>
         <div className="space-beetwen"></div>
         <NestedHistoryListsContext.Provider
-          value={{ monthList, yearList, rangeHistoryList, matchedRangeHistoryList}}
+          value={{
+            monthList,
+            yearList,
+            rangeHistoryList,
+            matchedRangeHistoryList,
+          }}
         >
           <Outlet />
         </NestedHistoryListsContext.Provider>
