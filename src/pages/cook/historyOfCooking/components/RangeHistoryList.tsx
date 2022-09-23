@@ -17,11 +17,19 @@ const RangeHistoryList = () => {
     setHistoryTotalAmount(matchedHistoryItem.amount);
   };
 
+  // const clickDiv = () => {
+  //   setShowModal(true)
+  // }
+
   const displayRangeHistoryList = matchedRangeHistoryList.map(
     (matchedHistoryItem) => {
       return (
         <>
-          <div key={matchedHistoryItem.id} className="history-single-item">
+          <div
+               onClick={() => handleShowDetails(matchedHistoryItem)}
+            key={matchedHistoryItem.id}
+            className="history-single-item"
+          >
             <div className="first-div">
               <p>{matchedHistoryItem.title}</p>
               <p>{matchedHistoryItem.amount}</p>
