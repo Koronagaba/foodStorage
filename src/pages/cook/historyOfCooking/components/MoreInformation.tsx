@@ -1,4 +1,4 @@
-import { useContext, FC } from 'react';
+import { useContext, FC, useRef, useEffect } from 'react';
 import { NestedHistoryListsContext } from '../../../../context/NestedHistoryListsContext';
 import close from '../../../../icons/close.svg';
 
@@ -18,8 +18,10 @@ const MoreInformation: FC<PropsMoreInformation> = ({
   historyTotalAmount,
 }) => {
   const { rangeHistoryList } = useContext(NestedHistoryListsContext);
+  const wrapperRef = useRef<HTMLDivElement>(null);
 
-  const historyTitleCapitalFirst = historyTitle.charAt(0).toUpperCase() + historyTitle.slice(1);
+  const historyTitleCapitalFirst =
+    historyTitle.charAt(0).toUpperCase() + historyTitle.slice(1);
 
   const closeMoreInformation = () => {
     setHistoryTitle('');
@@ -27,36 +29,55 @@ const MoreInformation: FC<PropsMoreInformation> = ({
   };
 
   const filteredWithTheSameTitle = rangeHistoryList.filter(
-    (filterItem) => filterItem.title.toLowerCase() === historyTitle.toLocaleLowerCase()
+    (filterItem) =>
+      filterItem.title.toLowerCase() === historyTitle.toLocaleLowerCase()
   );
 
   const displayList = filteredWithTheSameTitle.map((item) => (
-      <div className="history-details-single-item" key={item.id}>
-        <div className="first-div">
-          <p className="date">
-            {item.date?.day.toString().length === 1
-              ? 0 + item.date?.day.toString()
-              : item.date?.day}
-            /
-            {item.date?.month.toString().length === 1
-              ? 0 + item.date?.month.toString()
-              : item.date?.month}
-            /{item.date?.year} - {item.date?.atTime}
-          </p>
-        </div>
-        <div className="second-div">
-          <p>{item.nameOfMeal}</p>
-          <p className="amount">{item.amount}</p>
-        </div>
+    <div className="history-details-single-item" key={item.id}>
+      <div className="first-div">
+        <p className="date">
+          {item.date?.day.toString().length === 1
+            ? 0 + item.date?.day.toString()
+            : item.date?.day}
+          /
+          {item.date?.month.toString().length === 1
+            ? 0 + item.date?.month.toString()
+            : item.date?.month}
+          /{item.date?.year} - {item.date?.atTime}
+        </p>
       </div>
+      <div className="second-div">
+        <p>{item.nameOfMeal}</p>
+        <p className="amount">{item.amount}</p>
+      </div>
+    </div>
   ));
 
   const modalStyle = showModal ? 'details-modal-container' : '';
 
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        wrapperRef.current &&
+        !wrapperRef.current.contains(event.target as Node)
+      ) {
+        console.log('You clicked outside of me!');
+        setShowModal(false);
+        setHistoryTitle('');
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [setShowModal, setHistoryTitle]);
+
   return (
     <div className={modalStyle}>
       {displayList.length ? (
-        <div className="details-inner">
+        <div ref={wrapperRef} className="details-inner">
           <div className="details-header">
             <div>
               <p>Total amount: {historyTotalAmount}</p>

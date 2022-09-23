@@ -20,13 +20,15 @@ const RangeHistoryList = () => {
   // const clickDiv = () => {
   //   setShowModal(true)
   // }
+  
+
 
   const displayRangeHistoryList = matchedRangeHistoryList.map(
     (matchedHistoryItem) => {
       return (
         <>
           <div
-               onClick={() => handleShowDetails(matchedHistoryItem)}
+            onClick={() => handleShowDetails(matchedHistoryItem)}
             key={matchedHistoryItem.id}
             className="history-single-item"
           >
