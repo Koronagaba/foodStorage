@@ -17,9 +17,8 @@
 
 :root {
   --main-bg-color: darkslategray;
-  /* --fields-bg-color: #f2e5dc; */
   --fields-bg-color: #fefefe;
-  --fields-hover-bg-color: #e0d0c3;
+  --fields-hover-bg-color: #e7d8ce;
   --nav-bg-color: #000;
   --nav-color: #777;
   --btns-bg: linear-gradient(90deg,
@@ -34,7 +33,7 @@ body.dark {
   --main-bg-color: #000;
   /* --fields-bg-color: #f7f2ee; */
   --fields-bg-color: #fff;
-  --fields-hover-bg-color: #cdc5c0;
+  /* --fields-hover-bg-color: #d4bfb1; */
   --nav-bg-color: #222;
   --nav-color: #999;
 }

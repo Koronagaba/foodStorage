@@ -7,10 +7,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 8px 10px;
+  padding: 2px 10px;
   background-color: var(--fields-bg-color);
-  width: 85%;
-  margin: 4px 0;
+  width: 90%;
+  margin: 3px 0;
   border-radius: 5px;
   transition: all 0.05s ease;
 }
@@ -59,8 +59,9 @@ padding-top: 20px
 }
 
 .send-img {
-  width: 10%;
-  height: 43px;
+  width: 8%;
+  height: 29px;
+  font-weight: lighter;
   margin: auto 0;
   background-color: var(--fields-bg-color);
   border-radius: 5px;
