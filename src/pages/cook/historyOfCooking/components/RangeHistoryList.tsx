@@ -17,12 +17,6 @@ const RangeHistoryList = () => {
     setHistoryTotalAmount(matchedHistoryItem.amount);
   };
 
-  // const clickDiv = () => {
-  //   setShowModal(true)
-  // }
-  
-
-
   const displayRangeHistoryList = matchedRangeHistoryList.map(
     (matchedHistoryItem) => {
       return (
@@ -51,11 +45,7 @@ const RangeHistoryList = () => {
 
   return (
     <div className="range-history-lisit-container">
-      {matchedRangeHistoryList.length ? (
-        displayRangeHistoryList
-      ) : (
-        <p>Empty history</p>
-      )}
+      {displayRangeHistoryList}
       <MoreInformation
         // matchedHistoryItemTitle={matchedHistoryItem.title}
         historyTitle={historyTitle}
