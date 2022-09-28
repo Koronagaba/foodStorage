@@ -15,7 +15,6 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import close from '../../../icons/close.svg';
 
-
 const HistoryOfCooking: React.FC = () => {
   const { historyOfCooking } = useContext(HistoryOfCookingContext);
 
@@ -139,11 +138,11 @@ const HistoryOfCooking: React.FC = () => {
           };
         }
       }
+      setRangeHistoryList(rangeList);
+      setMatchedRangeHistoryList(matchedRangeList);
+      navigate(`month_${monthFromHistory}`);
     });
-    setRangeHistoryList(rangeList);
-    setMatchedRangeHistoryList(matchedRangeList);
 
-    navigate('rangeHistory');
   };
 
   const yearSelect = () => {
@@ -154,7 +153,6 @@ const HistoryOfCooking: React.FC = () => {
       const yearFromHistory = new Date(
         historyItem.createdAt.seconds * 1000
       ).getFullYear();
-
 
       if (currentYear === yearFromHistory) {
         rangeList.push({
@@ -185,11 +183,10 @@ const HistoryOfCooking: React.FC = () => {
           };
         }
       }
+      setRangeHistoryList(rangeList);
+      setMatchedRangeHistoryList(matchedRangeList);
+      navigate(`year_${yearFromHistory}`);
     });
-    setRangeHistoryList(rangeList);
-    setMatchedRangeHistoryList(matchedRangeList);
-
-    navigate('rangeHistory');
   };
 
   const clearDatepickerField = () => {
@@ -197,7 +194,6 @@ const HistoryOfCooking: React.FC = () => {
     setEndDate(null);
     setMatchedRangeHistoryList([]);
   };
-
 
   return (
     <div className="datepicker-container">
@@ -212,23 +208,17 @@ const HistoryOfCooking: React.FC = () => {
             className="datepicker"
             placeholderText="Please select date..."
             inline
-          >
-        </DatePicker>
+          ></DatePicker>
           <div className="btns-datepicker">
-          
             <button onClick={monthSelect}>Month</button>
             <button onClick={yearSelect}>Year</button>
             <button onClick={clearDatepickerField}>Clear</button>
-         
           </div>
         </div>
-    
-   
+
         <div className="space-beetwen"></div>
         <NestedHistoryListsContext.Provider
           value={{
-            monthList,
-            yearList,
             rangeHistoryList,
             matchedRangeHistoryList,
           }}

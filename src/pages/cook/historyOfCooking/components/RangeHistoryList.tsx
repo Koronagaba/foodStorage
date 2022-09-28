@@ -3,7 +3,6 @@ import { NestedHistoryListsContext } from '../../../../context/NestedHistoryList
 import expand_more from '../../../../icons/expand_more.svg';
 import { MatchedRangeHistoryList } from '../../../../types/type';
 import MoreInformation from './MoreInformation';
-// import more_vert from '../../../../icons/more_vert.svg';
 
 const RangeHistoryList = () => {
   const [historyTitle, setHistoryTitle] = useState('');
@@ -36,7 +35,6 @@ const RangeHistoryList = () => {
               className="more-img"
               onClick={() => handleShowDetails(matchedHistoryItem)}
             />
-            {/* <img src={more_vert} alt="more information" className='more-img' /> */}
           </div>
         </>
       );
@@ -47,7 +45,6 @@ const RangeHistoryList = () => {
     <div className="range-history-lisit-container">
       {displayRangeHistoryList}
       <MoreInformation
-        // matchedHistoryItemTitle={matchedHistoryItem.title}
         historyTitle={historyTitle}
         setHistoryTitle={setHistoryTitle}
         showModal={showModal}

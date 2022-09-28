@@ -1,18 +1,56 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { NestedHistoryListsContext } from '../../../../context/NestedHistoryListsContext';
+import expand_more from '../../../../icons/expand_more.svg';
+import { MatchedRangeHistoryList } from '../../../../types/type';
+import MoreInformation from './MoreInformation';
 
 const MonthHistory = () => {
-  const { monthList } = useContext(NestedHistoryListsContext);
+  const [historyTitle, setHistoryTitle] = useState('');
+  const [historyTotalAmount, setHistoryTotalAmount] = useState(0);
+  const [showModal, setShowModal] = useState(false);
+  const { matchedRangeHistoryList } = useContext(NestedHistoryListsContext);
 
-  const displayMonthList = monthList.map((item) => (
-    <div key={item.id}>
-      <p>
-        {item.title} -{item.amount} 
-      </p>
+  const handleShowDetails = (matchedHistoryItem: MatchedRangeHistoryList) => {
+    setHistoryTitle(matchedHistoryItem.title);
+    setShowModal(true);
+    setHistoryTotalAmount(matchedHistoryItem.amount);
+  };
+
+  const displayMonthList = matchedRangeHistoryList.map((matchedHistoryItem) => {
+    return (
+      <>
+        <div
+          onClick={() => handleShowDetails(matchedHistoryItem)}
+          key={matchedHistoryItem.id}
+          className="history-single-item"
+        >
+          <div className="first-div">
+            <p>{matchedHistoryItem.title}</p>
+            <p>{matchedHistoryItem.amount}</p>
+          </div>
+          <img
+            src={expand_more}
+            alt="more information"
+            className="more-img"
+            onClick={() => handleShowDetails(matchedHistoryItem)}
+          />
+        </div>
+      </>
+    );
+  });
+
+  return (
+    <div className="range-history-lisit-container">
+      {displayMonthList}
+      <MoreInformation
+        historyTitle={historyTitle}
+        setHistoryTitle={setHistoryTitle}
+        showModal={showModal}
+        setShowModal={setShowModal}
+        historyTotalAmount={historyTotalAmount}
+      />
     </div>
-  ));
-
-  return <div>{monthList.length ? displayMonthList : <p>List is empty</p>}</div>;
+  );
 };
 
 export default MonthHistory;
