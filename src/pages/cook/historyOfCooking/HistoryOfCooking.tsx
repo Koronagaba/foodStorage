@@ -15,6 +15,7 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import close from '../../../icons/close.svg';
 
+
 const HistoryOfCooking: React.FC = () => {
   const { historyOfCooking } = useContext(HistoryOfCookingContext);
 
@@ -94,7 +95,6 @@ const HistoryOfCooking: React.FC = () => {
 
   const rangeDateHandler = (dates: Array<Date | null>) => {
     const [start, end] = dates;
-    console.log(start, end);
 
     setStartDate(start);
     setEndDate(end);
@@ -154,7 +154,7 @@ const HistoryOfCooking: React.FC = () => {
       const yearFromHistory = new Date(
         historyItem.createdAt.seconds * 1000
       ).getFullYear();
-      // console.log(yearFromHistory);
+
 
       if (currentYear === yearFromHistory) {
         rangeList.push({
@@ -162,7 +162,7 @@ const HistoryOfCooking: React.FC = () => {
           amount: historyItem.amount,
           id: historyItem.id,
           createdAt: historyItem.createdAt,
-          nameOfMeal: historyItem.nameOfMeal, 
+          nameOfMeal: historyItem.nameOfMeal,
           date: { day, month, year, atTime },
         });
 
@@ -190,10 +190,6 @@ const HistoryOfCooking: React.FC = () => {
     setMatchedRangeHistoryList(matchedRangeList);
 
     navigate('rangeHistory');
-    // } else {
-    //   console.log('Clear year');
-    //   setYearList([]);
-    // }
   };
 
   const clearDatepickerField = () => {
@@ -201,6 +197,7 @@ const HistoryOfCooking: React.FC = () => {
     setEndDate(null);
     setMatchedRangeHistoryList([]);
   };
+
 
   return (
     <div className="datepicker-container">
@@ -216,17 +213,17 @@ const HistoryOfCooking: React.FC = () => {
             placeholderText="Please select date..."
             inline
           >
+        </DatePicker>
+          <div className="btns-datepicker">
+          
             <button onClick={monthSelect}>Month</button>
             <button onClick={yearSelect}>Year</button>
             <button onClick={clearDatepickerField}>Clear</button>
-            {/* <img
-            src={close}
-            alt="cancel datepicker input"
-            className="cancel-datepicker-img"
-            onClick={clearDatepickerField}
-          /> */}
-          </DatePicker>
+         
+          </div>
         </div>
+    
+   
         <div className="space-beetwen"></div>
         <NestedHistoryListsContext.Provider
           value={{
