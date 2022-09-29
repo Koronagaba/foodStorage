@@ -142,7 +142,6 @@ const HistoryOfCooking: React.FC = () => {
       setMatchedRangeHistoryList(matchedRangeList);
       navigate(`month_${monthFromHistory}`);
     });
-
   };
 
   const yearSelect = () => {
@@ -217,6 +216,7 @@ const HistoryOfCooking: React.FC = () => {
         </div>
 
         <div className="space-beetwen"></div>
+
         <NestedHistoryListsContext.Provider
           value={{
             rangeHistoryList,
