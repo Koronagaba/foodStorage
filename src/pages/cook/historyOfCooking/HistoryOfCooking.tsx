@@ -192,6 +192,7 @@ const HistoryOfCooking: React.FC = () => {
     setStartDate(null);
     setEndDate(null);
     setMatchedRangeHistoryList([]);
+    navigate('/cook/history');
   };
 
   return (
