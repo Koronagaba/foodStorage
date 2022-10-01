@@ -2,31 +2,56 @@
   display: flex;
   align-items: center;
   border-radius: 10px;
-  margin: 7px 0;
+  margin: 5px 0;
   padding: 0 2%;
   justify-content: space-between;
-  /* background-color: hsl(33, 100%, 88%); */
   background-color: var(--fields-bg-color);
   transition: ease-in-out 0.2s;
 }
+
 .ingredient:hover {
   background-color: var(--fields-hover-bg-color);
 }
-.ingredient-title {
-  width: 80%;
-  margin-right: 20px;;
+
+.ingredient-header {
+  display: flex;
+  align-items: center;
+
+}
+
+.amount-ingredient {
+  font-size: 0.7rem;
+  margin-left: 3px;
 }
 
 .ingredient form {
-  width: 30%;
-  margin-right: 5px;
+  width: 37%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ingredient form input {
+  width: 48px;
 }
 
 .ingredient img {
+  width: 34px;
   transition: ease 0.2s;
-  width: 42px
 }
+
 .ingredient img:hover {
-  transform: scale(1.15);
+  transform: scale(1.05);
   cursor: pointer;
+}
+
+@media (max-width: 500px) {
+  .ingredient {
+    font-size: 0.9rem;
+  }
+
+  .ingredient form {
+    font-size: 0.8rem;
+    width: 51%
+  }
 }

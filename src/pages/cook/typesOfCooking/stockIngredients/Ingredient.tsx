@@ -79,24 +79,31 @@ const Ingredient: FC<IngredientProps> = ({
 
   return (
     <div onClick={handleFocusInput} className="ingredient">
-      <p className="ingredient-title">{`${t(
-        `key_ingredients.${stockProduct.title}`
-      )} (${stockProduct.amount})`}</p>
+      <div className="ingredient-header">
+        <p className="ingredient-title">
+          {`${t(`key_ingredients.${stockProduct.title}`)} `}{' '}
+        </p>
+
+        <p className='amount-ingredient'>({ stockProduct.amount})</p>
+      </div>
       <form>
-        <label>amount: </label>
-        <input
-          ref={ref}
-          type="number"
-          value={inputNumber}
-          min={0}
-          max={stockProduct.amount}
-          onChange={(e) => setInputNumber(parseInt(e.target.value))}
-          onFocus={(e: React.ChangeEvent<HTMLInputElement>) =>
-            e.target.select()
-          }
-        />
+        <label>
+          amount:{' '}
+          <input
+            ref={ref}
+            type="number"
+            value={inputNumber}
+            min={0}
+            max={stockProduct.amount}
+            onChange={(e) => setInputNumber(parseInt(e.target.value))}
+            onFocus={(e: React.ChangeEvent<HTMLInputElement>) =>
+              e.target.select()
+            }
+          />
+        </label>
+
+        <img onClick={addIngredientToMeal} src={add_circle} alt="add circle" />
       </form>
-      <img onClick={addIngredientToMeal} src={add_circle} alt="add circle" />
     </div>
   );
 };
