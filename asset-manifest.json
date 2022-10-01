@@ -1,12 +1,13 @@
 {
   "files": {
-    "main.css": "/foodStorage/static/css/main.15ee11c3.css",
-    "main.js": "/foodStorage/static/js/main.9f920856.js",
+    "main.css": "/foodStorage/static/css/main.68f30612.css",
+    "main.js": "/foodStorage/static/js/main.ae9ed5e4.js",
     "static/media/lunch_icon.png": "/foodStorage/static/media/lunch_icon.ffefbe648768275c66ec.png",
     "static/media/salad_icon.png": "/foodStorage/static/media/salad_icon.2220d81f9bac33378771.png",
     "static/media/breakfast_icon.png": "/foodStorage/static/media/breakfast_icon.a6b69665e541f93acc10.png",
     "static/media/empty_list.png": "/foodStorage/static/media/empty_list.dcb701bab950a006c748.png",
     "static/media/snack_icon.png": "/foodStorage/static/media/snack_icon.333a729ca5572e6d3819.png",
+    "static/media/calendar_month.svg": "/foodStorage/static/media/calendar_month.714b902c68e360e9baa9c49f19db3618.svg",
     "index.html": "/foodStorage/index.html",
     "static/media/favorite.svg": "/foodStorage/static/media/favorite.dacd13dc37e1ce65fd8593d432759721.svg",
     "static/media/add_circle.svg": "/foodStorage/static/media/add_circle.4a7bccde8ffd5ffcc46a7c222ddcf793.svg",
@@ -19,12 +20,14 @@
     "static/media/clear.svg": "/foodStorage/static/media/clear.244b66874c46718f7e0607d3acebaccf.svg",
     "static/media/close_black.svg": "/foodStorage/static/media/close_black.244b66874c46718f7e0607d3acebaccf.svg",
     "static/media/check.svg": "/foodStorage/static/media/check.222a1c7ef846e3979556e4c12528d041.svg",
+    "static/media/close.svg": "/foodStorage/static/media/close.699b550a702c49406787c1e14e7e6fb3.svg",
     "static/media/arrow_back.svg": "/foodStorage/static/media/arrow_back.b9b1b1b9f53a15c0c8d85bc6a29ce4a1.svg",
-    "main.15ee11c3.css.map": "/foodStorage/static/css/main.15ee11c3.css.map",
-    "main.9f920856.js.map": "/foodStorage/static/js/main.9f920856.js.map"
+    "static/media/expand_more.svg": "/foodStorage/static/media/expand_more.3eee6af9a53b651006f08a2b3713f0e1.svg",
+    "main.68f30612.css.map": "/foodStorage/static/css/main.68f30612.css.map",
+    "main.ae9ed5e4.js.map": "/foodStorage/static/js/main.ae9ed5e4.js.map"
   },
   "entrypoints": [
-    "static/css/main.15ee11c3.css",
-    "static/js/main.9f920856.js"
+    "static/css/main.68f30612.css",
+    "static/js/main.ae9ed5e4.js"
   ]
 }
