@@ -11,16 +11,16 @@
   align-items: center;
   justify-content: center;
   background-color: var(--fields-bg-color);
-  padding: 5px 15px;
+  padding: 0 15px;
   border-radius: 10px;
   outline: #aaa 1px solid;
 }
 
 .search-input {
   width: 90%;
-  padding: 7px;
+  padding:  7px;
   border: none;
-  font-size: 1.1rem;
+  font-size: 1rem;
   background-color: var(--fields-bg-color);
 }
 
