@@ -34,7 +34,7 @@ const Ingredients: FC<IngredientsProps> = ({
     ));
 
   return (
-    <div>
+    <div className="ingredients-container">
       <TypesOfCooking />
       {stockList}
     </div>

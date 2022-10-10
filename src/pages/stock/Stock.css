@@ -3,6 +3,7 @@
 .stock-container {
   /* background-color: #026773; */
   background-color: var(--main-bg-color);
+  padding-bottom: 10px;
 }
 .header-search-create {
   display: flex;
@@ -14,7 +15,6 @@
 }
 .add-icon {
   width: 60px;
-  /* height: 60px; */
   transition: 0.2s ease-in-out;
   margin-top: 12px ;
   color: red

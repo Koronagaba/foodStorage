@@ -1,3 +1,6 @@
+.ingredients-container{
+padding-bottom: 10px
+}
 .ingredient {
   display: flex;
   align-items: center;
