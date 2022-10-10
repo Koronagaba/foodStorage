@@ -1,19 +1,21 @@
 .navigation {
   background-color: var(--nav-bg-color);
-  padding: 1.25rem 4%;
+  padding: .8rem 4%;
   transition: 0.4s ease;
 }
 
 .navbar {
-  position: relative;
+  position: fixed;
+  top: 0;
+  width: 100%;
+
 }
 
 .sticky {
   position: fixed;
-  z-index: 1;
   top: 0;
   width: 100%;
-  padding: 0.8rem 2.5rem;
+  padding: .5rem 2.5rem;
   z-index: 10;
 }
 

@@ -9,6 +9,7 @@
 
 
 .functionsBar-container {
+    padding-top: 60px;
     background-color: var(--main-bg-color);
 }
 

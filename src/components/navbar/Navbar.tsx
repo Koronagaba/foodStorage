@@ -16,7 +16,7 @@ const Navbar = () => {
   const activeLink = ({ isActive }: any) => ({ color: isActive ? '#fff' : '' });
 
   const handleScroll = () => {
-    if (window.scrollY > 0) {
+    if (window.scrollY > 10) {
       setStickyStyle('sticky');
     } else {
       setStickyStyle('navbar');
