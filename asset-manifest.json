@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/foodStorage/static/css/main.68f30612.css",
-    "main.js": "/foodStorage/static/js/main.ae9ed5e4.js",
+    "main.css": "/foodStorage/static/css/main.acf338af.css",
+    "main.js": "/foodStorage/static/js/main.44a95130.js",
     "static/media/lunch_icon.png": "/foodStorage/static/media/lunch_icon.ffefbe648768275c66ec.png",
     "static/media/salad_icon.png": "/foodStorage/static/media/salad_icon.2220d81f9bac33378771.png",
     "static/media/breakfast_icon.png": "/foodStorage/static/media/breakfast_icon.a6b69665e541f93acc10.png",
@@ -18,16 +18,15 @@
     "static/media/getFetch.cjs": "/foodStorage/static/media/getFetch.c780682470504fffbd04.cjs",
     "static/media/edit.svg": "/foodStorage/static/media/edit.4fa02ba3eeb22ca444b3fa80117773ac.svg",
     "static/media/clear.svg": "/foodStorage/static/media/clear.244b66874c46718f7e0607d3acebaccf.svg",
-    "static/media/close_black.svg": "/foodStorage/static/media/close_black.244b66874c46718f7e0607d3acebaccf.svg",
     "static/media/check.svg": "/foodStorage/static/media/check.222a1c7ef846e3979556e4c12528d041.svg",
     "static/media/close.svg": "/foodStorage/static/media/close.699b550a702c49406787c1e14e7e6fb3.svg",
     "static/media/arrow_back.svg": "/foodStorage/static/media/arrow_back.b9b1b1b9f53a15c0c8d85bc6a29ce4a1.svg",
     "static/media/expand_more.svg": "/foodStorage/static/media/expand_more.3eee6af9a53b651006f08a2b3713f0e1.svg",
-    "main.68f30612.css.map": "/foodStorage/static/css/main.68f30612.css.map",
-    "main.ae9ed5e4.js.map": "/foodStorage/static/js/main.ae9ed5e4.js.map"
+    "main.acf338af.css.map": "/foodStorage/static/css/main.acf338af.css.map",
+    "main.44a95130.js.map": "/foodStorage/static/js/main.44a95130.js.map"
   },
   "entrypoints": [
-    "static/css/main.68f30612.css",
-    "static/js/main.ae9ed5e4.js"
+    "static/css/main.acf338af.css",
+    "static/js/main.44a95130.js"
   ]
 }
