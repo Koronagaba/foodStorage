@@ -10,7 +10,7 @@
     "resolveJsonModule": true,
     "moduleResolution": "node",
   },
-  // "include": [
-  //   "src", "index.d.ts"
-  // ]
+  "include": [
+    "./src", "./src/index.d.ts"
+  ]
 }
