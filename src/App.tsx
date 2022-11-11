@@ -43,8 +43,14 @@ function App() {
       <Routes>
         <Route path="/cook" element={<Cook />}></Route>
         <Route path="/cook/history" element={<HistoryOfCooking />}>
-          <Route path="/cook/history/month_:id" element={<MonthHistory />}></Route>
-          <Route path="/cook/history/year_:id" element={<YearHistory />}></Route>
+          <Route
+            path="/cook/history/month_:id"
+            element={<MonthHistory />}
+          ></Route>
+          <Route
+            path="/cook/history/year_:id"
+            element={<YearHistory />}
+          ></Route>
           <Route
             path="/cook/history/rangeHistory"
             element={<RangeHistoryList />}
