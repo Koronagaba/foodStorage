@@ -1,6 +1,6 @@
 {
   "homepage": "https://koronagaba.github.io/foodStorage/",
-  "name": "kitchen_handling",
+  "name": "kitchen-handling",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
