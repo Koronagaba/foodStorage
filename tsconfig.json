@@ -11,6 +11,8 @@
     "moduleResolution": "node",
   },
   "include": [
-    "./src", "./src/index.d.ts"
+    "src"
   ]
 }
+
+// , "./src/index.d.ts"
