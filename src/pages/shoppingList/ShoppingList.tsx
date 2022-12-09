@@ -4,11 +4,11 @@ import { useTranslation } from 'react-i18next';
 import { FoodStorageContext } from '../../context/FoodStorageContext';
 import { ShoppingListProduct } from '../../types/type';
 
-import './ShoppingList.css';
-
 import SingleShoppingListProduct from './SingleShoppingListProduct';
 import ModalShoppingCompleted from './components/ModalShoppingCompleted';
 import EmptyShoppingList from './components/EmptyShoppingList';
+
+import './ShoppingList.css';
 
 const ShoppingList = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -45,7 +45,6 @@ const ShoppingList = () => {
       )}
       {shoppingList.length ? (
         <div className="shoppingList">
-          {/* <h3>{t('shopping_list')}</h3> */}
           {shoppingList.map((productOfShoppingList: ShoppingListProduct) => (
             <SingleShoppingListProduct
               key={productOfShoppingList.id}

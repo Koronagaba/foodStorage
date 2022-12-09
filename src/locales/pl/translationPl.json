@@ -18,6 +18,7 @@
     "shopping_completed": "Zakupy ukończone",
     "ask_shopping_completed": "Jesteś pewien że kupiłeś poniższe produkty?",
     "yes": "Tak",
+    "no": "Nie",
     "cancel": "Anuluj",
     "empty_shopping_list": "Twoja lista zakupów jest pusta",
     "empty_shopping_list_alt": "Pusta Lista zakupów",
@@ -35,6 +36,7 @@
     "alert_not_activated": "Ta funkcjonalność wkrótce zostanie aktywowana",
     "alert_not_enough": "Niewystarczająca ilość produktu w magazynie",
     "delete_everything": "Usuń wszystko",
+    "are_you_sure_to_remove?": "Czy na pewno chcesz usunąć ten produkt z listy zakupów?",
     "save": "Usuń",
     "key_ingredients": {
         "apple": "jabłko",
