@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import arrow_back from '../../../icons/arrow_back.svg';
 import { SearchContext } from '../../../context/SearchContext';
+import { MealItem } from '../../../context/MealsContext';
 
 export const BackToCook = () => {
   const { setSearchMeal } = useContext(SearchContext);
@@ -27,7 +28,7 @@ export const BackToCook = () => {
 
 interface BackToMealListProps {
   nameOfMeal: string;
-  collection: any;
+  collection: MealItem[];
 }
 
 export const BackToMealList: FC<BackToMealListProps> = ({

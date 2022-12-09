@@ -9,12 +9,13 @@ import {
   BackToMealList,
   BackToMealListFromEdit,
 } from '../../consts/ArrowBack';
+import { MealItem } from '../../../../context/MealsContext';
 
 interface MealProps {
   title: string;
   backToCook: string;
   nameOfMeal: string;
-  mealCollection: any;
+  mealCollection: MealItem[];
 }
 
 const Meal: FC<MealProps> = ({

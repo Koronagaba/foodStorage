@@ -6,18 +6,25 @@ import { ChildrenProps } from '../types/type';
 export interface MealItem {
   title: string;
   amount: number;
-  shoppingListAmount: number,
+  shoppingListAmount: number;
   isEditing: boolean;
   id: string;
 }
 
 interface Collections {
-  breakfastList?: MealItem[];
-  lunchList?: MealItem[];
-  supperList?: MealItem[];
-  snackList?: MealItem[];
+  breakfastList: MealItem[];
+  lunchList: MealItem[];
+  supperList: MealItem[];
+  snackList: MealItem[];
 }
-export const MealsContext = createContext<Collections>({});
+
+const initialValue: Collections = {
+  breakfastList: [],
+  lunchList: [],
+  supperList: [],
+  snackList: [],
+};
+export const MealsContext = createContext<Collections>(initialValue);
 
 export const MealsContextProvider: FC<ChildrenProps> = ({ children }) => {
   const { documents: breakfastList } = useCollection<MealItem>(

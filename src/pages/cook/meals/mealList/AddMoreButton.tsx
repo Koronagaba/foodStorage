@@ -1,10 +1,11 @@
 import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { MealItem } from '../../../../context/MealsContext';
 
 interface AddMoreProps {
   path: string;
-  mealCollection: any;
+  mealCollection: MealItem[];
   setSearchMeal: React.Dispatch<React.SetStateAction<string>>
 }
 

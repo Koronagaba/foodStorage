@@ -12,7 +12,7 @@ const Navbar = () => {
 
   const { t } = useTranslation();
 
-  const ref: any = useRef();
+  const hamburgerRef = useRef<HTMLDivElement>(null);
   const activeLink = ({ isActive }: any) => ({ color: isActive ? '#fff' : '' });
 
   const handleScroll = () => {
@@ -31,7 +31,7 @@ const Navbar = () => {
     const checkIfClickedOutside = (e: any) => {
       // If the menu is open and the clicked target is not within the menu,
       // then close the menu
-      if (toggleOptions && ref.current && !ref.current.contains(e.target)) {
+      if (toggleOptions && hamburgerRef.current && !hamburgerRef.current.contains(e.target)) {
         setToggleOptions(false);
       }
     };
@@ -85,7 +85,7 @@ const Navbar = () => {
           </div>
         </nav>
       </div>
-      <div ref={ref}>
+      <div ref={hamburgerRef}>
         <Hamburger
           toggleOptions={toggleOptions}
           setToggleOptions={setToggleOptions}

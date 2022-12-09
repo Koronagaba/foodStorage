@@ -10,7 +10,7 @@ interface Props {
 const EditSingleMealProduct: FC<Props> = ({ nameOfMeal }) => {
   const { editMealProduct } = useContext(EditMealContext);
 
-  const displayScore = editMealProduct?.map((editProduct: any) => (
+  const displayScore = editMealProduct?.map((editProduct) => (
     <FormSingleEditProduct
       key={editProduct.id}
       editProduct={editProduct}

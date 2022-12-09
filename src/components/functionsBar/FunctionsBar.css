@@ -1,23 +1,22 @@
 .calendar-img {
-    transition: transform ease-in .2s;
+  transition: transform ease-in 0.2s;
 }
 
 .calendar-img:hover {
-    cursor: pointer;
-    transform: scale(1.1)
+  cursor: pointer;
+  transform: scale(1.1);
 }
 
-
 .functionsBar-container {
-    padding-top: 60px;
-    background-color: var(--main-bg-color);
+  padding-top: 60px;
+  background-color: var(--main-bg-color);
 }
 
 .functionsBar-inside {
-    max-width: 600px;
-    width: 92%;
-    display: flex;
-    justify-content: space-between;
-    margin: 0 auto;
-    padding-top: 5px;
+  max-width: 600px;
+  width: 92%;
+  display: flex;
+  justify-content: space-between;
+  margin: 10px auto;
+  padding-top: 5px;
 }

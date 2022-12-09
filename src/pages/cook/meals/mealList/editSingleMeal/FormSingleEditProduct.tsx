@@ -92,16 +92,12 @@ const FormSingleEditProduct: FC<Props> = ({ editProduct, nameOfMeal }) => {
             nameOfMeal: nameOfMeal,
             amount: differenceToSubstraction,
           });
-
-          console.log('editProd > input', differenceToAddition);
         } else if (
           editInputProdAmount >
           matchedStockAndEditProduct.amount + editProduct.amount
         ) {
           alert('not enough');
-        }
-
-        if (
+        } else if (
           editInputProdAmount <
           matchedStockAndEditProduct.amount + editProduct.amount
         ) {

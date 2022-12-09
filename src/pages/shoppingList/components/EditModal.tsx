@@ -107,7 +107,7 @@ const EditModal: FC<SingleShopProductProps> = ({ productOfShoppingList }) => {
 
   return (
     <div className="modal-container">
-      <div ref={wrapperRef} className="edit-modal">
+      <div ref={wrapperRef} className="modal">
         <div className="modal-title" title="Basic Modal">
           <p>
             {t('required_amount')}

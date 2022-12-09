@@ -12,7 +12,7 @@ import i18next from 'i18next';
 // }
 
 const SearchBar = () => {
-  const { searchStock, setSearchStock }: any = useContext(SearchContext);
+  const { searchStock, setSearchStock } = useContext(SearchContext);
 
   const { t } = useTranslation();
 

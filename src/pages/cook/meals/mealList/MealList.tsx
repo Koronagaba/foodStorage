@@ -28,7 +28,6 @@ const MealList: FC<MealListProps> = ({
     .filter((item: MealIngredient) =>
       item.title.toLocaleLowerCase().includes(searchMeal.toLowerCase())
     )
-    // .sort(sortTitle)
     .map((singleProduct: MealIngredient) => (
       <div key={singleProduct.id}>
         <SingleMealProduct singleProduct={singleProduct} />

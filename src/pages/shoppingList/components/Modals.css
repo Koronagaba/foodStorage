@@ -16,7 +16,8 @@
   max-height: 300px;
   margin-top: 100px;
   padding: 20px;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.9);
+  border-radius: 5%;
   color: #eee;
   display: flex;
   flex-direction: column;
@@ -70,21 +71,6 @@
 .btns img:hover {
   cursor: pointer;
   transform: scale(1.05);
-}
-
-.edit-modal {
-  width: 450px;
-  max-width: 90%;
-  height: 240px;
-  top: 110px;
-  padding: 20px;
-  background-color: #222;
-  color: #eee;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  position: fixed;
-  z-index: 111;
 }
 
 .content-edit-modal {

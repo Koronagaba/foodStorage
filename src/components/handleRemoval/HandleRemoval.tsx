@@ -6,7 +6,7 @@ import { deleteMidnight } from '../../hooks/useDelete';
 import './HandleRemoval.css';
 
 const HandleRemoval = () => {
-  const { breakfastList, lunchList, supperList, snackList }: any =
+  const { breakfastList, lunchList, supperList, snackList } =
     useContext(MealsContext);
 
   const deleteEveryDay = () => {

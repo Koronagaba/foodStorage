@@ -61,11 +61,7 @@ export interface SingleHistoryOfCooking {
   date?: Date;
 }
 
-export interface SingleHistoryList {
-  title: string;
-  amount: number;
-  id: string
-}
+
 
 export interface MatchedRangeHistoryList {
   title: string;

@@ -2,8 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 import { useNavigate, Outlet } from 'react-router-dom';
 import { HistoryOfCookingContext } from '../../../context/HistoryOfCookingContext';
 import {
-  MatchedRangeHistoryList,
-  SingleHistoryList,
+  MatchedRangeHistoryList, 
   SingleHistoryOfCooking,
 } from '../../../types/type';
 
@@ -13,13 +12,10 @@ import useTimestampConvert from '../../../hooks/useTimestampConvert';
 
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import close from '../../../icons/close.svg';
 
 const HistoryOfCooking: React.FC = () => {
   const { historyOfCooking } = useContext(HistoryOfCookingContext);
 
-  const [monthList, setMonthList] = useState<SingleHistoryList[]>([]);
-  const [yearList, setYearList] = useState<SingleHistoryList[]>([]);
   const [rangeHistoryList, setRangeHistoryList] = useState<
     SingleHistoryOfCooking[]
   >([]);
