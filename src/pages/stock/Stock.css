@@ -1,7 +1,6 @@
 /* colors:  #012E40 #024959 #026773 #3CA6A6 #F2E3D5 */
 
 .stock-container {
-  /* background-color: #026773; */
   background-color: var(--main-bg-color);
   padding-bottom: 10px;
 }
@@ -32,12 +31,11 @@
 
 
 /* ProductsList component  */
-
 .single-stock-product {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 4px 0;
+  margin: 6px 0;
   padding: 0 10px;
   border-top: 1px solid #999;
   border-bottom: 1px solid #999;

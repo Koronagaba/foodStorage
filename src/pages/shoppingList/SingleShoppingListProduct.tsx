@@ -8,7 +8,6 @@ import './SingleShoppingListProduct.css';
 import shopping_cart from '../../icons/shopping_cart.svg';
 import edit from '../../icons/edit.svg';
 import clear from '../../icons/clear.svg';
-// import check from "../../icons/check.svg";
 import local_shipping from '../../icons/local_shipping_black.svg';
 import { FoodStorageContext } from '../../context/FoodStorageContext';
 import EditModal from './components/EditModal';
@@ -26,11 +25,10 @@ const SingleItem: React.FC<SingleShoppingListProps> = ({
   const [deleteModal, setDeleteModal] = useState(false);
   const { t } = useTranslation();
 
-  const { id, title, amount, isEditing, inBag, createdAt } = productOfShoppingList;
+  const { id, title, amount, isEditing, inBag, createdAt } =
+    productOfShoppingList;
 
-  const style = inBag
-    ? { textDecoration: 'line-through' }
-    : undefined;
+  const style = inBag ? { textDecoration: 'line-through' } : undefined;
 
   const moveProductIntoBag = (
     id: string,
@@ -58,7 +56,6 @@ const SingleItem: React.FC<SingleShoppingListProps> = ({
     const listWhenIsEditing = shoppingList.filter(
       (item: ShoppingListProduct) => item.isEditing
     );
-    console.log(listWhenIsEditing);
 
     if (listWhenIsEditing.length === 0) {
       setDoc(ref, {
@@ -95,7 +92,10 @@ const SingleItem: React.FC<SingleShoppingListProps> = ({
         <EditModal productOfShoppingList={productOfShoppingList} />
       )}
       {deleteModal && (
-        <DeleteModal productOfShoppingList={productOfShoppingList} setDeleteModal={setDeleteModal} />
+        <DeleteModal
+          productOfShoppingList={productOfShoppingList}
+          setDeleteModal={setDeleteModal}
+        />
       )}
       <div className="single-item-container">
         <div className="single-item" style={style}>
@@ -113,21 +113,15 @@ const SingleItem: React.FC<SingleShoppingListProps> = ({
               src={edit}
               alt="edit"
             />
+            <img onClick={() => setDeleteModal(true)} src={clear} alt="clear" />
             <img
-              // {() => handleDelete(title, amount, id)
-              onClick={() => setDeleteModal(true)}
-              src={clear}
-              alt="clear"
+              onClick={() => handleSendToStock(id, title, amount)}
+              className="send-img"
+              src={local_shipping}
+              alt="send to stock"
             />
           </div>
         </div>
-
-        <img
-          onClick={() => handleSendToStock(id, title, amount)}
-          className="send-img"
-          src={local_shipping}
-          alt="send to stock"
-        />
       </div>
     </>
   );

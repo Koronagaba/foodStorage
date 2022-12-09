@@ -39,7 +39,6 @@ const DeleteModal: FC<DeleteModalProps> = ({
         wrapperRef.current &&
         !wrapperRef.current.contains(event.target as Node)
       ) {
-        console.log('You clicked outside of me!');
         setDeleteModal(false);
       }
     };
@@ -47,7 +46,7 @@ const DeleteModal: FC<DeleteModalProps> = ({
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, []);
+  }, [setDeleteModal]);
 
   return (
     <div className="modal-container">

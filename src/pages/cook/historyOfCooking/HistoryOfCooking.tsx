@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 import { useNavigate, Outlet } from 'react-router-dom';
 import { HistoryOfCookingContext } from '../../../context/HistoryOfCookingContext';
 import {
-  MatchedRangeHistoryList, 
+  MatchedRangeHistoryList,
   SingleHistoryOfCooking,
 } from '../../../types/type';
 
@@ -86,7 +86,7 @@ const HistoryOfCooking: React.FC = () => {
       setMatchedRangeHistoryList(matchedRangeList);
       navigate('/cook/history/rangeHistory');
     }
-  }, [startDate, endDate]);
+  }, [startDate, endDate, navigate, displayDate, historyOfCooking, rangeList]);
 
   const rangeDateHandler = (dates: Array<Date | null>) => {
     const [start, end] = dates;
