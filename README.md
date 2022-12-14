@@ -1,43 +1,61 @@
-# Getting Started with Create React App
+# Food storage
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This app was created to manage food products in a retirement home
 
-## Available Scripts
+## Description & features
 
-In the project directory, you can run:
+### The application has a three main section:
 
-### `npm start`
+* *Stock* - Its our food storage.
+    Displays list all products in store. Each product has a name, quantity and current amount of products added to the shopping list.
+    if we see that we have not enough products we can add this product to shopping list
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+* *ShoppingList*
+    * In the Shopping List we have products that we have added from stock.
+    * Of course, we can remove product from the shopping list by clicking 'remove icon'. 
+    * We should use Shopping List in the store. When we are in the store we can add product to bag by clicking 'shopping cart icon'. 
+    When we bought the products that we had in the shopping cart, we should click 'Shopping completed' button. After that we will be asked have we purchased following products.
+    Then products from the bag go to the stock.
+    * We can also directly send products to stock, just click on the 'truck icon'. 
+    * If there are not enough products in the store that we want to buy, we can edit our product and buy a smaller amount. The remaining number of products will still be on the shopping list.
+    
+* *Cook* - We should use this section when we want to cook meals.
+    * Select meal that we want to cook. Add products to cook from the list of products. (This list is the same as the list of products in our stock) 
+        In parentheses is available number of products that can be used. 
+    * After used products to cook they are saving in history of cooking and they go to the meal list.
+    * In meal list we can edit our product.
+    *At the end of the day we should delete all meals, because the next day we will cook again.
+    Remember that all of meals are saved in our 'history of cooking'. (More about history of cooking below)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+### Remaining features
+History of cooking - To created history i used *react-datepicker*
+    *Form history we can select: current month history, year or any period that we choose from the calendar.
+    After that we can click on the product from the history list to view the details.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Storing that in Local Storage
+Dark mode / Light mode -  I created that using css variables
+Application translation - created it using i18next library
 
-### `npm run build`
+### Deployment
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Project was deployed on netlify and its available at this link: https://koronagaba-foodstorage.netlify.app/
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Technology stack
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    React.js,
+    TypeScript,
+    React Router
+    Firebase,
+    i18next,
 
-### `npm run eject`
+## New Skills 
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+New skills that i was learned in this project are: 
+    Translate app with i18next;
+    Saving information in Local Storage;
+    Css Variables 
+    Firebase / Firestore
 
 ## Learn More
 
@@ -45,26 +63,12 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+Learn React Router [React Router documentation](https://reactrouter.com/en/main)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Learn Firebase [Firebase documentation](https://firebase.google.com/docs).
 
-### Analyzing the Bundle Size
+Learn i18next [i18next documentation](https://www.i18next.com/)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Learn [React Datepicker documentation](https://reactdatepicker.com/)
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
