@@ -18,26 +18,26 @@ This app was created to manage food products in a retirement home
     Then products from the bag go to the stock.
     * We can also directly send products to stock, just click on the 'truck icon'. 
     * If there are not enough products in the store that we want to buy, we can edit our product and buy a smaller amount. The remaining number of products will still be on the shopping list.
-    
+
 * *Cook* - We should use this section when we want to cook meals.
     * Select meal that we want to cook. Add products to cook from the list of products. (This list is the same as the list of products in our stock) 
         In parentheses is available number of products that can be used. 
     * After used products to cook they are saving in history of cooking and they go to the meal list.
     * In meal list we can edit our product.
-    *At the end of the day we should delete all meals, because the next day we will cook again.
+    * At the end of the day we should delete all meals, because the next day we will cook again.
     Remember that all of meals are saved in our 'history of cooking'. (More about history of cooking below)
 
 
 ### Remaining features
-History of cooking - To created history i used *react-datepicker*
+* *History of cooking* - To created history i used *react-datepicker*
     *Form history we can select: current month history, year or any period that we choose from the calendar.
     After that we can click on the product from the history list to view the details.
 
-Storing that in Local Storage
-Dark mode / Light mode -  I created that using css variables
-Application translation - created it using i18next library
+* *Storing that in Local Storage*
+* *Dark mode / Light mode* -  I created that using css variables
+* *Application translation* - created it using i18next library
 
-### Deployment
+## Deploy
 
 Project was deployed on netlify and its available at this link: https://koronagaba-foodstorage.netlify.app/
 
@@ -51,11 +51,12 @@ Project was deployed on netlify and its available at this link: https://koronaga
 
 ## New Skills 
 
-New skills that i was learned in this project are: 
-    Translate app with i18next;
-    Saving information in Local Storage;
-    Css Variables 
-    Firebase / Firestore
+* *New skills that i was learned in this project are:* 
+
+    *Translate app with i18next;
+    *Saving information in Local Storage;
+    *Css Variables 
+    *Firebase / Firestore
 
 ## Learn More
 
