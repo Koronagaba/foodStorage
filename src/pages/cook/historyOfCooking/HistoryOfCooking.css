@@ -1,183 +1,179 @@
 /* Datepicker */
 .datepicker-container {
-    background-color: var(--main-bg-color);
+  background-color: var(--main-bg-color);
 }
 
 .datepicker-wrapper {
-    max-width: 600px;
-    width: 92%;
-    margin: 0 auto;
-    padding-top: 5px;
-
+  max-width: 600px;
+  width: 92%;
+  margin: 0 auto 20px auto;
+  padding-top: 5px;
 }
 
 .datepicker-inner {
-    text-align: center;
+  text-align: center;
 }
 
 .btns-datepicker {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .btns-datepicker button {
-    min-width: 78px;
-    padding: 1px;
-    margin: -5px 2px 0 2px;
-    border-radius: 3px;
-    border: none;
-    background-color: #fff;
-    transition: transform ease-in .1s;
+  min-width: 78px;
+  padding: 1px;
+  margin: -5px 2px 0 2px;
+  border-radius: 3px;
+  border: none;
+  background-color: #fff;
+  transition: transform ease-in 0.1s;
 }
 
 .btns-datepicker button:hover {
-    cursor: pointer;
-    transform: scale(1.05)
+  cursor: pointer;
+  transform: scale(1.05);
 }
 
 .range-history-lisit-container {
-    margin-top: 10px;
+  padding: 10px 0;
 }
 
 .space-beetwen {
-    border-bottom: 1px solid black;
-    width: 106%;
-    height: 20px;
-    border-radius: 20px;
-    transform: translateX(-3%);
+  border-bottom: 1px solid black;
+  width: 106%;
+  height: 20px;
+  border-radius: 20px;
+  transform: translateX(-3%);
 }
 
 .cancel-datepicker-img {
-    width: 25px;
-    height: 25px;
-    transition: transform ease-in 0.1s
+  width: 25px;
+  height: 25px;
+  transition: transform ease-in 0.1s;
 }
 
 .cancel-datepicker-img:hover {
-    transform: scale(1.2);
-    cursor: pointer;
+  transform: scale(1.2);
+  cursor: pointer;
 }
 
 /* History Single Item */
 
 .history-single-item {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 10px;
-    background-color: var(--fields-bg-color);
-    width: 100%;
-    margin: 4px 0;
-    border-radius: 5px;
-    transition: all 0.05s ease;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+  background-color: var(--fields-bg-color);
+  width: 100%;
+  margin: 4px 0;
+  border-radius: 5px;
+  transition: all 0.05s ease;
 }
 
 .history-single-item:hover {
-    cursor: pointer;
-    background-color: var(--fields-hover-bg-color);
-    transform: scale(1.01);
+  cursor: pointer;
+  background-color: var(--fields-hover-bg-color);
+  transform: scale(1.01);
 }
 
 .history-single-item .first-div {
-    display: flex;
-    justify-content: space-between;
-    min-width: 40%;
+  display: flex;
+  justify-content: space-between;
+  min-width: 40%;
 }
 
 .more-img {
-    height: 32px;
-    transition: transform 0.1s ease-in
+  height: 32px;
+  transition: transform 0.1s ease-in;
 }
 
 .more-img:hover {
-    cursor: pointer;
-    transform: scale(1.2)
+  cursor: pointer;
+  transform: scale(1.2);
 }
 
 /* More information */
-
-.history-details-single-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 3px 10px;
-    background-color: var(--fields-bg-color);
-    width: 100%;
-    margin: 4px 0;
-    border-radius: 5px;
-    transition: all 0.05s ease;
-}
-
-.history-details-single-item .first-div {
-    min-width: 30%;
-}
-
-.history-details-single-item .date {
-    font-size: .9rem;
-}
-
-
-.history-details-single-item .second-div {
-    display: flex;
-    justify-content: space-between;
-    min-width: 45%;
-    max-width: 70%;
-}
-
 .details-modal-container {
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.8);
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 10;
+  width: 100vw;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: scroll;
+  z-index: 10;
+
 }
 
 .details-inner {
-    margin: 11% auto;
-    max-width: 550px;
-    z-index: 111
+  margin: 3% auto;
+  max-width: 550px;
+  /* z-index: 111 */
 }
 
 .details-header {
-    background-color: var(--fields-bg-color);
-    text-align: center;
-    padding: 0 10px 10px 10px;
-    border-radius: 7px;
+  background-color: var(--fields-bg-color);
+  text-align: center;
+  padding: 0 10px 10px 10px;
+  border-radius: 7px;
 }
 
 .details-header div {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .details-header p {
-    align-self: center;
+  align-self: center;
+}
+
+.history-details-single-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3px 10px;
+  background-color: var(--fields-bg-color);
+  width: 100%;
+  margin: 4px 0;
+  border-radius: 5px;
+  transition: all 0.05s ease;
+}
+
+.history-details-single-item .first-div {
+  min-width: 30%;
+}
+
+.history-details-single-item .date {
+  font-size: 0.9rem;
+}
+
+.history-details-single-item .second-div {
+  display: flex;
+  justify-content: space-between;
+  min-width: 45%;
+  max-width: 70%;
 }
 
 .close-img {
-    width: 30px;
-    transition: transform 0.1s ease-in
+  width: 30px;
+  transition: transform 0.1s ease-in;
 }
 
 .close-img:hover {
-    cursor: pointer;
-    transform: scale(1.2)
+  cursor: pointer;
+  transform: scale(1.2);
 }
 
-
 @media (max-width: 500px) {
-    .history-single-item .first-div {
-        min-width: 65%;
-    }
-
+  .history-single-item .first-div {
+    min-width: 65%;
+  }
 }
 
 @media (max-width: 800px) {
-    .details-inner {
-        width: 93%
-    }
-
+  .details-inner {
+    width: 93%;
+  }
 }

@@ -12,6 +12,7 @@ import useTimestampConvert from '../../../hooks/useTimestampConvert';
 
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import { useTranslation } from 'react-i18next';
 
 const HistoryOfCooking: React.FC = () => {
   const { historyOfCooking } = useContext(HistoryOfCookingContext);
@@ -27,6 +28,7 @@ const HistoryOfCooking: React.FC = () => {
 
   const displayDate = useTimestampConvert();
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const matchedRangeList: MatchedRangeHistoryList[] = [];
   const rangeList: SingleHistoryOfCooking[] = [];
@@ -206,9 +208,9 @@ const HistoryOfCooking: React.FC = () => {
             inline
           ></DatePicker>
           <div className="btns-datepicker">
-            <button onClick={monthSelect}>Month</button>
-            <button onClick={yearSelect}>Year</button>
-            <button onClick={clearDatepickerField}>Clear</button>
+            <button onClick={monthSelect}>{t('month')}</button>
+            <button onClick={yearSelect}>{t('year')}</button>
+            <button onClick={clearDatepickerField}>{t('clear')}</button>
           </div>
         </div>
 

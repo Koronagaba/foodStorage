@@ -23,9 +23,6 @@ const MoreInformation: FC<PropsMoreInformation> = ({
 
   const { t } = useTranslation();
 
-  const historyTitleCapitalFirst =
-    historyTitle.charAt(0).toUpperCase() + historyTitle.slice(1);
-
   const closeMoreInformation = () => {
     setHistoryTitle('');
     setShowModal(false);
@@ -58,7 +55,6 @@ const MoreInformation: FC<PropsMoreInformation> = ({
   ));
 
   const modalStyle = showModal ? 'details-modal-container' : '';
-  const moreInformation_container= showModal ? 'moreInformation_container' : '';
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -79,7 +75,6 @@ const MoreInformation: FC<PropsMoreInformation> = ({
   }, [setShowModal, setHistoryTitle]);
 
   return (
-    <div className={moreInformation_container}>
       <div className={modalStyle}>
         {displayList.length ? (
           <div ref={wrapperRef} className="details-inner">
@@ -102,7 +97,6 @@ const MoreInformation: FC<PropsMoreInformation> = ({
           </div>
         ) : null}
       </div>
-    </div>
   );
 };
 
