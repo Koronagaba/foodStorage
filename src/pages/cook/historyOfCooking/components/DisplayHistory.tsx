@@ -1,4 +1,5 @@
 import { FC, useContext, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { NestedHistoryListsContext } from '../../../../context/NestedHistoryListsContext';
 import expand_more from '../../../../icons/expand_more.svg';
 import { MatchedRangeHistoryList } from '../../../../types/type';
@@ -13,6 +14,8 @@ const DisplayHistory: FC<DisplayHistoryProps> = () => {
   const [historyTotalAmount, setHistoryTotalAmount] = useState(0);
   const [showModal, setShowModal] = useState(false);
   const { matchedRangeHistoryList } = useContext(NestedHistoryListsContext);
+
+  const { t } = useTranslation();
 
   const handleShowDetails = (matchedHistoryItem: MatchedRangeHistoryList) => {
     setHistoryTitle(matchedHistoryItem.title);
@@ -29,7 +32,7 @@ const DisplayHistory: FC<DisplayHistoryProps> = () => {
           className="history-single-item"
         >
           <div className="first-div">
-            <p>{matchedHistoryItem.title}</p>
+            <p>{t(`key_ingredients.${matchedHistoryItem.title}`)}</p>
             <p>{matchedHistoryItem.amount}</p>
           </div>
           <img

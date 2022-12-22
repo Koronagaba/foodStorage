@@ -1,4 +1,5 @@
 import { useContext, FC, useRef, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { NestedHistoryListsContext } from '../../../../context/NestedHistoryListsContext';
 import close from '../../../../icons/close.svg';
 
@@ -19,6 +20,8 @@ const MoreInformation: FC<PropsMoreInformation> = ({
 }) => {
   const { rangeHistoryList } = useContext(NestedHistoryListsContext);
   const wrapperRef = useRef<HTMLDivElement>(null);
+
+  const { t } = useTranslation();
 
   const historyTitleCapitalFirst =
     historyTitle.charAt(0).toUpperCase() + historyTitle.slice(1);
@@ -48,13 +51,14 @@ const MoreInformation: FC<PropsMoreInformation> = ({
         </p>
       </div>
       <div className="second-div">
-        <p>{item.nameOfMeal}</p>
+        <p>{t(`key_name_of_meal.${item.nameOfMeal}`)}</p>
         <p className="amount">{item.amount}</p>
       </div>
     </div>
   ));
 
   const modalStyle = showModal ? 'details-modal-container' : '';
+  const moreInformation_container= showModal ? 'moreInformation_container' : '';
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -75,25 +79,29 @@ const MoreInformation: FC<PropsMoreInformation> = ({
   }, [setShowModal, setHistoryTitle]);
 
   return (
-    <div className={modalStyle}>
-      {displayList.length ? (
-        <div ref={wrapperRef} className="details-inner">
-          <div className="details-header">
-            <div>
-              <p>Total amount: {historyTotalAmount}</p>
-              <img
-                src={close}
-                alt="close"
-                className="close-img"
-                onClick={closeMoreInformation}
-              />
+    <div className={moreInformation_container}>
+      <div className={modalStyle}>
+        {displayList.length ? (
+          <div ref={wrapperRef} className="details-inner">
+            <div className="details-header">
+              <div>
+                <p>
+                  {t('total_amount')}: {historyTotalAmount}
+                </p>
+                <img
+                  src={close}
+                  alt="close"
+                  className="close-img"
+                  onClick={closeMoreInformation}
+                />
+              </div>
+              <h1>{t(`key_ingredients.${historyTitle}`)}</h1>
             </div>
-            <h1>{historyTitleCapitalFirst}</h1>
-          </div>
 
-          {displayList}
-        </div>
-      ) : null}
+            {displayList}
+          </div>
+        ) : null}
+      </div>
     </div>
   );
 };

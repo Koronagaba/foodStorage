@@ -142,6 +142,7 @@ const EditModal: FC<SingleShopProductProps> = ({ productOfShoppingList }) => {
             {t('cancel')}
           </button>
           <img
+          className='btn'
             onClick={() =>
               acceptEdit(
                 productOfShoppingList.id,

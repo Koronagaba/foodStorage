@@ -10,6 +10,7 @@ import {
   BackToMealListFromEdit,
 } from '../../consts/ArrowBack';
 import { MealItem } from '../../../../context/MealsContext';
+import { useTranslation } from 'react-i18next';
 
 interface MealProps {
   title: string;
@@ -25,6 +26,7 @@ const Meal: FC<MealProps> = ({
   mealCollection,
 }) => {
   const navigate = useNavigate();
+  const {t} = useTranslation()
 
   useEffect(() => {
     if (!mealCollection.length) {
@@ -53,7 +55,7 @@ const Meal: FC<MealProps> = ({
             />
           </Routes>
           <Link to={'/cook'} className="meal-title">
-            <h2>{title}</h2>
+            <h2>{t(`key_name_of_meal.${title}`)}</h2>
           </Link>
         </div>
         {mealCollection.length &&

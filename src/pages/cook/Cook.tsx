@@ -44,7 +44,7 @@ const Cook = () => {
               <p>{t('add_small')}</p>
             </div>
           )}
-          <p className="type-of-meal">{t('breakfast')}</p>
+          <p className="type-of-meal">{t('key_name_of_meal.breakfast')}</p>
         </div>
       </NavLink>
 
@@ -60,7 +60,7 @@ const Cook = () => {
           )}
         </div>
 
-        <p className="type-of-meal">{t('lunch')}</p>
+        <p className="type-of-meal">{t('key_name_of_meal.lunch')}</p>
       </NavLink>
 
       <NavLink to={'supper'} className="supper">
@@ -74,7 +74,7 @@ const Cook = () => {
             </div>
           )}
         </div>
-        <p className="type-of-meal">{t('supper')}</p>
+        <p className="type-of-meal">{t('key_name_of_meal.supper')}</p>
       </NavLink>
 
       <NavLink to={'snack'} className="snack">
@@ -88,7 +88,7 @@ const Cook = () => {
             </div>
           )}
         </div>
-        <p className="type-of-meal">{t('snacks')}</p>
+        <p className="type-of-meal">{t('key_name_of_meal.snacks')}</p>
       </NavLink>
     </div>
   );

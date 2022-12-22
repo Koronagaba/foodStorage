@@ -7,8 +7,8 @@ This app was created to manage food products in a retirement home
 ### The application has a three main section:
 
 * *Stock* - Its our food storage.
-    Displays list all products in store. Each product has a name, quantity and current amount of products added to the shopping list.
-    if we see that we have not enough products we can add this product to shopping list
+    * Displays list all products in store. Each product has a name, quantity and current amount of products added to the shopping list.
+    * If we see that we have not enough products we can add this product to shopping list
 
 * *ShoppingList*
     * In the Shopping List we have products that we have added from stock.
@@ -33,7 +33,7 @@ This app was created to manage food products in a retirement home
     *Form history we can select: current month history, year or any period that we choose from the calendar.
     After that we can click on the product from the history list to view the details.
 
-* *Storing that in Local Storage*
+* *Storing data in Local Storage*
 * *Dark mode / Light mode* -  I created that using css variables
 * *Application translation* - created it using i18next library
 
@@ -53,10 +53,10 @@ Project was deployed on netlify and its available at this link: https://koronaga
 
 * *New skills that i was learned in this project are:* 
 
-    *Translate app with i18next;
-    *Saving information in Local Storage;
-    *Css Variables 
-    *Firebase / Firestore
+    * Translate app with i18next;
+    * Saving information in Local Storage;
+    * Css Variables 
+    * Firebase / Firestore
 
 ## Learn More
 

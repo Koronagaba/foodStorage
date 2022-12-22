@@ -122,7 +122,7 @@ const FormSingleEditProduct: FC<Props> = ({ editProduct, nameOfMeal }) => {
         <p>{t(`key_ingredients.${editProduct.title}`)}</p>
       </div>
       <button className="save-button" onClick={saveChanges}>
-        Save
+        {t('Save')}
       </button>
       <div onClick={handleRef} className="form-editMealProduct">
         <input

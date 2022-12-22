@@ -60,14 +60,14 @@ const DeleteModal: FC<DeleteModalProps> = ({
         </div>
 
         <div className="btns">
+          <button className="btn" onClick={() => setDeleteModal(false)}>
+            {t('no')}
+          </button>
           <button
             className="btn"
             onClick={() => handleDelete(title, amount, id)}
           >
             {t('yes')}
-          </button>
-          <button className="btn" onClick={() => setDeleteModal(false)}>
-            {t('no')}
           </button>
         </div>
       </div>
