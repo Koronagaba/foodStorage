@@ -36,7 +36,6 @@ const FormSingleEditProduct: FC<Props> = ({ editProduct, nameOfMeal }) => {
   const saveChanges = () => {
     if (matchedStockAndEditProduct) {
       const differenceToSubstraction = editInputProdAmount - editProduct.amount;
-
       if (editInputProdAmount >= 0) {
         if (
           editInputProdAmount > editProduct.amount &&
@@ -64,6 +63,7 @@ const FormSingleEditProduct: FC<Props> = ({ editProduct, nameOfMeal }) => {
             nameOfMeal: nameOfMeal,
             amount: differenceToSubstraction,
           });
+          navigate(`/cook/${nameOfMeal}`);
         } else if (
           editInputProdAmount < editProduct.amount &&
           editInputProdAmount <=
@@ -92,6 +92,7 @@ const FormSingleEditProduct: FC<Props> = ({ editProduct, nameOfMeal }) => {
             nameOfMeal: nameOfMeal,
             amount: differenceToSubstraction,
           });
+          navigate(`/cook/${nameOfMeal}`);
         } else if (
           editInputProdAmount >
           matchedStockAndEditProduct.amount + editProduct.amount
@@ -110,6 +111,7 @@ const FormSingleEditProduct: FC<Props> = ({ editProduct, nameOfMeal }) => {
   const handleChangeAmount = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEditProdAmount(parseInt(e.target.value));
   };
+
   const handleRef = () => {
     if (null !== inputRef.current) {
       inputRef.current.focus();

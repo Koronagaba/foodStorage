@@ -23,7 +23,7 @@ import FavoriteFood from './pages/cook/typesOfCooking/favoriteFood/FavoriteFood'
 // import NoMatch from './components/NoMatch/NoMatch';
 
 import Meal from './pages/cook/meals/meal/Meal';
-import MealList from './pages/cook/meals/mealList/MealList';
+import MealList from './pages/cook/meals/mealList/UsedMealListToCook';
 import EditSingleMealProduct from './pages/cook/meals/mealList/editSingleMeal/EditSingleMealProduct';
 import HistoryOfCooking from './pages/cook/historyOfCooking/HistoryOfCooking';
 import YearHistory from './pages/cook/historyOfCooking/components/YearHistory';

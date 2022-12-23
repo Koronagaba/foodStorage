@@ -8,9 +8,10 @@ import { SearchContext } from '../../../../context/SearchContext';
 
 import './MealList.css';
 import SingleMealProduct from './SingleMealProduct';
+import { MealItem } from '../../../../context/MealsContext';
 
 interface MealListProps {
-  mealCollection: any;
+  mealCollection: MealItem[];
   iconName: string;
   altProp: string;
   path: string;
