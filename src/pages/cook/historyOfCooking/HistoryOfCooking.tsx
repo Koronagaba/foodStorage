@@ -98,6 +98,8 @@ const HistoryOfCooking: React.FC = () => {
   };
 
   const monthSelect = () => {
+    setStartDate(null);
+    setEndDate(null);
     historyOfCooking?.forEach((historyItem) => {
       const { title, amount, id, nameOfMeal, createdAt } = historyItem;
       const { day, month, year, atTime } = displayDate(historyItem.createdAt);
@@ -143,6 +145,8 @@ const HistoryOfCooking: React.FC = () => {
   };
 
   const yearSelect = () => {
+    setStartDate(null);
+    setEndDate(null);
     historyOfCooking?.forEach((historyItem) => {
       const { day, month, year, atTime } = displayDate(historyItem.createdAt);
       const currentYear = new Date().getFullYear();

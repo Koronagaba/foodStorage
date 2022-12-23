@@ -21,7 +21,7 @@ const MoreInformation: FC<PropsMoreInformation> = ({
   const { rangeHistoryList } = useContext(NestedHistoryListsContext);
   const wrapperRef = useRef<HTMLDivElement>(null);
 
-  const { t } = useTranslation();
+  const { t } = useTranslation();``
 
   const closeMoreInformation = () => {
     setHistoryTitle('');
