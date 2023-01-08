@@ -1,10 +1,11 @@
 .calendar-img {
   transition: transform ease-in 0.2s;
+  transform: translateX(25px)
 }
 
 .calendar-img:hover {
   cursor: pointer;
-  transform: scale(1.1);
+  transform: translateX(25px) scale(1.1)
 }
 
 .functionsBar-container {
