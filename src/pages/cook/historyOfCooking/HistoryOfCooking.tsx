@@ -43,6 +43,7 @@ const HistoryOfCooking: React.FC = () => {
       historyOfCooking?.forEach((historyItem) => {
         const { title, amount, id, nameOfMeal, createdAt } = historyItem;
         const { day, month, year, atTime } = displayDate(historyItem.createdAt);
+
         // Calculation historyItem Days from 1/1/1970 -  rounded up
         const historyItemDaysFrom1970 = Math.floor(
           historyItem.createdAt.seconds / 86400
@@ -83,20 +84,9 @@ const HistoryOfCooking: React.FC = () => {
           }
         }
       });
-
       setRangeHistoryList(rangeList);
       setMatchedRangeHistoryList(matchedRangeList);
-      navigate(
-        `/cook/history/rangeHistory_from_${startDate.getDate()}-${
-          startDate.getMonth() + 1
-        }-${startDate.getFullYear()}_to_${endDate.getDate()}-${
-          endDate.getMonth() + 1
-        }-${endDate.getFullYear()}`
-      );
-      setStartDate(null);
-      setEndDate(null);
-    } else {
-      console.log('nie wybrano');
+      navigate('/cook/history/rangeHistory');
     }
   }, [startDate, endDate, navigate, displayDate, historyOfCooking, rangeList]);
 
@@ -227,7 +217,9 @@ const HistoryOfCooking: React.FC = () => {
             <button onClick={clearDatepickerField}>{t('clear')}</button>
           </div>
         </div>
+
         <div className="space-beetwen"></div>
+
         <NestedHistoryListsContext.Provider
           value={{
             rangeHistoryList,

@@ -52,7 +52,7 @@ function App() {
             element={<YearHistory />}
           ></Route>
           <Route
-            path="/cook/history/rangeHistory_:id"
+            path="/cook/history/rangeHistory"
             element={<RangeHistoryList />}
           ></Route>
         </Route>

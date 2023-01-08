@@ -1,20 +1,25 @@
 .meal-container {
+  /* background-color: #51959E; */
+  /* background-color: #8C3B07; */
   background-color: var(--main-bg-color);
 }
 .inside-meal {
   max-width: 600px;
-  width: 90%;
+ width: 90%;
   margin: 0 auto;
 }
 
 .meal-header {
   display: flex;
-  justify-content: space-between;
   padding-top: 10px;
+  /* margin: 0 50px */
 }
 
 .arrow-back {
+  /* grid-column: 1 / 2;
+    grid-row: 1 / 2 */
   transition: ease-in-out 0.2s;
+  /* background-color: #f3f4e6; */
   background-color: var(--fields-bg-color);
   border-radius: 10px;
 }
@@ -25,7 +30,6 @@
 
 .meal-title {
   margin: 0 auto;
-  transform: translateX(-25.5px);
   padding-top: 20px;
   align-self: center;
   color: #f3f4e6;
