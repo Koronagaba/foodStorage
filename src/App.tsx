@@ -30,6 +30,7 @@ import YearHistory from './pages/cook/historyOfCooking/components/YearHistory';
 import MonthHistory from './pages/cook/historyOfCooking/components/MonthHistory';
 import RangeHistoryList from './pages/cook/historyOfCooking/components/RangeHistoryList';
 import FunctionsBar from './components/functionsBar/FunctionsBar';
+import BottomBar from './components/bottomBar/BottomBar';
 
 function App() {
   const { breakfastList, lunchList, supperList, snackList } =
@@ -229,6 +230,7 @@ function App() {
         <Route path="/shoppingList" element={<ShoppingList />} />
         {/* <Route path="*" element={< NoMatch/>} /> */}
       </Routes>
+      <BottomBar />
     </div>
   );
 }

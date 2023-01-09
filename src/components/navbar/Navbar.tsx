@@ -31,7 +31,11 @@ const Navbar = () => {
     const checkIfClickedOutside = (e: any) => {
       // If the menu is open and the clicked target is not within the menu,
       // then close the menu
-      if (toggleOptions && hamburgerRef.current && !hamburgerRef.current.contains(e.target)) {
+      if (
+        toggleOptions &&
+        hamburgerRef.current &&
+        !hamburgerRef.current.contains(e.target)
+      ) {
         setToggleOptions(false);
       }
     };
@@ -48,9 +52,7 @@ const Navbar = () => {
     <>
       <div className={`navigation ${stickyStyle}`}>
         <nav>
-          <Link to={'/cook'} className="logo">
-            {t('welcome')}
-          </Link>
+          <h1 className="logo">{t('welcome')}</h1>
           <div>
             <div className={`options`}>
               <NavLink
