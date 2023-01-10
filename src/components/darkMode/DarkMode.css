@@ -2,12 +2,12 @@
   margin: 15px 0;
   width: 55px;
   border-radius: 50px;
-  background-color: #000;
-  z-index: 1
+  background-color: var(--function-bar-bg);
+  border: none
 }
 
 .icon-theme {
-  background-color: gray;
+  background-color: var(--main-color);
   width: 18px;
   height: 18px;
   border-radius: 50%;
@@ -20,12 +20,12 @@
 }
 
 body.dark .icon-theme {
-  background-color: rgb(250, 250, 12);
+  background-color: var(--main-color);
   transform: translateX(22px);
 }
 
 body.dark .icon-theme::after {
-  background-color: #444;
+  background-color: var(--function-bar-bg);
   position: absolute;
   top: 1.3px;
   left: -2px;
@@ -37,5 +37,5 @@ body.dark .icon-theme::after {
 }
 
 body.dark .toggle-theme {
-  background-color: #444;
+  background-color: var(--function-bar-bg);
 }

@@ -4,11 +4,11 @@ import { doc, deleteDoc, setDoc } from 'firebase/firestore';
 import { useTranslation } from 'react-i18next';
 
 import './SingleShoppingListProduct.css';
+import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
+import ClearOutlinedIcon from '@mui/icons-material/ClearOutlined';
+import LocalShippingOutlinedIcon from '@mui/icons-material/LocalShippingOutlined';
 
-import shopping_cart from '../../icons/shopping_cart.svg';
-import edit from '../../icons/edit.svg';
-import clear from '../../icons/clear.svg';
-import local_shipping from '../../icons/local_shipping_black.svg';
 import { FoodStorageContext } from '../../context/FoodStorageContext';
 import EditModal from './components/EditModal';
 import { ShoppingListProduct } from '../../types/type';
@@ -103,22 +103,21 @@ const SingleItem: React.FC<SingleShoppingListProps> = ({
             {t(`key_ingredients.${title}`)} - {amount}
           </p>
           <div className="icons">
-            <img
+            <ShoppingCartOutlinedIcon
+              className="single-icon"
               onClick={() => moveProductIntoBag(id, title, amount, inBag)}
-              src={shopping_cart}
-              alt="In shopping cart"
             />
-            <img
+            <EditOutlinedIcon
+              className="single-icon"
               onClick={() => toggleEdit(id, title, amount, isEditing)}
-              src={edit}
-              alt="edit"
             />
-            <img onClick={() => setDeleteModal(true)} src={clear} alt="clear" />
-            <img
+            <ClearOutlinedIcon
+              className="single-icon"
+              onClick={() => setDeleteModal(true)}
+            />
+            <LocalShippingOutlinedIcon
+              className="single-icon"
               onClick={() => handleSendToStock(id, title, amount)}
-              className="send-img"
-              src={local_shipping}
-              alt="send to stock"
             />
           </div>
         </div>

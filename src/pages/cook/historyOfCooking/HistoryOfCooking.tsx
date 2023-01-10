@@ -87,7 +87,7 @@ const HistoryOfCooking: React.FC = () => {
       setRangeHistoryList(rangeList);
       setMatchedRangeHistoryList(matchedRangeList);
       navigate(
-        `/cook/history/rangeHistory_from_${startDate.getDate()}-${
+        `/history/rangeHistory_from_${startDate.getDate()}-${
           startDate.getMonth() + 1
         }-${startDate.getFullYear()}_to_${endDate.getDate()}-${
           endDate.getMonth() + 1
@@ -95,7 +95,7 @@ const HistoryOfCooking: React.FC = () => {
       );
       setStartDate(null);
       setEndDate(null);
-    } 
+    }
   }, [startDate, endDate, navigate, displayDate, historyOfCooking, rangeList]);
 
   const rangeDateHandler = (dates: Array<Date | null>) => {
@@ -202,39 +202,36 @@ const HistoryOfCooking: React.FC = () => {
     setStartDate(null);
     setEndDate(null);
     setMatchedRangeHistoryList([]);
-    navigate('/cook/history');
+    navigate('/history');
   };
 
   return (
-    <div className="datepicker-container">
-      <div className="datepicker-wrapper">
-        <div className="datepicker-inner">
-          <DatePicker
-            selectsRange
-            startDate={startDate}
-            endDate={endDate}
-            onChange={rangeDateHandler}
-            dateFormat="dd/MM/yyyy"
-            className="datepicker"
-            placeholderText="Please select date..."
-            inline
-          ></DatePicker>
-          <div className="btns-datepicker">
-            <button onClick={monthSelect}>{t('month')}</button>
-            <button onClick={yearSelect}>{t('year')}</button>
-            <button onClick={clearDatepickerField}>{t('clear')}</button>
-          </div>
+    <div className="datepicker-wrapper">
+      <div className="datepicker-inner">
+        <DatePicker
+          selectsRange
+          startDate={startDate}
+          endDate={endDate}
+          onChange={rangeDateHandler}
+          dateFormat="dd/MM/yyyy"
+          placeholderText="Please select date..."
+          inline
+        ></DatePicker>
+        <div className="btns-datepicker">
+          <button onClick={monthSelect}>{t('month')}</button>
+          <button onClick={yearSelect}>{t('year')}</button>
+          <button onClick={clearDatepickerField}>{t('clear')}</button>
         </div>
-        <div className="space-beetwen"></div>
-        <NestedHistoryListsContext.Provider
-          value={{
-            rangeHistoryList,
-            matchedRangeHistoryList,
-          }}
-        >
-          <Outlet />
-        </NestedHistoryListsContext.Provider>
       </div>
+      <div className="space-beetwen"></div>
+      <NestedHistoryListsContext.Provider
+        value={{
+          rangeHistoryList,
+          matchedRangeHistoryList,
+        }}
+      >
+        <Outlet />
+      </NestedHistoryListsContext.Provider>
     </div>
   );
 };

@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { SingleShopProductProps } from '../../../types/type';
 
 import './Modals.css';
-import check from '../../../icons/check.svg';
+import CheckOutlinedIcon from '@mui/icons-material/CheckOutlined';
 import { FoodStorageContext } from '../../../context/FoodStorageContext';
 
 const EditModal: FC<SingleShopProductProps> = ({ productOfShoppingList }) => {
@@ -141,19 +141,14 @@ const EditModal: FC<SingleShopProductProps> = ({ productOfShoppingList }) => {
           >
             {t('cancel')}
           </button>
-          <img
-          className='btn'
-            onClick={() =>
+          <CheckOutlinedIcon className="btn" onClick={() =>
               acceptEdit(
                 productOfShoppingList.id,
                 productOfShoppingList.title,
                 productOfShoppingList.isEditing,
                 productOfShoppingList.amount
               )
-            }
-            src={check}
-            alt={t('approve_changes')}
-          />
+            }/>
         </div>
       </div>
     </div>

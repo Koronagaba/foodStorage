@@ -1,19 +1,19 @@
 import { useEffect, useState, useRef } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-import Hamburger from '../Hamburger';
-
 import './Navbar.css';
+import MultiLanguages from '../multiLanguages/MultiLanguages';
 
 const Navbar = () => {
   const [stickyStyle, setStickyStyle] = useState('navbar');
-  const [toggleOptions, setToggleOptions] = useState(false);
 
   const { t } = useTranslation();
 
   const hamburgerRef = useRef<HTMLDivElement>(null);
-  const activeLink = ({ isActive }: any) => ({ color: isActive ? '#fff' : '' });
+  const activeLink = ({ isActive }: any) => ({
+    color: isActive ? '#b69033' : '',
+  });
 
   const handleScroll = () => {
     if (window.scrollY > 10) {
@@ -27,27 +27,6 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll);
   });
 
-  useEffect(() => {
-    const checkIfClickedOutside = (e: any) => {
-      // If the menu is open and the clicked target is not within the menu,
-      // then close the menu
-      if (
-        toggleOptions &&
-        hamburgerRef.current &&
-        !hamburgerRef.current.contains(e.target)
-      ) {
-        setToggleOptions(false);
-      }
-    };
-
-    document.addEventListener('mousedown', checkIfClickedOutside);
-
-    return () => {
-      // Cleanup the event listener
-      document.removeEventListener('mousedown', checkIfClickedOutside);
-    };
-  }, [toggleOptions]);
-
   return (
     <>
       <div className={`navigation ${stickyStyle}`}>
@@ -55,45 +34,24 @@ const Navbar = () => {
           <h1 className="logo">{t('welcome')}</h1>
           <div>
             <div className={`options`}>
-              <NavLink
-                to={'/cook'}
-                style={activeLink}
-                onClick={() => setToggleOptions(false)}
-              >
+              <NavLink to={'/cook'} style={activeLink}>
                 {t('cook')}
               </NavLink>
-              {/* <NavLink
-                to={'/createNewProduct'}
-                style={activeLink}
-                onClick={() => setToggleOptions(false)}
-              >
-                {t('create')}
-              </NavLink> */}
-              <NavLink
-                to={'/stock'}
-                style={activeLink}
-                onClick={() => setToggleOptions(false)}
-              >
+              <NavLink to={'/stock'} style={activeLink}>
                 {t('stock')}
               </NavLink>
-              <NavLink
-                to={'/shoppingList'}
-                style={activeLink}
-                onClick={() => setToggleOptions(false)}
-              >
+              <NavLink to={'/shoppingList'} style={activeLink}>
                 {t('shopping_list')}
+              </NavLink>
+              <NavLink to={'/history'} style={activeLink}>
+                {t('history')}
               </NavLink>
             </div>
           </div>
+          <MultiLanguages />
         </nav>
       </div>
-      <div ref={hamburgerRef}>
-        <Hamburger
-          toggleOptions={toggleOptions}
-          setToggleOptions={setToggleOptions}
-          activeLink={activeLink}
-        />
-      </div>
+      <div ref={hamburgerRef}></div>
     </>
   );
 };

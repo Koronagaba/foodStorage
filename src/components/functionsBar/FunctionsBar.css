@@ -1,13 +1,3 @@
-.calendar-img {
-  transition: transform ease-in 0.2s;
-  transform: translateX(25px)
-}
-
-.calendar-img:hover {
-  cursor: pointer;
-  transform: translateX(25px) scale(1.1)
-}
-
 .functionsBar-container {
   padding-top: 60px;
   background-color: var(--main-bg-color);

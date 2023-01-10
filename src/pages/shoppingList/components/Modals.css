@@ -44,20 +44,18 @@
   height: 80px;
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  
+  justify-content: space-between;
 }
 
 .btn {
   width: 100%;
-  /* padding: 0 20px; */
   height: 28px;
   margin: 0 20px;
   font-size: 17px;
   border-radius: 5px;
-  background-color: #f2e3d5;
   transition: 0.1s ease-in;
   background-color: var(--fields-bg-color);
+  color: var(--main-font-color);
 }
 .btns img {
   background-color: var(--fields-bg-color);
@@ -80,20 +78,18 @@
 
 .content-edit-modal input {
   background-color: var(--fields-bg-color);
+  color: var(--main-font-color);
 }
-
 
 .content-edit-modal :first-child {
   padding: 0 12px;
 }
 
 @media (max-width: 600px) {
-  
-.modal-title {
-  font-size: 17px;
-}
-.content-edit-modal :first-child {
-  padding: 0 5px;
-}
-
+  .modal-title {
+    font-size: 17px;
+  }
+  .content-edit-modal :first-child {
+    padding: 0 5px;
+  }
 }

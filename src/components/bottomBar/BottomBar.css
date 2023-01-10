@@ -1,33 +1,24 @@
-.bottomBar-container{
-    position: fixed;
-    bottom:0;
-    width: 100vw;
-    display: flex;
-    justify-content: space-around;
-    border-top: 2px solid gray;
-    background-color: #eee;
-    padding: 5px 0
+.bottomBar-container {
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  display: flex;
+  justify-content: space-around;
+  border-top: 2px solid gray;
+  background-color: var(--bottom-bar-bg);
+  padding: 5px 0;
 }
 
-/* .iconContainer {
-    background-color: #fff;
-    padding: 5px 10px;
-    border-radius: 10px
-
-} */
-
 .bottomBar-icon {
-    color: #777
+  color: var(--bottom-bar-color);
 }
 
 .bottomBar-icon_clicked {
-color: rgb(167, 78, 232);
+  color: var(--main-color);
 }
 
-
-
-@media (min-width: 700px){
-    .bottomBar-container{
-        display: none
-    }
+@media (min-width: 700px) {
+  .bottomBar-container {
+    display: none;
+  }
 }

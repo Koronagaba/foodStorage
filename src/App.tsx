@@ -43,17 +43,17 @@ function App() {
       <FunctionsBar />
       <Routes>
         <Route path="/cook" element={<Cook />}></Route>
-        <Route path="/cook/history" element={<HistoryOfCooking />}>
+        <Route path="/history" element={<HistoryOfCooking />}>
           <Route
-            path="/cook/history/month_:id"
+            path="/history/month_:id"
             element={<MonthHistory />}
           ></Route>
           <Route
-            path="/cook/history/year_:id"
+            path="/history/year_:id"
             element={<YearHistory />}
           ></Route>
           <Route
-            path="/cook/history/rangeHistory_:id"
+            path="/history/rangeHistory_:id"
             element={<RangeHistoryList />}
           ></Route>
         </Route>

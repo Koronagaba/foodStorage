@@ -4,8 +4,9 @@
     border-radius: 8px;
     border: none;
     padding: 8px;
-    background-color: var(--fields-bg-color);
-    transition: 0.15s ease
+    background-color: var(--function-bar-bg);
+    transition: 0.15s ease;
+    color: #fff;
 }
 
 .handle-removal button:hover {

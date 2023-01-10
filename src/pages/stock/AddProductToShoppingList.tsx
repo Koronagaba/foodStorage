@@ -11,7 +11,7 @@ import { useTranslation } from 'react-i18next';
 
 import { FoodStorageContext } from '../../context/FoodStorageContext';
 
-import add_shopping_cart from '../../icons/add_shopping_cart.svg';
+import ShoppingCartCheckoutOutlinedIcon from '@mui/icons-material/ShoppingCartCheckoutOutlined';
 import { ShoppingListProduct, StockProduct } from '../../types/type';
 
 interface AddProductProps {
@@ -32,8 +32,9 @@ const AddProduct = ({ inputRef, product }: AddProductProps) => {
       setDoc(doc(db, 'products', product.id), {
         title: product.title,
         amount: product.amount,
-        shoppingListAmount: product.shoppingListAmount + numberOfProductsAddedToCart
-      })
+        shoppingListAmount:
+          product.shoppingListAmount + numberOfProductsAddedToCart,
+      });
       const theSameTitle = (sameTitle: ShoppingListProduct) => {
         return sameTitle.title.toLowerCase() === product.title.toLowerCase();
       };
@@ -91,10 +92,8 @@ const AddProduct = ({ inputRef, product }: AddProductProps) => {
           }
         />
       </label>
-      <img
+      <ShoppingCartCheckoutOutlinedIcon
         className="img-add-to-cart"
-        src={add_shopping_cart}
-        alt="Add to sgopping cart"
         onClick={addProductToShoppingList}
       />
     </>

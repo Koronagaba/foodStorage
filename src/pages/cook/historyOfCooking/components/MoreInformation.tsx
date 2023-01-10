@@ -1,7 +1,7 @@
 import { useContext, FC, useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { NestedHistoryListsContext } from '../../../../context/NestedHistoryListsContext';
-import close from '../../../../icons/close.svg';
+import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 
 interface PropsMoreInformation {
   historyTitle: string;
@@ -75,28 +75,25 @@ const MoreInformation: FC<PropsMoreInformation> = ({
   }, [setShowModal, setHistoryTitle]);
 
   return (
-      <div className={modalStyle}>
-        {displayList.length ? (
-          <div ref={wrapperRef} className="details-inner">
-            <div className="details-header">
-              <div>
-                <p>
-                  {t('total_amount')}: {historyTotalAmount}
-                </p>
-                <img
-                  src={close}
-                  alt="close"
-                  className="close-img"
-                  onClick={closeMoreInformation}
-                />
-              </div>
-              <h1>{t(`key_ingredients.${historyTitle}`)}</h1>
+    <div className={modalStyle}>
+      {displayList.length ? (
+        <div ref={wrapperRef} className="details-inner">
+          <div className="details-header">
+            <div>
+              <p>
+                {t('total_amount')}: {historyTotalAmount}
+              </p>
+              <CloseOutlinedIcon
+                className="close-img"
+                onClick={closeMoreInformation}
+              />
             </div>
-
-            {displayList}
+            <h1>{t(`key_ingredients.${historyTitle}`)}</h1>
           </div>
-        ) : null}
-      </div>
+          {displayList}
+        </div>
+      ) : null}
+    </div>
   );
 };
 

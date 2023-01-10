@@ -7,11 +7,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 4px 10px;
-  margin: 2.5px 0;
+  padding: 6px 10px;
+  margin: 4px 0;
   background-color: var(--fields-bg-color);
   width: 100%;
-  margin: 4px 0;
   border-radius: 5px;
   transition: all 0.05s ease;
 }
@@ -28,21 +27,13 @@
 
 .product-info {
   margin-right: 10px;
+  /* color: pink */
 }
 
 .icons {
-  width: 25%;
+  width: 30%;
   display: flex;
   justify-content: space-between;
-}
-
-.single-item .icons img {
-  transition: 0.1s ease-in;
-}
-
-.single-item .icons img:hover {
-  cursor: pointer;
-  transform: scale(1.2);
 }
 
 .single-item .form-edit {
@@ -58,14 +49,8 @@
   transform: scale(1.2);
 }
 
-.send-img {
-  margin-left: 5px;
-}
-
-.single-item-container .send-img:hover {
-  cursor: pointer;
-  transform: scale(1.2);
-  background-color: var(--fields-hover-bg-color);
+.icons .single-icon:hover {
+  transform: scale(1.1);
 }
 
 @media (max-width: 550px) {
