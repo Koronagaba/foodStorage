@@ -1,28 +1,24 @@
-import { useEffect } from 'react';
 import './DarkMode.css';
 
 const DarkMode = () => {
-  useEffect(() => {
-    storageTheme = 'dark';
-    localStorage.setItem('theme', storageTheme);
-  }, []);
+  const body = document.body;
 
   let storageTheme = localStorage.getItem('theme');
 
   const toggleTheme = () => {
-    if (storageTheme === 'dark') {
-      document.body.classList.remove('dark');
-      storageTheme = 'light';
-    } else {
-      document.body.classList.add('dark');
+    if (storageTheme === 'light') {
+      body.classList.remove('light');
       storageTheme = 'dark';
+    } else {
+      body.classList.add('light');
+      storageTheme = 'light';
     }
 
     localStorage.setItem('theme', storageTheme);
   };
 
-  if (storageTheme === 'dark') {
-    document.body.classList.add('dark');
+  if (storageTheme === 'light') {
+    body.classList.add('light');
   }
 
   return (

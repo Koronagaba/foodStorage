@@ -7,7 +7,7 @@
   /* font-family: 'Lato', sans-serif; */
   font-family: 'Titillium Web', sans-serif;
   font-weight: lighter;
-  letter-spacing: .6px;
+  letter-spacing: 0.6px;
 }
 
 /* purple -  #a74ee8 */
@@ -15,33 +15,10 @@
 .App {
   height: 100vh;
   background-color: var(--main-bg-color);
-  color: var(--main-font-color)
+  color: var(--main-font-color);
 }
-
 
 :root {
-    --main-bg-color: #eee;
-    --main-color: #b69033;
-    --main-font-color: #000;
-
-    --fields-bg-color: #fff;
-    --fields-hover-bg-color: #ededed;
-
-    --nav-bg-color: #283730;
-    --nav-color: #fff;
-
-    --bottom-bar-bg: #eee;
-    --bottom-bar-color: #555;
-
-    --function-bar-bg: #444;
-
-    --btns-bg: #fff;
-    --btns-color: #000
-}
-
-
-
-body.dark {
   --main-bg-color: #222;
   --main-font-color: #fff;
 
@@ -49,12 +26,32 @@ body.dark {
   --fields-hover-bg-color: #333;
 
   --nav-bg-color: #283730;
-  
+
   --bottom-bar-bg: #333;
   --bottom-bar-color: #999;
   --btns-bg: #283730;
   --btns-color: #b69033;
- 
+
+  --main-color: #b69033;
+
+  --nav-color: #fff;
+
+  --function-bar-bg: #444;
+}
+body.light {
+  --main-bg-color: #eee;
+  --main-font-color: #000;
+
+  --fields-bg-color: #fff;
+  --fields-hover-bg-color: #ededed;
+
+  --nav-bg-color: #283730;
+
+  --bottom-bar-bg: #eee;
+  --bottom-bar-color: #555;
+
+  --btns-bg: #fff;
+  --btns-color: #000;
 }
 
 .disabled {
@@ -63,8 +60,8 @@ body.dark {
 }
 
 .classic-icon {
-color: var(--main-font-color);
-transition: transform 0.1s ease-in;
+  color: var(--main-font-color);
+  transition: transform 0.1s ease-in;
 }
 
 .classic-icon:hover {
