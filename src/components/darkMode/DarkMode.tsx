@@ -1,16 +1,20 @@
+import { useEffect } from 'react';
 import './DarkMode.css';
 
 const DarkMode = () => {
-  const body = document.body;
+  useEffect(() => {
+    storageTheme = 'dark';
+    localStorage.setItem('theme', storageTheme);
+  }, []);
 
   let storageTheme = localStorage.getItem('theme');
 
   const toggleTheme = () => {
     if (storageTheme === 'dark') {
-      body.classList.remove('dark');
+      document.body.classList.remove('dark');
       storageTheme = 'light';
     } else {
-      body.classList.add('dark');
+      document.body.classList.add('dark');
       storageTheme = 'dark';
     }
 
@@ -18,7 +22,7 @@ const DarkMode = () => {
   };
 
   if (storageTheme === 'dark') {
-    body.classList.add('dark');
+    document.body.classList.add('dark');
   }
 
   return (
