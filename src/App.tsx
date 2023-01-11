@@ -36,7 +36,6 @@ function App() {
   const { breakfastList, lunchList, supperList, snackList } =
     useContext(MealsContext);
 
-
   return (
     <div className="App">
       <ScrollToTop>
@@ -52,7 +51,7 @@ function App() {
               element={<RangeHistoryList />}
             ></Route>
           </Route>
-          <Route path="*" element={<Navigate to="/cook" />} />
+          <Route path="*" element={<Navigate to="cook" />} />
           {/* ***************** Breakfast ***************** */}
           <Route
             path="/cook/breakfast"
@@ -219,7 +218,7 @@ function App() {
             path="/createNewProduct"
             element={<CreateProduct setToggleModal={setToggleModal} />}
           /> */}
-          <Route path="/">
+          <Route path="/stock">
             <Route path="/stock" element={<Stock />} />
           </Route>
           <Route path="/shoppingList" element={<ShoppingList />} />
