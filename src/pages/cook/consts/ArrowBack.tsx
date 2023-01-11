@@ -2,7 +2,7 @@ import { useContext, FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-import arrow_back from '../../../icons/arrow_back.svg';
+import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import { SearchContext } from '../../../context/SearchContext';
 import { MealItem } from '../../../context/MealsContext';
 
@@ -17,11 +17,10 @@ export const BackToCook = () => {
   };
 
   return (
-    <img
-      onClick={navigateToCook}
-      src={arrow_back}
-      alt={t('arrow_back')}
+    <KeyboardBackspaceIcon
       className="arrow-back"
+      fontSize="large"
+      onClick={navigateToCook}
     />
   );
 };
@@ -51,11 +50,10 @@ export const BackToMealList: FC<BackToMealListProps> = ({
   };
 
   return (
-    <img
-      onClick={navigateToMeal}
-      src={arrow_back}
-      alt={t('arrow_back')}
+    <KeyboardBackspaceIcon
       className="arrow-back"
+      fontSize="large"
+      onClick={navigateToMeal}
     />
   );
 };
@@ -75,11 +73,10 @@ export const BackToMealListFromEdit = ({
   };
 
   return (
-    <img
-      onClick={navigateToMealFromEdit}
-      src={arrow_back}
-      alt={t('arrow_back')}
+    <KeyboardBackspaceIcon
       className="arrow-back"
+      fontSize="large"
+      onClick={navigateToMealFromEdit}
     />
   );
 };

@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { EditMeal } from '../../../../../types/type';
 
-import close_black from '../../../../../icons/close_black.svg';
+import ClearIcon from '@mui/icons-material/Clear';
 import { StockProduct } from '../../../../../types/type';
 
 interface Props {
@@ -34,13 +34,7 @@ const DeleteEditSingleMeal: FC<Props> = ({
   };
 
   return (
-    <>
-      <img
-        src={close_black}
-        alt="close icon"
-        onClick={removeProductFromAddedMeal}
-      />
-    </>
+    <ClearIcon className="classic-icon" onClick={removeProductFromAddedMeal} />
   );
 };
 

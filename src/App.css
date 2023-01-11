@@ -30,15 +30,13 @@
     --nav-bg-color: #283730;
     --nav-color: #fff;
 
-    --btns-bg: linear-gradient(90deg,
-          rgba(0, 7, 36, 1) 0%,
-          rgba(9, 55, 121, 1) 75%,
-          rgba(0, 92, 255, 1) 100%);
-
     --bottom-bar-bg: #eee;
     --bottom-bar-color: #555;
 
     --function-bar-bg: #444;
+
+    --btns-bg: #fff;
+    --btns-color: #000
 }
 
 
@@ -53,10 +51,24 @@ body.dark {
   --nav-bg-color: #283730;
   
   --bottom-bar-bg: #333;
-  --bottom-bar-color: #999
+  --bottom-bar-color: #999;
+  --btns-bg: #283730;
+  --btns-color: #b69033;
+ 
 }
 
 .disabled {
   opacity: 0.3;
   cursor: auto;
+}
+
+.classic-icon {
+color: var(--main-font-color);
+transition: transform 0.1s ease-in;
+}
+
+.classic-icon:hover {
+  color: var(--main-color);
+  cursor: pointer;
+  transform: scale(1.1);
 }

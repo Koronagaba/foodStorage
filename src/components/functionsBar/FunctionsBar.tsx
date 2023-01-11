@@ -1,4 +1,5 @@
 import React from 'react';
+import { Route, Routes } from 'react-router-dom';
 import DarkMode from '../darkMode/DarkMode';
 import HandleRemoval from '../handleRemoval/HandleRemoval';
 import './FunctionsBar.css';
@@ -8,7 +9,9 @@ const FunctionsBar = () => {
     <div className="functionsBar-container">
       <div className="functionsBar-inside">
         <DarkMode />
-        {window.location.pathname === '/cook' ? <HandleRemoval /> : null}
+        <Routes>
+          <Route path="/cook" element={<HandleRemoval />} />
+        </Routes>
       </div>
     </div>
   );

@@ -27,6 +27,7 @@
   width: 90%;
   max-width: 580px;
   margin: 0 auto;
+  padding-bottom: 50px;
 }
 
 /* Single Product  */
@@ -67,11 +68,6 @@
 
 .single-stock-product .img-add-to-cart {
   margin-left: 10px;
-  color: var(--main-font-color);
-  transition: transform 0.1s ease-in;
-}
-.single-stock-product .img-add-to-cart:hover {
-  transform: scale(1.1);
 }
 
 @media (max-width: 600px) {

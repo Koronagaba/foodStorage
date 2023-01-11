@@ -1,63 +1,65 @@
-.editSingleMealProduct{
-    display: flex;
-    flex-direction: column;
-    /* justify-content: center; */
+.editSingleMealProduct {
+  display: flex;
+  flex-direction: column;
 }
 
-.title{
-    background-color: var(--fields-bg-color);
-    margin: 20px 0;
-    padding: 30px 0;
-    font-weight: bold;
-    font-size: 1.2em;
-    text-align: center;
-    border-radius: 5px;
+.title {
+  background-color: var(--fields-bg-color);
+  margin: 20px 0;
+  padding: 30px 0;
+  font-weight: bold;
+  font-size: 1.2em;
+  text-align: center;
+  border-radius: 5px;
 }
 
-.save-button{
-    background: var(--btns-bg );
-    align-self: center;
-    margin: 30px;
-    padding: 10px 30px;
-    border-radius: 5px;
-    border: none;
-    color: #fff;
-    font-size: 1em;
-    transition: transform ease-in .1s;
+.save-button {
+  background: var(--btns-bg);
+  color: var(--btns-color);
+  align-self: center;
+  margin: 30px;
+  padding: 10px 30px;
+  border-radius: 5px;
+  border: 2px solid var(--main-color);
+  font-size: 1em;
+  font-weight: 400;
+  transition: transform ease-in 0.1s;
 }
 .save-button:hover {
-    cursor: pointer;
-    transform: scale(1.05)
+  cursor: pointer;
+  transform: scale(1.05);
 }
 
 .form-editMealProduct {
-    display: flex;
-    justify-content: space-between;
-    background-color: var(--fields-bg-color);
-    padding: 20px 0;
-    border-radius: 5px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: var(--fields-bg-color);
+  padding: 20px 0;
+  border-radius: 5px;
+  border: 1px solid var(--main-color);
 }
 
 .form-editMealProduct input {
-    width: 15%;
-    padding: 5px;
-    margin: 0 1em;
-    border: 1px solid gray;
-    border-radius: 5px
+  width: 15%;
+  padding: 5px;
+  margin: 0 1em;
+  border: 1px solid gray;
+  border-radius: 5px;
 }
 
 .form-editMealProduct p {
-    width: 50%;
-    padding: 5px;
-    border: 1px solid gray;
-    border-radius: 5px
+  width: 50%;
+  padding: 5px;
+  border: 1px solid gray;
+  border-radius: 5px;
 }
 .form-editMealProduct img {
-    margin: 0 1em;
-    width: 28px;
-    transition: transform ease-in .2s
+  margin: 0 1em;
+  width: 28px;
+  transition: transform ease-in 0.2s;
 }
 .form-editMealProduct img:hover {
-    cursor: pointer;
-    transform: scale(1.2)
+  cursor: pointer;
+  transform: scale(1.2);
 }

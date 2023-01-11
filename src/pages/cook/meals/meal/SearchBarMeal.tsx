@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import { SearchContext } from '../../../../context/SearchContext';
 
-import search_icon from '../../../../icons/search.svg';
+import SearchIcon from '@mui/icons-material/Search';
 
 const SearchBarMeal = () => {
   const { searchMeal, setSearchMeal } = useContext(SearchContext);
@@ -18,15 +18,6 @@ const SearchBarMeal = () => {
 
   const handleSearchText = (e: { target: HTMLInputElement }) => {
     setSearchMeal(e.target.value);
-    // if(localStorage.getItem('i18nextLng') === 'en'){
-    // console.log(i18next.store.data.en.translation);
-    // }else {
-    //   console.log(i18next.store.data.pl.translation);
-    // }
-
-    // const filteredCollection = collection.filter((item: MealIngredient) => (
-    //   item.title.toLocaleLowerCase().includes(searchText.toLocaleLowerCase())
-    // ))
   };
 
   const searchInputFocus = () => {
@@ -36,7 +27,7 @@ const SearchBarMeal = () => {
   return (
     <div className="meal-search-bar" onClick={searchInputFocus}>
       <form className="meal-search-form" onSubmit={handleSubmit}>
-        <img className="meal-search-icon" src={search_icon} alt="search icon" />
+        <SearchIcon className="meal-search-icon" />
         <input
           className="meal-search-input"
           ref={searchFocus}

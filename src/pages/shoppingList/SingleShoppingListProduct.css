@@ -27,7 +27,6 @@
 
 .product-info {
   margin-right: 10px;
-  /* color: pink */
 }
 
 .icons {
@@ -47,10 +46,6 @@
 .single-item .form-edit img:hover {
   cursor: pointer;
   transform: scale(1.2);
-}
-
-.icons .single-icon:hover {
-  transform: scale(1.1);
 }
 
 @media (max-width: 550px) {

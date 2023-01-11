@@ -36,7 +36,7 @@ const DisplayHistory: FC<DisplayHistoryProps> = () => {
             <p>{matchedHistoryItem.amount}</p>
           </div>
           <ExpandMoreOutlinedIcon
-            className="more-img"
+            className="classic-icon"
             onClick={() => handleShowDetails(matchedHistoryItem)}
           />
         </div>

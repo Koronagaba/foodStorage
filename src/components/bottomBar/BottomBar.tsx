@@ -37,7 +37,7 @@ const BottomBar = () => {
         />
       </NavLink>
       <NavLink
-        to={'/cook/history'}
+        to={'/history'}
         onClick={() => setSelectedPath(stylePath.HISTORY)}
       >
         <CalendarTodayOutlinedIcon

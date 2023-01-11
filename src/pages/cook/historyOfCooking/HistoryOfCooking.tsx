@@ -206,32 +206,34 @@ const HistoryOfCooking: React.FC = () => {
   };
 
   return (
-    <div className="datepicker-wrapper">
-      <div className="datepicker-inner">
-        <DatePicker
-          selectsRange
-          startDate={startDate}
-          endDate={endDate}
-          onChange={rangeDateHandler}
-          dateFormat="dd/MM/yyyy"
-          placeholderText="Please select date..."
-          inline
-        ></DatePicker>
-        <div className="btns-datepicker">
-          <button onClick={monthSelect}>{t('month')}</button>
-          <button onClick={yearSelect}>{t('year')}</button>
-          <button onClick={clearDatepickerField}>{t('clear')}</button>
+    <div className="datepicker-container">
+      <div className="datepicker-wrapper">
+        <div className="datepicker-inner">
+          <DatePicker
+            selectsRange
+            startDate={startDate}
+            endDate={endDate}
+            onChange={rangeDateHandler}
+            dateFormat="dd/MM/yyyy"
+            placeholderText="Please select date..."
+            inline
+          ></DatePicker>
+          <div className="btns-datepicker">
+            <button onClick={monthSelect}>{t('month')}</button>
+            <button onClick={yearSelect}>{t('year')}</button>
+            <button onClick={clearDatepickerField}>{t('clear')}</button>
+          </div>
         </div>
+        <div className="space-beetwen"></div>
+        <NestedHistoryListsContext.Provider
+          value={{
+            rangeHistoryList,
+            matchedRangeHistoryList,
+          }}
+        >
+          <Outlet />
+        </NestedHistoryListsContext.Provider>
       </div>
-      <div className="space-beetwen"></div>
-      <NestedHistoryListsContext.Provider
-        value={{
-          rangeHistoryList,
-          matchedRangeHistoryList,
-        }}
-      >
-        <Outlet />
-      </NestedHistoryListsContext.Provider>
     </div>
   );
 };

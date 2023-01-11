@@ -10,7 +10,7 @@ import { db } from '../../../../firebase/config';
 import { useTranslation } from 'react-i18next';
 
 import './Ingredient.css';
-import add_circle from '../../../../icons/add_circle.svg';
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 
 import { StockProduct } from '../../../../types/type';
 
@@ -84,7 +84,7 @@ const Ingredient: FC<IngredientProps> = ({
           {`${t(`key_ingredients.${stockProduct.title}`)} `}{' '}
         </p>
 
-        <p className='amount-ingredient'>({ stockProduct.amount})</p>
+        <p className="amount-ingredient">({stockProduct.amount})</p>
       </div>
       <form>
         <label>
@@ -101,8 +101,10 @@ const Ingredient: FC<IngredientProps> = ({
             }
           />
         </label>
-
-        <img onClick={addIngredientToMeal} src={add_circle} alt="add circle" />
+        <AddCircleOutlineIcon
+          className="classic-icon"
+          onClick={addIngredientToMeal}
+        />
       </form>
     </div>
   );

@@ -1,5 +1,6 @@
 .meal-container {
   background-color: var(--main-bg-color);
+  padding-bottom: 110px;
 }
 .inside-meal {
   max-width: 600px;
@@ -9,18 +10,18 @@
 
 .meal-header {
   display: flex;
-  justify-content: space-between;
-  padding-top: 10px;
 }
 
 .arrow-back {
+  display: flex;
+  align-self: flex-end;
   transition: ease-in-out 0.2s;
   background-color: var(--fields-bg-color);
   border-radius: 10px;
 }
 .arrow-back:hover {
   cursor: pointer;
-  transform: scale(1.15);
+  transform: scale(1.03);
 }
 
 .meal-title {
@@ -28,7 +29,7 @@
   margin: 0 auto;
   padding-top: 20px;
   align-self: center;
-  color: #f3f4e6;
+  color: var(--main-font-color);
   text-decoration: none;
 }
 
@@ -36,14 +37,14 @@
 
 .meal-search-form {
   display: flex;
+  align-items: center;
   background-color: var(--fields-bg-color);
-  padding: 5px;
   margin: 15px 0;
-  border-radius: 80px;
+  border-radius: 10px;
   outline: #aaa 1px solid;
 }
 .meal-search-icon {
-  margin-left: 25px;
+  margin: 0 10px;
 }
 
 .meal-search-input {
@@ -52,5 +53,6 @@
   border: none;
   font-size: 17px;
   background-color: var(--fields-bg-color);
+  color: var(--main-font-color);
   outline: none;
 }

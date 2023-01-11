@@ -141,14 +141,17 @@ const EditModal: FC<SingleShopProductProps> = ({ productOfShoppingList }) => {
           >
             {t('cancel')}
           </button>
-          <CheckOutlinedIcon className="btn" onClick={() =>
+          <CheckOutlinedIcon
+            className="btn classic-icon"
+            onClick={() =>
               acceptEdit(
                 productOfShoppingList.id,
                 productOfShoppingList.title,
                 productOfShoppingList.isEditing,
                 productOfShoppingList.amount
               )
-            }/>
+            }
+          />
         </div>
       </div>
     </div>

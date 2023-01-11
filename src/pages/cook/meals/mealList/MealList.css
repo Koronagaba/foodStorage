@@ -10,7 +10,6 @@
 }
 
 .typesOfMeals-empty-header img {
-  /* width: 350px; */
   width: 58%;
 }
 
@@ -23,12 +22,13 @@
   align-items: center;
   justify-content: space-between;
   border-radius: 10px;
-  margin: 4px 0;
+  margin: 6px 0;
   padding: 5px 15px;
   background-color: var(--fields-bg-color);
+  color: var(--main-font-color);
   transition: ease-in-out 0.2s;
 }
-.single-meal:hover{
+.single-meal:hover {
   background-color: var(--fields-hover-bg-color);
 }
 
@@ -36,23 +36,19 @@ a {
   text-decoration: none;
   color: #000;
 }
-.btn-add-more-mealList{
+.btn-add-more-mealList {
   position: fixed;
   bottom: 5%;
   left: 50%;
   margin-left: -53.66px;
-  /* transform: translateX(-50%); */
-  background: linear-gradient(
-    90deg,
-    rgba(0, 7, 36, 1) 0%,
-    rgba(9, 55, 121, 1) 75%,
-    rgba(0, 92, 255, 1) 100%
-  );
-  color: #fff;
+  margin-bottom: 20px;
+  background: var(--btns-bg);
+  color: var(--btns-color);
   padding: 10px 15px;
   border-radius: 10px;
-  border: none;
+  border: 2px solid var(--main-color);
   font-size: 18px;
+  font-weight: 400;
   transition: ease 0.2s;
 }
 

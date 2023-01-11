@@ -93,7 +93,7 @@ const AddProduct = ({ inputRef, product }: AddProductProps) => {
         />
       </label>
       <ShoppingCartCheckoutOutlinedIcon
-        className="img-add-to-cart"
+        className="classic-icon img-add-to-cart "
         onClick={addProductToShoppingList}
       />
     </>

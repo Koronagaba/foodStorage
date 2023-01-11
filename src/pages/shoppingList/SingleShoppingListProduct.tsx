@@ -104,19 +104,19 @@ const SingleItem: React.FC<SingleShoppingListProps> = ({
           </p>
           <div className="icons">
             <ShoppingCartOutlinedIcon
-              className="single-icon"
+              className="classic-icon"
               onClick={() => moveProductIntoBag(id, title, amount, inBag)}
             />
             <EditOutlinedIcon
-              className="single-icon"
+              className="classic-icon"
               onClick={() => toggleEdit(id, title, amount, isEditing)}
             />
             <ClearOutlinedIcon
-              className="single-icon"
+              className="classic-icon"
               onClick={() => setDeleteModal(true)}
             />
             <LocalShippingOutlinedIcon
-              className="single-icon"
+              className="classic-icon"
               onClick={() => handleSendToStock(id, title, amount)}
             />
           </div>

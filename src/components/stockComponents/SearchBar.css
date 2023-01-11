@@ -1,9 +1,6 @@
 .searchBar {
-  margin: 20px 0;
+  margin-bottom: 20px;
   width: 100%;
-}
-.searchBar .search-icon:hover {
-  cursor: pointer;
 }
 
 .search-form {
@@ -16,12 +13,20 @@
   outline: #aaa 1px solid;
 }
 
+.searchBar .search-icon {
+  margin-right: 10px;
+}
+
+.searchBar .search-icon:hover {
+  cursor: pointer;
+}
 .search-input {
   width: 90%;
-  padding:  7px;
+  padding: 7px;
   border: none;
   font-size: 1rem;
   background-color: var(--fields-bg-color);
+  color: var(--main-font-color);
 }
 
 .searchBar .search-input:focus {

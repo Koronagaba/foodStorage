@@ -84,7 +84,7 @@ const MoreInformation: FC<PropsMoreInformation> = ({
                 {t('total_amount')}: {historyTotalAmount}
               </p>
               <CloseOutlinedIcon
-                className="close-img"
+                className="classic-icon"
                 onClick={closeMoreInformation}
               />
             </div>

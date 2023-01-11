@@ -1,12 +1,12 @@
-.ingredients-container{
-padding-bottom: 10px
+.ingredients-container {
+  padding-bottom: 10px;
 }
 .ingredient {
   display: flex;
   align-items: center;
   border-radius: 10px;
-  margin: 5px 0;
-  padding: 0 2%;
+  margin: 6px 0;
+  padding: 4px 2%;
   justify-content: space-between;
   background-color: var(--fields-bg-color);
   transition: ease-in-out 0.2s;
@@ -19,7 +19,6 @@ padding-bottom: 10px
 .ingredient-header {
   display: flex;
   align-items: center;
-
 }
 
 .amount-ingredient {
@@ -36,6 +35,8 @@ padding-bottom: 10px
 
 .ingredient form input {
   width: 48px;
+  background-color: var(--fields-bg-color);
+  color: var(--main-font-color);
 }
 
 .ingredient img {
@@ -55,6 +56,6 @@ padding-bottom: 10px
 
   .ingredient form {
     font-size: 0.8rem;
-    width: 51%
+    width: 51%;
   }
 }
