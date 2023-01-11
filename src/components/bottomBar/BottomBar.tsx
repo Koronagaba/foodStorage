@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import classnames from 'classnames';
 
@@ -16,6 +16,10 @@ const BottomBar = () => {
     STOCK: 'STOCK',
     SHOPPINGLIST: 'SHOPPINGLIST',
   };
+
+  useEffect(() => {
+setSelectedPath(stylePath.COOK)
+  }, [])
 
   return (
     <div className="bottomBar-container">

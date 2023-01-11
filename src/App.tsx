@@ -22,8 +22,8 @@ import RecipeList from './pages/cook/typesOfCooking/recipeList/RecipeList';
 import FavoriteFood from './pages/cook/typesOfCooking/favoriteFood/FavoriteFood';
 // import NoMatch from './components/NoMatch/NoMatch';
 
-import Meal from './pages/cook/meals/meal/Meal';
-import MealList from './pages/cook/meals/mealList/UsedMealListToCook';
+import MealHeader from './pages/cook/meals/meal/MealHeader';
+import UsedProductsToCook from './pages/cook/meals/mealList/UsedProductsToCook';
 import EditSingleMealProduct from './pages/cook/meals/mealList/editSingleMeal/EditSingleMealProduct';
 import HistoryOfCooking from './pages/cook/historyOfCooking/HistoryOfCooking';
 import YearHistory from './pages/cook/historyOfCooking/components/YearHistory';
@@ -44,14 +44,8 @@ function App() {
       <Routes>
         <Route path="/cook" element={<Cook />}></Route>
         <Route path="/history" element={<HistoryOfCooking />}>
-          <Route
-            path="/history/month_:id"
-            element={<MonthHistory />}
-          ></Route>
-          <Route
-            path="/history/year_:id"
-            element={<YearHistory />}
-          ></Route>
+          <Route path="/history/month_:id" element={<MonthHistory />}></Route>
+          <Route path="/history/year_:id" element={<YearHistory />}></Route>
           <Route
             path="/history/rangeHistory_:id"
             element={<RangeHistoryList />}
@@ -62,8 +56,8 @@ function App() {
         <Route
           path="/cook/breakfast"
           element={
-            <Meal
-              title={t('breakfast')}
+            <MealHeader
+              title={'breakfast'}
               backToCook={'/*'}
               nameOfMeal={'breakfast'}
               mealCollection={breakfastList}
@@ -73,7 +67,7 @@ function App() {
           <Route
             path="/cook/breakfast"
             element={
-              <MealList
+              <UsedProductsToCook
                 mealCollection={breakfastList}
                 iconName={breakfast_icon}
                 altProp={'breakfast icon'}
@@ -102,8 +96,8 @@ function App() {
         <Route
           path="/cook/lunch"
           element={
-            <Meal
-              title={t('lunch')}
+            <MealHeader
+              title={'lunch'}
               backToCook={'/*'}
               nameOfMeal={'lunch'}
               mealCollection={lunchList}
@@ -113,7 +107,7 @@ function App() {
           <Route
             path="/cook/lunch"
             element={
-              <MealList
+              <UsedProductsToCook
                 mealCollection={lunchList}
                 iconName={lunch_icon}
                 altProp={'lunch icon'}
@@ -142,8 +136,8 @@ function App() {
         <Route
           path="/cook/supper"
           element={
-            <Meal
-              title={t('supper')}
+            <MealHeader
+              title={'supper'}
               backToCook={'/*'}
               nameOfMeal={'supper'}
               mealCollection={supperList}
@@ -153,7 +147,7 @@ function App() {
           <Route
             path="/cook/supper"
             element={
-              <MealList
+              <UsedProductsToCook
                 mealCollection={supperList}
                 iconName={salad_icon}
                 altProp={'salad icon'}
@@ -183,8 +177,8 @@ function App() {
         <Route
           path="/cook/snack"
           element={
-            <Meal
-              title={t('snacks')}
+            <MealHeader
+              title={'snacks'}
               backToCook={'/*'}
               nameOfMeal={'snack'}
               mealCollection={snackList}
@@ -194,7 +188,7 @@ function App() {
           <Route
             path="/cook/snack"
             element={
-              <MealList
+              <UsedProductsToCook
                 mealCollection={snackList}
                 iconName={snack_icon}
                 altProp={'snack icon'}
@@ -224,8 +218,8 @@ function App() {
             path="/createNewProduct"
             element={<CreateProduct setToggleModal={setToggleModal} />}
           /> */}
-        <Route path="/stock" element={<Stock />}>
-          <Route path="/stock/createProduct" element={<Stock />} />
+          <Route path='/'>
+        <Route path="/stock" element={<Stock />} />
         </Route>
         <Route path="/shoppingList" element={<ShoppingList />} />
         {/* <Route path="*" element={< NoMatch/>} /> */}

@@ -30,7 +30,7 @@ const Cook = () => {
 
   return (
     <div className="cook-container">
-      <NavLink to={'breakfast'} className="breakfast">
+      <NavLink to={'/cook/breakfast'} className="breakfast">
         <div>
           {breakfastList.length ? (
             <img

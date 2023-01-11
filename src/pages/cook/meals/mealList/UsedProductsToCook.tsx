@@ -6,18 +6,18 @@ import EmptyList from './EmptyList';
 
 import { SearchContext } from '../../../../context/SearchContext';
 
-import './MealList.css';
+import './UsedProductsToCook.css';
 import SingleMealProduct from './SingleMealProduct';
 import { MealItem } from '../../../../context/MealsContext';
 
-interface MealListProps {
+interface UsedProductsToCookProps {
   mealCollection: MealItem[];
   iconName: string;
   altProp: string;
   path: string;
 }
 
-const MealList: FC<MealListProps> = ({
+const UsedProductsToCook: FC<UsedProductsToCookProps> = ({
   mealCollection,
   iconName,
   altProp,
@@ -56,4 +56,4 @@ const MealList: FC<MealListProps> = ({
   );
 };
 
-export default MealList;
+export default UsedProductsToCook;

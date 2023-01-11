@@ -1,7 +1,7 @@
 import { useEffect, FC } from 'react';
 import { Link, useNavigate, Outlet, Routes, Route } from 'react-router-dom';
 
-import './Meal.css';
+import './MealHeader.css';
 
 import SearchBarMeal from './SearchBarMeal';
 import {
@@ -12,21 +12,21 @@ import {
 import { MealItem } from '../../../../context/MealsContext';
 import { useTranslation } from 'react-i18next';
 
-interface MealProps {
+interface MealHeaderProps {
   title: string;
   backToCook: string;
   nameOfMeal: string;
   mealCollection: MealItem[];
 }
 
-const Meal: FC<MealProps> = ({
+const MealHeader: FC<MealHeaderProps> = ({
   title,
   backToCook,
   nameOfMeal,
   mealCollection,
 }) => {
   const navigate = useNavigate();
-  const {t} = useTranslation()
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (!mealCollection.length) {
@@ -70,4 +70,4 @@ const Meal: FC<MealProps> = ({
   );
 };
 
-export default Meal;
+export default MealHeader;

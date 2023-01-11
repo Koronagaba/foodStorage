@@ -114,7 +114,6 @@ const HistoryOfCooking: React.FC = () => {
       const currentMonth = new Date().getMonth() + 1;
       const monthFromHistory =
         new Date(historyItem.createdAt.seconds * 1000).getMonth() + 1;
-      console.log(currentMonth, monthFromHistory);
 
       if (currentMonth === monthFromHistory) {
         rangeList.push({
