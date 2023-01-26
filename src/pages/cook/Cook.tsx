@@ -9,7 +9,7 @@ import lunch_icon from '../../icons/lunch_icon.png';
 import salad_icon from '../../icons/salad_icon.png';
 import snack_icon from '../../icons/snack_icon.png';
 
-import { MealsContext } from '../../context/MealsContext'; 
+import { MealsContext } from '../../context/MealsContext';
 // import { deleteMidnight } from './consts/deleteMidnight';
 
 const Cook = () => {
@@ -30,7 +30,7 @@ const Cook = () => {
 
   return (
     <div className="cook-container">
-      <NavLink to={'/cook/breakfast'} className="breakfast">
+      <NavLink to={'/cook/breakfast'} className="breakfast cook-item">
         <div>
           {breakfastList.length ? (
             <img
@@ -48,7 +48,7 @@ const Cook = () => {
         </div>
       </NavLink>
 
-      <NavLink to={'lunch'} className="lunch">
+      <NavLink to={'lunch'} className="lunch cook-item">
         <div>
           {lunchList.length ? (
             <img className="cook-icon" src={lunch_icon} alt="lunch icon" />
@@ -63,7 +63,7 @@ const Cook = () => {
         <p className="type-of-meal">{t('key_name_of_meal.lunch')}</p>
       </NavLink>
 
-      <NavLink to={'supper'} className="supper">
+      <NavLink to={'supper'} className="supper cook-item">
         <div>
           {supperList.length ? (
             <img className="cook-icon" src={salad_icon} alt="supper icon" />
@@ -77,7 +77,7 @@ const Cook = () => {
         <p className="type-of-meal">{t('key_name_of_meal.supper')}</p>
       </NavLink>
 
-      <NavLink to={'snack'} className="snack">
+      <NavLink to={'snack'} className="snack cook-item">
         <div>
           {snackList.length ? (
             <img className="cook-icon" src={snack_icon} alt="snack icon" />

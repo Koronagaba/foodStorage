@@ -7,42 +7,64 @@
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   gap: 1.4rem;
-  margin-top: 20px
+  margin-top: 20px;
 }
 
 .cook-container .empty-list {
-  margin: 70% 0
+  margin: 70% 0;
 }
 
-.cook-container a {
+.cook-item {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: 0.15s ease-in-out;
-  border-radius: 15px;
+  transition: all 0.3s ease;
   text-decoration: none;
   color: var(--main-font-color);
   position: relative;
-  border: 2px solid var(--main-color);
 }
 
-.cook-container a:hover {
+.cook-item:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-top: 1px solid var(--main-color);
+  border-bottom: 1px solid var(--main-color);
+  transition: all 0.3s ease;
+  width: 0;
+}
+.cook-item:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-left: 1px solid var(--main-color);
+  border-right: 1px solid var(--main-color);
+  transition: all 0.3s ease-in;
+  height: 0;
+}
+.cook-item:hover {
   cursor: pointer;
-  transform: scale(1.014);
-  background-color: var(--fields-hover-bg-color);
+}
+.cook-item:hover:before {
+  width: 100%;
+}
+.cook-item:hover:after {
+  height: 100%;
 }
 
 .cook-container img {
   transition: 0.2s ease;
 }
 
-.cook-container img:hover {
-  transform: scale(1.07);
-}
-
 .cook-icon {
   width: 100px;
-  margin: 30px
+  margin: 30px;
 }
 
 .cook-container .type-of-meal {
@@ -80,7 +102,7 @@
 
 @media (max-width: 600px) {
   .cook-container .empty-list p {
-    display: none
+    display: none;
   }
 
   .cook-container .type-of-meal {
@@ -88,16 +110,15 @@
     left: 0px;
   }
   .empty-list img {
-    padding-bottom: 30px
+    padding-bottom: 30px;
   }
-  
+
   .cook-icon {
-    padding-bottom: 10px
+    padding-bottom: 10px;
   }
 
   .cook-icon {
     width: 80px;
-    margin: 30px 17px
+    margin: 30px 17px;
   }
-
 }
