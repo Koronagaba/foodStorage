@@ -27,7 +27,6 @@ const SearchBar = () => {
     setSearchStock(e.target.value);
     if (localStorage.getItem('i18nextLng') === 'en') {
       const i18Data = i18next.store.data.en.translation;
-      console.log(i18Data);
     } else {
     }
   };

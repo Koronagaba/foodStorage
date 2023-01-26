@@ -37,13 +37,13 @@ const EditModal: FC<SingleShopProductProps> = ({ productOfShoppingList }) => {
     id: string,
     title: string,
     isEditing: boolean,
-    amount: number
+    currentAmount: number
   ) => {
     const ref = doc(db, 'shoppingList', id);
-    if (editAmount < amount) {
+    if (editAmount < currentAmount) {
       setDoc(ref, {
         title,
-        amount: amount - editAmount,
+        amount: currentAmount - editAmount,
         isEditing: !isEditing,
         inBag: false,
         createdAt: productOfShoppingList.createdAt,
@@ -55,7 +55,7 @@ const EditModal: FC<SingleShopProductProps> = ({ productOfShoppingList }) => {
         inBag: true,
         createdAt: productOfShoppingList.createdAt,
       });
-    } else if (editAmount > amount) {
+    } else if (editAmount > currentAmount) {
       setDoc(ref, {
         title,
         amount: editAmount,
@@ -67,15 +67,15 @@ const EditModal: FC<SingleShopProductProps> = ({ productOfShoppingList }) => {
         if (product.title === title) {
           setDoc(doc(db, 'products', product.id), {
             title,
-            amount: product.amount,
+            amount: product.amount - currentAmount,
             shoppingListAmount: editAmount,
           });
         }
       });
-    } else if (editAmount === amount) {
+    } else if (editAmount === currentAmount) {
       setDoc(ref, {
         title,
-        amount,
+        amount: currentAmount,
         isEditing: !isEditing.valueOf,
         inBag: true,
         createdAt: productOfShoppingList.createdAt,
@@ -89,7 +89,6 @@ const EditModal: FC<SingleShopProductProps> = ({ productOfShoppingList }) => {
         wrapperRef.current &&
         !wrapperRef.current.contains(event.target as Node)
       ) {
-        console.log('You clicked outside of me!', isEditing);
         setDoc(doc(db, 'shoppingList', id), {
           title,
           amount,
@@ -142,7 +141,8 @@ const EditModal: FC<SingleShopProductProps> = ({ productOfShoppingList }) => {
             {t('cancel')}
           </button>
           <CheckOutlinedIcon
-            className="btn classic-icon"
+          fontSize='large'
+            className="check-icon"
             onClick={() =>
               acceptEdit(
                 productOfShoppingList.id,

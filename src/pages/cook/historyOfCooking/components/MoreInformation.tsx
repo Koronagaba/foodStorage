@@ -62,7 +62,6 @@ const MoreInformation: FC<PropsMoreInformation> = ({
         wrapperRef.current &&
         !wrapperRef.current.contains(event.target as Node)
       ) {
-        console.log('You clicked outside of me!');
         setShowModal(false);
         setHistoryTitle('');
       }
