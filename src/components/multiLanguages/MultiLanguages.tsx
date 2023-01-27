@@ -21,6 +21,7 @@ const MultiLanguages = () => {
       <img
         src="https://flagcdn.com/gb.svg"
         width="30"
+        height="16"
         alt="United Kingdom"
         onClick={() => {
           i18n.changeLanguage('en');

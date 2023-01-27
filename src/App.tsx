@@ -69,7 +69,8 @@ function App() {
               element={
                 <UsedProductsToCook
                   mealCollection={breakfastList}
-                  iconName={breakfast_icon}
+                  // iconName={breakfast_icon}
+                  iconName={'breakfast_icon'}
                   altProp={'breakfast icon'}
                   path={'breakfast'}
                 />
@@ -109,7 +110,7 @@ function App() {
               element={
                 <UsedProductsToCook
                   mealCollection={lunchList}
-                  iconName={lunch_icon}
+                  iconName={'lunch_icon'}
                   altProp={'lunch icon'}
                   path={'lunch'}
                 />
@@ -149,7 +150,7 @@ function App() {
               element={
                 <UsedProductsToCook
                   mealCollection={supperList}
-                  iconName={salad_icon}
+                  iconName={'supper_icon'}
                   altProp={'salad icon'}
                   path={'supper'}
                 />
@@ -190,7 +191,7 @@ function App() {
               element={
                 <UsedProductsToCook
                   mealCollection={snackList}
-                  iconName={snack_icon}
+                  iconName={'snack_icon'}
                   altProp={'snack icon'}
                   path={'snack'}
                 />

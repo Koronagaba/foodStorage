@@ -7,9 +7,8 @@ import favorite from '../../../icons/favorite.svg';
 import recipe from '../../../icons/recipe.png';
 import ingredients from '../../../icons/ingredients.png';
 
-
 const TypesOfCooking = () => {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
 
   return (
     <div className="meal-types-of-cooking">
@@ -25,19 +24,19 @@ const TypesOfCooking = () => {
         <Link to={''} className="text-relative">
           {/* /cook/breakfast/recipeList */}
           <img src={recipe} alt="recipes" className="disabled meal-recipes" />
-          <p className="textHide">
-            {t('alert_not_activated')}
-          </p>
+          <p className="textHide">{t('alert_not_activated')}</p>
         </Link>
         {/* </div> */}
       </div>
       <div>
         <Link to={''} className="text-relative">
           {/* /cook/breakfast/favoriteFood */}
-          <img src={favorite} alt="favorite" className="disabled meal-favorite" />
-          <p className="textHide">
-          {t('alert_not_activated')}
-          </p>
+          <img
+            src={favorite}
+            alt="favorite"
+            className="disabled meal-favorite"
+          />
+          <p className="textHide">{t('alert_not_activated')}</p>
         </Link>
         <Link to={''} className="text-relative">
           {/* /cook/breakfast/createRecipe */}
@@ -46,9 +45,7 @@ const TypesOfCooking = () => {
             alt="create recipe"
             className="disabled meal-create-recipe"
           />
-          <p className="textHide">
-          {t('alert_not_activated')}
-          </p>
+          <p className="textHide">{t('alert_not_activated')}</p>
         </Link>
       </div>
     </div>

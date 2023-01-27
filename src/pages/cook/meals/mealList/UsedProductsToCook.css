@@ -9,12 +9,9 @@
   justify-content: center;
 }
 
-.typesOfMeals-empty-header img {
-  width: 58%;
-}
-
-.typesOfMeals-header img {
-  width: 150px;
+.used-cook-icon {
+  color: var(--main-color);
+  margin: 20px 0;
 }
 
 .single-meal {

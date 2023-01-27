@@ -1,6 +1,6 @@
 .navigation {
   background-color: var(--nav-bg-color);
-  padding: .8rem 4%;
+  padding: 0.8rem 4%;
   transition: 0.4s ease;
 }
 
@@ -8,14 +8,13 @@
   position: fixed;
   top: 0;
   width: 100%;
-
 }
 
 .sticky {
   position: fixed;
   top: 0;
   width: 100%;
-  padding: .5rem 2.5rem;
+  padding: 0.5rem 2.5rem;
   z-index: 10;
 }
 
@@ -24,11 +23,12 @@
   justify-content: space-between;
   align-items: center;
   max-width: 1000px;
-  margin: 0 auto
+  margin: 0 auto;
 }
 
 .navigation nav .logo {
-  color: var(--main-color);
+  color: #fff;
+  border-bottom: 2px solid var(--main-color);
   text-decoration: none;
   font-size: 1.3rem;
   letter-spacing: 1.5px;
@@ -44,11 +44,11 @@
 }
 
 .navbar nav a:hover {
-  color: var(--selected-color)
+  color: var(--selected-color);
 }
 
 .inside-hamburger {
-  display: none
+  display: none;
 }
 
 @media (max-width: 770px) {
@@ -75,9 +75,7 @@
 /* hamburger menu */
 
 @media (max-width: 700px) {
-
-
-   .options {
+  .options {
     display: none;
     margin: 0 0.5rem;
     background: #222;
@@ -86,7 +84,7 @@
     right: -8px;
     z-index: -100;
     padding: 30px 0;
-    animation: slideOut .3s cubic-bezier(0.62, 0.04, 0.3, 1.56);
+    animation: slideOut 0.3s cubic-bezier(0.62, 0.04, 0.3, 1.56);
     transition-delay: 100ms;
   }
 
@@ -102,7 +100,7 @@
      transition-delay: 100ms;
   } */
 
-/* 
+  /* 
   .inside-hamburger {
     display: flex;
     flex-direction: column;
@@ -132,7 +130,6 @@
     animation: slideIn 0.4s cubic-bezier(.62, .04, .3, 1.56);
     animation-fill-mode: forwards;
   } */
-
 
   /* @keyframes slideIn {
     0% {
@@ -182,7 +179,7 @@
     background-color: white;
     transition: all 400ms cubic-bezier(0.84, 0.06, 0.52, 1.8);
   } */
-/* 
+  /* 
   .icon-1 {
     transform: translateY(-8px);
   }
@@ -202,11 +199,11 @@
   .icon-c {
     transform: rotate(-45deg);
   } */
-} 
+}
 
 .fi .fi-gr {
   font-size: 20px;
   background-size: contain;
   background-position: 50%;
   background-repeat: no-repeat;
-} 
+}

@@ -18,12 +18,16 @@ const BottomBar = () => {
   };
 
   useEffect(() => {
-setSelectedPath(stylePath.COOK)
-  }, [])
+    setSelectedPath(stylePath.COOK);
+  }, []);
 
   return (
     <div className="bottomBar-container">
-      <NavLink to={'/cook'} onClick={() => setSelectedPath(stylePath.COOK)}>
+      <NavLink
+        aria-current="page"
+        to={'/cook'}
+        onClick={() => setSelectedPath(stylePath.COOK)}
+      >
         <RestaurantOutlinedIcon
           fontSize="medium"
           className={classnames(`bottomBar-icon

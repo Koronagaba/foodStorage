@@ -3,13 +3,13 @@ import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 import './Cook.css';
-import add_circle from '../../icons/add_circle.svg';
-import breakfast_icon from '../../icons/breakfast_icon.png';
-import lunch_icon from '../../icons/lunch_icon.png';
-import salad_icon from '../../icons/salad_icon.png';
-import snack_icon from '../../icons/snack_icon.png';
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 
 import { MealsContext } from '../../context/MealsContext';
+import DinnerDiningIcon from '@mui/icons-material/DinnerDining';
+import EggAltIcon from '@mui/icons-material/EggAlt';
+import BrunchDiningIcon from '@mui/icons-material/BrunchDining';
+import CookieIcon from '@mui/icons-material/Cookie';
 // import { deleteMidnight } from './consts/deleteMidnight';
 
 const Cook = () => {
@@ -31,16 +31,12 @@ const Cook = () => {
   return (
     <div className="cook-container">
       <NavLink to={'/cook/breakfast'} className="breakfast cook-item">
-        <div>
+        <div className="wrapper-icon">
           {breakfastList.length ? (
-            <img
-              className="cook-icon"
-              src={breakfast_icon}
-              alt="breakfast icon"
-            />
+            <EggAltIcon className="cook-icon" fontSize="large" />
           ) : (
             <div className="empty-list">
-              <img src={add_circle} alt="add icon" />
+              <AddCircleOutlineIcon />
               <p>{t('add_small')}</p>
             </div>
           )}
@@ -51,10 +47,11 @@ const Cook = () => {
       <NavLink to={'lunch'} className="lunch cook-item">
         <div>
           {lunchList.length ? (
-            <img className="cook-icon" src={lunch_icon} alt="lunch icon" />
+            <DinnerDiningIcon className="cook-icon" fontSize="large" />
           ) : (
             <div className="empty-list">
-              <img src={add_circle} alt="add icon" />
+              <AddCircleOutlineIcon />
+
               <p>{t('add_small')}</p>
             </div>
           )}
@@ -66,10 +63,11 @@ const Cook = () => {
       <NavLink to={'supper'} className="supper cook-item">
         <div>
           {supperList.length ? (
-            <img className="cook-icon" src={salad_icon} alt="supper icon" />
+            <BrunchDiningIcon className="cook-icon" fontSize="large" />
           ) : (
             <div className="empty-list">
-              <img src={add_circle} alt="add icon" />
+              <AddCircleOutlineIcon />
+
               <p>{t('add_small')}</p>
             </div>
           )}
@@ -80,10 +78,10 @@ const Cook = () => {
       <NavLink to={'snack'} className="snack cook-item">
         <div>
           {snackList.length ? (
-            <img className="cook-icon" src={snack_icon} alt="snack icon" />
+            <CookieIcon className="cook-icon" fontSize="large" />
           ) : (
             <div className="empty-list">
-              <img src={add_circle} alt="add icon" />
+              <AddCircleOutlineIcon />
               <p>{t('add_small')}</p>
             </div>
           )}

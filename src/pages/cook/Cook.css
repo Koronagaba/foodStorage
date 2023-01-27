@@ -10,8 +10,12 @@
   margin-top: 20px;
 }
 
-.cook-container .empty-list {
-  margin: 70% 0;
+.empty-list {
+  min-height: 160px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .cook-item {
@@ -61,10 +65,14 @@
 .cook-container img {
   transition: 0.2s ease;
 }
-
+.wrapper-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 160px;
+}
 .cook-icon {
-  width: 100px;
-  margin: 30px;
+  color: var(--main-color);
 }
 
 .cook-container .type-of-meal {
@@ -100,6 +108,11 @@
   grid-row: 2 / 3;
 }
 
+.type-of-meal {
+  display: flex;
+  justify-content: center;
+}
+
 @media (max-width: 600px) {
   .cook-container .empty-list p {
     display: none;
@@ -109,16 +122,10 @@
     bottom: 0px;
     left: 0px;
   }
-  .empty-list img {
-    padding-bottom: 30px;
-  }
 
-  .cook-icon {
-    padding-bottom: 10px;
-  }
-
-  .cook-icon {
-    width: 80px;
-    margin: 30px 17px;
+  .cook-iconn {
+    /* width: 80px; */
+    /* margin: 30px 17px; */
+    /* color: red; */
   }
 }

@@ -6,9 +6,14 @@ import EmptyList from './EmptyList';
 
 import { SearchContext } from '../../../../context/SearchContext';
 
-import './UsedProductsToCook.css';
-import SingleMealProduct from './SingleMealProduct';
 import { MealItem } from '../../../../context/MealsContext';
+import SingleMealProduct from './SingleMealProduct';
+import './UsedProductsToCook.css';
+
+import BrunchDiningIcon from '@mui/icons-material/BrunchDining';
+import CookieIcon from '@mui/icons-material/Cookie';
+import DinnerDiningIcon from '@mui/icons-material/DinnerDining';
+import EggAltIcon from '@mui/icons-material/EggAlt';
 
 interface UsedProductsToCookProps {
   mealCollection: MealItem[];
@@ -44,7 +49,25 @@ const UsedProductsToCook: FC<UsedProductsToCookProps> = ({
             : 'typesOfMeals-empty-header'
         }
       >
-        <img src={iconName} alt={altProp} />
+        {(() => {
+          switch (iconName) {
+            case 'breakfast_icon':
+              return <EggAltIcon className="used-cook-icon" fontSize="large" />;
+            case 'lunch_icon':
+              return (
+                <DinnerDiningIcon className="used-cook-icon" fontSize="large" />
+              );
+            case 'supper_icon':
+              return (
+                <BrunchDiningIcon className="used-cook-icon" fontSize="large" />
+              );
+            case 'snack_icon':
+              return <CookieIcon className="used-cook-icon" fontSize="large" />;
+            default:
+              return <h1>No Icon</h1>;
+          }
+        })()}
+        {/* <img src={iconName} alt={altProp} /> */}
       </div>
       {mealCollection.length ? displayList : <EmptyList title={path} />}
       <AddMoreButton
