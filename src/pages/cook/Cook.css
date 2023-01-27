@@ -52,9 +52,7 @@
   transition: all 0.3s ease-in;
   height: 0;
 }
-.cook-item:hover {
-  cursor: pointer;
-}
+
 .cook-item:hover:before {
   width: 100%;
 }

@@ -1,6 +1,6 @@
 .navigation {
   background-color: var(--nav-bg-color);
-  padding: 0.8rem 4%;
+  padding: 0.4rem 3%;
   transition: 0.4s ease;
 }
 
@@ -27,12 +27,7 @@
 }
 
 .navigation nav .logo {
-  color: #fff;
-  border-bottom: 2px solid var(--main-color);
-  text-decoration: none;
-  font-size: 1.3rem;
-  letter-spacing: 1.5px;
-  margin: 0 1rem;
+  display: flex;
 }
 
 .options a {
@@ -51,9 +46,9 @@
   display: none;
 }
 
-@media (max-width: 770px) {
+@media (max-width: 850px) {
   .navbar {
-    padding: 1.25rem 1.5%;
+    padding: 0.4rem 2%;
   }
 
   .navigation nav .logo {
@@ -201,9 +196,9 @@
   } */
 }
 
-.fi .fi-gr {
+/* .fi .fi-gr {
   font-size: 20px;
   background-size: contain;
   background-position: 50%;
   background-repeat: no-repeat;
-}
+} */

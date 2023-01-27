@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import './Navbar.css';
 import MultiLanguages from '../multiLanguages/MultiLanguages';
+import logo_no_background from '../../icons/logo_no_background.png'
 
 const Navbar = () => {
   const [stickyStyle, setStickyStyle] = useState('navbar');
@@ -31,7 +32,11 @@ const Navbar = () => {
     <>
       <div className={`navigation ${stickyStyle}`}>
         <nav>
-          <h1 className="logo">{t('welcome')}</h1>
+          {/* <h1 className="logo">{t('welcome')}</h1> */}
+          <h1 className="logo">
+            <img src={logo_no_background} height={50} />
+          </h1>
+  
           <div>
             <div className={`options`}>
               <NavLink to={'/cook'} style={activeLink}>

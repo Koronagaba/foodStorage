@@ -45,19 +45,6 @@ const BottomBar = () => {
         />
       </NavLink>
       <NavLink
-        to={'/history'}
-        onClick={() => setSelectedPath(stylePath.HISTORY)}
-      >
-        <CalendarTodayOutlinedIcon
-          fontSize="medium"
-          className={classnames(`bottomBar-icon
-            ${
-              selectedPath === stylePath.HISTORY ? 'bottomBar-icon_clicked' : ''
-            }
-          }`)}
-        />
-      </NavLink>
-      <NavLink
         to={'/shoppingList'}
         onClick={() => setSelectedPath(stylePath.SHOPPINGLIST)}
       >
@@ -68,6 +55,19 @@ const BottomBar = () => {
               selectedPath === stylePath.SHOPPINGLIST
                 ? 'bottomBar-icon_clicked'
                 : ''
+            }
+          }`)}
+        />
+      </NavLink>
+      <NavLink
+        to={'/history'}
+        onClick={() => setSelectedPath(stylePath.HISTORY)}
+      >
+        <CalendarTodayOutlinedIcon
+          fontSize="medium"
+          className={classnames(`bottomBar-icon
+            ${
+              selectedPath === stylePath.HISTORY ? 'bottomBar-icon_clicked' : ''
             }
           }`)}
         />
