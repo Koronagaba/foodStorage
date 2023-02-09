@@ -1,18 +1,56 @@
 .empty-shopping-list {
   margin: auto;
-  width: min(90%, 70.5rem);
-}
-
-.empty-shopping-list img {
-  display: block;
-  max-width: 18rem;
-  margin: auto;
-  padding: 1rem 0;
+  width: min(90%, 40.5rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5rem;
+  justify-content: space-around;
+  padding: 4rem 0;
+  border: 2px solid var(--fields-bg-color);
 }
 
 .empty-shopping-list p {
-  margin: 0 auto;
-  max-width: 13.5rem;
   font-size: 1.1rem;
   font-weight: bold;
+}
+
+.empty-shopping-list a {
+  border: 2px solid var(--fields-bg-color);
+  padding: 18px 5px;
+  cursor: default;
+  position: relative;
+}
+
+.empty-shopping-list a::before {
+  content: '';
+  border-top: 2px solid var(--main-color);
+  border-bottom: 2px solid var(--main-color);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  transition: width 0.3s;
+}
+
+.empty-shopping-list a::after {
+  content: '';
+  border-left: 2px solid var(--main-color);
+  border-right: 2px solid var(--main-color);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 0;
+  transition: height 0.3s;
+}
+
+.empty-shopping-list a:hover::before {
+  width: 100%;
+}
+.empty-shopping-list a:hover::after {
+  height: 100%;
 }

@@ -18,6 +18,10 @@
   color: var(--main-font-color);
 }
 
+.App a {
+  color: var(--main-font-color);
+}
+
 :root {
   --main-bg-color: #222;
   --main-font-color: #fff;
