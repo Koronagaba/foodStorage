@@ -4,6 +4,8 @@
 }
 
 .functionsBar-inside {
+  display: flex;
+  align-items: center;
   max-width: 600px;
   width: 92%;
   display: flex;

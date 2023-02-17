@@ -1,15 +1,13 @@
 .handle-removal button {
-    margin: 10px 0;
-    justify-content: center;
-    border-radius: 2px;
-    border: none;
-    padding: 8px;
-    background-color: var(--function-bar-bg);
-    transition: 0.4s ease;
-    color: #fff;
+  border-radius: 2px;
+  border: none;
+  padding: 8px;
+  background-color: var(--function-bar-bg);
+  transition: 0.4s ease;
+  color: #fff;
 }
 
 .handle-removal button:hover {
-    cursor: pointer;
-    background-color: black;
-} 
+  cursor: pointer;
+  background-color: black;
+}
