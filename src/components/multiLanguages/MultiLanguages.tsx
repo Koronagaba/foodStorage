@@ -1,9 +1,8 @@
-import { useTranslation } from 'react-i18next';
+import i18n from '../../i18n';
 
 import './MultiLanguages.css';
 
 const MultiLanguages = () => {
-  const { i18n } = useTranslation();
   const i18nextLecalStorage = localStorage.getItem('i18nextLng');
 
   return (
@@ -12,7 +11,7 @@ const MultiLanguages = () => {
         src="https://flagcdn.com/pl.svg"
         width="30"
         height="16"
-        alt="Poland"
+        alt="Poland flag - you can change language to polish"
         onClick={() => {
           i18n.changeLanguage('pl');
         }}
@@ -22,7 +21,7 @@ const MultiLanguages = () => {
         src="https://flagcdn.com/gb.svg"
         width="30"
         height="16"
-        alt="United Kingdom"
+        alt="United Kingdom flag -  you can change language to english"
         onClick={() => {
           i18n.changeLanguage('en');
         }}
