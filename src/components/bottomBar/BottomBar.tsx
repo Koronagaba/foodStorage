@@ -19,7 +19,7 @@ const BottomBar = () => {
 
   useEffect(() => {
     setSelectedPath(stylePath.COOK);
-  }, []);
+  }, [stylePath.COOK]);
 
   return (
     <div className="bottomBar-container">

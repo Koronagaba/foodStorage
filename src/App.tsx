@@ -5,10 +5,6 @@ import { useContext } from 'react';
 import { MealsContext } from './context/MealsContext';
 
 import './App.css';
-import breakfast_icon from './icons/breakfast_icon.png';
-import lunch_icon from './icons/lunch_icon.png';
-import salad_icon from './icons/salad_icon.png';
-import snack_icon from './icons/snack_icon.png';
 
 import Navbar from './components/navbar/Navbar';
 import Cook from './pages/cook/Cook';

@@ -5,11 +5,6 @@ import { SearchContext } from '../../context/SearchContext';
 
 import './SearchBar.css';
 import SearchIcon from '@mui/icons-material/Search';
-import i18next from 'i18next';
-// interface SearchBarProps {
-//   searchText: string,
-//   setSearchText: (firstArg: string) => void
-// }
 
 const SearchBar = () => {
   const { searchStock, setSearchStock } = useContext(SearchContext);
@@ -25,10 +20,6 @@ const SearchBar = () => {
 
   const handleSearchText = (e: { target: HTMLInputElement }) => {
     setSearchStock(e.target.value);
-    if (localStorage.getItem('i18nextLng') === 'en') {
-      const i18Data = i18next.store.data.en.translation;
-    } else {
-    }
   };
 
   const searchInputFocus = () => {
@@ -36,19 +27,23 @@ const SearchBar = () => {
   };
 
   return (
-    <div className="searchBar">
-      <form className="search-form" onSubmit={handleSubmit}>
-        <SearchIcon className="search-icon" onClick={searchInputFocus} />
-        <input
-          className="search-input"
-          ref={searchFocus}
-          type="text"
-          placeholder={t('search')}
-          value={searchStock}
-          onChange={handleSearchText}
-        />
-      </form>
-    </div>
+    <>
+      {localStorage.getItem('i18nextLng') === 'en' ? (
+        <div className="searchBar">
+          <form className="search-form" onSubmit={handleSubmit}>
+            <SearchIcon className="search-icon" onClick={searchInputFocus} />
+            <input
+              className="search-input"
+              ref={searchFocus}
+              type="text"
+              placeholder={t('search')}
+              value={searchStock}
+              onChange={handleSearchText}
+            />
+          </form>
+        </div>
+      ) : null}
+    </>
   );
 };
 

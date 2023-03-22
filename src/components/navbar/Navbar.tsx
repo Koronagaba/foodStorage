@@ -34,7 +34,7 @@ const Navbar = () => {
         <nav>
           {/* <h1 className="logo">{t('welcome')}</h1> */}
           <h1 className="logo">
-            <img src={logo_no_background} height={50} />
+            <img src={logo_no_background} alt="Logo: 'Let's cook, Senior Forest Home" height={50} />
           </h1>
   
           <div>

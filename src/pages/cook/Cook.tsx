@@ -28,7 +28,7 @@ const Cook = () => {
   //   deleteMidnight(snackList, 'snack');
   // };
 
-  return (
+  return ( 
     <div className="cook-container">
       <NavLink to={'/cook/breakfast'} className="breakfast cook-item">
         <div className="wrapper-icon">

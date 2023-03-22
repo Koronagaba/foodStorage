@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import SearchBar from '../../components/stockComponents/SearchBar';
+import SearchBar from '../../components/searchBar/SearchBar';
 import { FoodStorageContext } from '../../context/FoodStorageContext';
 import { SearchContext } from '../../context/SearchContext';
 import { StockProduct } from '../../types/type';
@@ -18,7 +18,7 @@ const Stock = () => {
     <div className="stock-container">
       <div className="inside-container">
         <div className="header-search-create">
-          {localStorage.getItem('i18nextLng') === 'en' ? <SearchBar /> : null}
+          <SearchBar />
         </div>
         <>
           {stockProductsList.filter(filterMatchedProducts).map((product) => (
