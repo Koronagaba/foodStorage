@@ -1,32 +1,32 @@
-import { Routes, Route, Navigate } from 'react-router-dom';
-import ScrollToTop from './ScrollToTop';
 import { useContext } from 'react';
+import { Navigate, Route, Routes } from 'react-router-dom';
+import ScrollToTop from '../ScrollToTop';
 
-import { MealsContext } from './context/MealsContext';
+import { MealsContext } from '../context/MealsContext';
 
 import './App.css';
 
-import Navbar from './components/navbar/Navbar';
-import Cook from './pages/cook/Cook';
-import Stock from './pages/stock/Stock';
-import ShoppingList from './pages/shoppingList/ShoppingList';
+import Navbar from '../components/navbar/Navbar';
+import Cook from '../pages/cook/cook/Cook';
+import ShoppingList from '../pages/shoppingList/ShoppingList';
+import Stock from '../pages/stock/Stock';
 
 // import CreateProduct from './components/createProduct/CreateProduct';
-import Ingredients from './pages/cook/typesOfCooking/stockIngredients/Ingredients';
-import CreateRecipe from './pages/cook/typesOfCooking/createRecipe/CreateRecipe';
-import RecipeList from './pages/cook/typesOfCooking/recipeList/RecipeList';
-import FavoriteFood from './pages/cook/typesOfCooking/favoriteFood/FavoriteFood';
+import CreateRecipe from '../pages/cook/typesOfCooking/createRecipe/CreateRecipe';
+import FavoriteFood from '../pages/cook/typesOfCooking/favoriteFood/FavoriteFood';
+import RecipeList from '../pages/cook/typesOfCooking/recipeList/RecipeList';
+import Ingredients from '../pages/cook/typesOfCooking/stockIngredients/Ingredients';
 // import NoMatch from './components/NoMatch/NoMatch';
 
-import MealHeader from './pages/cook/meals/meal/MealHeader';
-import UsedProductsToCook from './pages/cook/meals/mealList/UsedProductsToCook';
-import EditSingleMealProduct from './pages/cook/meals/mealList/editSingleMeal/EditSingleMealProduct';
-import HistoryOfCooking from './pages/cook/historyOfCooking/HistoryOfCooking';
-import YearHistory from './pages/cook/historyOfCooking/components/YearHistory';
-import MonthHistory from './pages/cook/historyOfCooking/components/MonthHistory';
-import RangeHistoryList from './pages/cook/historyOfCooking/components/RangeHistoryList';
-import FunctionsBar from './components/functionsBar/FunctionsBar';
-import BottomBar from './components/bottomBar/BottomBar';
+import BottomBar from '../components/bottomBar/BottomBar';
+import FunctionsBar from '../components/functionsBar/FunctionsBar';
+import MonthHistory from '../pages/cook/historyOfCooking/components/MonthHistory';
+import RangeHistoryList from '../pages/cook/historyOfCooking/components/RangeHistoryList';
+import YearHistory from '../pages/cook/historyOfCooking/components/YearHistory';
+import HistoryOfCooking from '../pages/cook/historyOfCooking/HistoryOfCooking';
+import MealHeader from '../pages/cook/meals/meal/MealHeader';
+import EditSingleMealProduct from '../pages/cook/meals/mealList/editSingleMeal/EditSingleMealProduct';
+import UsedProductsToCook from '../pages/cook/meals/mealList/UsedProductsToCook';
 
 function App() {
   const { breakfastList, lunchList, supperList, snackList } =

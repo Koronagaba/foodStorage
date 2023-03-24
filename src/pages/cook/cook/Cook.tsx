@@ -1,15 +1,15 @@
 import { useContext } from 'react';
-import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { NavLink } from 'react-router-dom';
 
-import './Cook.css';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+import './Cook.css';
 
-import { MealsContext } from '../../context/MealsContext';
-import DinnerDiningIcon from '@mui/icons-material/DinnerDining';
-import EggAltIcon from '@mui/icons-material/EggAlt';
 import BrunchDiningIcon from '@mui/icons-material/BrunchDining';
 import CookieIcon from '@mui/icons-material/Cookie';
+import DinnerDiningIcon from '@mui/icons-material/DinnerDining';
+import EggAltIcon from '@mui/icons-material/EggAlt';
+import { MealsContext } from '../../../context/MealsContext';
 // import { deleteMidnight } from './consts/deleteMidnight';
 
 const Cook = () => {
@@ -27,9 +27,9 @@ const Cook = () => {
   //   deleteMidnight(supperList, 'supper');
   //   deleteMidnight(snackList, 'snack');
   // };
-
-  return ( 
-    <div className="cook-container">
+  
+  return (
+    <div data-testid="cook-container" className="cook-container">
       <NavLink to={'/cook/breakfast'} className="breakfast cook-item">
         <div className="wrapper-icon">
           {breakfastList.length ? (

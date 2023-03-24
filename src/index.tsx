@@ -4,12 +4,12 @@ import { BrowserRouter } from 'react-router-dom';
 
 import './i18n';
 
-import App from './App';
+import App from './app/App';
+import EditMealProvider from './context/EditMealContext';
 import { FoodStorageContextProvider } from './context/FoodStorageContext';
+import HistoryOfCookingContextProvider from './context/HistoryOfCookingContext';
 import { MealsContextProvider } from './context/MealsContext';
 import { SearchContextProvider } from './context/SearchContext';
-import EditMealProvider from './context/EditMealContext';
-import HistoryOfCookingContextProvider from './context/HistoryOfCookingContext';
 
 ReactDOM.render(
   <React.StrictMode>
